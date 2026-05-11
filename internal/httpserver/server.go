@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/subtle"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log/slog"
 	"net/http"
@@ -24,9 +25,10 @@ type Server struct {
 func New(cfg config.Config, log *slog.Logger, service *service.BotService) *Server {
 	s := &Server{cfg: cfg, log: log, service: service}
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /healthz", s.health)
-	mux.HandleFunc("POST /webhook/max", s.maxWebhook)
-	mux.HandleFunc("POST /internal/notifications/send", s.sendNotification)
+	mux.HandleFunc("/healthz", s.health)
+	mux.HandleFunc("/webhook/max", s.maxWebhook)
+	mux.HandleFunc("/internal/notifications/send", s.sendNotification)
+	mux.HandleFunc("/debug/send-test-update", s.debugSendTestUpdate)
 	s.server = &http.Server{
 		Addr:              cfg.HTTPAddr,
 		Handler:           requestLog(log, mux),
@@ -66,6 +68,66 @@ func (s *Server) maxWebhook(w http.ResponseWriter, r *http.Request) {
 		defer cancel()
 		s.service.ProcessUpdate(ctx, upd)
 	}()
+	writeJSON(w, http.StatusOK, map[string]any{"success": true})
+}
+
+func (s *Server) debugSendTestUpdate(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		writeJSON(w, http.StatusMethodNotAllowed, map[string]any{"success": false, "message": "method not allowed"})
+		return
+	}
+
+	var req struct {
+		UserID     int64  `json:"user_id"`
+		ChatID     int64  `json:"chat_id"`
+		Text       string `json:"text"`
+		MID        string `json:"mid,omitempty"`
+		UpdateType string `json:"update_type,omitempty"`
+	}
+
+	if err := json.NewDecoder(io.LimitReader(r.Body, 1<<20)).Decode(&req); err != nil {
+		writeJSON(w, http.StatusBadRequest, map[string]any{"success": false, "message": "invalid json"})
+		return
+	}
+
+	if req.UserID == 0 || req.ChatID == 0 {
+		writeJSON(w, http.StatusBadRequest, map[string]any{"success": false, "message": "user_id and chat_id are required"})
+		return
+	}
+
+	if req.Text == "" {
+		req.Text = "/start"
+	}
+	if req.UpdateType == "" {
+		req.UpdateType = "message_created"
+	}
+	if req.MID == "" {
+		req.MID = fmt.Sprintf("debug-%d", time.Now().UnixNano())
+	}
+
+	upd := model.MAXUpdate{
+		UpdateType: req.UpdateType,
+		Timestamp:  time.Now().UnixMilli(),
+		Message: model.MAXMessage{
+			Sender: model.MAXSender{
+				UserID: req.UserID,
+			},
+			Recipient: model.MAXRecipient{
+				ChatID: req.ChatID,
+			},
+			Body: model.MAXBody{
+				MID:  req.MID,
+				Text: req.Text,
+			},
+		},
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), s.cfg.RequestTimeout*3)
+	go func() {
+		defer cancel()
+		s.service.ProcessUpdate(ctx, upd)
+	}()
+
 	writeJSON(w, http.StatusOK, map[string]any{"success": true})
 }
 

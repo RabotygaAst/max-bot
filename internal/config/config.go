@@ -17,6 +17,7 @@ type Config struct {
 	MAXToken            string
 	OneCBaseURL         string
 	OneCToken           string
+	DatabaseURL         string
 }
 
 func Load() (Config, error) {
@@ -29,6 +30,7 @@ func Load() (Config, error) {
 		InternalAPIToken:    os.Getenv("INTERNAL_API_TOKEN"),
 		MAXToken:            os.Getenv("MAX_TOKEN"),
 		OneCToken:           os.Getenv("ONEC_TOKEN"),
+		DatabaseURL:         os.Getenv("DATABASE_URL"),
 	}
 
 	timeoutSeconds, err := strconv.Atoi(env("REQUEST_TIMEOUT_SECONDS", "10"))

@@ -1,6 +1,47 @@
 services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: max-bot-postgres
+    environment:
+      POSTGRES_DB: maxbot
+      POSTGRES_USER: maxbot
+      POSTGRES_PASSWORD: maxbot_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U maxbot -d maxbot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mock-onec:
+    image: mockserver/mockserver:latest
+    container_name: max-bot-mock-onec
+    ports:
+      - "1080:1080"
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/initializerJson.json
+    volumes:
+      - ./mock-onec-config.json:/config/initializerJson.json
+    depends_on:
+      - postgres
+
   max-bot:
     build: .
+    container_name: max-bot
     env_file: .env
     ports:
       - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mock-onec:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgres://maxbot:maxbot_password@postgres:5432/maxbot?sslmode=disable
+
+volumes:
+  postgres_data:
