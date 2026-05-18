@@ -134,7 +134,7 @@ Forwarding                    https://xxx-yyy-zzz.ngrok.io -> http://localhost:8
 
 ```bash
 curl -X POST https://platform-api.max.ru/max/v1/webhooks \
-  -H "Authorization: Bearer YOUR_MAX_TOKEN" \
+  -H "Authorization: YOUR_MAX_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "url": "https://xxx-yyy-zzz.ngrok.io/webhook/max",
