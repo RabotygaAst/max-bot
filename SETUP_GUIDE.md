@@ -42,6 +42,9 @@ ONEC_TOKEN=MOCK_ONEC_TOKEN
 
 INTERNAL_API_TOKEN=YOUR_INTERNAL_API_TOKEN_2026
 
+# Debug endpoints выключены по умолчанию; включайте только локально
+DEBUG_ENDPOINTS_ENABLED=false
+
 # PostgreSQL (автоматически в docker-compose)
 DATABASE_URL=postgres://maxbot:maxbot_password@postgres:5432/maxbot?sslmode=disable
 EOF
@@ -189,15 +192,26 @@ curl -X POST http://localhost:8080/webhook/max \
 
 ### 5.2.1 Локальная проверка без webhook
 
-Если вы хотите проверить обработку без зарегистрированного webhook, используйте новый debug endpoint:
+Если вы хотите проверить обработку без зарегистрированного webhook, используйте debug endpoint. Он предназначен **только для локальной разработки** и регистрируется только при явном включении:
+
+```bash
+# Для Docker добавьте в .env и перезапустите контейнер:
+DEBUG_ENDPOINTS_ENABLED=true
+
+# Для локального go run можно экспортировать переменную:
+export DEBUG_ENDPOINTS_ENABLED=true
+```
+
+Для вызова требуется внутренний токен `INTERNAL_API_TOKEN` в заголовке `Authorization: Bearer <INTERNAL_API_TOKEN>`:
 
 ```bash
 curl -X POST http://localhost:8080/debug/send-test-update \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ВАШЕ_ЗНАЧЕНИЕ_INTERNAL_API_TOKEN" \
   -d '{"user_id":123456789,"chat_id":987654321,"text":"/start"}'
 ```
 
-Это удобно для локального тестирования и не требует секретного заголовка.
+Это удобно для локального тестирования без webhook; не включайте этот endpoint в production.
 
 ### 5.3 Проверяем PostgreSQL
 

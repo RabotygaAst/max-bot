@@ -45,13 +45,27 @@ curl -X POST http://localhost:8080/webhook/max \
 ```
 
 ### 5.1 Локальная проверка без webhook
+
+Debug endpoint предназначен **только для локальной разработки**. Он регистрируется только при явном включении:
+
+```bash
+# Для Docker добавьте в .env и перезапустите контейнер:
+DEBUG_ENDPOINTS_ENABLED=true
+
+# Для локального go run можно экспортировать переменную:
+export DEBUG_ENDPOINTS_ENABLED=true
+```
+
+Для вызова требуется внутренний токен `INTERNAL_API_TOKEN` в заголовке `Authorization: Bearer <INTERNAL_API_TOKEN>`:
+
 ```bash
 curl -X POST http://localhost:8080/debug/send-test-update \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ВАШЕ_ЗНАЧЕНИЕ_INTERNAL_API_TOKEN" \
   -d '{"user_id":123456789,"chat_id":987654321,"text":"/start"}'
 ```
 
-Этот endpoint работает локально и позволяет проверить обработку команд без регистрации webhook.
+Этот endpoint позволяет локально проверить обработку команд без регистрации webhook; не включайте его в production.
 
 ### 6️⃣ Пишем боту в MAX 💬
 Откройте чат с ботом в MAX и напишите: `/start`
