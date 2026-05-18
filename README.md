@@ -109,7 +109,7 @@ curl -X POST http://localhost:8080/internal/notifications/send \
 | `HTTP_ADDR` | адрес HTTP-сервера, например `:8080` |
 | `REQUEST_TIMEOUT_SECONDS` | таймаут вызовов MAX и 1С |
 | `MAX_BASE_URL` | базовый URL MAX API |
-| `MAX_TOKEN` | токен MAX Bot API |
+| `MAX_TOKEN` | токен MAX Bot API; передается в MAX как `Authorization: <token>` без схемы `Bearer` |
 | `WEBHOOK_SECRET` | секрет Webhook-подписки |
 | `WEBHOOK_SECRET_HEADER` | имя заголовка, где ожидается секрет |
 | `ONEC_BASE_URL` | базовый URL HTTP API 1С |
