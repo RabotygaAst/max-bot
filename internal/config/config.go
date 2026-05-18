@@ -8,16 +8,17 @@ import (
 )
 
 type Config struct {
-	HTTPAddr            string
-	RequestTimeout      time.Duration
-	WebhookSecret       string
-	WebhookSecretHeader string
-	InternalAPIToken    string
-	MAXBaseURL          string
-	MAXToken            string
-	OneCBaseURL         string
-	OneCToken           string
-	DatabaseURL         string
+	HTTPAddr              string
+	RequestTimeout        time.Duration
+	WebhookSecret         string
+	WebhookSecretHeader   string
+	InternalAPIToken      string
+	DebugEndpointsEnabled bool
+	MAXBaseURL            string
+	MAXToken              string
+	OneCBaseURL           string
+	OneCToken             string
+	DatabaseURL           string
 }
 
 func Load() (Config, error) {
@@ -38,6 +39,12 @@ func Load() (Config, error) {
 		return Config{}, fmt.Errorf("REQUEST_TIMEOUT_SECONDS must be positive integer")
 	}
 	cfg.RequestTimeout = time.Duration(timeoutSeconds) * time.Second
+
+	debugEndpointsEnabled, err := strconv.ParseBool(env("DEBUG_ENDPOINTS_ENABLED", "false"))
+	if err != nil {
+		return Config{}, fmt.Errorf("DEBUG_ENDPOINTS_ENABLED must be boolean")
+	}
+	cfg.DebugEndpointsEnabled = debugEndpointsEnabled
 
 	if cfg.MAXToken == "" {
 		return Config{}, fmt.Errorf("MAX_TOKEN is required")

@@ -28,7 +28,9 @@ func New(cfg config.Config, log *slog.Logger, service *service.BotService) *Serv
 	mux.HandleFunc("/healthz", s.health)
 	mux.HandleFunc("/webhook/max", s.maxWebhook)
 	mux.HandleFunc("/internal/notifications/send", s.sendNotification)
-	mux.HandleFunc("/debug/send-test-update", s.debugSendTestUpdate)
+	if cfg.DebugEndpointsEnabled {
+		mux.HandleFunc("/debug/send-test-update", s.debugSendTestUpdate)
+	}
 	s.server = &http.Server{
 		Addr:              cfg.HTTPAddr,
 		Handler:           requestLog(log, mux),
@@ -72,6 +74,11 @@ func (s *Server) maxWebhook(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) debugSendTestUpdate(w http.ResponseWriter, r *http.Request) {
+	if !s.validInternalToken(r) {
+		writeJSON(w, http.StatusUnauthorized, map[string]any{"success": false})
+		return
+	}
+
 	if r.Method != http.MethodPost {
 		writeJSON(w, http.StatusMethodNotAllowed, map[string]any{"success": false, "message": "method not allowed"})
 		return
