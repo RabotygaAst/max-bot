@@ -6,7 +6,9 @@
 ```bash
 cd /home/dmitrymakov/max-bot
 cp .env.example .env
-# Отредактируйте .env и вставьте ваши MAX_TOKEN и WEBHOOK_SECRET
+# Сгенерируйте WEBHOOK_SECRET и скопируйте результат в .env
+go run ./cmd/bot generate-webhook-secret
+# Отредактируйте .env и вставьте ваш MAX_TOKEN, WEBHOOK_SECRET и остальные значения
 nano .env
 ```
 
@@ -30,17 +32,17 @@ ngrok http 8080
 ### 4️⃣ Регистрируем webhook в MAX
 В кабинете MAX зарегистрируйте:
 - **Endpoint:** `https://xxx-yyy-zzz.ngrok.io/webhook/max`
-- **Secret:** ваше значение `WEBHOOK_SECRET` из .env
+- **Secret:** значение `WEBHOOK_SECRET` из `.env`, сгенерированное командой `go run ./cmd/bot generate-webhook-secret`
 
 ### 5️⃣ Тестируем
 ```bash
 # Health check
 curl http://localhost:8080/healthz
 
-# Имитируем webhook
+# Имитируем webhook (подставьте сгенерированный WEBHOOK_SECRET из .env)
 curl -X POST http://localhost:8080/webhook/max \
   -H "Content-Type: application/json" \
-  -H "X-Max-Webhook-Secret: ВАШЕ_ЗНАЧЕНИЕ_WEBHOOK_SECRET" \
+  -H "X-Max-Webhook-Secret: <значение WEBHOOK_SECRET из .env>" \
   -d '{"update_type":"message_created","timestamp":1778068800000,"message":{"sender":{"user_id":123456789,"first_name":"Тест"},"recipient":{"chat_id":987654321},"body":{"mid":"test.1","text":"/start"}}}'
 ```
 

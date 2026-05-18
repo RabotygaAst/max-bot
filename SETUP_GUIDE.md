@@ -23,17 +23,25 @@ cd /home/dmitrymakov/max-bot
 cp .env.example .env
 ```
 
-Отредактируйте `.env` и заполните реальные значения:
+Сгенерируйте безопасный `WEBHOOK_SECRET`. Команда печатает только секрет и не требует заполненных runtime-переменных:
+
+```bash
+go run ./cmd/bot generate-webhook-secret
+# или
+go run ./cmd/bot --generate-webhook-secret
+```
+
+Отредактируйте `.env`, вставьте сгенерированный секрет в `WEBHOOK_SECRET` и заполните остальные реальные значения:
 
 ```bash
 cat > .env << 'EOF'
 HTTP_ADDR=:8080
 REQUEST_TIMEOUT_SECONDS=10
 
-# ✅ Вставьте РЕАЛЬНЫЙ MAX_TOKEN и WEBHOOK_SECRET
+# ✅ Вставьте РЕАЛЬНЫЙ MAX_TOKEN и сгенерированный WEBHOOK_SECRET
 MAX_BASE_URL=https://platform-api.max.ru
 MAX_TOKEN=f9LHodD0cOIeKW0ZzgnrNXPpGdMltDDemKfWXljiTahRofJYZcDpwhfMunwJNnKBkytsqlIVUSd5XDBLw2FK
-WEBHOOK_SECRET=YOUR_REAL_WEBHOOK_SECRET_HERE_2026
+WEBHOOK_SECRET=PASTE_GENERATED_WEBHOOK_SECRET
 WEBHOOK_SECRET_HEADER=X-Max-Webhook-Secret
 
 # Mock 1С API (уже в docker-compose)
@@ -128,7 +136,7 @@ Forwarding                    https://xxx-yyy-zzz.ngrok.io -> http://localhost:8
 Теперь в кабинете MAX (или через MAX Bot API) регистрируем webhook:
 
 **Endpoint:** `https://xxx-yyy-zzz.ngrok.io/webhook/max` (замените на ваш ngrok URL)
-**Secret:** Значение из `WEBHOOK_SECRET` в `.env`
+**Secret:** Значение из `WEBHOOK_SECRET` в `.env`, сгенерированное командой `go run ./cmd/bot generate-webhook-secret`
 
 Пример curl-запроса для регистрации webhook (если MAX API это поддерживает):
 
@@ -138,7 +146,7 @@ curl -X POST https://platform-api.max.ru/max/v1/webhooks \
   -H "Content-Type: application/json" \
   -d '{
     "url": "https://xxx-yyy-zzz.ngrok.io/webhook/max",
-    "secret": "YOUR_WEBHOOK_SECRET_HERE"
+    "secret": "<значение WEBHOOK_SECRET из .env>"
   }'
 ```
 
@@ -162,7 +170,7 @@ curl http://localhost:8080/healthz
 ```bash
 curl -X POST http://localhost:8080/webhook/max \
   -H "Content-Type: application/json" \
-  -H "X-Max-Webhook-Secret: YOUR_WEBHOOK_SECRET_HERE_2026" \
+  -H "X-Max-Webhook-Secret: <значение WEBHOOK_SECRET из .env>" \
   -d '{
     "update_type": "message_created",
     "timestamp": 1778068800000,
