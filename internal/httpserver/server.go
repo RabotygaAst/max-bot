@@ -47,6 +47,12 @@ func (s *Server) health(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) maxWebhook(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		w.Header().Set("Allow", http.MethodPost)
+		writeJSON(w, http.StatusMethodNotAllowed, map[string]any{"success": false, "message": "method not allowed"})
+		return
+	}
+
 	if !s.validWebhookSecret(r) {
 		s.log.Warn("webhook rejected: invalid secret")
 		writeJSON(w, http.StatusUnauthorized, map[string]any{"success": false})
