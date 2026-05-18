@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
@@ -11,11 +12,22 @@ import (
 	"example.com/max-bot-go/internal/clients/onec"
 	"example.com/max-bot-go/internal/config"
 	"example.com/max-bot-go/internal/httpserver"
+	"example.com/max-bot-go/internal/secret"
 	"example.com/max-bot-go/internal/service"
 	"example.com/max-bot-go/internal/store"
 )
 
 func main() {
+	if isGenerateWebhookSecretMode(os.Args[1:]) {
+		webhookSecret, err := secret.GenerateWebhookSecret(secret.DefaultWebhookSecretBytes)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		fmt.Println(webhookSecret)
+		return
+	}
+
 	log := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}))
 
 	cfg, err := config.Load()
@@ -49,6 +61,10 @@ func main() {
 		log.Error("server stopped", "err", err)
 		os.Exit(1)
 	}
+}
+
+func isGenerateWebhookSecretMode(args []string) bool {
+	return len(args) == 1 && (args[0] == "generate-webhook-secret" || args[0] == "--generate-webhook-secret")
 }
 
 // maskDatabaseURL скрывает пароль в логах

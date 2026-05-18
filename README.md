@@ -39,7 +39,9 @@ internal/store                  интерфейс хранилища и in-memo
 
 ```bash
 cp .env.example .env
-# Заполните .env реальными значениями
+# Сгенерируйте WEBHOOK_SECRET и вставьте его в .env
+go run ./cmd/bot generate-webhook-secret
+# Заполните остальные переменные .env реальными значениями
 export $(grep -v '^#' .env | xargs)
 go run ./cmd/bot
 ```
@@ -50,12 +52,24 @@ go run ./cmd/bot
 curl http://localhost:8080/healthz
 ```
 
+## Генерация Webhook secret
+
+Для безопасного секрета используйте встроенный генератор. Он печатает только секрет в stdout и не требует заполненных `MAX_TOKEN`, `ONEC_BASE_URL`, `ONEC_TOKEN`, `WEBHOOK_SECRET` или `INTERNAL_API_TOKEN`:
+
+```bash
+go run ./cmd/bot generate-webhook-secret
+# или
+go run ./cmd/bot --generate-webhook-secret
+```
+
+Скопируйте результат в `WEBHOOK_SECRET` в `.env` и используйте то же значение при регистрации webhook в MAX.
+
 ## Пример Webhook-запроса
 
 ```bash
 curl -X POST http://localhost:8080/webhook/max \
   -H 'Content-Type: application/json' \
-  -H 'X-Max-Webhook-Secret: CHANGE_ME_SECRET_2026' \
+  -H 'X-Max-Webhook-Secret: <значение WEBHOOK_SECRET из .env>' \
   -d '{
     "update_type":"message_created",
     "timestamp":1778068800000,
@@ -110,7 +124,7 @@ curl -X POST http://localhost:8080/internal/notifications/send \
 | `REQUEST_TIMEOUT_SECONDS` | таймаут вызовов MAX и 1С |
 | `MAX_BASE_URL` | базовый URL MAX API |
 | `MAX_TOKEN` | токен MAX Bot API |
-| `WEBHOOK_SECRET` | секрет Webhook-подписки |
+| `WEBHOOK_SECRET` | секрет Webhook-подписки; сгенерируйте командой `go run ./cmd/bot generate-webhook-secret` и сохраните в `.env` |
 | `WEBHOOK_SECRET_HEADER` | имя заголовка, где ожидается секрет |
 | `ONEC_BASE_URL` | базовый URL HTTP API 1С |
 | `ONEC_TOKEN` | внутренний токен интеграции с 1С |
