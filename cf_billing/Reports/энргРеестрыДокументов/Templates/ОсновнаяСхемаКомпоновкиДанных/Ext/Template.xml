@@ -1,0 +1,1179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Причина</dataPath>
+			<field>Причина</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Л/С</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Примечание</dataPath>
+			<field>Примечание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Абонент</dataPath>
+			<field>Абонент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ФИО</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресОбъекта</dataPath>
+			<field>АдресОбъекта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонечныеПоказания</dataPath>
+			<field>КонечныеПоказания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конечные показания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Инспектор</dataPath>
+			<field>Инспектор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инспектор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерВодомера</dataPath>
+			<field>НомерВодомера</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер водомера</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокПоверки</dataPath>
+			<field>СрокПоверки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок поверки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипВодомера</dataPath>
+			<field>ТипВодомера</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип водомера</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособУстановки</dataPath>
+			<field>СпособУстановки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ установки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОплаты</dataPath>
+			<field>СуммаОплаты</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВРТ_ЗакрытиеЛС.Дата КАК Дата,
+	ВРТ_ЗакрытиеЛС.Номер КАК Номер,
+	ВРТ_ЗакрытиеЛС.Абонент КАК Абонент,
+	ВРТ_ЗакрытиеЛС.АдресОбъекта КАК АдресОбъекта,
+	ВРТ_ЗакрытиеЛС.Примечание КАК Примечание,
+	ВРТ_ЗакрытиеЛС.Автор КАК Автор,
+	ВРТ_ЗакрытиеЛС.Причина КАК Причина,
+	ВРТ_ЗакрытиеЛС.ЛицевойСчет КАК ЛицевойСчет,
+	NULL КАК НомерВодомера,
+	NULL КАК КонечныеПоказания,
+	NULL КАК Инспектор,
+	NULL КАК ТипВодомера,
+	NULL КАК СпособУстановки,
+	NULL КАК СрокПоверки,
+	NULL КАК Услуга,
+	NULL КАК СуммаОплаты
+ИЗ
+	(ВЫБРАТЬ
+		энргОперацияСЛицевымСчетом.Дата КАК Дата,
+		энргОперацияСЛицевымСчетом.Номер КАК Номер,
+		энргОперацияСЛицевымСчетом.Абонент КАК Абонент,
+		(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+			КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+					ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+				ТОГДА ""
+			ИНАЧЕ ", " + ВЫБОР
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+						ТОГДА "квартира "
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+						ТОГДА "комната "
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+						ТОГДА "койко-место "
+					ИНАЧЕ ""
+				КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+		КОНЕЦ КАК АдресОбъекта,
+		энргОперацияСЛицевымСчетом.Примечание КАК Примечание,
+		энргОперацияСЛицевымСчетом.Ответственный КАК Автор,
+		"" КАК Причина,
+		энргАбоненты.ЛицевойСчет КАК ЛицевойСчет
+	ИЗ
+		Документ.энргОперацияСЛицевымСчетом КАК энргОперацияСЛицевымСчетом
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргАбоненты КАК энргАбоненты
+			ПО энргОперацияСЛицевымСчетом.Абонент = энргАбоненты.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргКлючиПомещений КАК энргКлючиПомещений
+			ПО энргОперацияСЛицевымСчетом.КлючПомещения = энргКлючиПомещений.КлючПомещения
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения.КонтактнаяИнформация КАК энргСтроенияКонтактнаяИнформация
+			ПО (энргКлючиПомещений.Строение = энргСтроенияКонтактнаяИнформация.Ссылка)
+				И (энргСтроенияКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДома))
+	ГДЕ
+		энргОперацияСЛицевымСчетом.Проведен = ИСТИНА
+		И энргОперацияСЛицевымСчетом.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+		И энргОперацияСЛицевымСчетом.ВидОперации = &amp;ВидОперации) КАК ВРТ_ЗакрытиеЛС
+
+СГРУППИРОВАТЬ ПО
+	ВРТ_ЗакрытиеЛС.Абонент,
+	ВРТ_ЗакрытиеЛС.Дата,
+	ВРТ_ЗакрытиеЛС.Номер,
+	ВРТ_ЗакрытиеЛС.Примечание,
+	ВРТ_ЗакрытиеЛС.АдресОбъекта,
+	ВРТ_ЗакрытиеЛС.Автор,
+	ВРТ_ЗакрытиеЛС.Причина,
+	ВРТ_ЗакрытиеЛС.ЛицевойСчет
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВРТ_АктВводаПУ.Дата,
+	ВРТ_АктВводаПУ.Номер,
+	ВРТ_АктВводаПУ.Абонент,
+	ВРТ_АктВводаПУ.АдресОбъекта,
+	ВРТ_АктВводаПУ.Примечание,
+	ВРТ_АктВводаПУ.Автор,
+	ВРТ_АктВводаПУ.Причина,
+	ВРТ_АктВводаПУ.ЛицевойСчет,
+	ВРТ_АктВводаПУ.НомерВодомера,
+	ВРТ_АктВводаПУ.КонечныеПоказания,
+	ВРТ_АктВводаПУ.Инспектор,
+	ВРТ_АктВводаПУ.ТипВодомера,
+	ВРТ_АктВводаПУ.СпособУстановки,
+	ВРТ_АктВводаПУ.СрокПоверки,
+	NULL,
+	NULL
+ИЗ
+	(ВЫБРАТЬ
+		энргОперацияСПриборомУчета.Дата КАК Дата,
+		энргОперацияСПриборомУчета.Номер КАК Номер,
+		энргОперацияСПриборомУчета.Абонент КАК Абонент,
+		(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+			КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+					ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+				ТОГДА ""
+			ИНАЧЕ ", " + ВЫБОР
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+						ТОГДА "квартира "
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+						ТОГДА "комната "
+					КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+						ТОГДА "койко-место "
+					ИНАЧЕ ""
+				КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+		КОНЕЦ КАК АдресОбъекта,
+		энргОперацияСПриборомУчета.Примечание КАК Примечание,
+		энргОперацияСПриборомУчета.Ответственный КАК Автор,
+		"" КАК Причина,
+		ЕСТЬNULL(энргАбоненты.ЛицевойСчет, "") КАК ЛицевойСчет,
+		ЕСТЬNULL(энргОперацияСПриборомУчетаПоказанияПУВВод.ПриборУчета, ЗНАЧЕНИЕ(Справочник.энргПриборыУчетаАбонента.ПустаяСсылка)) КАК НомерВодомера,
+		0 КАК КонечныеПоказания,
+		энргОперацияСПриборомУчета.Контроллер КАК Инспектор,
+		энргОперацияСПриборомУчетаПоказанияПУВВод.ПриборУчета.ТипПрибораУчета КАК ТипВодомера,
+		энргОперацияСПриборомУчетаПоказанияПУВВод.ТочкаУчета КАК СпособУстановки,
+		энргОперацияСПриборомУчетаПоказанияПУВВод.ДатаПоверкиСчетчика КАК СрокПоверки
+	ИЗ
+		Документ.энргОперацияСПриборомУчета КАК энргОперацияСПриборомУчета
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргАбоненты КАК энргАбоненты
+			ПО энргОперацияСПриборомУчета.Абонент = энргАбоненты.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.энргОперацияСПриборомУчета.ТочкиУчета КАК энргОперацияСПриборомУчетаПоказанияПУВВод
+			ПО энргОперацияСПриборомУчета.Ссылка = энргОперацияСПриборомУчетаПоказанияПУВВод.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргКлючиПомещений КАК энргКлючиПомещений
+			ПО энргОперацияСПриборомУчета.КлючПомещения = энргКлючиПомещений.КлючПомещения
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения.КонтактнаяИнформация КАК энргСтроенияКонтактнаяИнформация
+			ПО (энргКлючиПомещений.Строение = энргСтроенияКонтактнаяИнформация.Ссылка)
+				И (энргСтроенияКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДома))
+	ГДЕ
+		энргОперацияСПриборомУчета.Проведен = ИСТИНА
+		И энргОперацияСПриборомУчета.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+		И энргОперацияСПриборомУчета.ВидОперации = &amp;ВидОперации) КАК ВРТ_АктВводаПУ
+
+СГРУППИРОВАТЬ ПО
+	ВРТ_АктВводаПУ.Абонент,
+	ВРТ_АктВводаПУ.Дата,
+	ВРТ_АктВводаПУ.Номер,
+	ВРТ_АктВводаПУ.Примечание,
+	ВРТ_АктВводаПУ.АдресОбъекта,
+	ВРТ_АктВводаПУ.Автор,
+	ВРТ_АктВводаПУ.Причина,
+	ВРТ_АктВводаПУ.ЛицевойСчет,
+	ВРТ_АктВводаПУ.НомерВодомера,
+	ВРТ_АктВводаПУ.Инспектор,
+	ВРТ_АктВводаПУ.КонечныеПоказания,
+	ВРТ_АктВводаПУ.ТипВодомера,
+	ВРТ_АктВводаПУ.СпособУстановки,
+	ВРТ_АктВводаПУ.СрокПоверки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	энргОперацияСУслугами.Дата,
+	энргОперацияСУслугами.Номер,
+	энргОперацияСУслугами.Абонент,
+	(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+		КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+				ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+			ТОГДА ""
+		ИНАЧЕ ", " + ВЫБОР
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+					ТОГДА "квартира "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+					ТОГДА "комната "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+					ТОГДА "койко-место "
+				ИНАЧЕ ""
+			КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+	КОНЕЦ,
+	энргОперацияСУслугами.Примечание,
+	энргОперацияСУслугами.Ответственный,
+	"",
+	ЕСТЬNULL(энргАбоненты.ЛицевойСчет, ""),
+	ЕСТЬNULL(энргОперацияСУслугамиТочкиУчета.ПриборУчета, ЗНАЧЕНИЕ(Справочник.энргПриборыУчетаАбонента.ПустаяСсылка)),
+	0,
+	энргОперацияСУслугами.Контроллер,
+	энргОперацияСУслугамиТочкиУчета.ПриборУчета.ТипПрибораУчета,
+	NULL,
+	энргОперацияСУслугамиТочкиУчета.ДатаПоверкиСчетчика,
+	энргОперацияСУслугамиТочкиУчета.Услуга,
+	NULL
+ИЗ
+	Документ.энргОперацияСУслугами КАК энргОперацияСУслугами
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.энргОперацияСУслугами.ТочкиУчета КАК энргОперацияСУслугамиТочкиУчета
+		ПО энргОперацияСУслугами.Ссылка = энргОперацияСУслугамиТочкиУчета.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргАбоненты КАК энргАбоненты
+		ПО энргОперацияСУслугами.Абонент = энргАбоненты.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргКлючиПомещений КАК энргКлючиПомещений
+		ПО энргОперацияСУслугами.КлючПомещения = энргКлючиПомещений.КлючПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения.КонтактнаяИнформация КАК энргСтроенияКонтактнаяИнформация
+		ПО (энргКлючиПомещений.Строение = энргСтроенияКонтактнаяИнформация.Ссылка)
+			И (энргСтроенияКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДома))
+ГДЕ
+	энргОперацияСУслугами.Проведен
+	И энргОперацияСУслугами.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И энргОперацияСУслугами.ВидОперации = &amp;ВидОперации
+
+СГРУППИРОВАТЬ ПО
+	(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+		КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+				ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+			ТОГДА ""
+		ИНАЧЕ ", " + ВЫБОР
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+					ТОГДА "квартира "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+					ТОГДА "комната "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+					ТОГДА "койко-место "
+				ИНАЧЕ ""
+			КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+	КОНЕЦ,
+	энргОперацияСУслугамиТочкиУчета.ДатаПоверкиСчетчика,
+	ЕСТЬNULL(энргОперацияСУслугамиТочкиУчета.ПриборУчета, ЗНАЧЕНИЕ(Справочник.энргПриборыУчетаАбонента.ПустаяСсылка)),
+	энргОперацияСУслугамиТочкиУчета.Услуга,
+	энргОперацияСУслугами.Абонент,
+	энргОперацияСУслугами.Контроллер,
+	ЕСТЬNULL(энргАбоненты.ЛицевойСчет, ""),
+	энргОперацияСУслугамиТочкиУчета.ПриборУчета.ТипПрибораУчета,
+	энргОперацияСУслугами.Номер,
+	энргОперацияСУслугами.Примечание,
+	энргОперацияСУслугами.Ответственный,
+	энргОперацияСУслугами.Дата
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	энргПриходныйКассовыйОрдер.Дата,
+	энргПриходныйКассовыйОрдер.Номер,
+	энргПриходныйКассовыйОрдер.Абонент,
+	(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+		КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+				ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+			ТОГДА ""
+		ИНАЧЕ ", " + ВЫБОР
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+					ТОГДА "квартира "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+					ТОГДА "комната "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+					ТОГДА "койко-место "
+				ИНАЧЕ ""
+			КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+	КОНЕЦ,
+	энргПриходныйКассовыйОрдер.Примечание,
+	энргПриходныйКассовыйОрдер.Ответственный,
+	NULL,
+	ЕСТЬNULL(энргАбоненты.ЛицевойСчет, ""),
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	энргПриходныйКассовыйОрдер.СуммаОплаты
+ИЗ
+	Документ.энргПриходныйКассовыйОрдер КАК энргПриходныйКассовыйОрдер
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргАбоненты КАК энргАбоненты
+		ПО энргПриходныйКассовыйОрдер.Абонент = энргАбоненты.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргКлючиПомещений КАК энргКлючиПомещений
+		ПО энргПриходныйКассовыйОрдер.КлючПомещения = энргКлючиПомещений.КлючПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения.КонтактнаяИнформация КАК энргСтроенияКонтактнаяИнформация
+		ПО (энргКлючиПомещений.Строение = энргСтроенияКонтактнаяИнформация.Ссылка)
+			И (энргСтроенияКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДома))
+ГДЕ
+	энргПриходныйКассовыйОрдер.Проведен
+	И энргПриходныйКассовыйОрдер.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И &amp;ВидОперации = "Приходный кассовый ордер"
+
+СГРУППИРОВАТЬ ПО
+	энргПриходныйКассовыйОрдер.Абонент,
+	энргПриходныйКассовыйОрдер.Номер,
+	энргПриходныйКассовыйОрдер.Дата,
+	энргПриходныйКассовыйОрдер.Примечание,
+	(ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(200))) + ВЫБОР
+		КОГДА энргКлючиПомещений.Помещение ЕСТЬ NULL
+				ИЛИ энргКлючиПомещений.Помещение = ЗНАЧЕНИЕ(Справочник.энргПомещения.ПустаяСсылка)
+			ТОГДА ""
+		ИНАЧЕ ", " + ВЫБОР
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Квартира)
+					ТОГДА "квартира "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.Комната)
+					ТОГДА "комната "
+				КОГДА энргКлючиПомещений.Помещение.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.энргТипыПомещений.КойкоМесто)
+					ТОГДА "койко-место "
+				ИНАЧЕ ""
+			КОНЕЦ + энргКлючиПомещений.Помещение.Наименование
+	КОНЕЦ,
+	ЕСТЬNULL(энргАбоненты.ЛицевойСчет, ""),
+	энргПриходныйКассовыйОрдер.Ответственный,
+	энргПриходныйКассовыйОрдер.СуммаОплаты</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ВидОперации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид операции</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.энргВидыОпераций</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ОткрытиеЛС</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Открытие ЛС</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Причина</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Открытие ЛС"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗакрытиеЛС</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Закрытие ЛС</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Причина</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Закрытие ЛС"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>АктСнятияПУ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Акт снятия водомеров</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инспектор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Акт снятия прибора учета"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>АктУстановкиПУ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Акт установки водомеров</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инспектор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособУстановки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальные показания</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Акт установки прибора учета"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>АктЗаменаПУ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Акт установки ПУ</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инспектор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособУстановки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальные показания</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Акт замены прибора учета"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ПодключениеУслуг</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подключение услуг</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инспектор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Услуга</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособУстановки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальные показания</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Подключение услуг"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ОтключениеУслуг</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отключение услуг</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инспектор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Услуга</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипВодомера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособУстановки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальные показания</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Отключение услуг"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ПКО</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ПКО</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресОбъекта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реестр документов "Приходный кассовый ордер"</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

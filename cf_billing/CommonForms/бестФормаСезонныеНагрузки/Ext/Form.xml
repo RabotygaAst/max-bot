@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СезонныеНагрузки" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>СезонныеНагрузки</DataPath>
+			<RowPictureDataPath>~СезонныеНагрузки.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СезонныеНагрузкиКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СезонныеНагрузкиКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СезонныеНагрузкиРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СезонныеНагрузкиСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>СезонныеНагрузки</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СезонныеНагрузкиСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СезонныеНагрузкиСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СезонныеНагрузкиСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>СезонныеНагрузки</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СезонныеНагрузкиСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СезонныеНагрузкиСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СезонныеНагрузкиУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>СезонныеНагрузки</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СезонныеНагрузкиУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СезонныеНагрузкиУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СезонныеНагрузкиПериод" id="14">
+					<DataPath>СезонныеНагрузки.Период</DataPath>
+					<ContextMenu name="СезонныеНагрузкиПериодКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СезонныеНагрузкиПериодРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиОрганизация" id="17">
+					<DataPath>СезонныеНагрузки.Организация</DataPath>
+					<ContextMenu name="СезонныеНагрузкиОрганизацияКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СезонныеНагрузкиОрганизацияРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиТерриториальныйОрган" id="20">
+					<DataPath>СезонныеНагрузки.ТерриториальныйОрган</DataPath>
+					<ContextMenu name="СезонныеНагрузкиТерриториальныйОрганКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СезонныеНагрузкиТерриториальныйОрганРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиОбъектРасчета" id="23">
+					<DataPath>СезонныеНагрузки.ОбъектРасчета</DataPath>
+					<ContextMenu name="СезонныеНагрузкиОбъектРасчетаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СезонныеНагрузкиОбъектРасчетаРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиУслуга" id="26">
+					<DataPath>СезонныеНагрузки.Услуга</DataPath>
+					<ContextMenu name="СезонныеНагрузкиУслугаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СезонныеНагрузкиУслугаРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиНагрузка" id="29">
+					<DataPath>СезонныеНагрузки.Нагрузка</DataPath>
+					<ContextMenu name="СезонныеНагрузкиНагрузкаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СезонныеНагрузкиНагрузкаРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="СезонныеНагрузкиСезонность" id="32">
+					<DataPath>СезонныеНагрузки.Сезонность</DataPath>
+					<ContextMenu name="СезонныеНагрузкиСезонностьКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СезонныеНагрузкиСезонностьРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СезонныеНагрузки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сезонные нагрузки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	бестСезонныеНагрузкиПоУслугам.Период КАК Период,
+	бестСезонныеНагрузкиПоУслугам.Организация КАК Организация,
+	бестСезонныеНагрузкиПоУслугам.Район КАК ТерриториальныйОрган,
+	бестСезонныеНагрузкиПоУслугам.ОбъектРасчета КАК ОбъектРасчета,
+	бестСезонныеНагрузкиПоУслугам.Услуга КАК Услуга,
+	бестСезонныеНагрузкиПоУслугам.Нагрузка КАК Нагрузка,
+	бестСезонныеНагрузкиПоУслугам.Сезонность КАК Сезонность
+ИЗ
+	РегистрСведений.бестСезонныеНагрузкиПоУслугам КАК бестСезонныеНагрузкиПоУслугам
+ГДЕ
+	бестСезонныеНагрузкиПоУслугам.Организация = &amp;Организация
+	И бестСезонныеНагрузкиПоУслугам.Район = &amp;Район
+	И бестСезонныеНагрузкиПоУслугам.ОбъектРасчета = &amp;ОбъектРасчета
+	И бестСезонныеНагрузкиПоУслугам.Услуга = &amp;Услуга</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

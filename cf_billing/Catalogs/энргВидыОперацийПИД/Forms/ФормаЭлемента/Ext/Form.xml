@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКодНаименование" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код наименование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код наименование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКодНаименованиеРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПорядок" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа порядок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа порядок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПорядокРасширеннаяПодсказка" id="19"/>
+			<ChildItems>
+				<InputField name="Порядок" id="7">
+					<DataPath>Объект.Порядок</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПорядокКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПорядокРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="Обязательный" id="13">
+					<DataPath>Объект.Обязательный</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОбязательныйКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ОбязательныйРасширеннаяПодсказка" id="15"/>
+				</CheckBoxField>
+				<CheckBoxField name="Отключен" id="20">
+					<DataPath>Объект.Отключен</DataPath>
+					<Visible>false</Visible>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтключенКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОтключенРасширеннаяПодсказка" id="22"/>
+				</CheckBoxField>
+				<InputField name="Тип" id="23">
+					<DataPath>Объект.Тип</DataPath>
+					<ContextMenu name="ТипКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<CheckBoxField name="ЕстьПодэтапы" id="29">
+					<DataPath>Объект.ЕстьПодэтапы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Включает подэтапы</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЕстьПодэтапыКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ЕстьПодэтапыРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="OnChange">ЕстьПодэтапыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ДлительностьЭтапа" id="10">
+			<DataPath>Объект.ДлительностьЭтапа</DataPath>
+			<Visible>false</Visible>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ДлительностьЭтапаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ДлительностьЭтапаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Роль" id="26">
+			<DataPath>Объект.Роль</DataPath>
+			<ContextMenu name="РольКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="РольРасширеннаяПодсказка" id="28"/>
+		</InputField>
+		<Table name="Подэтапы" id="32">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Подэтапы</DataPath>
+			<CommandSet>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПодэтапыКонтекстноеМеню" id="33"/>
+			<AutoCommandBar name="ПодэтапыКоманднаяПанель" id="34"/>
+			<ExtendedTooltip name="ПодэтапыРасширеннаяПодсказка" id="35"/>
+			<SearchStringAddition name="ПодэтапыСтрокаПоиска" id="36">
+				<AdditionSource>
+					<Item>Подэтапы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПодэтапыСтрокаПоискаКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="ПодэтапыСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПодэтапыСостояниеПросмотра" id="39">
+				<AdditionSource>
+					<Item>Подэтапы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПодэтапыСостояниеПросмотраКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="ПодэтапыСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПодэтапыУправлениеПоиском" id="42">
+				<AdditionSource>
+					<Item>Подэтапы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПодэтапыУправлениеПоискомКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ПодэтапыУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnChange">ПодэтапыПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ПодэтапыНомерСтроки" id="45">
+					<DataPath>Объект.Подэтапы.LineNumber</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПодэтапыНомерСтрокиКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ПодэтапыНомерСтрокиРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<InputField name="ПодэтапыПодэтап" id="48">
+					<DataPath>Объект.Подэтапы.Подэтап</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ChoiceParameters>
+						<app:item name="БезОграниченияОРП">
+							<app:value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:boolean">true</Value>
+							</app:value>
+						</app:item>
+					</ChoiceParameters>
+					<ContextMenu name="ПодэтапыПодэтапКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="ПодэтапыПодэтапРасширеннаяПодсказка" id="50"/>
+				</InputField>
+				<InputField name="ПодэтапыПараллельно" id="54">
+					<DataPath>Объект.Подэтапы.Параллельно</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПодэтапыПараллельноКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ПодэтапыПараллельноРасширеннаяПодсказка" id="56"/>
+					<Events>
+						<Event name="OnChange">ПодэтапыПараллельноПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПодэтапПорядок" id="51">
+					<DataPath>Объект.Подэтапы.Порядок</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПодэтапПорядокКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ПодэтапПорядокРасширеннаяПодсказка" id="53"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргВидыОперацийПИД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

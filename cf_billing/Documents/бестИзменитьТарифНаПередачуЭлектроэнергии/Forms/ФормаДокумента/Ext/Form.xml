@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа3" id="59">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="60"/>
+			<ChildItems>
+				<InputField name="Номер" id="61">
+					<DataPath>Объект.Number</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="63"/>
+				</InputField>
+				<InputField name="Дата" id="64">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="66"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОбщие" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбщиеРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаФилиалРайон" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа филиал район</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа филиал район</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаФилиалРайонРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<InputField name="Район" id="71">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РайонКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="73"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДоговор" id="80">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа договор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа договор</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДоговорРасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<InputField name="Организация" id="74">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="76"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Район1" id="99">
+			<DataPath>Объект.Район</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="Район1КонтекстноеМеню" id="100"/>
+			<ExtendedTooltip name="Район1РасширеннаяПодсказка" id="101"/>
+		</InputField>
+		<Table name="Значения" id="28">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Значения</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗначенияКонтекстноеМеню" id="29"/>
+			<AutoCommandBar name="ЗначенияКоманднаяПанель" id="30"/>
+			<ExtendedTooltip name="ЗначенияРасширеннаяПодсказка" id="31"/>
+			<SearchStringAddition name="ЗначенияСтрокаПоиска" id="32">
+				<AdditionSource>
+					<Item>Значения</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗначенияСтрокаПоискаКонтекстноеМеню" id="33"/>
+				<ExtendedTooltip name="ЗначенияСтрокаПоискаРасширеннаяПодсказка" id="34"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗначенияСостояниеПросмотра" id="35">
+				<AdditionSource>
+					<Item>Значения</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗначенияСостояниеПросмотраКонтекстноеМеню" id="36"/>
+				<ExtendedTooltip name="ЗначенияСостояниеПросмотраРасширеннаяПодсказка" id="37"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗначенияУправлениеПоиском" id="38">
+				<AdditionSource>
+					<Item>Значения</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗначенияУправлениеПоискомКонтекстноеМеню" id="39"/>
+				<ExtendedTooltip name="ЗначенияУправлениеПоискомРасширеннаяПодсказка" id="40"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗначенияНомерСтроки" id="41">
+					<DataPath>Объект.Значения.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияНомерСтрокиКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ЗначенияНомерСтрокиРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<InputField name="ЗначенияПоставщик" id="44">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияПоставщикКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ЗначенияПоставщикРасширеннаяПодсказка" id="46"/>
+				</InputField>
+				<InputField name="ЗначенияУслуга" id="47">
+					<DataPath>Объект.Значения.Услуга</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияУслугаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ЗначенияУслугаРасширеннаяПодсказка" id="49"/>
+				</InputField>
+				<InputField name="ЗначенияДиапазонМощности" id="50">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияДиапазонМощностиКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ЗначенияДиапазонМощностиРасширеннаяПодсказка" id="52"/>
+				</InputField>
+				<InputField name="ЗначенияКатегорияРасчетногоНапряжения" id="93">
+					<DataPath>Объект.Значения.КатегорияНапряжения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияКатегорияРасчетногоНапряженияКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="ЗначенияКатегорияРасчетногоНапряженияРасширеннаяПодсказка" id="95"/>
+				</InputField>
+				<InputField name="ЗначенияЦеноваяКатегория" id="96">
+					<DataPath>Объект.Значения.ЦеноваяКатегория</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияЦеноваяКатегорияКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="ЗначенияЦеноваяКатегорияРасширеннаяПодсказка" id="98"/>
+				</InputField>
+				<CheckBoxField name="ЗначенияНДСВнутри" id="53">
+					<DataPath>Объект.Значения.НДСВнутри</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗначенияНДСВнутриКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ЗначенияНДСВнутриРасширеннаяПодсказка" id="55"/>
+				</CheckBoxField>
+				<InputField name="ЗначенияЗначение" id="56">
+					<DataPath>Объект.Значения.Значение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗначенияЗначениеКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ЗначенияЗначениеРасширеннаяПодсказка" id="58"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="82">
+			<DataPath>Объект.Примечание</DataPath>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="83"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="84"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="85">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="86"/>
+			<ChildItems>
+				<InputField name="Ответственный" id="87">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="89"/>
+				</InputField>
+				<LabelField name="энргДатаПоследнегоИзменения" id="90">
+					<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+					<ContextMenu name="энргДатаПоследнегоИзмененияКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="энргДатаПоследнегоИзмененияРасширеннаяПодсказка" id="92"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестИзменитьТарифНаПередачуЭлектроэнергии</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>DontUse</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнить" id="163">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Заполнить</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="164"/>
+			</Button>
+			<Popup name="ПодменюСоздатьНаОсновании" id="167">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>Picture</Representation>
+				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="168"/>
+			</Popup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="169">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="170"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="171">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>PictureAndText</Representation>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="172"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="173">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="174"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="175">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="176"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="177">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="178"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+			<Popup name="ПодменюДополнительныхОбработокЗаполнения" id="179">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Заполнение</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные команды заполнения</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюДополнительныхОбработокЗаполненияРасширеннаяПодсказка" id="180"/>
+			</Popup>
+			<Popup name="ПодменюПечать" id="181">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды печати</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="182"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ВидОперации" id="34">
+			<DataPath>Объект.ВидОперации</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<EditMode>EnterOnInput</EditMode>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Связанный перерасчет группы абонентов</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.энргВидыОпераций.EnumValue.энргПерерасчет_СвязанныйПерерасчет</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Изменение параметров расчета абонента</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.энргВидыОпераций.EnumValue.энргПерерасчет_ИзменениеПараметраРассчета</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Корректировка показаний абонента</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.энргВидыОпераций.EnumValue.УдалитьэнргПерерасчет_КорректировкаПоказаний</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<BackColor>#CCFFFF</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="36"/>
+		</InputField>
+		<UsualGroup name="ГруппаДатаНомер" id="96">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="97"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРайонМКД" id="165">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРайонМКДРасширеннаяПодсказка" id="166"/>
+			<ChildItems>
+				<InputField name="Организация" id="212">
+					<DataPath>Объект.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="213"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="214"/>
+				</InputField>
+				<InputField name="Район" id="10">
+					<DataPath>Объект.Район</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РайонКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="12"/>
+				</InputField>
+				<InputField name="МКД" id="13">
+					<DataPath>Объект.Строение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="МКДКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="МКДРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<LabelField name="ПериодНачисления" id="7">
+			<DataPath>Объект.ПериодНачисления</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<EditMode>EnterOnInput</EditMode>
+			<Format>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДФ='ММММ гггг'</v8:content>
+				</v8:item>
+			</Format>
+			<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="9"/>
+		</LabelField>
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="264">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа быстрые отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа быстрые отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="265"/>
+		</UsualGroup>
+		<Table name="НачисленныйСреднийОбъем" id="196">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>НачисленныйСреднийОбъем</DataPath>
+			<RowPictureDataPath>НачисленныйСреднийОбъем.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>ГруппаБыстрыеОтборы</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="НачисленныйСреднийОбъемКонтекстноеМеню" id="197"/>
+			<AutoCommandBar name="НачисленныйСреднийОбъемКоманднаяПанель" id="198"/>
+			<ExtendedTooltip name="НачисленныйСреднийОбъемРасширеннаяПодсказка" id="199"/>
+			<SearchStringAddition name="НачисленныйСреднийОбъемСтрокаПоиска" id="200">
+				<AdditionSource>
+					<Item>НачисленныйСреднийОбъем</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НачисленныйСреднийОбъемСтрокаПоискаКонтекстноеМеню" id="201"/>
+				<ExtendedTooltip name="НачисленныйСреднийОбъемСтрокаПоискаРасширеннаяПодсказка" id="202"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="НачисленныйСреднийОбъемСостояниеПросмотра" id="203">
+				<AdditionSource>
+					<Item>НачисленныйСреднийОбъем</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НачисленныйСреднийОбъемСостояниеПросмотраКонтекстноеМеню" id="204"/>
+				<ExtendedTooltip name="НачисленныйСреднийОбъемСостояниеПросмотраРасширеннаяПодсказка" id="205"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="НачисленныйСреднийОбъемУправлениеПоиском" id="206">
+				<AdditionSource>
+					<Item>НачисленныйСреднийОбъем</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="НачисленныйСреднийОбъемУправлениеПоискомКонтекстноеМеню" id="207"/>
+				<ExtendedTooltip name="НачисленныйСреднийОбъемУправлениеПоискомРасширеннаяПодсказка" id="208"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="НачисленныйСреднийОбъемАбонент" id="209">
+					<DataPath>НачисленныйСреднийОбъем.Абонент</DataPath>
+					<ContextMenu name="НачисленныйСреднийОбъемАбонентКонтекстноеМеню" id="210"/>
+					<ExtendedTooltip name="НачисленныйСреднийОбъемАбонентРасширеннаяПодсказка" id="211"/>
+				</LabelField>
+				<ColumnGroup name="НачисленныйСреднийОбъемГруппа1" id="227">
+					<ExtendedTooltip name="НачисленныйСреднийОбъемГруппа1РасширеннаяПодсказка" id="228"/>
+					<ChildItems>
+						<LabelField name="НачисленныйСреднийОбъемПриборУчета" id="224">
+							<DataPath>НачисленныйСреднийОбъем.ПриборУчета</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемПриборУчетаКонтекстноеМеню" id="225"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемПриборУчетаРасширеннаяПодсказка" id="226"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемТочкаУчета" id="215">
+							<DataPath>НачисленныйСреднийОбъем.ТочкаУчета</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемТочкаУчетаКонтекстноеМеню" id="216"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемТочкаУчетаРасширеннаяПодсказка" id="217"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемУслуга" id="218">
+							<DataPath>НачисленныйСреднийОбъем.Услуга</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемУслугаКонтекстноеМеню" id="219"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемУслугаРасширеннаяПодсказка" id="220"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="НачисленныйСреднийОбъемГруппа2" id="229">
+					<ExtendedTooltip name="НачисленныйСреднийОбъемГруппа2РасширеннаяПодсказка" id="230"/>
+					<ChildItems>
+						<LabelField name="НачисленныйСреднийОбъемШкала" id="221">
+							<DataPath>НачисленныйСреднийОбъем.Шкала</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемШкалаКонтекстноеМеню" id="222"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемШкалаРасширеннаяПодсказка" id="223"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемТарифнаяЗона" id="231">
+							<DataPath>НачисленныйСреднийОбъем.ТарифнаяЗона</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемТарифнаяЗонаКонтекстноеМеню" id="232"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемТарифнаяЗонаРасширеннаяПодсказка" id="233"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемПоставщик" id="234">
+							<DataPath>НачисленныйСреднийОбъем.Поставщик</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемПоставщикКонтекстноеМеню" id="235"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемПоставщикРасширеннаяПодсказка" id="236"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="НачисленныйСреднийОбъемГруппа3" id="237">
+					<ExtendedTooltip name="НачисленныйСреднийОбъемГруппа3РасширеннаяПодсказка" id="238"/>
+					<ChildItems>
+						<LabelField name="НачисленныйСреднийОбъемПериодНачисления" id="239">
+							<DataPath>НачисленныйСреднийОбъем.ПериодНачисления</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемПериодНачисленияКонтекстноеМеню" id="240"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемПериодНачисленияРасширеннаяПодсказка" id="241"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемСпособНачисления" id="242">
+							<DataPath>НачисленныйСреднийОбъем.СпособНачисления</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемСпособНачисленияКонтекстноеМеню" id="243"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемСпособНачисленияРасширеннаяПодсказка" id="244"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемОбъемУслуги" id="245">
+							<DataPath>НачисленныйСреднийОбъем.ОбъемУслуги</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемОбъемУслугиКонтекстноеМеню" id="246"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемОбъемУслугиРасширеннаяПодсказка" id="247"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="НачисленныйСреднийОбъемГруппа5" id="256">
+					<ExtendedTooltip name="НачисленныйСреднийОбъемГруппа5РасширеннаяПодсказка" id="257"/>
+					<ChildItems>
+						<LabelField name="НачисленныйСреднийОбъемЗначениеТарифа" id="258">
+							<DataPath>НачисленныйСреднийОбъем.ЗначениеТарифа</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемЗначениеТарифаКонтекстноеМеню" id="259"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемЗначениеТарифаРасширеннаяПодсказка" id="260"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемСумма" id="261">
+							<DataPath>НачисленныйСреднийОбъем.Сумма</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемСуммаКонтекстноеМеню" id="262"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемСуммаРасширеннаяПодсказка" id="263"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="НачисленныйСреднийОбъемГруппа4" id="248">
+					<ExtendedTooltip name="НачисленныйСреднийОбъемГруппа4РасширеннаяПодсказка" id="249"/>
+					<ChildItems>
+						<LabelField name="НачисленныйСреднийОбъемДатаДокументаОснования" id="253">
+							<DataPath>НачисленныйСреднийОбъем.ДатаДокументаОснования</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемДатаДокументаОснованияКонтекстноеМеню" id="254"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемДатаДокументаОснованияРасширеннаяПодсказка" id="255"/>
+						</LabelField>
+						<LabelField name="НачисленныйСреднийОбъемДокументОснование" id="250">
+							<DataPath>НачисленныйСреднийОбъем.ДокументОснование</DataPath>
+							<ContextMenu name="НачисленныйСреднийОбъемДокументОснованиеКонтекстноеМеню" id="251"/>
+							<ExtendedTooltip name="НачисленныйСреднийОбъемДокументОснованиеРасширеннаяПодсказка" id="252"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="160">
+			<DataPath>Объект.Примечание</DataPath>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="161"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="162"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="194">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="195"/>
+			<ChildItems>
+				<LabelField name="Ответственный" id="31">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="ДатаПоследнегоИзменения" id="191">
+					<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+					<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="192"/>
+					<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="193"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.энргПерерасчет</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="НачисленныйСреднийОбъем" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начисленный средний объем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>AccumulationRegister.энргНачисленныйСреднийОбъем</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Абонент</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>d54e349b-9d4c-4722-aa53-2f334bdbbf9a</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Услуга</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>bbb3d07e-b888-4353-bc73-9778c8d937db</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.энргВзаиморасчетыПоследовательность.StandardCommand.OpenByValue.ДокРегистратор</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:8a61cf33-564e-45c8-9f5d-cda3fb030cf6</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:e42f6e15-96fb-436d-8021-277b04d91f60</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

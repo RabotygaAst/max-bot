@@ -1,0 +1,2015 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МКД</dataPath>
+			<field>МКД</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоМ3</dataPath>
+			<field>ВсегоМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтоплениеЖилФакт</dataPath>
+			<field>ОтоплениеЖилФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отопление жил факт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтоплениеЖил1_12</dataPath>
+			<field>ОтоплениеЖил1_12</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отопление жил1 12</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС2ЖилМ3</dataPath>
+			<field>ГВС2ЖилМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС2 жил м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС1ЖилГКал</dataPath>
+			<field>ГВС1ЖилГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС1 жил г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС1ЖилМ3</dataPath>
+			<field>ГВС1ЖилМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС1 жил м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС2ЖилГКал</dataPath>
+			<field>ГВС2ЖилГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС2 жил г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтоплениеНЕЖилФакт</dataPath>
+			<field>ОтоплениеНЕЖилФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отопление НЕЖил факт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтоплениеНеЖил1_12</dataPath>
+			<field>ОтоплениеНеЖил1_12</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отопление не жил1 12</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС2НеЖилМ3</dataPath>
+			<field>ГВС2НеЖилМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС2 не жил м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС1НеЖилГКал</dataPath>
+			<field>ГВС1НеЖилГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС1 не жил г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС1НеЖилМ3</dataPath>
+			<field>ГВС1НеЖилМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС1 не жил м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГВС2НеЖилГКал</dataPath>
+			<field>ГВС2НеЖилГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГВС2 не жил г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоОтоплениеФактич</dataPath>
+			<field>ВсегоОтоплениеФактич</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего отопление фактич</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоГВСФактичГКал</dataPath>
+			<field>ВсегоГВСФактичГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего ГВСФактич г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоОтопление1_12</dataPath>
+			<field>ВсегоОтопление1_12</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего отопление1 12</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОДНГКал</dataPath>
+			<field>ОДНГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОДНГКал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОДНМ3</dataPath>
+			<field>ОДНМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОДНМ3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетОтопл</dataPath>
+			<field>ПерерасчетОтопл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет отопл</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСГКал</dataPath>
+			<field>ПерерасчетГВСГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСГКал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСМ3</dataPath>
+			<field>ПерерасчетГВСМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСМ3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетОтоплПрош</dataPath>
+			<field>ПерерасчетОтоплПрош</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет отопл прош</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСПрошМ3</dataPath>
+			<field>ПерерасчетГВСПрошМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСПрош м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСПрошГКал</dataPath>
+			<field>ПерерасчетГВСПрошГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСПрош г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетОтоплТек</dataPath>
+			<field>ПерерасчетОтоплТек</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет отопл тек</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСТекГКал</dataPath>
+			<field>ПерерасчетГВСТекГКал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСТек г кал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПерерасчетГВСТекМ3</dataPath>
+			<field>ПерерасчетГВСТекМ3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перерасчет ГВСТек м3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>Всего</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВсегоМ3</dataPath>
+				<field>ВсегоМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Всего м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВсегоОтоплениеФактич</dataPath>
+				<field>ВсегоОтоплениеФактич</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Всего отопление фактич</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВсегоГВСФактичГКал</dataPath>
+				<field>ВсегоГВСФактичГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Всего ГВСФактич г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВсегоОтопление1_12</dataPath>
+				<field>ВсегоОтопление1_12</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Всего отопление1 12</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	энргОбъемНачисленийМКД.МКД КАК МКД,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачисленийМКД.Услуга В (&amp;Отопление)
+					И НЕ энргОбъемНачисленийМКД.НеПрименятьСезонность
+				ТОГДА энргОбъемНачисленийМКД.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВсегоОтоплениеФактич,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачисленийМКД.Услуга В (&amp;ГВС_ГКал)
+					И НЕ энргОбъемНачисленийМКД.НеПрименятьСезонность
+				ТОГДА энргОбъемНачисленийМКД.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВсегоГВСФактичГКал,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачисленийМКД.Услуга В (&amp;Отопление)
+					И энргОбъемНачисленийМКД.НеПрименятьСезонность
+				ТОГДА энргОбъемНачисленийМКД.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВсегоОтопление1_12,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачисленийМКД.Услуга В (&amp;ГВС_М3)
+				ТОГДА энргОбъемНачисленийМКД.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВсегоМ3
+ИЗ
+	РегистрНакопления.энргОбъемНачисленийМКД КАК энргОбъемНачисленийМКД
+ГДЕ
+	энргОбъемНачисленийМКД.Период МЕЖДУ &amp;Начало И &amp;Конец
+
+СГРУППИРОВАТЬ ПО
+	энргОбъемНачисленийМКД.МКД</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Жилые</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>МКД</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтоплениеЖилФакт</dataPath>
+				<field>ОтоплениеЖилФакт</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отопление жил факт</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтоплениеЖил1_12</dataPath>
+				<field>ОтоплениеЖил1_12</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отопление жил1 12</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС2ЖилМ3</dataPath>
+				<field>ГВС2ЖилМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС2 жил м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС1ЖилГКал</dataPath>
+				<field>ГВС1ЖилГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС1 жил г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС1ЖилМ3</dataPath>
+				<field>ГВС1ЖилМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС1 жил м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС2ЖилГКал</dataPath>
+				<field>ГВС2ЖилГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС2 жил г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	энргОбъемНачислений.Строение КАК МКД,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;Отопление)
+					И НЕ энргОбъемНачислений.НеПрименятьСезонность
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОтоплениеЖилФакт,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;Отопление)
+					И энргОбъемНачислений.НеПрименятьСезонность
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОтоплениеЖил1_12,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)
+					И энргОбъемНачислений.СоставнаяУслуга = ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС1ЖилГКал,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+					И энргОбъемНачислений.СоставнаяУслуга = ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС1ЖилМ3,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)
+					И энргОбъемНачислений.СоставнаяУслуга &lt;&gt; ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС2ЖилГКал,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+					И энргОбъемНачислений.СоставнаяУслуга &lt;&gt; ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС2ЖилМ3
+ИЗ
+	РегистрНакопления.энргОбъемНачислений КАК энргОбъемНачислений
+ГДЕ
+	энргОбъемНачислений.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И энргОбъемНачислений.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.Начисление)
+
+СГРУППИРОВАТЬ ПО
+	энргОбъемНачислений.Строение</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>НеЖилые</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтоплениеНЕЖилФакт</dataPath>
+				<field>ОтоплениеНЕЖилФакт</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отопление НЕЖил факт</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтоплениеНеЖил1_12</dataPath>
+				<field>ОтоплениеНеЖил1_12</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отопление не жил1 12</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС2НеЖилМ3</dataPath>
+				<field>ГВС2НеЖилМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС2 не жил м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС1НеЖилГКал</dataPath>
+				<field>ГВС1НеЖилГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС1 не жил г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС1НеЖилМ3</dataPath>
+				<field>ГВС1НеЖилМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС1 не жил м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГВС2НеЖилГКал</dataPath>
+				<field>ГВС2НеЖилГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ГВС2 не жил г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	бестОбъемНачисленийНП.МКД КАК МКД,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;Отопление)
+					И НЕ бестОбъемНачисленийНП.НеПрименятьСезонность
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОтоплениеНЕЖилФакт,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;Отопление)
+					И бестОбъемНачисленийНП.НеПрименятьСезонность
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОтоплениеНеЖил1_12,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+					И бестОбъемНачисленийНП.СоставнаяУслуга = ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС1НеЖилГКал,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+					И бестОбъемНачисленийНП.СоставнаяУслуга = ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС1НеЖилМ3,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+					И бестОбъемНачисленийНП.СоставнаяУслуга &lt;&gt; ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС2НеЖилГКал,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+					И бестОбъемНачисленийНП.СоставнаяУслуга &lt;&gt; ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ГВС2НеЖилМ3
+ИЗ
+	РегистрНакопления.бестОбъемНачисленийНП КАК бестОбъемНачисленийНП
+ГДЕ
+	бестОбъемНачисленийНП.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И бестОбъемНачисленийНП.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.Начисление)
+
+СГРУППИРОВАТЬ ПО
+	бестОбъемНачисленийНП.МКД</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ОДНЖил</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>МКД</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОДНГКал</dataPath>
+				<field>ОДНГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОДНГКал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОДНМ3</dataPath>
+				<field>ОДНМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОДНМ3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	энргОбъемНачислений.Строение КАК МКД,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)					
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОДНГКал,
+	СУММА(ВЫБОР
+			КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+				ТОГДА энргОбъемНачислений.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОДНМ3
+ИЗ
+	РегистрНакопления.энргОбъемНачислений КАК энргОбъемНачислений
+ГДЕ
+	энргОбъемНачислений.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И энргОбъемНачислений.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.НачислениеОДН)
+
+СГРУППИРОВАТЬ ПО
+	энргОбъемНачислений.Строение</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ОДННеЖил</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>МКД</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОДНГКал</dataPath>
+				<field>ОДНГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОДНГКал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОДНМ3</dataPath>
+				<field>ОДНМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОДНМ3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	бестОбъемНачисленийНП.МКД КАК МКД,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОДНГКал,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОДНМ3
+ИЗ
+	РегистрНакопления.бестОбъемНачисленийНП КАК бестОбъемНачисленийНП
+ГДЕ
+	бестОбъемНачисленийНП.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И бестОбъемНачисленийНП.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.НачислениеОДН)
+
+СГРУППИРОВАТЬ ПО
+	бестОбъемНачисленийНП.МКД</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПерерасчетЖил</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МКД</dataPath>
+				<field>МКД</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>МКД</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетОтопл</dataPath>
+				<field>ПерерасчетОтопл</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет отопл</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСГКал</dataPath>
+				<field>ПерерасчетГВСГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСГКал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСМ3</dataPath>
+				<field>ПерерасчетГВСМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСМ3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетОтоплПрош</dataPath>
+				<field>ПерерасчетОтоплПрош</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет отопл прош</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСПрошМ3</dataPath>
+				<field>ПерерасчетГВСПрошМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСПрош м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСПрошГКал</dataPath>
+				<field>ПерерасчетГВСПрошГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСПрош г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетОтоплТек</dataPath>
+				<field>ПерерасчетОтоплТек</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет отопл тек</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСТекГКал</dataPath>
+				<field>ПерерасчетГВСТекГКал</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСТек г кал</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПерерасчетГВСТекМ3</dataPath>
+				<field>ПерерасчетГВСТекМ3</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перерасчет ГВСТек м3</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	энргОбъемНачислений.Строение КАК МКД,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;Отопление)
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетОтопл,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСГКал,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСМ3,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;Отопление)
+				И энргОбъемНачислений.ПериодРасчета &lt; &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетОтоплПрош,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)
+				И энргОбъемНачислений.ПериодРасчета &lt; &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСПрошГКал,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+				И энргОбъемНачислений.ПериодРасчета &lt; &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСПрошМ3,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;Отопление)
+				И энргОбъемНачислений.ПериодРасчета &gt;= &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетОтоплТек,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_ГКал)
+				И энргОбъемНачислений.ПериодРасчета &gt;= &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСТекГКал,
+	ВЫБОР
+		КОГДА энргОбъемНачислений.Услуга В (&amp;ГВС_М3)
+				И энргОбъемНачислений.ПериодРасчета &gt;= &amp;ПрошлыйГод
+			ТОГДА энргОбъемНачислений.ОбъемУслуги
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПерерасчетГВСТекМ3
+ПОМЕСТИТЬ ВТ
+ИЗ
+	РегистрНакопления.энргОбъемНачислений КАК энргОбъемНачислений
+ГДЕ
+	энргОбъемНачислений.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И энргОбъемНачислений.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.Перерасчет)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	бестОбъемНачисленийНП.МКД,
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;Отопление)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;Отопление)
+					И бестОбъемНачисленийНП.ПериодРасчета &lt; &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+					И бестОбъемНачисленийНП.ПериодРасчета &lt; &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+					И бестОбъемНачисленийНП.ПериодРасчета &lt; &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;Отопление)
+					И бестОбъемНачисленийНП.ПериодРасчета &gt;= &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_ГКал)
+					И бестОбъемНачисленийНП.ПериодРасчета &gt;= &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ),
+	СУММА(ВЫБОР
+			КОГДА бестОбъемНачисленийНП.Услуга В (&amp;ГВС_М3)
+					И бестОбъемНачисленийНП.ПериодРасчета &gt;= &amp;ПрошлыйГод
+				ТОГДА бестОбъемНачисленийНП.ОбъемУслуги
+			ИНАЧЕ 0
+		КОНЕЦ)
+ИЗ
+	РегистрНакопления.бестОбъемНачисленийНП КАК бестОбъемНачисленийНП
+ГДЕ
+	бестОбъемНачисленийНП.Период МЕЖДУ &amp;Начало И &amp;Конец
+	И бестОбъемНачисленийНП.ВидНачисления = ЗНАЧЕНИЕ(Перечисление.энргВидыНачислений.Перерасчет)
+
+СГРУППИРОВАТЬ ПО
+	бестОбъемНачисленийНП.МКД
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ.МКД КАК МКД,
+	СУММА(ВТ.ПерерасчетОтопл) КАК ПерерасчетОтопл,
+	СУММА(ВТ.ПерерасчетГВСГКал) КАК ПерерасчетГВСГКал,
+	СУММА(ВТ.ПерерасчетГВСМ3) КАК ПерерасчетГВСМ3,
+	СУММА(ВТ.ПерерасчетОтоплПрош) КАК ПерерасчетОтоплПрош,
+	СУММА(ВТ.ПерерасчетГВСПрошГКал) КАК ПерерасчетГВСПрошГКал,
+	СУММА(ВТ.ПерерасчетГВСПрошМ3) КАК ПерерасчетГВСПрошМ3,
+	СУММА(ВТ.ПерерасчетОтоплТек) КАК ПерерасчетОтоплТек,
+	СУММА(ВТ.ПерерасчетГВСТекГКал) КАК ПерерасчетГВСТекГКал,
+	СУММА(ВТ.ПерерасчетГВСТекМ3) КАК ПерерасчетГВСТекМ3
+ИЗ
+	ВТ КАК ВТ
+
+СГРУППИРОВАТЬ ПО
+	ВТ.МКД</query>
+		</item>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПерерасчетГКал</dataPath>
+		<expression>ПерерасчетОтопл + ПерерасчетГВСГКал</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Перерасчет ГКал</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПерерасчетПрошГКал</dataPath>
+		<expression>ПерерасчетОтоплПрош + ПерерасчетГВСПрошГКал</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Перерасчет Гкал</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПерерасчетТекГКал</dataPath>
+		<expression>ПерерасчетОтоплТек + ПерерасчетГВСТекГКал</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Перерасчет Гкал</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВнутредомовыеПотериГКалл</dataPath>
+		<expression>ВсегоГВСФактичГКал - ГВС1ЖилГКал - ГВС1НеЖилГКал - ГВС2ЖилГКал - ГВС2НеЖилГКал -ОДНГКал</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Внутредомовые потери ГКалл</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВнутредомовыеПотериМ3</dataPath>
+		<expression>ВсегоМ3 - ГВС1ЖилМ3 - ГВС1НеЖилМ3 - ГВС2ЖилМ3 - ГВС2НеЖилМ3 - ОДНМ3</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Внутредомовые потери м3</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОДННормаГКал</dataPath>
+		<expression>ОДНГКал</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ОДННорма ГКал</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОДННормаМ3</dataPath>
+		<expression>ОДНМ3</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ОДННорма м3</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОДНСверхНормаГКал</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ОДНСверх норма Ккал</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОДНСверхНормаМ3</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ОДНСверх норма м3</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ВсегоГВСФактичГКал</dataPath>
+		<expression>Сумма(ВсегоГВСФактичГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоМ3</dataPath>
+		<expression>Сумма(ВсегоМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоОтопление1_12</dataPath>
+		<expression>Сумма(ВсегоОтопление1_12)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоОтоплениеФактич</dataPath>
+		<expression>Сумма(ВсегоОтоплениеФактич)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС1ЖилГКал</dataPath>
+		<expression>Сумма(ГВС1ЖилГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС1ЖилМ3</dataPath>
+		<expression>Сумма(ГВС1ЖилМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС1НеЖилГКал</dataPath>
+		<expression>Сумма(ГВС1НеЖилГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС1НеЖилМ3</dataPath>
+		<expression>Сумма(ГВС1НеЖилМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС2ЖилГКал</dataPath>
+		<expression>Сумма(ГВС2ЖилГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС2ЖилМ3</dataPath>
+		<expression>Сумма(ГВС2ЖилМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС2НеЖилГКал</dataPath>
+		<expression>Сумма(ГВС2НеЖилГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГВС2НеЖилМ3</dataPath>
+		<expression>Сумма(ГВС2НеЖилМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтоплениеЖил1_12</dataPath>
+		<expression>Сумма(ОтоплениеЖил1_12)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтоплениеЖилФакт</dataPath>
+		<expression>Сумма(ОтоплениеЖилФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтоплениеНеЖил1_12</dataPath>
+		<expression>Сумма(ОтоплениеНеЖил1_12)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтоплениеНЕЖилФакт</dataPath>
+		<expression>Сумма(ОтоплениеНЕЖилФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДНГКал</dataPath>
+		<expression>Сумма(ОДНГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДНМ3</dataPath>
+		<expression>Сумма(ОДНМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСГКал</dataPath>
+		<expression>Сумма(ПерерасчетГВСГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСМ3</dataPath>
+		<expression>Сумма(ПерерасчетГВСМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетОтопл</dataPath>
+		<expression>Сумма(ПерерасчетОтопл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГКал</dataPath>
+		<expression>Сумма(ПерерасчетГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетОтоплПрош</dataPath>
+		<expression>Сумма(ПерерасчетОтоплПрош)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетОтоплТек</dataPath>
+		<expression>Сумма(ПерерасчетОтоплТек)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСПрошГКал</dataPath>
+		<expression>Сумма(ПерерасчетГВСПрошГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСПрошМ3</dataPath>
+		<expression>Сумма(ПерерасчетГВСПрошМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСТекГКал</dataPath>
+		<expression>Сумма(ПерерасчетГВСТекГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетГВСТекМ3</dataPath>
+		<expression>Сумма(ПерерасчетГВСТекМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетПрошГКал</dataPath>
+		<expression>Сумма(ПерерасчетПрошГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПерерасчетТекГКал</dataPath>
+		<expression>Сумма(ПерерасчетТекГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВнутредомовыеПотериМ3</dataPath>
+		<expression>Сумма(ВнутредомовыеПотериМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВнутредомовыеПотериГКалл</dataPath>
+		<expression>Сумма(ВнутредомовыеПотериГКалл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДННормаГКал</dataPath>
+		<expression>Сумма(ОДННормаГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДННормаМ3</dataPath>
+		<expression>Сумма(ОДННормаМ3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДНСверхНормаГКал</dataPath>
+		<expression>Сумма(ОДНСверхНормаГКал)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОДНСверхНормаМ3</dataPath>
+		<expression>Сумма(ОДНСверхНормаМ3)</expression>
+	</totalField>
+	<parameter>
+		<name>Отопление</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отопление</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргВидыУслуг</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ГВС_ГКал</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ГВС Гкал</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргВидыУслуг</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ГВС_М3</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ГВС м3</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргВидыУслуг</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Конец</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;ПериодФормирования.ДатаОкончания,"День")</expression>
+	</parameter>
+	<parameter>
+		<name>Начало</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодФормирования.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ПериодФормирования</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период формирования</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ПрошлыйГод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Прошлый год</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>НачалоПериода(&amp;ПериодФормирования.ДатаОкончания,"Год")</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Баланс по МКД</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МКД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>фактич</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВсегоОтоплениеФактич</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Отопление</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВсегоГВСФактичГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>ГВС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВсегоМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Horizontally</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>при 1/12</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВсегоОтопление1_12</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Horizontally</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отопление 1/12</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>жил. пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОтоплениеЖил1_12</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>нежил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОтоплениеНеЖил1_12</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отопление факт</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>жил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОтоплениеЖилФакт</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>нежил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОтоплениеНЕЖилФакт</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ГВС*</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>жил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС1ЖилГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС1ЖилМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>нежил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС1НеЖилГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС1НеЖилМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ГВС**</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>жил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС2ЖилГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС2ЖилМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>нежил.пом</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС2НеЖилГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГВС2НеЖилМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОДН</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДНГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДНМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>в т.ч. норм.</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДННормаГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДННормаМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>в т.ч. сверх норм.</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДНСверхНормаГКал</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гкал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОДНСверхНормаМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перерасчет, в т.ч.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Всего</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетОтопл</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Отопление</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетГВСГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>ГВС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПерерасчетГВСМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>м3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>прошлых лет</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетПрошГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Всего</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетОтоплПрош</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Отопление</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетГВСПрошГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>ГВС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПерерасчетГВСПрошМ3</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>текущего года</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКал</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетТекГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Всего</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетОтоплТек</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Отопление</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПерерасчетГВСТекГКал</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>ГВС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПерерасчетГВСТекМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внутридомовые потери</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВнутредомовыеПотериГКалл</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГКалл</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВнутредомовыеПотериМ3</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>М3</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>в т.ч.</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>в т.ч. БДП</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Отопление</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>68f81ad9-91dd-421e-b6f6-832df840d20a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ГВС_ГКал</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>a00eaafb-7069-4fe2-b928-0d44eadaa421</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ГВС_М3</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>1d6f4412-4cbc-4bcd-a053-a7e2989caa34</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодФормирования</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>6ff9c9d5-515d-4be3-b47e-aec288902f77</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInGroup>DontUse</dcsset:useInGroup>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тепловой и водный баланс по МКД</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>МКД</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СистемныеПоля.НомерПоПорядку</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>№ п/п</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

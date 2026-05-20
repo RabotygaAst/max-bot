@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="65">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВидОперации" id="67">
+			<DataPath>Объект.ВидОперации</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<BackColor>#CCFFFF</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="68"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="69"/>
+		</InputField>
+		<InputField name="Организация" id="10">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Район" id="13">
+			<DataPath>Объект.Район</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РайонКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ПериодФормирования" id="16">
+			<DataPath>Объект.ПериодФормирования</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодФормированияКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ПериодФормированияРасширеннаяПодсказка" id="18"/>
+			<Events>
+				<Event name="OnChange">ПериодФормированияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="КнигаПродаж" id="28">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ЗаписиКниги</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="КнигаПродажКонтекстноеМеню" id="29"/>
+			<AutoCommandBar name="КнигаПродажКоманднаяПанель" id="30">
+				<ChildItems>
+					<Button name="ЗаписиКнигиЗаполнить" id="95">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<ExtendedTooltip name="ЗаписиКнигиЗаполнитьРасширеннаяПодсказка" id="96"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="КнигаПродажРасширеннаяПодсказка" id="31"/>
+			<SearchStringAddition name="КнигаПродажСтрокаПоиска" id="32">
+				<AdditionSource>
+					<Item>КнигаПродаж</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПродажСтрокаПоискаКонтекстноеМеню" id="33"/>
+				<ExtendedTooltip name="КнигаПродажСтрокаПоискаРасширеннаяПодсказка" id="34"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="КнигаПродажСостояниеПросмотра" id="35">
+				<AdditionSource>
+					<Item>КнигаПродаж</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПродажСостояниеПросмотраКонтекстноеМеню" id="36"/>
+				<ExtendedTooltip name="КнигаПродажСостояниеПросмотраРасширеннаяПодсказка" id="37"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="КнигаПродажУправлениеПоиском" id="38">
+				<AdditionSource>
+					<Item>КнигаПродаж</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПродажУправлениеПоискомКонтекстноеМеню" id="39"/>
+				<ExtendedTooltip name="КнигаПродажУправлениеПоискомРасширеннаяПодсказка" id="40"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаписиКнигиНомерСтроки" id="41">
+					<DataPath>Объект.ЗаписиКниги.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиКнигиНомерСтрокиКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ЗаписиКнигиНомерСтрокиРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<InputField name="ЗаписиКнигиКодВидаОперации" id="44">
+					<DataPath>Объект.ЗаписиКниги.КодВидаОперации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиКнигиКодВидаОперацииКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ЗаписиКнигиКодВидаОперацииРасширеннаяПодсказка" id="46"/>
+				</InputField>
+				<ColumnGroup name="ЗаписиКнигиГруппа1" id="85">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа1РасширеннаяПодсказка" id="86"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиСчетФактура" id="47">
+							<DataPath>Объект.ЗаписиКниги.СчетФактура</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураРасширеннаяПодсказка" id="49"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиКонтрагент" id="97">
+							<DataPath>Объект.ЗаписиКниги.Контрагент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Покупатель</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиКонтрагентКонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="ЗаписиКнигиКонтрагентРасширеннаяПодсказка" id="99"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа2" id="87">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа2РасширеннаяПодсказка" id="88"/>
+					<ChildItems>
+						<LabelField name="ЗаписиКнигиСчетФактураНомерПД" id="70">
+							<DataPath>Объект.ЗаписиКниги.НомерСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураНомерПДКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураНомерПДРасширеннаяПодсказка" id="72"/>
+						</LabelField>
+						<LabelField name="ЗаписиКнигиСчетФактураДата" id="73">
+							<DataPath>Объект.ЗаписиКниги.ДатаСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураДатаКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураДатаРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа3" id="89">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа3РасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<LabelField name="ЗаписиКнигиСчетФактураДокументИсточникНомерПД" id="79">
+							<DataPath>Объект.ЗаписиКниги.НомерКорИспрСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер кор/испр СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураДокументИсточникНомерПДКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураДокументИсточникНомерПДРасширеннаяПодсказка" id="81"/>
+						</LabelField>
+						<LabelField name="ЗаписиКнигиСчетФактураДокументИсточникДата" id="82">
+							<DataPath>Объект.ЗаписиКниги.ДатаКорИспрСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата кор/испр СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураДокументИсточникДатаКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураДокументИсточникДатаРасширеннаяПодсказка" id="84"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа4" id="91">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа4РасширеннаяПодсказка" id="92"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиНомерПлатежногоДокумента" id="53">
+							<DataPath>Объект.ЗаписиКниги.НомерОплаты</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиНомерПлатежногоДокументаКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ЗаписиКнигиНомерПлатежногоДокументаРасширеннаяПодсказка" id="55"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиДатаПлатежногоДокумента" id="50">
+							<DataPath>Объект.ЗаписиКниги.ДатаОплаты</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиДатаПлатежногоДокументаКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ЗаписиКнигиДатаПлатежногоДокументаРасширеннаяПодсказка" id="52"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа5" id="93">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа5РасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиСтоимостьСНДС" id="56">
+							<DataPath>Объект.ЗаписиКниги.СтоимостьСНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ЗаписиКниги.TotalСтоимостьСНДС</FooterDataPath>
+							<ContextMenu name="ЗаписиКнигиСтоимостьСНДСКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ЗаписиКнигиСтоимостьСНДСРасширеннаяПодсказка" id="58"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиСтоимостьБезНДС" id="59">
+							<DataPath>Объект.ЗаписиКниги.СтоимостьБезНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ЗаписиКниги.TotalСтоимостьБезНДС</FooterDataPath>
+							<ContextMenu name="ЗаписиКнигиСтоимостьБезНДСКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ЗаписиКнигиСтоимостьБезНДСРасширеннаяПодсказка" id="61"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиСуммаНДС" id="62">
+							<DataPath>Объект.ЗаписиКниги.СуммаНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ЗаписиКниги.TotalСуммаНДС</FooterDataPath>
+							<ContextMenu name="ЗаписиКнигиСуммаНДСКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ЗаписиКнигиСуммаНДСРасширеннаяПодсказка" id="64"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<Table name="КнигаПокупок" id="100">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ЗаписиКниги</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="КнигаПокупокКонтекстноеМеню" id="101"/>
+			<AutoCommandBar name="КнигаПокупокКоманднаяПанель" id="102">
+				<ChildItems>
+					<Button name="ЗаписиКнигиЗаполнить1" id="162">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<ExtendedTooltip name="ЗаписиКнигиЗаполнить1РасширеннаяПодсказка" id="163"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="КнигаПокупокРасширеннаяПодсказка" id="103"/>
+			<SearchStringAddition name="КнигаПокупокСтрокаПоиска" id="104">
+				<AdditionSource>
+					<Item>КнигаПокупок</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПокупокСтрокаПоискаКонтекстноеМеню" id="105"/>
+				<ExtendedTooltip name="КнигаПокупокСтрокаПоискаРасширеннаяПодсказка" id="106"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="КнигаПокупокСостояниеПросмотра" id="107">
+				<AdditionSource>
+					<Item>КнигаПокупок</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПокупокСостояниеПросмотраКонтекстноеМеню" id="108"/>
+				<ExtendedTooltip name="КнигаПокупокСостояниеПросмотраРасширеннаяПодсказка" id="109"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="КнигаПокупокУправлениеПоиском" id="110">
+				<AdditionSource>
+					<Item>КнигаПокупок</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="КнигаПокупокУправлениеПоискомКонтекстноеМеню" id="111"/>
+				<ExtendedTooltip name="КнигаПокупокУправлениеПоискомРасширеннаяПодсказка" id="112"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаписиКнигиНомерСтроки1" id="113">
+					<DataPath>Объект.ЗаписиКниги.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиКнигиНомерСтроки1КонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="ЗаписиКнигиНомерСтроки1РасширеннаяПодсказка" id="115"/>
+				</LabelField>
+				<InputField name="ЗаписиКнигиКодВидаОперации1" id="116">
+					<DataPath>Объект.ЗаписиКниги.КодВидаОперации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиКнигиКодВидаОперации1КонтекстноеМеню" id="117"/>
+					<ExtendedTooltip name="ЗаписиКнигиКодВидаОперации1РасширеннаяПодсказка" id="118"/>
+				</InputField>
+				<ColumnGroup name="ЗаписиКнигиГруппа6" id="119">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа6РасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиСчетФактура1" id="121">
+							<DataPath>Объект.ЗаписиКниги.СчетФактура</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактура1КонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактура1РасширеннаяПодсказка" id="123"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиКонтрагент1" id="124">
+							<DataPath>Объект.ЗаписиКниги.Контрагент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Продавец</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиКонтрагент1КонтекстноеМеню" id="125"/>
+							<ExtendedTooltip name="ЗаписиКнигиКонтрагент1РасширеннаяПодсказка" id="126"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа7" id="127">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа7РасширеннаяПодсказка" id="128"/>
+					<ChildItems>
+						<LabelField name="ЗаписиКнигиСчетФактураНомерПД1" id="129">
+							<DataPath>Объект.ЗаписиКниги.НомерСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураНомерПД1КонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураНомерПД1РасширеннаяПодсказка" id="131"/>
+						</LabelField>
+						<LabelField name="ЗаписиКнигиСчетФактураДата1" id="132">
+							<DataPath>Объект.ЗаписиКниги.ДатаСФ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата СФ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиСчетФактураДата1КонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="ЗаписиКнигиСчетФактураДата1РасширеннаяПодсказка" id="134"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа9" id="143">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа9РасширеннаяПодсказка" id="144"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиНомерПлатежногоДокумента1" id="145">
+							<DataPath>Объект.ЗаписиКниги.НомерОплаты</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиНомерПлатежногоДокумента1КонтекстноеМеню" id="146"/>
+							<ExtendedTooltip name="ЗаписиКнигиНомерПлатежногоДокумента1РасширеннаяПодсказка" id="147"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиДатаПлатежногоДокумента1" id="148">
+							<DataPath>Объект.ЗаписиКниги.ДатаОплаты</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиКнигиДатаПлатежногоДокумента1КонтекстноеМеню" id="149"/>
+							<ExtendedTooltip name="ЗаписиКнигиДатаПлатежногоДокумента1РасширеннаяПодсказка" id="150"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиКнигиГруппа10" id="151">
+					<ExtendedTooltip name="ЗаписиКнигиГруппа10РасширеннаяПодсказка" id="152"/>
+					<ChildItems>
+						<InputField name="ЗаписиКнигиСтоимостьСНДС1" id="153">
+							<DataPath>Объект.ЗаписиКниги.СтоимостьСНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ЗаписиКниги.TotalСтоимостьСНДС</FooterDataPath>
+							<ContextMenu name="ЗаписиКнигиСтоимостьСНДС1КонтекстноеМеню" id="154"/>
+							<ExtendedTooltip name="ЗаписиКнигиСтоимостьСНДС1РасширеннаяПодсказка" id="155"/>
+						</InputField>
+						<InputField name="ЗаписиКнигиСуммаНДС1" id="159">
+							<DataPath>Объект.ЗаписиКниги.СуммаНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ЗаписиКниги.TotalСуммаНДС</FooterDataPath>
+							<ContextMenu name="ЗаписиКнигиСуммаНДС1КонтекстноеМеню" id="160"/>
+							<ExtendedTooltip name="ЗаписиКнигиСуммаНДС1РасширеннаяПодсказка" id="161"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="19">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="Ответственный" id="22">
+			<DataPath>Объект.Ответственный</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="24"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестЗаписиКнигПродажПокупок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+	</Commands>
+</Form>

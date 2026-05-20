@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюОтчеты" id="62">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подменю отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="63"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="64">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="65"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="66">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты перейти</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="67"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="68">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты см также</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="69"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="50">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="52">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="ВидОперации" id="54">
+					<DataPath>Объект.ВидОперации</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<BackColor>#CCFFFF</BackColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="56"/>
+				</InputField>
+				<LabelField name="ПериодНачисления" id="57">
+					<DataPath>Объект.ПериодНачисления</DataPath>
+					<TitleFont ref="sys:DefaultGUIFont" faceName="MS Shell Dlg" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ='ММММ гггг'</v8:content>
+						</v8:item>
+					</Format>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="10">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Район" id="13">
+			<DataPath>Объект.Район</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РайонКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="15"/>
+			<Events>
+				<Event name="OnChange">РайонПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Договор" id="22">
+			<DataPath>Объект.Договор</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ДоговорКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<Table name="ВозвратОплаты" id="25">
+			<Representation>List</Representation>
+			<DefaultItem>true</DefaultItem>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ВозвратОплаты</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВозвратОплатыКонтекстноеМеню" id="26"/>
+			<AutoCommandBar name="ВозвратОплатыКоманднаяПанель" id="27">
+				<ChildItems>
+					<Button name="ВозвратОплатыПодобратьДокументОплаты" id="60">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПодобратьДокументОплаты</CommandName>
+						<ExtendedTooltip name="ВозвратОплатыПодобратьДокументОплатыРасширеннаяПодсказка" id="61"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВозвратОплатыРасширеннаяПодсказка" id="28"/>
+			<SearchStringAddition name="ВозвратОплатыСтрокаПоиска" id="29">
+				<AdditionSource>
+					<Item>ВозвратОплаты</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВозвратОплатыСтрокаПоискаКонтекстноеМеню" id="30"/>
+				<ExtendedTooltip name="ВозвратОплатыСтрокаПоискаРасширеннаяПодсказка" id="31"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВозвратОплатыСостояниеПросмотра" id="32">
+				<AdditionSource>
+					<Item>ВозвратОплаты</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВозвратОплатыСостояниеПросмотраКонтекстноеМеню" id="33"/>
+				<ExtendedTooltip name="ВозвратОплатыСостояниеПросмотраРасширеннаяПодсказка" id="34"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВозвратОплатыУправлениеПоиском" id="35">
+				<AdditionSource>
+					<Item>ВозвратОплаты</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВозвратОплатыУправлениеПоискомКонтекстноеМеню" id="36"/>
+				<ExtendedTooltip name="ВозвратОплатыУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeDeleteRow">ВозвратОплатыПередУдалением</Event>
+				<Event name="OnActivateRow">ВозвратОплатыПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ВозвратОплатыНомерСтроки" id="38">
+					<DataPath>Объект.ВозвратОплаты.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВозвратОплатыНомерСтрокиКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ВозвратОплатыНомерСтрокиРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<InputField name="ВозвратОплатыДокументОплаты" id="41">
+					<DataPath>Объект.ВозвратОплаты.ДокументОплаты</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>false</ClearButton>
+					<OpenButton>true</OpenButton>
+					<CreateButton>false</CreateButton>
+					<QuickChoice>false</QuickChoice>
+					<TextEdit>false</TextEdit>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="ВозвратОплатыДокументОплатыКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ВозвратОплатыДокументОплатыРасширеннаяПодсказка" id="43"/>
+					<Events>
+						<Event name="Opening">ВозвратОплатыДокументОплатыОткрытие</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВозвратОплатыСуммаОплаты" id="44">
+					<DataPath>Объект.ВозвратОплаты.СуммаОплаты</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВозвратОплатыСуммаОплатыКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ВозвратОплатыСуммаОплатыРасширеннаяПодсказка" id="46"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа3" id="70">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="71"/>
+			<ChildItems>
+				<Table name="ПереносОплаты" id="72">
+					<Footer>true</Footer>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>Объект.ПереносОплаты</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПереносОплатыКонтекстноеМеню" id="73"/>
+					<AutoCommandBar name="ПереносОплатыКоманднаяПанель" id="74"/>
+					<ExtendedTooltip name="ПереносОплатыРасширеннаяПодсказка" id="75"/>
+					<SearchStringAddition name="ПереносОплатыСтрокаПоиска" id="76">
+						<AdditionSource>
+							<Item>ПереносОплаты</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПереносОплатыСтрокаПоискаКонтекстноеМеню" id="77"/>
+						<ExtendedTooltip name="ПереносОплатыСтрокаПоискаРасширеннаяПодсказка" id="78"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПереносОплатыСостояниеПросмотра" id="79">
+						<AdditionSource>
+							<Item>ПереносОплаты</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПереносОплатыСостояниеПросмотраКонтекстноеМеню" id="80"/>
+						<ExtendedTooltip name="ПереносОплатыСостояниеПросмотраРасширеннаяПодсказка" id="81"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПереносОплатыУправлениеПоиском" id="82">
+						<AdditionSource>
+							<Item>ПереносОплаты</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПереносОплатыУправлениеПоискомКонтекстноеМеню" id="83"/>
+						<ExtendedTooltip name="ПереносОплатыУправлениеПоискомРасширеннаяПодсказка" id="84"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeDeleteRow">ПереносОплатыПередУдалением</Event>
+						<Event name="OnActivateRow">ПереносОплатыПриАктивизацииСтроки</Event>
+						<Event name="OnChange">ПереносОплатыПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ПереносОплатыКонтрагент" id="88">
+							<DataPath>Объект.ПереносОплаты.Контрагент</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПереносОплатыКонтрагентКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ПереносОплатыКонтрагентРасширеннаяПодсказка" id="90"/>
+						</InputField>
+						<InputField name="ПереносОплатыДоговор" id="91">
+							<DataPath>Объект.ПереносОплаты.Договор</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПереносОплатыДоговорКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ПереносОплатыДоговорРасширеннаяПодсказка" id="93"/>
+						</InputField>
+						<InputField name="ПереносОплатыСуммаОплаты" id="94">
+							<DataPath>Объект.ПереносОплаты.Сумма</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ПереносОплаты.TotalСумма</FooterDataPath>
+							<ContextMenu name="ПереносОплатыСуммаОплатыКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="ПереносОплатыСуммаОплатыРасширеннаяПодсказка" id="96"/>
+							<Events>
+								<Event name="OnChange">ПереносОплатыСуммаОплатыПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<Table name="ДокументыНачисления" id="97">
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>Объект.ДокументыНачисления</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ДокументыНачисленияКонтекстноеМеню" id="98"/>
+					<AutoCommandBar name="ДокументыНачисленияКоманднаяПанель" id="99"/>
+					<ExtendedTooltip name="ДокументыНачисленияРасширеннаяПодсказка" id="100"/>
+					<SearchStringAddition name="ДокументыНачисленияСтрокаПоиска" id="101">
+						<AdditionSource>
+							<Item>ДокументыНачисления</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДокументыНачисленияСтрокаПоискаКонтекстноеМеню" id="102"/>
+						<ExtendedTooltip name="ДокументыНачисленияСтрокаПоискаРасширеннаяПодсказка" id="103"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДокументыНачисленияСостояниеПросмотра" id="104">
+						<AdditionSource>
+							<Item>ДокументыНачисления</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДокументыНачисленияСостояниеПросмотраКонтекстноеМеню" id="105"/>
+						<ExtendedTooltip name="ДокументыНачисленияСостояниеПросмотраРасширеннаяПодсказка" id="106"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДокументыНачисленияУправлениеПоиском" id="107">
+						<AdditionSource>
+							<Item>ДокументыНачисления</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДокументыНачисленияУправлениеПоискомКонтекстноеМеню" id="108"/>
+						<ExtendedTooltip name="ДокументыНачисленияУправлениеПоискомРасширеннаяПодсказка" id="109"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnChange">ДокументыНачисленияПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ДокументыНачисленияПериодНачисления" id="116">
+							<DataPath>Объект.ДокументыНачисления.ПериодНачисления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДокументыНачисленияПериодНачисленияКонтекстноеМеню" id="117"/>
+							<ExtendedTooltip name="ДокументыНачисленияПериодНачисленияРасширеннаяПодсказка" id="118"/>
+						</InputField>
+						<InputField name="ДокументыНачисленияДокументНачисления" id="113">
+							<DataPath>Объект.ДокументыНачисления.ДокументНачисления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДокументыНачисленияДокументНачисленияКонтекстноеМеню" id="114"/>
+							<ExtendedTooltip name="ДокументыНачисленияДокументНачисленияРасширеннаяПодсказка" id="115"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестКорректировкаЗадолженности</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПодобратьДокументОплаты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать документ оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать документ оплаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодобратьДокументОплаты</Action>
+		</Command>
+	</Commands>
+</Form>

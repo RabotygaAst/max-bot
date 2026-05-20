@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Организация" id="40">
+			<DataPath>Объект.Организация</DataPath>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<InputField name="Район" id="43">
+			<DataPath>Объект.Район</DataPath>
+			<ContextMenu name="РайонКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="45"/>
+		</InputField>
+		<InputField name="ВидКонтрагента" id="49">
+			<DataPath>Объект.ВидКонтрагента</DataPath>
+			<ContextMenu name="ВидКонтрагентаКонтекстноеМеню" id="50"/>
+			<ExtendedTooltip name="ВидКонтрагентаРасширеннаяПодсказка" id="51"/>
+		</InputField>
+		<InputField name="КатегорияДебитора" id="46">
+			<DataPath>Объект.КатегорияДебитора</DataPath>
+			<ContextMenu name="КатегорияДебитораКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="КатегорияДебитораРасширеннаяПодсказка" id="48"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="35">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<CheckBoxField name="СхемаОРП" id="29">
+					<DataPath>Объект.СхемаОРП</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СхемаОРПКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СхемаОРПРасширеннаяПодсказка" id="31"/>
+				</CheckBoxField>
+				<CheckBoxField name="Банкротство" id="32">
+					<DataPath>Объект.Банкротство</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="БанкротствоКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="БанкротствоРасширеннаяПодсказка" id="34"/>
+				</CheckBoxField>
+				<CheckBoxField name="СписаниеЗадолженности" id="37">
+					<DataPath>Объект.СписаниеЗадолженности</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СписаниеЗадолженностиКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="СписаниеЗадолженностиРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Этапы" id="7">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Этапы</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЭтапыКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="ЭтапыКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="ЭтапыРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="ЭтапыСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>Этапы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭтапыСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ЭтапыСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЭтапыСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>Этапы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭтапыСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ЭтапыСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЭтапыУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Этапы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭтапыУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ЭтапыУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЭтапыНомерСтроки" id="20">
+					<DataPath>Объект.Этапы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЭтапыНомерСтрокиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ЭтапыНомерСтрокиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<InputField name="ЭтапыЭтап" id="23">
+					<DataPath>Объект.Этапы.Этап</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>ТолькоОРП</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Объект.СхемаОРП</xr:DataPath>
+							<xr:ValueChange>DontChange</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="ЭтапыЭтапКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ЭтапыЭтапРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<CheckBoxField name="ЭтапыНеобязательный" id="26">
+					<DataPath>Объект.Этапы.Необязательный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЭтапыНеобязательныйКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ЭтапыНеобязательныйРасширеннаяПодсказка" id="28"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргСхемыПИД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

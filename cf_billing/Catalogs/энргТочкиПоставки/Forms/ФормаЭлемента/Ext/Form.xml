@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="16">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="18">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<InputField name="СтруктураСети" id="24">
+							<DataPath>Объект.СтруктураСети</DataPath>
+							<ContextMenu name="СтруктураСетиКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="СтруктураСетиРасширеннаяПодсказка" id="26"/>
+						</InputField>
+						<InputField name="КатегорияНадежности" id="36">
+							<DataPath>Объект.КатегорияНадежности</DataPath>
+							<ContextMenu name="КатегорияНадежностиКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="КатегорияНадежностиРасширеннаяПодсказка" id="38"/>
+						</InputField>
+						<InputField name="УровеньНапряжения" id="30">
+							<DataPath>Объект.УровеньНапряжения</DataPath>
+							<ContextMenu name="УровеньНапряженияКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="УровеньНапряженияРасширеннаяПодсказка" id="32"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="20">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="21"/>
+					<ChildItems>
+						<InputField name="Наименование" id="83">
+							<DataPath>Объект.Description</DataPath>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="85"/>
+						</InputField>
+						<InputField name="СетеваяОрганизация" id="27">
+							<DataPath>Объект.СетеваяОрганизация</DataPath>
+							<ContextMenu name="СетеваяОрганизацияКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="СетеваяОрганизацияРасширеннаяПодсказка" id="29"/>
+						</InputField>
+						<InputField name="ПрисоединеннаяМощность" id="10">
+							<DataPath>Объект.ПрисоединеннаяМощность</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПрисоединеннаяМощностьКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПрисоединеннаяМощностьРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="МаксимальнаяМощность" id="7">
+							<DataPath>Объект.МаксимальнаяМощность</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="МаксимальнаяМощностьКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="МаксимальнаяМощностьРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="УровеньНапряженияРасчетный" id="33">
+							<DataPath>Объект.УровеньНапряженияРасчетный</DataPath>
+							<ContextMenu name="УровеньНапряженияРасчетныйКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="УровеньНапряженияРасчетныйРасширеннаяПодсказка" id="35"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Группа4" id="58">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="59"/>
+			<ChildItems>
+				<Page name="Группа5" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договоры технологического присоединения</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<Table name="ДоговорыТехнологическогоПрисоединения" id="39">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ДоговорыТехнологическогоПрисоединения</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДоговорыТехнологическогоПрисоединенияКонтекстноеМеню" id="40"/>
+							<AutoCommandBar name="ДоговорыТехнологическогоПрисоединенияКоманднаяПанель" id="41"/>
+							<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияРасширеннаяПодсказка" id="42"/>
+							<SearchStringAddition name="ДоговорыТехнологическогоПрисоединенияСтрокаПоиска" id="43">
+								<AdditionSource>
+									<Item>ДоговорыТехнологическогоПрисоединения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДоговорыТехнологическогоПрисоединенияСтрокаПоискаКонтекстноеМеню" id="44"/>
+								<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияСтрокаПоискаРасширеннаяПодсказка" id="45"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДоговорыТехнологическогоПрисоединенияСостояниеПросмотра" id="46">
+								<AdditionSource>
+									<Item>ДоговорыТехнологическогоПрисоединения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДоговорыТехнологическогоПрисоединенияСостояниеПросмотраКонтекстноеМеню" id="47"/>
+								<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДоговорыТехнологическогоПрисоединенияУправлениеПоиском" id="49">
+								<AdditionSource>
+									<Item>ДоговорыТехнологическогоПрисоединения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДоговорыТехнологическогоПрисоединенияУправлениеПоискомКонтекстноеМеню" id="50"/>
+								<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияУправлениеПоискомРасширеннаяПодсказка" id="51"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДоговорыТехнологическогоПрисоединенияНомерСтроки" id="52">
+									<DataPath>Объект.ДоговорыТехнологическогоПрисоединения.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДоговорыТехнологическогоПрисоединенияНомерСтрокиКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияНомерСтрокиРасширеннаяПодсказка" id="54"/>
+								</LabelField>
+								<InputField name="ДоговорыТехнологическогоПрисоединенияДоговорТехПрисоединения" id="55">
+									<DataPath>Объект.ДоговорыТехнологическогоПрисоединения.ДоговорТехПрисоединения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДоговорыТехнологическогоПрисоединенияДоговорТехПрисоединенияКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="ДоговорыТехнологическогоПрисоединенияДоговорТехПрисоединенияРасширеннаяПодсказка" id="57"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа6" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Акты технологического присоединения</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<Table name="АктыТехнологическогоПрисоединения" id="64">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.АктыТехнологическогоПрисоединения</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="АктыТехнологическогоПрисоединенияКонтекстноеМеню" id="65"/>
+							<AutoCommandBar name="АктыТехнологическогоПрисоединенияКоманднаяПанель" id="66"/>
+							<ExtendedTooltip name="АктыТехнологическогоПрисоединенияРасширеннаяПодсказка" id="67"/>
+							<SearchStringAddition name="АктыТехнологическогоПрисоединенияСтрокаПоиска" id="68">
+								<AdditionSource>
+									<Item>АктыТехнологическогоПрисоединения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="АктыТехнологическогоПрисоединенияСтрокаПоискаКонтекстноеМеню" id="69"/>
+								<ExtendedTooltip name="АктыТехнологическогоПрисоединенияСтрокаПоискаРасширеннаяПодсказка" id="70"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="АктыТехнологическогоПрисоединенияСостояниеПросмотра" id="71">
+								<AdditionSource>
+									<Item>АктыТехнологическогоПрисоединения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="АктыТехнологическогоПрисоединенияСостояниеПросмотраКонтекстноеМеню" id="72"/>
+								<ExtendedTooltip name="АктыТехнологическогоПрисоединенияСостояниеПросмотраРасширеннаяПодсказка" id="73"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="АктыТехнологическогоПрисоединенияУправлениеПоиском" id="74">
+								<AdditionSource>
+									<Item>АктыТехнологическогоПрисоединения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="АктыТехнологическогоПрисоединенияУправлениеПоискомКонтекстноеМеню" id="75"/>
+								<ExtendedTooltip name="АктыТехнологическогоПрисоединенияУправлениеПоискомРасширеннаяПодсказка" id="76"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="АктыТехнологическогоПрисоединенияНомерСтроки" id="77">
+									<DataPath>Объект.АктыТехнологическогоПрисоединения.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="АктыТехнологическогоПрисоединенияНомерСтрокиКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="АктыТехнологическогоПрисоединенияНомерСтрокиРасширеннаяПодсказка" id="79"/>
+								</LabelField>
+								<InputField name="АктыТехнологическогоПрисоединенияАктТехПрисоединения" id="80">
+									<DataPath>Объект.АктыТехнологическогоПрисоединения.АктТехПрисоединения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Акт</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="АктыТехнологическогоПрисоединенияАктТехПрисоединенияКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="АктыТехнологическогоПрисоединенияАктТехПрисоединенияРасширеннаяПодсказка" id="82"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="ОписаниеТочкиПрисоединения" id="13">
+			<DataPath>Объект.ОписаниеТочкиПрисоединения</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ОписаниеТочкиПрисоединенияКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ОписаниеТочкиПрисоединенияРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<UsualGroup name="ГруппаКонтактнаяИнформация" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа контактная информация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа контактная информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКонтактнаяИнформацияРасширеннаяПодсказка" id="23"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргТочкиПоставки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

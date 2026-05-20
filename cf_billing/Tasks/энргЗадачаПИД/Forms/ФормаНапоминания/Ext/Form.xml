@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandSet>
+		<ExcludedCommand>Activate</ExcludedCommand>
+		<ExcludedCommand>Execute</ExcludedCommand>
+		<ExcludedCommand>ExecuteAndClose</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="10">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="7">
+					<DataPath>Объект.Date</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="12">
+			<DataPath>Объект.Организация</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="14"/>
+		</InputField>
+		<InputField name="Район" id="15">
+			<DataPath>Объект.Район</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="РайонКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="17"/>
+		</InputField>
+		<InputField name="НапоминаниеЗаСколькоДней" id="18">
+			<DataPath>Объект.НапоминаниеЗаСколькоДней</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="НапоминаниеЗаСколькоДнейКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="НапоминаниеЗаСколькоДнейРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<InputField name="ДатаАнализаТекущейЗадолженности" id="21">
+			<DataPath>ДатаАнализаТекущейЗадолженности</DataPath>
+			<ContextMenu name="ДатаАнализаТекущейЗадолженностиКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ДатаАнализаТекущейЗадолженностиРасширеннаяПодсказка" id="23"/>
+			<Events>
+				<Event name="OnChange">ДатаАнализаТекущейЗадолженностиПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Pages name="Группа2" id="52">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<Page name="Группа3" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Фактическая задолженность</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<Table name="ФактическаяЗадолженность" id="24">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ФактическаяЗадолженность</DataPath>
+							<RowPictureDataPath>~ФактическаяЗадолженность.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Фактическая задолженность</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ФактическаяЗадолженностьКонтекстноеМеню" id="25"/>
+							<AutoCommandBar name="ФактическаяЗадолженностьКоманднаяПанель" id="26"/>
+							<ExtendedTooltip name="ФактическаяЗадолженностьРасширеннаяПодсказка" id="27"/>
+							<SearchStringAddition name="ФактическаяЗадолженностьСтрокаПоиска" id="28">
+								<AdditionSource>
+									<Item>ФактическаяЗадолженность</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ФактическаяЗадолженностьСтрокаПоискаКонтекстноеМеню" id="29"/>
+								<ExtendedTooltip name="ФактическаяЗадолженностьСтрокаПоискаРасширеннаяПодсказка" id="30"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ФактическаяЗадолженностьСостояниеПросмотра" id="31">
+								<AdditionSource>
+									<Item>ФактическаяЗадолженность</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ФактическаяЗадолженностьСостояниеПросмотраКонтекстноеМеню" id="32"/>
+								<ExtendedTooltip name="ФактическаяЗадолженностьСостояниеПросмотраРасширеннаяПодсказка" id="33"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ФактическаяЗадолженностьУправлениеПоиском" id="34">
+								<AdditionSource>
+									<Item>ФактическаяЗадолженность</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ФактическаяЗадолженностьУправлениеПоискомКонтекстноеМеню" id="35"/>
+								<ExtendedTooltip name="ФактическаяЗадолженностьУправлениеПоискомРасширеннаяПодсказка" id="36"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ФактическаяЗадолженностьКонтрагент" id="40">
+									<DataPath>ФактическаяЗадолженность.Контрагент</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьКонтрагентКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьКонтрагентРасширеннаяПодсказка" id="42"/>
+								</LabelField>
+								<LabelField name="ФактическаяЗадолженностьДоговор" id="37">
+									<DataPath>ФактическаяЗадолженность.Договор</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьДоговорКонтекстноеМеню" id="38"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьДоговорРасширеннаяПодсказка" id="39"/>
+								</LabelField>
+								<LabelField name="ФактическаяЗадолженностьПериодНачисления" id="43">
+									<DataPath>ФактическаяЗадолженность.ПериодНачисления</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьПериодНачисленияКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьПериодНачисленияРасширеннаяПодсказка" id="45"/>
+								</LabelField>
+								<LabelField name="ФактическаяЗадолженностьПлатежныйДокумент" id="86">
+									<DataPath>ФактическаяЗадолженность.ПлатежныйДокумент</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьПлатежныйДокументКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьПлатежныйДокументРасширеннаяПодсказка" id="88"/>
+								</LabelField>
+								<LabelField name="ФактическаяЗадолженностьСумма" id="49">
+									<DataPath>ФактическаяЗадолженность.Сумма</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьСуммаКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьСуммаРасширеннаяПодсказка" id="51"/>
+								</LabelField>
+								<LabelField name="ФактическаяЗадолженностьСрокОплаты" id="46">
+									<DataPath>ФактическаяЗадолженность.СрокОплаты</DataPath>
+									<ContextMenu name="ФактическаяЗадолженностьСрокОплатыКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ФактическаяЗадолженностьСрокОплатыРасширеннаяПодсказка" id="48"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа4" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Авансовая задолженность</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<Table name="АвансоваяЗадолженность" id="58">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>АвансоваяЗадолженность</DataPath>
+							<RowPictureDataPath>~АвансоваяЗадолженность.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Авансовая задолженность</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="АвансоваяЗадолженностьКонтекстноеМеню" id="59"/>
+							<AutoCommandBar name="АвансоваяЗадолженностьКоманднаяПанель" id="60"/>
+							<ExtendedTooltip name="АвансоваяЗадолженностьРасширеннаяПодсказка" id="61"/>
+							<SearchStringAddition name="АвансоваяЗадолженностьСтрокаПоиска" id="62">
+								<AdditionSource>
+									<Item>АвансоваяЗадолженность</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="АвансоваяЗадолженностьСтрокаПоискаКонтекстноеМеню" id="63"/>
+								<ExtendedTooltip name="АвансоваяЗадолженностьСтрокаПоискаРасширеннаяПодсказка" id="64"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="АвансоваяЗадолженностьСостояниеПросмотра" id="65">
+								<AdditionSource>
+									<Item>АвансоваяЗадолженность</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="АвансоваяЗадолженностьСостояниеПросмотраКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="АвансоваяЗадолженностьСостояниеПросмотраРасширеннаяПодсказка" id="67"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="АвансоваяЗадолженностьУправлениеПоиском" id="68">
+								<AdditionSource>
+									<Item>АвансоваяЗадолженность</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="АвансоваяЗадолженностьУправлениеПоискомКонтекстноеМеню" id="69"/>
+								<ExtendedTooltip name="АвансоваяЗадолженностьУправлениеПоискомРасширеннаяПодсказка" id="70"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="АвансоваяЗадолженностьКонтрагент" id="74">
+									<DataPath>АвансоваяЗадолженность.Контрагент</DataPath>
+									<ContextMenu name="АвансоваяЗадолженностьКонтрагентКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="АвансоваяЗадолженностьКонтрагентРасширеннаяПодсказка" id="76"/>
+								</LabelField>
+								<LabelField name="АвансоваяЗадолженностьДоговор" id="71">
+									<DataPath>АвансоваяЗадолженность.Договор</DataPath>
+									<ContextMenu name="АвансоваяЗадолженностьДоговорКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="АвансоваяЗадолженностьДоговорРасширеннаяПодсказка" id="73"/>
+								</LabelField>
+								<LabelField name="АвансоваяЗадолженностьПлатежныйДокумент" id="89">
+									<DataPath>АвансоваяЗадолженность.ПлатежныйДокумент</DataPath>
+									<ContextMenu name="АвансоваяЗадолженностьПлатежныйДокументКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="АвансоваяЗадолженностьПлатежныйДокументРасширеннаяПодсказка" id="91"/>
+								</LabelField>
+								<LabelField name="АвансоваяЗадолженностьСумма" id="83">
+									<DataPath>АвансоваяЗадолженность.Сумма</DataPath>
+									<ContextMenu name="АвансоваяЗадолженностьСуммаКонтекстноеМеню" id="84"/>
+									<ExtendedTooltip name="АвансоваяЗадолженностьСуммаРасширеннаяПодсказка" id="85"/>
+								</LabelField>
+								<LabelField name="АвансоваяЗадолженностьСрокОплаты" id="80">
+									<DataPath>АвансоваяЗадолженность.СрокОплаты</DataPath>
+									<ContextMenu name="АвансоваяЗадолженностьСрокОплатыКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="АвансоваяЗадолженностьСрокОплатыРасширеннаяПодсказка" id="82"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:TaskObject.энргЗадачаПИД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДатаАнализаТекущейЗадолженности" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата анализа текущей задолженности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФактическаяЗадолженность" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фактическая задолженность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Организация КАК Организация,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Район КАК Район,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Договор КАК Договор,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.СуммаОстаток КАК Сумма,
+	бестПлатежныйДокумент.Дата КАК ДатаВозникновенияЗадолженности,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.ПериодНачисления КАК ПериодНачисления,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.ПлатежныйДокумент КАК ПлатежныйДокумент
+ПОМЕСТИТЬ Задолженность
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоМесяцамЭЭ.Остатки(
+			&amp;Период,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоМесяцамЭЭОстатки
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.бестПлатежныйДокумент КАК бестПлатежныйДокумент
+		ПО бестВзаиморасчетыПоМесяцамЭЭОстатки.ПлатежныйДокумент = бестПлатежныйДокумент.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Организация КАК Организация,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Район КАК Район,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Договор КАК Договор,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.ДеньФормирования КАК ДеньФормирования,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.СрокОплаты КАК СрокОплаты
+ПОМЕСТИТЬ ДеньОплаты
+ИЗ
+	РегистрСведений.бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорам.СрезПоследних(
+			&amp;Период,
+			ТипОплаты = ЗНАЧЕНИЕ(Перечисление.бестВидыРасчета.Фактический)
+				И (Организация, Район, Договор) В
+					(ВЫБРАТЬ
+						Задолженность.Организация КАК Организация,
+						Задолженность.Район КАК Район,
+						Задолженность.Договор КАК Договор
+					ИЗ
+						Задолженность КАК Задолженность)) КАК бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Задолженность.Договор КАК Договор,
+	СУММА(Задолженность.Сумма) КАК Сумма,
+	Задолженность.ПериодНачисления КАК ПериодНачисления,
+	ДеньОплаты.СрокОплаты КАК СрокОплаты,
+	энргДоговорыКонтрагентов.Контрагент КАК Контрагент,
+	Задолженность.ПлатежныйДокумент КАК ПлатежныйДокумент
+ИЗ
+	Задолженность КАК Задолженность
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДеньОплаты КАК ДеньОплаты
+		ПО Задолженность.Организация = ДеньОплаты.Организация
+			И Задолженность.Район = ДеньОплаты.Район
+			И Задолженность.Договор = ДеньОплаты.Договор
+			И (РАЗНОСТЬДАТ(ДОБАВИТЬКДАТЕ(ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(Задолженность.ДатаВозникновенияЗадолженности, МЕСЯЦ), МЕСЯЦ, 1), ДЕНЬ, ДеньОплаты.ДеньФормирования - 1), &amp;Период, ДЕНЬ) &lt; 0)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+		ПО Задолженность.Договор = энргДоговорыКонтрагентов.Ссылка
+
+СГРУППИРОВАТЬ ПО
+	Задолженность.Договор,
+	Задолженность.ПериодНачисления,
+	ДеньОплаты.СрокОплаты,
+	энргДоговорыКонтрагентов.Контрагент,
+	Задолженность.ПлатежныйДокумент</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="АвансоваяЗадолженность" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авансовая задолженность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	бестВзаиморасчетыПоАвансовымСчетам.Договор КАК Договор,
+	энргДоговорыКонтрагентов.Контрагент КАК Контрагент,
+	СУММА(ВЫБОР
+			КОГДА бестВзаиморасчетыПоАвансовымСчетам.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+				ТОГДА бестВзаиморасчетыПоАвансовымСчетам.Сумма
+			ИНАЧЕ -бестВзаиморасчетыПоАвансовымСчетам.Сумма
+		КОНЕЦ) КАК Сумма,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.СрокОплаты КАК СрокОплаты,
+	бестВзаиморасчетыПоАвансовымСчетам.ПлатежныйДокумент КАК ПлатежныйДокумент
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоАвансовымСчетам КАК бестВзаиморасчетыПоАвансовымСчетам
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+		ПО бестВзаиморасчетыПоАвансовымСчетам.Договор = энргДоговорыКонтрагентов.Ссылка
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорам.СрезПоследних(
+				&amp;Период,
+				Организация = &amp;Организация
+					И Район = &amp;Район) КАК бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних
+		ПО бестВзаиморасчетыПоАвансовымСчетам.Организация = бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Организация
+			И бестВзаиморасчетыПоАвансовымСчетам.Район = бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Район
+			И бестВзаиморасчетыПоАвансовымСчетам.Договор = бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.Договор
+			И (бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.ТипОплаты = ЗНАЧЕНИЕ(Перечисление.бестВидыРасчета.авансовый))
+			И (ДЕНЬ(бестВзаиморасчетыПоАвансовымСчетам.ПлатежныйДокумент.Дата) = бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.ДеньФормирования
+				И бестВзаиморасчетыПоАвансовымСчетам.ПлатежныйДокумент.Дата &lt;= &amp;Период)
+ГДЕ
+	бестВзаиморасчетыПоАвансовымСчетам.Организация = &amp;Организация
+	И бестВзаиморасчетыПоАвансовымСчетам.Район = &amp;Район
+	И бестВзаиморасчетыПоАвансовымСчетам.ПериодНачисления = &amp;ПериодНачисления
+
+СГРУППИРОВАТЬ ПО
+	бестВзаиморасчетыПоАвансовымСчетам.Договор,
+	энргДоговорыКонтрагентов.Контрагент,
+	бестНастройкиСроковИПроцентовОплатыПотребленияПоДоговорамСрезПоследних.СрокОплаты,
+	бестВзаиморасчетыПоАвансовымСчетам.ПлатежныйДокумент</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Сумма</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>Task.энргЗадачаПИД.Command.ИсторияПеренаправленийЗадача</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Task.энргЗадачаПИД.Command.ПрисоединенныеФайлыЗадача</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>InformationRegister.энргСобытия.StandardCommand.OpenByValue.Основание</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>InformationRegister.энргСтатусыСудебныхДел.StandardCommand.OpenByValue.СудебноеДело</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+		<CommandBar>
+			<Item>
+				<Command>Document.бестРегистрацияБанкротства.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестРеструктуризацияЗадолженности.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.энргСоглашениеПоРассрочке.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестСписаниеВосстановлениеЗадолженности.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.энргБанкротство.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

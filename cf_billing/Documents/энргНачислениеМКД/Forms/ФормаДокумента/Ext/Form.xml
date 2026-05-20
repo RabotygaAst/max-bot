@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<ChildItemsWidth>Equal</ChildItemsWidth>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>false</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнить" id="73">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Заполнить</CommandName>
+				<Font ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="104"/>
+			</Button>
+			<Popup name="ПодменюСоздатьНаОсновании" id="290">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>Picture</Representation>
+				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="291"/>
+			</Popup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="292">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="293"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="294">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>PictureAndText</Representation>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="295"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="296">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="297"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="298">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="299"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="300">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="301"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+			<Popup name="ПодменюДополнительныхОбработокЗаполнения" id="302">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Заполнение</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные команды заполнения</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюДополнительныхОбработокЗаполненияРасширеннаяПодсказка" id="303"/>
+			</Popup>
+			<Popup name="ПодменюПечать" id="304">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды печати</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="305"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНомерДата" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номер дата</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номер дата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="105"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<Enabled>false</Enabled>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="106"/>
+				</InputField>
+				<InputField name="Дата" id="3">
+					<DataPath>Объект.Date</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>от</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="107"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРайонМКД" id="213">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРайонМКДРасширеннаяПодсказка" id="214"/>
+			<ChildItems>
+				<InputField name="Организация" id="368">
+					<DataPath>Объект.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="369"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="370"/>
+				</InputField>
+				<InputField name="Район" id="207">
+					<DataPath>Объект.Район</DataPath>
+					<ContextMenu name="РайонКонтекстноеМеню" id="208"/>
+					<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="209"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ДвиженияэнргОбъемНачисленийМКД" id="371">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДКонтекстноеМеню" id="372"/>
+			<AutoCommandBar name="ДвиженияэнргОбъемНачисленийМКДКоманднаяПанель" id="373"/>
+			<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДРасширеннаяПодсказка" id="374"/>
+			<SearchStringAddition name="ДвиженияэнргОбъемНачисленийМКДСтрокаПоиска" id="375">
+				<AdditionSource>
+					<Item>ДвиженияэнргОбъемНачисленийМКД</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДСтрокаПоискаКонтекстноеМеню" id="376"/>
+				<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДСтрокаПоискаРасширеннаяПодсказка" id="377"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДвиженияэнргОбъемНачисленийМКДСостояниеПросмотра" id="378">
+				<AdditionSource>
+					<Item>ДвиженияэнргОбъемНачисленийМКД</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДСостояниеПросмотраКонтекстноеМеню" id="379"/>
+				<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДСостояниеПросмотраРасширеннаяПодсказка" id="380"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДвиженияэнргОбъемНачисленийМКДУправлениеПоиском" id="381">
+				<AdditionSource>
+					<Item>ДвиженияэнргОбъемНачисленийМКД</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДУправлениеПоискомКонтекстноеМеню" id="382"/>
+				<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДУправлениеПоискомРасширеннаяПодсказка" id="383"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ДвиженияэнргОбъемНачисленийМКДНомерСтроки" id="384">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДНомерСтрокиКонтекстноеМеню" id="385"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДНомерСтрокиРасширеннаяПодсказка" id="386"/>
+				</LabelField>
+				<InputField name="ДвиженияэнргОбъемНачисленийМКДПериод" id="387">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Period</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПериодКонтекстноеМеню" id="388"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПериодРасширеннаяПодсказка" id="389"/>
+				</InputField>
+				<InputField name="ДвиженияэнргОбъемНачисленийМКДОрганизация" id="390">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Организация</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДОрганизацияКонтекстноеМеню" id="391"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДОрганизацияРасширеннаяПодсказка" id="392"/>
+				</InputField>
+				<InputField name="ДвиженияэнргОбъемНачисленийМКДРайон" id="393">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Район</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДРайонКонтекстноеМеню" id="394"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДРайонРасширеннаяПодсказка" id="395"/>
+				</InputField>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа4" id="447">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа4РасширеннаяПодсказка" id="448"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДМКД" id="396">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.МКД</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДМКДКонтекстноеМеню" id="397"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДМКДРасширеннаяПодсказка" id="398"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа1" id="441">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа1РасширеннаяПодсказка" id="442"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДТочкаУчета" id="402">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ТочкаУчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДТочкаУчетаКонтекстноеМеню" id="403"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДТочкаУчетаРасширеннаяПодсказка" id="404"/>
+						</InputField>
+						<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа12" id="487">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа12РасширеннаяПодсказка" id="488"/>
+							<ChildItems>
+								<InputField name="ДвиженияэнргОбъемНачисленийМКДУслуга" id="399">
+									<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДУслугаКонтекстноеМеню" id="400"/>
+									<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДУслугаРасширеннаяПодсказка" id="401"/>
+								</InputField>
+								<LabelField name="ДвиженияэнргОбъемНачисленийМКДУслугаЕдиницаИзмерения" id="489">
+									<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Услуга.ЕдиницаИзмерения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>8</MaxWidth>
+									<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДУслугаЕдиницаИзмеренияКонтекстноеМеню" id="490"/>
+									<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДУслугаЕдиницаИзмеренияРасширеннаяПодсказка" id="491"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДПриборУчета" id="411">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ПриборУчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПриборУчетаКонтекстноеМеню" id="412"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПриборУчетаРасширеннаяПодсказка" id="413"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа2" id="443">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа2РасширеннаяПодсказка" id="444"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДПоставщик" id="417">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Поставщик</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПоставщикКонтекстноеМеню" id="418"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПоставщикРасширеннаяПодсказка" id="419"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДВидНачисления" id="405">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ВидНачисления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДВидНачисленияКонтекстноеМеню" id="406"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДВидНачисленияРасширеннаяПодсказка" id="407"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДСпособНачисления" id="408">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.СпособНачисления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДСпособНачисленияКонтекстноеМеню" id="409"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДСпособНачисленияРасширеннаяПодсказка" id="410"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа3" id="445">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа3РасширеннаяПодсказка" id="446"/>
+					<ChildItems>
+						<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа10" id="477">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа10РасширеннаяПодсказка" id="478"/>
+							<ChildItems>
+								<InputField name="ДвиженияэнргОбъемНачисленийМКДШкала" id="458">
+									<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Шкала</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДШкалаКонтекстноеМеню" id="459"/>
+									<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДШкалаРасширеннаяПодсказка" id="460"/>
+								</InputField>
+								<LabelField name="ДвиженияэнргОбъемНачисленийМКДШкалаЕдиницаИзмерения" id="479">
+									<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.Шкала.ЕдиницаИзмерения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>8</MaxWidth>
+									<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДШкалаЕдиницаИзмеренияКонтекстноеМеню" id="480"/>
+									<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДШкалаЕдиницаИзмеренияРасширеннаяПодсказка" id="481"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа11" id="485">
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа11РасширеннаяПодсказка" id="486"/>
+							<ChildItems>
+								<InputField name="ДвиженияэнргОбъемНачисленийМКДТарифнаяЗона" id="414">
+									<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ТарифнаяЗона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДТарифнаяЗонаКонтекстноеМеню" id="415"/>
+									<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДТарифнаяЗонаРасширеннаяПодсказка" id="416"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДНазначениеПрибораУчета" id="500">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.НазначениеПрибораУчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДНазначениеПрибораУчетаКонтекстноеМеню" id="501"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДНазначениеПрибораУчетаРасширеннаяПодсказка" id="502"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ДвиженияэнргОбъемНачисленийМКДПериодРасчета" id="420">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ПериодРасчета</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПериодРасчетаКонтекстноеМеню" id="421"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПериодРасчетаРасширеннаяПодсказка" id="422"/>
+				</InputField>
+				<InputField name="ДвиженияэнргОбъемНачисленийМКДПериодНачисления" id="423">
+					<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ПериодНачисления</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПериодНачисленияКонтекстноеМеню" id="424"/>
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПериодНачисленияРасширеннаяПодсказка" id="425"/>
+				</InputField>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа7" id="456">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа7РасширеннаяПодсказка" id="457"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДОбъемУслуги" id="426">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ОбъемУслуги</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДОбъемУслугиКонтекстноеМеню" id="427"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДОбъемУслугиРасширеннаяПодсказка" id="428"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДНачалоПериода" id="429">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.НачалоПериода</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДНачалоПериодаКонтекстноеМеню" id="430"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДНачалоПериодаРасширеннаяПодсказка" id="431"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДКоэффициентПУ" id="503">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.КоэффициентПУ</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДКоэффициентПУКонтекстноеМеню" id="504"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДКоэффициентПУРасширеннаяПодсказка" id="505"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа5" id="449">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа5РасширеннаяПодсказка" id="450"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДОбъемКРаспределению" id="453">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ОбъемУслугиПотребленный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДОбъемКРаспределениюКонтекстноеМеню" id="454"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДОбъемКРаспределениюРасширеннаяПодсказка" id="455"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДОбъемУслугиОДНСверхнорматива" id="497">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ОбъемУслугиНорматив</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДОбъемУслугиОДНСверхнормативаКонтекстноеМеню" id="498"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДОбъемУслугиОДНСверхнормативаРасширеннаяПодсказка" id="499"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДКонецПериода" id="432">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.КонецПериода</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДКонецПериодаКонтекстноеМеню" id="433"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДКонецПериодаРасширеннаяПодсказка" id="434"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа6" id="451">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа6РасширеннаяПодсказка" id="452"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДНачальныеПоказания" id="435">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.НачальныеПоказания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДНачальныеПоказанияКонтекстноеМеню" id="436"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДНачальныеПоказанияРасширеннаяПодсказка" id="437"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДКонечныеПоказания" id="438">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.КонечныеПоказания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДКонечныеПоказанияКонтекстноеМеню" id="439"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДКонечныеПоказанияРасширеннаяПодсказка" id="440"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа8" id="461">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа8РасширеннаяПодсказка" id="462"/>
+					<ChildItems>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДЗначениеПлощади" id="463">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ЗначениеПлощади</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДЗначениеПлощадиКонтекстноеМеню" id="464"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДЗначениеПлощадиРасширеннаяПодсказка" id="465"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДНормаПотребления" id="466">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.НормаПотребления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДНормаПотребленияКонтекстноеМеню" id="467"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДНормаПотребленияРасширеннаяПодсказка" id="468"/>
+						</InputField>
+						<InputField name="ДвиженияэнргОбъемНачисленийМКДВидБлагоустройства" id="469">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ВидБлагоустройства</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДВидБлагоустройстваКонтекстноеМеню" id="470"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДВидБлагоустройстваРасширеннаяПодсказка" id="471"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДвиженияэнргОбъемНачисленийМКДГруппа9" id="472">
+					<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДГруппа9РасширеннаяПодсказка" id="473"/>
+					<ChildItems>
+						<CheckBoxField name="ДвиженияэнргОбъемНачисленийМКДПривязанаКШкале" id="474">
+							<DataPath>Объект.RegisterRecords.энргОбъемНачисленийМКД.ПривязанаКШкале</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ДвиженияэнргОбъемНачисленийМКДПривязанаКШкалеКонтекстноеМеню" id="475"/>
+							<ExtendedTooltip name="ДвиженияэнргОбъемНачисленийМКДПривязанаКШкалеРасширеннаяПодсказка" id="476"/>
+						</CheckBoxField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="287">
+			<DataPath>Объект.Примечание</DataPath>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="288"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="289"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="492">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="493"/>
+			<ChildItems>
+				<LabelField name="Ответственный" id="284">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="285"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="286"/>
+				</LabelField>
+				<LabelField name="ДатаПоследнегоИзменения" id="494">
+					<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+					<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="495"/>
+					<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="496"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.энргНачислениеМКД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТочкиУчетаМКДУслуга</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТочкиУчетаМКДСпособНачисления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТочкиУчетаМКДКРаспределению</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УдалитьТочкиУчетаМКД.КРаспределению</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Заполнить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>AccumulationRegister.энргВзаиморасчеты.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.энргОбъемНачислений.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.энргОбъемПотребленияНежилыхПомещений.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.энргНачисленныйСреднийОбъемМКД.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.энргКорректировкиПотребленияАбонентовДляОДН.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:423859bb-2448-4374-86ce-c54b89167f38</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>3:67396e75-7f80-4014-baee-ffc7a147816b</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>3:045b1882-5dac-4376-8d50-81a1caea8304</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>InformationRegister.энргВзаиморасчетыПоследовательность.StandardCommand.OpenByValue.ДокРегистратор</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

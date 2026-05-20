@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПродолжительностьРаботыСЗаявкой</dataPath>
+			<field>ПродолжительностьРаботыСЗаявкой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжительность работы с заявкой</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияРаботыСЗаявкой</dataPath>
+			<field>ДатаОкончанияРаботыСЗаявкой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания работы с заявкой</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перенаправил</dataPath>
+			<field>Перенаправил</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направил</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НовыйИсполнитель</dataPath>
+			<field>НовыйИсполнитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнитель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Задача</dataPath>
+			<field>Задача</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задача</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Абонент</dataPath>
+			<field>Абонент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаРаботыСЗаявкой</dataPath>
+			<field>ДатаНачалаРаботыСЗаявкой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала работы с заявкой</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	энргЗадачаПИД.Дата КАК Дата,
+	энргЗадачаПИД.Абонент КАК Абонент,
+	энргЗадачаПИД.Исполнитель КАК Ответственный,
+	энргЗадачаПИД.Ссылка КАК Задача,
+	энргЗадачаПИД.ДатаВыполнения КАК ДатаВыполнения,
+	энргЗадачаПИД.Выполнена КАК Выполнена
+ПОМЕСТИТЬ ВТ_ТекущиеОтветственные
+ИЗ
+	Задача.энргЗадачаПИД КАК энргЗадачаПИД
+ГДЕ
+	НЕ энргЗадачаПИД.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргЗадачаПИДИсторияПеренаправленийЗадачи.НомерСтроки КАК НомерСтроки,
+	энргЗадачаПИДИсторияПеренаправленийЗадачи.НовыйИсполнитель КАК НовыйИсполнитель,
+	энргЗадачаПИДИсторияПеренаправленийЗадачи.Перенаправил КАК Перенаправил,
+	энргЗадачаПИДИсторияПеренаправленийЗадачи.ДатаПеренаправления КАК ДатаПеренаправления,
+	ВТ_ТекущиеОтветственные.Задача КАК Задача,
+	ВТ_ТекущиеОтветственные.Дата КАК Дата,
+	ВТ_ТекущиеОтветственные.Абонент КАК Абонент,
+	ВТ_ТекущиеОтветственные.ДатаВыполнения КАК ДатаВыполнения
+ПОМЕСТИТЬ ВТ_Перенаправления
+ИЗ
+	ВТ_ТекущиеОтветственные КАК ВТ_ТекущиеОтветственные
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Задача.энргЗадачаПИД.ИсторияПеренаправленийЗадачи КАК энргЗадачаПИДИсторияПеренаправленийЗадачи
+		ПО ВТ_ТекущиеОтветственные.Задача = энргЗадачаПИДИсторияПеренаправленийЗадачи.Ссылка
+ГДЕ
+	энргЗадачаПИДИсторияПеренаправленийЗадачи.ДатаПеренаправления &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(ВТ_Перенаправления.НомерСтроки) КАК НомерСтроки,
+	ВТ_Перенаправления.Задача КАК Задача
+ПОМЕСТИТЬ ВТ_СтрокаПоследПеренаправления
+ИЗ
+	ВТ_Перенаправления КАК ВТ_Перенаправления
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Перенаправления.Задача
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Перенаправления.Перенаправил КАК Перенаправил,
+	ВТ_Перенаправления.ДатаПеренаправления КАК ДатаОкончанияРаботыСЗаявкой,
+	ВТ_Перенаправления1.НовыйИсполнитель КАК НовыйИсполнитель,
+	ВТ_Перенаправления.Задача КАК Задача,
+	ВТ_Перенаправления.Абонент КАК Абонент,
+	ВЫБОР
+		КОГДА НЕ ВТ_Перенаправления1.ДатаПеренаправления ЕСТЬ NULL
+			ТОГДА РАЗНОСТЬДАТ(ВТ_Перенаправления1.ДатаПеренаправления, ВТ_Перенаправления.ДатаПеренаправления, ДЕНЬ)
+		КОГДА ВТ_Перенаправления.Дата &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ТОГДА РАЗНОСТЬДАТ(ВТ_Перенаправления.Дата, ВТ_Перенаправления.ДатаПеренаправления, ДЕНЬ)
+		ИНАЧЕ NULL
+	КОНЕЦ КАК ПродолжительностьРаботыСЗаявкой,
+	ВЫБОР
+		КОГДА НЕ ВТ_Перенаправления1.ДатаПеренаправления ЕСТЬ NULL
+			ТОГДА ВТ_Перенаправления1.ДатаПеренаправления
+		КОГДА ВТ_Перенаправления.Дата &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ТОГДА ВТ_Перенаправления.Дата
+		ИНАЧЕ NULL
+	КОНЕЦ КАК ДатаНачалаРаботыСЗаявкой
+ИЗ
+	ВТ_Перенаправления КАК ВТ_Перенаправления
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Перенаправления КАК ВТ_Перенаправления1
+		ПО ВТ_Перенаправления.Задача = ВТ_Перенаправления1.Задача
+			И (ВТ_Перенаправления.НомерСтроки = ВТ_Перенаправления1.НомерСтроки + 1)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_Перенаправления.Перенаправил,
+	ВЫБОР
+		КОГДА ВТ_ТекущиеОтветственные.Выполнена
+				И ВТ_ТекущиеОтветственные.ДатаВыполнения &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ТОГДА ВТ_ТекущиеОтветственные.ДатаВыполнения
+		ИНАЧЕ NULL
+	КОНЕЦ,
+	ВТ_ТекущиеОтветственные.Ответственный,
+	ВТ_ТекущиеОтветственные.Задача,
+	ВТ_ТекущиеОтветственные.Абонент,
+	ВЫБОР
+		КОГДА ВТ_ТекущиеОтветственные.Выполнена
+				И ВТ_ТекущиеОтветственные.ДатаВыполнения &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ТОГДА РАЗНОСТЬДАТ(ЕСТЬNULL(ВТ_Перенаправления.ДатаПеренаправления, ВТ_ТекущиеОтветственные.Дата), ВТ_ТекущиеОтветственные.ДатаВыполнения, ДЕНЬ)
+		ИНАЧЕ NULL
+	КОНЕЦ,
+	ЕСТЬNULL(ВТ_Перенаправления.ДатаПеренаправления, ВТ_ТекущиеОтветственные.Дата)
+ИЗ
+	ВТ_ТекущиеОтветственные КАК ВТ_ТекущиеОтветственные
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_СтрокаПоследПеренаправления КАК ВТ_СтрокаПоследПеренаправления
+		ПО ВТ_ТекущиеОтветственные.Задача = ВТ_СтрокаПоследПеренаправления.Задача
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Перенаправления КАК ВТ_Перенаправления
+		ПО ВТ_ТекущиеОтветственные.Задача = ВТ_Перенаправления.Задача
+			И (ВТ_СтрокаПоследПеренаправления.НомерСтроки = ВТ_Перенаправления.НомерСтроки)</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Перенаправил</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НовыйИсполнитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачалаРаботыСЗаявкой</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияРаботыСЗаявкой</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПродолжительностьРаботыСЗаявкой</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Задача</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Абонент</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Абонент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>16195959-1e60-4576-a242-ca8c26f913f7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Перенаправил</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>490316f0-4e24-42d7-aa42-786a2e0f2b02</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДатаНачалаРаботыСЗаявкой</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ДатаОкончанияРаботыСЗаявкой</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=dd.MM.yyyy</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

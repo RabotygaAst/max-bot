@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Абонент</dataPath>
+			<field>Абонент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЛСОтключениеУслуги</dataPath>
+			<field>КоличествоЛСОтключениеУслуги</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ЛСОтключение услуги</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипПомещения</dataPath>
+			<field>ТипПомещения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРассчитанныхЛС</dataPath>
+			<field>КоличествоРассчитанныхЛС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество рассчитанных ЛС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЛСОРП</dataPath>
+			<field>КоличествоЛСОРП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ЛСОРП</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЛСДоТП</dataPath>
+			<field>КоличествоЛСДоТП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ЛСДо ТП</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЛСОтсутствие</dataPath>
+			<field>КоличествоЛСОтсутствие</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ЛСОтсутствие</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЛСДоНачалаРасчета</dataPath>
+			<field>КоличествоЛСДоНачалаРасчета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ЛСДо начала расчета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНерассчитанныхЛС</dataPath>
+			<field>КоличествоНерассчитанныхЛС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество нерассчитанных ЛС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАктивных</dataPath>
+			<field>КоличествоАктивных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество активных</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	энргАбоненты.Ссылка КАК Абонент,
+	энргСтроения.ТипСтроения КАК ТипПомещения,
+	энргАбоненты.КлючПомещения КАК КлючПомещения,
+	энргКлючиПомещений.Строение КАК Строение,
+	энргКлючиПомещений.Помещение КАК Помещение
+ПОМЕСТИТЬ ВТ_Абоненты
+ИЗ
+	Справочник.энргАбоненты КАК энргАбоненты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргКлючиПомещений КАК энргКлючиПомещений
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргСтроения КАК энргСтроения
+			ПО энргКлючиПомещений.Строение = энргСтроения.Ссылка
+		ПО энргАбоненты.КлючПомещения = энргКлючиПомещений.Ссылка
+ГДЕ
+	НЕ энргАбоненты.ПометкаУдаления
+	И энргАбоненты.Район = &amp;Район
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Абоненты.ТипПомещения КАК ТипПомещения,
+	ВТ_Абоненты.Абонент КАК Абонент,
+	ВТ_Абоненты.КлючПомещения КАК КлючПомещения,
+	ВТ_Абоненты.Строение КАК Строение,
+	ВТ_Абоненты.Помещение КАК Помещение
+ПОМЕСТИТЬ ВТ_АктивныеЛС
+ИЗ
+	ВТ_Абоненты КАК ВТ_Абоненты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.энргСостояниеЛС.СрезПоследних(
+				&amp;ПериодОтчета,
+				Район = &amp;Район
+					И Состояние = ИСТИНА) КАК энргСостояниеЛССрезПоследних
+		ПО ВТ_Абоненты.Абонент = энргСостояниеЛССрезПоследних.Абонент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Абоненты.ТипПомещения КАК ТипПомещения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ энргОбъемНачислений.Абонент) КАК Абонент
+ПОМЕСТИТЬ ВТ_РассчитанныеАбоненты
+ИЗ
+	РегистрНакопления.энргОбъемНачислений КАК энргОбъемНачислений
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Абоненты КАК ВТ_Абоненты
+		ПО (энргОбъемНачислений.Район = &amp;Район)
+			И (энргОбъемНачислений.ПериодНачисления МЕЖДУ &amp;НачалоРасчетногоПериода И &amp;КонецРасчетногоПериода)
+			И энргОбъемНачислений.Абонент = ВТ_Абоненты.Абонент
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Абоненты.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_АктивныеЛС.Абонент) КАК Абонент,
+	ВТ_АктивныеЛС.ТипПомещения КАК ТипПомещения
+ПОМЕСТИТЬ ВТ_НерассчитанныеДоТП
+ИЗ
+	ВТ_АктивныеЛС КАК ВТ_АктивныеЛС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.энргДоговорыАбонентов.СрезПоследних(&amp;ПериодОтчета, ) КАК энргДоговорыАбонентовСрезПоследних
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+			ПО энргДоговорыАбонентовСрезПоследних.Договор = энргДоговорыКонтрагентов.Ссылка
+		ПО ВТ_АктивныеЛС.Абонент = энргДоговорыАбонентовСрезПоследних.Абонент
+ГДЕ
+	энргДоговорыКонтрагентов.Статус = ЗНАЧЕНИЕ(Перечисление.бестСтатусыДоговоровКонтрагентов.ЗаключенДоТП)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АктивныеЛС.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Абоненты.Абонент) КАК Абонент,
+	ВТ_Абоненты.ТипПомещения КАК ТипПомещения
+ПОМЕСТИТЬ ВТ_НерассчитанныеДоНачалаРасчета
+ИЗ
+	Документ.энргОперацияСЛицевымСчетом КАК энргОперацияСЛицевымСчетом
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Абоненты КАК ВТ_Абоненты
+		ПО энргОперацияСЛицевымСчетом.Абонент = ВТ_Абоненты.Абонент
+			И энргОперацияСЛицевымСчетом.КлючПомещения = ВТ_Абоненты.КлючПомещения
+			И (энргОперацияСЛицевымСчетом.ВидОперации = ЗНАЧЕНИЕ(Перечисление.энргВидыОпераций.энргОперацияСЛС_ОткрытиеЛС))
+			И (энргОперацияСЛицевымСчетом.Проведен)
+			И (энргОперацияСЛицевымСчетом.ДатаФактическогоСобытия &lt;&gt; ДАТАВРЕМЯ(1, 1, 1))
+			И (энргОперацияСЛицевымСчетом.ДатаФактическогоСобытия &gt; &amp;ПериодОтчета)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Абоненты.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АктивныеЛС.ТипПомещения КАК ТипПомещения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_АктивныеЛС.Абонент) КАК Абонент
+ПОМЕСТИТЬ ВТ_НерассчитанныеОРП
+ИЗ
+	ВТ_АктивныеЛС КАК ВТ_АктивныеЛС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.энргОперацияСУслугами КАК энргОперацияСУслугами
+		ПО ВТ_АктивныеЛС.Абонент = энргОперацияСУслугами.Абонент
+			И ВТ_АктивныеЛС.КлючПомещения = энргОперацияСУслугами.КлючПомещения
+			И (энргОперацияСУслугами.Проведен)
+			И (энргОперацияСУслугами.ВидОперации = ЗНАЧЕНИЕ(Перечисление.энргВидыОпераций.энргОперацияСУслугами_ОграничениеРежимаПотребления))
+			И (энргОперацияСУслугами.Дата &lt; &amp;ПериодОтчета)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АктивныеЛС.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АктивныеЛС.ТипПомещения КАК ТипПомещения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_АктивныеЛС.Абонент) КАК Абонент
+ПОМЕСТИТЬ ВТ_НерассчитанныеОтсутствие
+ИЗ
+	ВТ_АктивныеЛС КАК ВТ_АктивныеЛС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.энргРегистрацияВременногоОтсутствия КАК энргРегистрацияВременногоОтсутствия
+		ПО ВТ_АктивныеЛС.Абонент = энргРегистрацияВременногоОтсутствия.Абонент
+			И (энргРегистрацияВременногоОтсутствия.Проведен)
+ГДЕ
+	НАЧАЛОПЕРИОДА(энргРегистрацияВременногоОтсутствия.ПериодС, ДЕНЬ) &lt;= НАЧАЛОПЕРИОДА(&amp;НачалоРасчетногоПериода, ДЕНЬ)
+	И КОНЕЦПЕРИОДА(энргРегистрацияВременногоОтсутствия.ПериодПо, ДЕНЬ) &gt;= КОНЕЦПЕРИОДА(&amp;КонецРасчетногоПериода, ДЕНЬ)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АктивныеЛС.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Абоненты.ТипПомещения КАК ТипПомещения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Абоненты.Абонент) КАК Абонент
+ПОМЕСТИТЬ ВТ_НерассчитанныеОтключениеУслуги
+ИЗ
+	ВТ_Абоненты КАК ВТ_Абоненты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.энргОперацияСУслугами КАК энргОперацияСУслугами
+		ПО ВТ_Абоненты.Абонент = энргОперацияСУслугами.Абонент
+			И ВТ_Абоненты.КлючПомещения = энргОперацияСУслугами.КлючПомещения
+			И (энргОперацияСУслугами.Проведен)
+			И (энргОперацияСУслугами.ВидОперации = ЗНАЧЕНИЕ(Перечисление.энргВидыОпераций.энргОперацияСУслугами_ОтключениеУслуги))
+			И (энргОперацияСУслугами.Дата &lt; &amp;ПериодОтчета)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Абоненты.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Абоненты.ТипПомещения КАК ТипПомещения
+ПОМЕСТИТЬ ВТ_Помещения
+ИЗ
+	ВТ_Абоненты КАК ВТ_Абоненты
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Абоненты.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АктивныеЛС.ТипПомещения КАК ТипПомещения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_АктивныеЛС.Абонент) КАК Абонент
+ПОМЕСТИТЬ ВТ_АктивныеАбонентыКоличество
+ИЗ
+	ВТ_АктивныеЛС КАК ВТ_АктивныеЛС
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АктивныеЛС.ТипПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Помещения.ТипПомещения КАК ТипПомещения,
+	ВТ_АктивныеАбонентыКоличество.Абонент КАК КоличествоАктивных,
+	ЕСТЬNULL(ВТ_РассчитанныеАбоненты.Абонент, 0) КАК КоличествоРассчитанныхЛС,
+	ЕСТЬNULL(ВТ_НерассчитанныеДоТП.Абонент, 0) КАК КоличествоЛСДоТП,
+	ЕСТЬNULL(ВТ_НерассчитанныеОРП.Абонент, 0) КАК КоличествоЛСОРП,
+	ЕСТЬNULL(ВТ_НерассчитанныеОтключениеУслуги.Абонент, 0) КАК КоличествоЛСОтключениеУслуги,
+	ЕСТЬNULL(ВТ_НерассчитанныеОтсутствие.Абонент, 0) КАК КоличествоЛСОтсутствие,
+	ЕСТЬNULL(ВТ_НерассчитанныеДоНачалаРасчета.Абонент, 0) КАК КоличествоЛСДоНачалаРасчета,
+	ЕСТЬNULL(ВТ_НерассчитанныеДоТП.Абонент, 0) + ЕСТЬNULL(ВТ_НерассчитанныеОРП.Абонент, 0) + ЕСТЬNULL(ВТ_НерассчитанныеОтключениеУслуги.Абонент, 0) + ЕСТЬNULL(ВТ_НерассчитанныеОтсутствие.Абонент, 0) + ЕСТЬNULL(ВТ_НерассчитанныеДоНачалаРасчета.Абонент, 0) КАК КоличествоНерассчитанныхЛС
+ИЗ
+	ВТ_Помещения КАК ВТ_Помещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АктивныеАбонентыКоличество КАК ВТ_АктивныеАбонентыКоличество
+		ПО ВТ_Помещения.ТипПомещения = ВТ_АктивныеАбонентыКоличество.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_РассчитанныеАбоненты КАК ВТ_РассчитанныеАбоненты
+		ПО ВТ_Помещения.ТипПомещения = ВТ_РассчитанныеАбоненты.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НерассчитанныеДоТП КАК ВТ_НерассчитанныеДоТП
+		ПО ВТ_Помещения.ТипПомещения = ВТ_НерассчитанныеДоТП.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НерассчитанныеДоНачалаРасчета КАК ВТ_НерассчитанныеДоНачалаРасчета
+		ПО ВТ_Помещения.ТипПомещения = ВТ_НерассчитанныеДоНачалаРасчета.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НерассчитанныеОРП КАК ВТ_НерассчитанныеОРП
+		ПО ВТ_Помещения.ТипПомещения = ВТ_НерассчитанныеОРП.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НерассчитанныеОтсутствие КАК ВТ_НерассчитанныеОтсутствие
+		ПО ВТ_Помещения.ТипПомещения = ВТ_НерассчитанныеОтсутствие.ТипПомещения
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НерассчитанныеОтключениеУслуги КАК ВТ_НерассчитанныеОтключениеУслуги
+		ПО ВТ_Помещения.ТипПомещения = ВТ_НерассчитанныеОтключениеУслуги.ТипПомещения</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоЛСДоНачалаРасчета</dataPath>
+		<expression>Сумма(КоличествоЛСДоНачалаРасчета)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЛСДоТП</dataPath>
+		<expression>Сумма(КоличествоЛСДоТП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЛСОРП</dataPath>
+		<expression>Сумма(КоличествоЛСОРП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЛСОтключениеУслуги</dataPath>
+		<expression>Сумма(КоличествоЛСОтключениеУслуги)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЛСОтсутствие</dataPath>
+		<expression>Сумма(КоличествоЛСОтсутствие)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРассчитанныхЛС</dataPath>
+		<expression>Сумма(КоличествоРассчитанныхЛС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНерассчитанныхЛС</dataPath>
+		<expression>Сумма(КоличествоНерассчитанныхЛС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоАктивных</dataPath>
+		<expression>Сумма(КоличествоАктивных)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Район</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Район</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргЗоныОтвественности</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецРасчетногоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец расчетного периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоРасчетногоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало расчетного периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сводная информация о количестве лицевых счетов</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Районное отделение - </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Район</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> Дата - </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПериодОтчета</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Район</dcsat:name>
+			<dcsat:expression>Представление(ПараметрыДанных.Район)</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПериодОтчета</dcsat:name>
+			<dcsat:expression>Формат(ПараметрыДанных.ПериодОтчета,"ДФ=dd.MM.yyyy")</dcsat:expression>
+		</parameter>
+	</template>
+	<groupTemplate>
+		<groupName>Заголовок</groupName>
+		<templateType>Header</templateType>
+		<template>Макет1</template>
+	</groupTemplate>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипПомещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоАктивных</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активные л/с</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРассчитанныхЛС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рассчитанные в текущем периоде</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нерассчитанные в текущем периоде</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЛСДоТП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>до тех.присоединения</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЛСДоНачалаРасчета</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>до начала расчета</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЛСОРП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ограничение режима потребления</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЛСОтключениеУслуги</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>услуга отключена</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЛСОтсутствие</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>период отсутствия</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоНерассчитанныхЛС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего нерассчитанные л/с</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Район</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>b9a85983-09e4-48f6-8f9b-376b0748b736</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>8f3dc63f-0d8b-4bc3-9bbe-ba8a229c0dbe</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТипЗаголовкаПолей</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionFieldsTitleType">Full</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Заголовок</dcsset:name>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="8" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВариантИспользованияГруппировки</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupUseVariant">AdditionalInformation</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТипПомещения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоАктивных</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Активные л/с</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоРассчитанныхЛС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рассчитанные в текущем периоде</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Нерассчитанные в текущем периоде</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоЛСДоТП</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>до тех.присоединения</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоЛСДоНачалаРасчета</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>до начала расчета</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоЛСОРП</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ограничение режима потребления</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоЛСОтключениеУслуги</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>услуга отключена</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоЛСОтсутствие</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>период отсутствия</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоНерассчитанныхЛС</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Всего нерассчитанные л/с</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>слжРазделительДляТестов</dataPath>
+			<field>слжРазделительДляТестов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлатежныйДокумент</dataPath>
+			<field>ПлатежныйДокумент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНачисления</dataPath>
+			<field>ПериодНачисления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВозникновенияЗадолженности</dataPath>
+			<field>ДатаВозникновенияЗадолженности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата возникновения задолженности</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>До45</dataPath>
+			<field>До45</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>До45</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От45До90</dataPath>
+			<field>От45До90</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От45 до90</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От90ДоГода</dataPath>
+			<field>От90ДоГода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От90 до года</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьВсего</dataPath>
+			<field>ЗадолженностьВсего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность всего</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьПодтвержденная</dataPath>
+			<field>ЗадолженностьПодтвержденная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность подтвержденная</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БолееГода</dataPath>
+			<field>БолееГода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Более года</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеПотребителя</dataPath>
+			<field>НаименованиеПотребителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование потребителя</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерДоговора</dataPath>
+			<field>НомерДоговора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер договора</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>До45Рестр</dataPath>
+			<field>До45Рестр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>До45 рестр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От45До90Рестр</dataPath>
+			<field>От45До90Рестр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От45 до90 рестр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От90ДоГодаРестр</dataPath>
+			<field>От90ДоГодаРестр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От90 до года рестр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БолееГодаРестр</dataPath>
+			<field>БолееГодаРестр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Более года рестр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>До45Оплата</dataPath>
+			<field>До45Оплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>До45 оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От45До90Оплата</dataPath>
+			<field>От45До90Оплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От45 до90 оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>От90ДоГодаОплата</dataPath>
+			<field>От90ДоГодаОплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От90 до года оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БолееГодаОплата</dataPath>
+			<field>БолееГодаОплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Более года оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС20</dataPath>
+			<field>СуммаНДС20</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС20</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИНН</dataPath>
+			<field>ИНН</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС18</dataPath>
+			<field>СуммаНДС18</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС18</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БухСчета</dataPath>
+			<field>БухСчета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бух счета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьНеподтвержденная</dataPath>
+			<field>ЗадолженностьНеподтвержденная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность неподтвержденная</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПризнакКонтрагента</dataPath>
+			<field>ПризнакКонтрагента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Признак контрагента</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Организация КАК Организация,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Район КАК Район,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.Договор КАК Договор,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.СуммаОстаток КАК Сумма,
+	РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(бестПлатежныйДокумент.Дата, ДЕНЬ), &amp;Период, ДЕНЬ) КАК КолвоДнейЗадолженности,
+	бестПлатежныйДокумент.Дата КАК ДатаВозникновенияЗадолженности,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.СуммаНДСОстаток КАК СуммаНДСОстаток,
+	бестВзаиморасчетыПоМесяцамЭЭОстатки.ПлатежныйДокумент КАК ПлатежныйДокумент
+ПОМЕСТИТЬ Задолженность
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоМесяцамЭЭ.Остатки(
+			&amp;Период,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоМесяцамЭЭОстатки
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+		ПО бестВзаиморасчетыПоМесяцамЭЭОстатки.Договор = энргДоговорыКонтрагентов.Ссылка
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.бестПлатежныйДокумент КАК бестПлатежныйДокумент
+		ПО бестВзаиморасчетыПоМесяцамЭЭОстатки.ПлатежныйДокумент = бестПлатежныйДокумент.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестВзаиморасчетыПоМесяцамЭЭОбороты.СуммаРасход КАК СуммаРасход,
+	бестВзаиморасчетыПоМесяцамЭЭОбороты.Организация КАК Организация,
+	бестВзаиморасчетыПоМесяцамЭЭОбороты.Район КАК Район,
+	бестВзаиморасчетыПоМесяцамЭЭОбороты.Договор КАК Договор,
+	бестВзаиморасчетыПоМесяцамЭЭОбороты.ПлатежныйДокумент КАК ПлатежныйДокумент
+ПОМЕСТИТЬ Оплата
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоМесяцамЭЭ.Обороты(
+			,
+			&amp;Период,
+			,
+			(Организация, Район, Договор, ПлатежныйДокумент) В
+				(ВЫБРАТЬ
+					Задолженность.Организация КАК Организация,
+					Задолженность.Район КАК Район,
+					Задолженность.Договор КАК Договор,
+					Задолженность.ПлатежныйДокумент КАК ПлатежныйДокумент
+				ИЗ
+					Задолженность КАК Задолженность)) КАК бестВзаиморасчетыПоМесяцамЭЭОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестРеструктуризацияДолгаЮЛОбороты.Организация КАК Организация,
+	бестРеструктуризацияДолгаЮЛОбороты.Район КАК Район,
+	бестРеструктуризацияДолгаЮЛОбороты.Договор КАК Договор,
+	бестРеструктуризацияДолгаЮЛОбороты.СуммаОборот КАК Сумма,
+	РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(бестПлатежныйДокумент.Дата, ДЕНЬ), &amp;Период, ДЕНЬ) КАК КолвоДнейЗадолженности
+ПОМЕСТИТЬ Реструктуризация
+ИЗ
+	РегистрНакопления.бестРеструктуризированнаяЗадолженность.Обороты(
+			,
+			&amp;Период,
+			,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестРеструктуризацияДолгаЮЛОбороты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.бестПлатежныйДокумент КАК бестПлатежныйДокумент
+		ПО бестРеструктуризацияДолгаЮЛОбороты.ПлатежныйДокумент = бестПлатежныйДокумент.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Задолженность.Договор КАК Договор,
+	СУММА(Задолженность.Сумма) КАК СуммаВсего,
+	МАКСИМУМ(Задолженность.КолвоДнейЗадолженности) КАК КолвоДнейЗадолженностиМакс,
+	МИНИМУМ(Задолженность.ДатаВозникновенияЗадолженности) КАК ДатаВозникновенияЗадолженностиМин,
+	СУММА(Задолженность.СуммаНДСОстаток) КАК СуммаНДС
+ПОМЕСТИТЬ МинимальнаяДатаИОбщаяСуммаЗадолженности
+ИЗ
+	Задолженность КАК Задолженность
+
+СГРУППИРОВАТЬ ПО
+	Задолженность.Договор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Задолженность.Организация КАК Организация,
+	Задолженность.Район КАК Район,
+	Задолженность.Договор КАК Договор,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности &lt; 45
+				ТОГДА Задолженность.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Неоплаченная,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 45
+					И Задолженность.КолвоДнейЗадолженности &lt; 90
+				ТОГДА Задолженность.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Сомнительная,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 90
+					И Задолженность.КолвоДнейЗадолженности &lt; 365
+				ТОГДА Задолженность.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Просроченная,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 365
+				ТОГДА Задолженность.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК БолееГода,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности ЕСТЬ NULL
+				ТОГДА 0
+			КОГДА Задолженность.КолвоДнейЗадолженности &lt; 45
+				ТОГДА Оплата.СуммаРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК До45Оплата,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности ЕСТЬ NULL
+				ТОГДА 0
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 45
+					И Задолженность.КолвоДнейЗадолженности &lt; 90
+				ТОГДА Оплата.СуммаРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК От45До90Оплата,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности ЕСТЬ NULL
+				ТОГДА 0
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 90
+					И Задолженность.КолвоДнейЗадолженности &lt; 365
+				ТОГДА Оплата.СуммаРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК От90ДоГодаОплата,
+	СУММА(ВЫБОР
+			КОГДА Задолженность.КолвоДнейЗадолженности ЕСТЬ NULL
+				ТОГДА 0
+			КОГДА Задолженность.КолвоДнейЗадолженности &gt;= 365
+				ТОГДА Оплата.СуммаРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК БолееГодаОплата
+ПОМЕСТИТЬ ДелениеЗадолженности
+ИЗ
+	Задолженность КАК Задолженность
+		ЛЕВОЕ СОЕДИНЕНИЕ Оплата КАК Оплата
+		ПО Задолженность.Организация = Оплата.Организация
+			И Задолженность.Район = Оплата.Район
+			И Задолженность.Договор = Оплата.Договор
+			И Задолженность.ПлатежныйДокумент = Оплата.ПлатежныйДокумент
+
+СГРУППИРОВАТЬ ПО
+	Задолженность.Организация,
+	Задолженность.Район,
+	Задолженность.Договор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Реструктуризация.Организация КАК Организация,
+	Реструктуризация.Район КАК Район,
+	Реструктуризация.Договор КАК Договор,
+	СУММА(ВЫБОР
+			КОГДА Реструктуризация.КолвоДнейЗадолженности &lt; 45
+				ТОГДА Реструктуризация.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Неоплаченная,
+	СУММА(ВЫБОР
+			КОГДА Реструктуризация.КолвоДнейЗадолженности &gt;= 45
+					И Реструктуризация.КолвоДнейЗадолженности &lt; 90
+				ТОГДА Реструктуризация.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Сомнительная,
+	СУММА(ВЫБОР
+			КОГДА Реструктуризация.КолвоДнейЗадолженности &gt;= 90
+					И Реструктуризация.КолвоДнейЗадолженности &lt; 365
+				ТОГДА Реструктуризация.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Просроченная,
+	СУММА(ВЫБОР
+			КОГДА Реструктуризация.КолвоДнейЗадолженности &gt;= 365
+				ТОГДА Реструктуризация.Сумма
+			ИНАЧЕ 0
+		КОНЕЦ) КАК БолееГода
+ПОМЕСТИТЬ ДелениеЗадолженностиРеструктуризация
+ИЗ
+	Реструктуризация КАК Реструктуризация
+
+СГРУППИРОВАТЬ ПО
+	Реструктуризация.Организация,
+	Реструктуризация.Район,
+	Реструктуризация.Договор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДелениеЗадолженности.Организация КАК Организация,
+	ДелениеЗадолженности.Район КАК Район,
+	ДелениеЗадолженности.Договор КАК Договор,
+	ДелениеЗадолженности.Неоплаченная КАК До45,
+	ДелениеЗадолженности.Сомнительная КАК От45До90,
+	ДелениеЗадолженности.Просроченная КАК От90ДоГода,
+	МинимальнаяДатаИОбщаяСуммаЗадолженности.СуммаВсего КАК ЗадолженностьВсего,
+	МинимальнаяДатаИОбщаяСуммаЗадолженности.ДатаВозникновенияЗадолженностиМин КАК ДатаВозникновенияЗадолженности,
+	МинимальнаяДатаИОбщаяСуммаЗадолженности.СуммаНДС КАК СуммаНДС20,
+	МинимальнаяДатаИОбщаяСуммаЗадолженности.СуммаВсего КАК ЗадолженностьПодтвержденная,
+	ДелениеЗадолженности.БолееГода КАК БолееГода,
+	энргДоговорыКонтрагентов.Контрагент КАК НаименованиеПотребителя,
+	энргДоговорыКонтрагентов.Номер КАК НомерДоговора,
+	ДелениеЗадолженностиРеструктуризация.Неоплаченная КАК До45Рестр,
+	ДелениеЗадолженностиРеструктуризация.Сомнительная КАК От45До90Рестр,
+	ДелениеЗадолженностиРеструктуризация.Просроченная КАК От90ДоГодаРестр,
+	ДелениеЗадолженностиРеструктуризация.БолееГода КАК БолееГодаРестр,
+	ДелениеЗадолженности.До45Оплата КАК До45Оплата,
+	ДелениеЗадолженности.От45До90Оплата КАК От45До90Оплата,
+	ДелениеЗадолженности.От90ДоГодаОплата КАК От90ДоГодаОплата,
+	ДелениеЗадолженности.БолееГодаОплата КАК БолееГодаОплата,
+	энргКонтрагенты.ИНН КАК ИНН,
+	"" КАК БухСчета,
+	"" КАК СуммаНДС18,
+	"" КАК ЗадолженностьНеподтвержденная,
+	"" КАК ПризнакКонтрагента
+ИЗ
+	ДелениеЗадолженности КАК ДелениеЗадолженности
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ МинимальнаяДатаИОбщаяСуммаЗадолженности КАК МинимальнаяДатаИОбщаяСуммаЗадолженности
+		ПО ДелениеЗадолженности.Договор = МинимальнаяДатаИОбщаяСуммаЗадолженности.Договор
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргКонтрагенты КАК энргКонтрагенты
+			ПО энргДоговорыКонтрагентов.Контрагент = энргКонтрагенты.Ссылка
+		ПО ДелениеЗадолженности.Договор = энргДоговорыКонтрагентов.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ДелениеЗадолженностиРеструктуризация КАК ДелениеЗадолженностиРеструктуризация
+		ПО ДелениеЗадолженности.Организация = ДелениеЗадолженностиРеструктуризация.Организация
+			И ДелениеЗадолженности.Район = ДелениеЗадолженностиРеструктуризация.Район
+			И ДелениеЗадолженности.Договор = ДелениеЗадолженностиРеструктуризация.Договор</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Район</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Район</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргЗоныОтвественности</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>&amp;Период</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Инвентаризационная ведомость по задолженности</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеПотребителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БухСчета</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ бух. Счета (62.01; 62.02; 76.02)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИНН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВозникновенияЗадолженности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗадолженностьВсего</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС18</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В т.ч. НДС18%</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС20</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В т.ч. НДС20%</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗадолженностьПодтвержденная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗадолженностьНеподтвержденная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма задолженности, не погашенная в сроки, установленные договором, руб.коп.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>До45</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От45До90</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От90ДоГода</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БолееГода</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерДоговора</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПризнакКонтрагента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Район</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РО</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма задолженности, не погашенная в сроки, установленные договором, по реструктуризированной ДЗ, ДЗ по Мировым соглашениям и графикам руб.коп.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>До45Рестр</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От45До90Рестр</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От90ДоГодаРестр</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БолееГодаРестр</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма оплаты задолженности на дату составления отчета за выбранный период руб.коп.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>До45Оплата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От45До90Оплата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>От90ДоГодаОплата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БолееГодаОплата</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c6f29996-b6d9-4077-a63a-31ec28ca37dc</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>75d37887-8869-4efc-bdaf-a37cdc729510</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Район</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>6910b225-ec19-42b2-82e9-9d04614b54f7</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Дата" id="16">
+					<DataPath>~Список.Дата</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Номер" id="19">
+					<DataPath>~Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="ВидОперации" id="49">
+					<DataPath>~Список.ВидОперации</DataPath>
+					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="Организация" id="22">
+					<DataPath>~Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="ЭтапОбращения" id="34">
+					<DataPath>~Список.ЭтапОбращения</DataPath>
+					<ContextMenu name="ЭтапОбращенияКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ЭтапОбращенияРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="ВидОбращения" id="37">
+					<DataPath>~Список.ВидОбращения</DataPath>
+					<ContextMenu name="ВидОбращенияКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ВидОбращенияРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="НомерДоговораЛС" id="55">
+					<DataPath>~Список.НомерДоговораЛС</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор / Лицевой счет</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НомерДоговораЛСКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="НомерДоговораЛСРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<LabelField name="Контрагент" id="52">
+					<DataPath>~Список.Контрагент</DataPath>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<LabelField name="Объект" id="58">
+					<DataPath>~Список.Объект</DataPath>
+					<ContextMenu name="ОбъектКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="Основание" id="61">
+					<DataPath>~Список.Основание</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ-основание</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ОснованиеКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ОснованиеРасширеннаяПодсказка" id="63"/>
+				</LabelField>
+				<LabelField name="ОтветственныйЗаИсполнение" id="40">
+					<DataPath>~Список.ОтветственныйЗаИсполнение</DataPath>
+					<ContextMenu name="ОтветственныйЗаИсполнениеКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ОтветственныйЗаИсполнениеРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="ДатаСозданияДокумента" id="46">
+					<DataPath>~Список.ДатаСозданияДокумента</DataPath>
+					<ContextMenu name="ДатаСозданияДокументаКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ДатаСозданияДокументаРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Абонент</Field>
+				<Field>~Список.ВидОбращения</Field>
+				<Field>~Список.ВидОперации</Field>
+				<Field>~Список.Контрагент</Field>
+				<Field>~Список.МКД</Field>
+				<Field>~Список.НомерДоговораЛС</Field>
+				<Field>~Список.Объект</Field>
+				<Field>~Список.Основание</Field>
+				<Field>~Список.ОтветственныйЗаИсполнение</Field>
+				<Field>~Список.ЭтапОбращения</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументбестОбращения.Ссылка КАК Ссылка,
+	ДокументбестОбращения.Номер КАК Номер,
+	ДокументбестОбращения.Дата КАК Дата,
+	ДокументбестОбращения.ВидОбращения КАК ВидОбращения,
+	ДокументбестОбращения.МКД КАК МКД,
+	ДокументбестОбращения.Организация КАК Организация,
+	ДокументбестОбращения.Ответственный КАК Ответственный,
+	ДокументбестОбращения.Район КАК Район,
+	ДокументбестОбращения.Основание КАК Основание,
+	ДокументбестОбращения.ОтветственныйЗаИсполнение КАК ОтветственныйЗаИсполнение,
+	ДокументбестОбращения.ПлановаяДатаОкончанияЭтапа КАК ПлановаяДатаОкончанияЭтапа,
+	ДокументбестОбращения.ВидОперации КАК ВидОперации,
+	ДокументбестОбращения.ОбъектРасчета КАК ОбъектРасчета,
+	ДокументбестОбращения.ДатаСозданияДокумента КАК ДатаСозданияДокумента,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.Контрагент
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.Абонент
+	КОНЕЦ КАК Контрагент,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.Договор
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.ЛицевойСчет
+	КОНЕЦ КАК НомерДоговораЛС,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.ОбъектРасчета
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.АдресОбъекта
+	КОНЕЦ КАК Объект,
+	ДокументбестОбращения.ЭтапОбращения КАК ЭтапОбращения,
+	ДокументбестОбращения.Абонент КАК Абонент
+ИЗ
+	Документ.бестОбращения КАК ДокументбестОбращения
+
+СГРУППИРОВАТЬ ПО
+	ДокументбестОбращения.Ссылка,
+	ДокументбестОбращения.Номер,
+	ДокументбестОбращения.Дата,
+	ДокументбестОбращения.ВидОбращения,
+	ДокументбестОбращения.МКД,
+	ДокументбестОбращения.Организация,
+	ДокументбестОбращения.Ответственный,
+	ДокументбестОбращения.Район,
+	ДокументбестОбращения.Основание,
+	ДокументбестОбращения.ОтветственныйЗаИсполнение,
+	ДокументбестОбращения.ПлановаяДатаОкончанияЭтапа,
+	ДокументбестОбращения.ВидОперации,
+	ДокументбестОбращения.ОбъектРасчета,
+	ДокументбестОбращения.ДатаСозданияДокумента,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.Контрагент
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.Абонент
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.Договор
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.ЛицевойСчет
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеЮридическогоЛица)
+			ТОГДА ДокументбестОбращения.ОбъектРасчета
+		КОГДА ДокументбестОбращения.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.бестОбращения_ОбращениеФизическогоЛица)
+			ТОГДА ДокументбестОбращения.АдресОбъекта
+	КОНЕЦ,
+	ДокументбестОбращения.ЭтапОбращения</QueryText>
+				<MainTable>Document.бестОбращения</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

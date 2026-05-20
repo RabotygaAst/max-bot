@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МКД</dataPath>
+			<field>МКД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПлощади</dataPath>
+			<field>ВидПлощади</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Площадь</dataPath>
+			<field>Площадь</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Строение</dataPath>
+			<field>Строение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидБлагоустройства</dataPath>
+			<field>ВидБлагоустройства</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидНачисления</dataPath>
+			<field>ВидНачисления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид начисления</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДомДляСортировки</dataPath>
+			<field>ДомДляСортировки</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	энргСтроения.Ссылка КАК Строение,
+	энргСтроения.Район КАК Район,
+	энргСтроения.Организация КАК Организация,
+	энргСтроения.ДомДляСортировки КАК ДомДляСортировки
+ПОМЕСТИТЬ ВременнаяТаблица
+ИЗ
+	Справочник.энргСтроения КАК энргСтроения
+ГДЕ
+	энргСтроения.Организация = &amp;Организация
+	И НЕ энргСтроения.ПометкаУдаления
+	И НЕ энргСтроения.ЭтоГруппа
+
+СГРУППИРОВАТЬ ПО
+	энргСтроения.Ссылка,
+	энргСтроения.Район,
+	энргСтроения.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВременнаяТаблица.Организация КАК Организация,
+	ВременнаяТаблица.Район КАК Район,
+	ВременнаяТаблица.Строение КАК Строение,
+	энргЗначениеПлощадейМКДСрезПоследних.Услуга КАК Услуга,
+	ЗНАЧЕНИЕ(Справочник.энргВидыБлагоустройств.ПустаяСсылка) КАК ВидБлагоустройства,
+	энргЗначениеПлощадейМКДСрезПоследних.ВидПлощади КАК ВидПлощади,
+	энргЗначениеПлощадейМКДСрезПоследних.Площадь КАК Площадь,
+	"Общедомовой" КАК ВидНачисления,
+	ВременнаяТаблица.ДомДляСортировки КАК ДомДляСортировки
+ПОМЕСТИТЬ ВрТ2
+ИЗ
+	ВременнаяТаблица КАК ВременнаяТаблица
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.энргЗначениеПлощадейМКД.СрезПоследних(&amp;Дата, Организация = &amp;Организация) КАК энргЗначениеПлощадейМКДСрезПоследних
+		ПО ВременнаяТаблица.Организация = энргЗначениеПлощадейМКДСрезПоследних.Организация
+			И ВременнаяТаблица.Район = энргЗначениеПлощадейМКДСрезПоследних.Район
+			И ВременнаяТаблица.Строение = энргЗначениеПлощадейМКДСрезПоследних.МКД
+
+СГРУППИРОВАТЬ ПО
+	энргЗначениеПлощадейМКДСрезПоследних.ВидПлощади,
+	энргЗначениеПлощадейМКДСрезПоследних.Площадь,
+	энргЗначениеПлощадейМКДСрезПоследних.Услуга,
+	ВременнаяТаблица.Строение,
+	ВременнаяТаблица.Район,
+	ВременнаяТаблица.Организация,
+	ВременнаяТаблица.ДомДляСортировки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВременнаяТаблица.Организация,
+	ВременнаяТаблица.Район,
+	ВременнаяТаблица.Строение,
+	энргВидБлагоустройствМКДСрезПоследних.Услуга,
+	энргВидБлагоустройствМКДСрезПоследних.ВидБлагоустройства,
+	ЗНАЧЕНИЕ(Перечисление.энргВидыПлощадей.ПустаяСсылка),
+	0,
+	"Общедомовой",
+	ВременнаяТаблица.ДомДляСортировки
+ИЗ
+	ВременнаяТаблица КАК ВременнаяТаблица
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.энргВидБлагоустройствМКД.СрезПоследних(&amp;Дата, Организация = &amp;Организация) КАК энргВидБлагоустройствМКДСрезПоследних
+		ПО ВременнаяТаблица.Организация = энргВидБлагоустройствМКДСрезПоследних.Организация
+			И ВременнаяТаблица.Район = энргВидБлагоустройствМКДСрезПоследних.Район
+			И ВременнаяТаблица.Строение = энргВидБлагоустройствМКДСрезПоследних.МКД
+
+СГРУППИРОВАТЬ ПО
+	энргВидБлагоустройствМКДСрезПоследних.Услуга,
+	ВременнаяТаблица.Строение,
+	ВременнаяТаблица.Район,
+	ВременнаяТаблица.Организация,
+	энргВидБлагоустройствМКДСрезПоследних.ВидБлагоустройства,
+	ВременнаяТаблица.ДомДляСортировки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВременнаяТаблица.Организация,
+	ВременнаяТаблица.Район,
+	ВременнаяТаблица.Строение,
+	энргСтроенияВидыБлагоустройстваТарифныеКатегории.Услуга,
+	энргСтроенияВидыБлагоустройстваТарифныеКатегории.ВидБлагоустройстваИндивидуальный,
+	ЗНАЧЕНИЕ(Перечисление.энргВидыПлощадей.ПустаяСсылка),
+	0,
+	"Индивидуальный",
+	ВременнаяТаблица.ДомДляСортировки
+ИЗ
+	ВременнаяТаблица КАК ВременнаяТаблица,
+	Справочник.энргСтроения.ВидыБлагоустройстваТарифныеКатегории КАК энргСтроенияВидыБлагоустройстваТарифныеКатегории
+
+СГРУППИРОВАТЬ ПО
+	ВременнаяТаблица.Строение,
+	ВременнаяТаблица.Район,
+	ВременнаяТаблица.Организация,
+	энргСтроенияВидыБлагоустройстваТарифныеКатегории.ВидБлагоустройстваИндивидуальный,
+	энргСтроенияВидыБлагоустройстваТарифныеКатегории.Услуга,
+	ВременнаяТаблица.ДомДляСортировки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВрТ2.Организация КАК Организация,
+	ВрТ2.Район КАК Район,
+	ВрТ2.Строение КАК Строение,
+	ВрТ2.Услуга КАК Услуга,
+	ВрТ2.ВидБлагоустройства КАК ВидБлагоустройства,
+	ВрТ2.ВидПлощади КАК ВидПлощади,
+	ВрТ2.Площадь КАК Площадь,
+	ВрТ2.ВидНачисления КАК ВидНачисления,
+	ВрТ2.ДомДляСортировки КАК ДомДляСортировки
+ИЗ
+	ВрТ2 КАК ВрТ2
+
+СГРУППИРОВАТЬ ПО
+	ВрТ2.Организация,
+	ВрТ2.Район,
+	ВрТ2.Строение,
+	ВрТ2.Услуга,
+	ВрТ2.ВидБлагоустройства,
+	ВрТ2.ВидПлощади,
+	ВрТ2.Площадь,
+	ВрТ2.ВидНачисления,
+	ВрТ2.ДомДляСортировки</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Дата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по строениям</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Строение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Услуга</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидНачисления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидБлагоустройства</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидПлощади</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Площадь</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Дата</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c5677783-2c34-43f3-9b08-c0aa0c288eef</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>13ff4dd7-78f6-4ff6-8479-891eed1f740f</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Организация</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Строение</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по строениям</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПринятьКИсполнению" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПринятьКИсполнению</CommandName>
+				<ExtendedTooltip name="ФормаПринятьКИсполнениюРасширеннаяПодсказка" id="44"/>
+			</Button>
+			<Button name="ФормаОткрытьКартуМаршрута" id="39">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьКартуМаршрута</CommandName>
+				<ExtendedTooltip name="ФормаОткрытьКартуМаршрутаРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="47">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="48"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="37">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="38"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="7">
+					<DataPath>Объект.Date</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>От</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="52">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="СрокИсполнения" id="22">
+					<DataPath>Объект.СрокИсполнения</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СрокИсполненияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СрокИсполненияРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="ФактическийСрокИсполнения" id="54">
+					<DataPath>Объект.ФактическийСрокИсполнения</DataPath>
+					<ContextMenu name="ФактическийСрокИсполненияКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ФактическийСрокИсполненияРасширеннаяПодсказка" id="56"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Договор" id="76">
+			<DataPath>Объект.Договор</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ДоговорКонтекстноеМеню" id="77"/>
+			<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="78"/>
+		</InputField>
+		<InputField name="ОбъектЗадачи" id="19">
+			<DataPath>Объект.ОбъектЗадачи</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОбъектЗадачиКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ОбъектЗадачиРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="Результат" id="49">
+			<DataPath>Объект.Результат</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="РезультатКонтекстноеМеню" id="50"/>
+			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="51"/>
+		</InputField>
+		<InputField name="Исполнитель" id="28">
+			<DataPath>Объект.Исполнитель</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ИсполнительКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<Table name="ОтправляемыеФайлы" id="57">
+			<Visible>false</Visible>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ОтправляемыеФайлы</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОтправляемыеФайлыКонтекстноеМеню" id="58"/>
+			<AutoCommandBar name="ОтправляемыеФайлыКоманднаяПанель" id="59"/>
+			<ExtendedTooltip name="ОтправляемыеФайлыРасширеннаяПодсказка" id="60"/>
+			<SearchStringAddition name="ОтправляемыеФайлыСтрокаПоиска" id="61">
+				<AdditionSource>
+					<Item>ОтправляемыеФайлы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтправляемыеФайлыСтрокаПоискаКонтекстноеМеню" id="62"/>
+				<ExtendedTooltip name="ОтправляемыеФайлыСтрокаПоискаРасширеннаяПодсказка" id="63"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОтправляемыеФайлыСостояниеПросмотра" id="64">
+				<AdditionSource>
+					<Item>ОтправляемыеФайлы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтправляемыеФайлыСостояниеПросмотраКонтекстноеМеню" id="65"/>
+				<ExtendedTooltip name="ОтправляемыеФайлыСостояниеПросмотраРасширеннаяПодсказка" id="66"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОтправляемыеФайлыУправлениеПоиском" id="67">
+				<AdditionSource>
+					<Item>ОтправляемыеФайлы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОтправляемыеФайлыУправлениеПоискомКонтекстноеМеню" id="68"/>
+				<ExtendedTooltip name="ОтправляемыеФайлыУправлениеПоискомРасширеннаяПодсказка" id="69"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ОтправляемыеФайлыНомерСтроки" id="70">
+					<DataPath>Объект.ОтправляемыеФайлы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтправляемыеФайлыНомерСтрокиКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ОтправляемыеФайлыНомерСтрокиРасширеннаяПодсказка" id="72"/>
+				</LabelField>
+				<InputField name="ОтправляемыеФайлыФайл" id="73">
+					<DataPath>Объект.ОтправляемыеФайлы.Файл</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтправляемыеФайлыФайлКонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="ОтправляемыеФайлыФайлРасширеннаяПодсказка" id="75"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаКнопок" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="46"/>
+		</UsualGroup>
+		<InputField name="Роль" id="34">
+			<DataPath>Объект.Роль</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РольКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="РольРасширеннаяПодсказка" id="36"/>
+		</InputField>
+		<InputField name="Комментарий" id="25">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:TaskObject.бестЗадачаДоговорногоБлока</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьКартуМаршрута" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть карту маршрута</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть карту маршрута</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.BusinessProcess</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьКартуМаршрута</Action>
+		</Command>
+		<Command name="ПринятьКИсполнению" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять к исполнению</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять к исполнению</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПринятьКИсполнению</Action>
+		</Command>
+	</Commands>
+</Form>

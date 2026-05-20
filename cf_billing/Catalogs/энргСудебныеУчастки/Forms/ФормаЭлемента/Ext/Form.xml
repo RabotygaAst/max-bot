@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="НомерУчастка" id="26">
+			<DataPath>Объект.НомерУчастка</DataPath>
+			<ContextMenu name="НомерУчасткаКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="НомерУчасткаРасширеннаяПодсказка" id="28"/>
+			<Events>
+				<Event name="OnChange">НомерУчасткаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Район" id="29">
+			<DataPath>Объект.Район</DataPath>
+			<ContextMenu name="РайонКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="31"/>
+			<Events>
+				<Event name="OnChange">РайонПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Судья" id="36">
+			<DataPath>Объект.Судья</DataPath>
+			<ContextMenu name="СудьяКонтекстноеМеню" id="37"/>
+			<ExtendedTooltip name="СудьяРасширеннаяПодсказка" id="38"/>
+		</InputField>
+		<UsualGroup name="КонтактнаяИнформация" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактная информация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактная информация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КонтактнаяИнформацияРасширеннаяПодсказка" id="35"/>
+		</UsualGroup>
+		<UsualGroup name="Страницы" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="33"/>
+		</UsualGroup>
+		<Table name="Строения" id="7">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Строения</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СтроенияКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="СтроенияКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="СтроенияРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="СтроенияСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>Строения</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтроенияСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СтроенияСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СтроенияСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>Строения</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтроенияСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СтроенияСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СтроенияУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Строения</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СтроенияУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="СтроенияУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СтроенияНомерСтроки" id="20">
+					<DataPath>Объект.Строения.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СтроенияНомерСтрокиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СтроенияНомерСтрокиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<InputField name="СтроенияСтроение" id="23">
+					<DataPath>Объект.Строения.Строение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Район</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Объект.Район</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="СтроенияСтроениеКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СтроенияСтроениеРасширеннаяПодсказка" id="25"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргСудебныеУчастки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

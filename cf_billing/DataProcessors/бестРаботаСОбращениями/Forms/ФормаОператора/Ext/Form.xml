@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="3">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЗарегистрированныеОбращения" id="7">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Зарегистрированные обращения</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа зарегистрированные обращения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Collapsible</Behavior>
+							<ControlRepresentation>Picture</ControlRepresentation>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаЗарегистрированныеОбращенияРасширеннаяПодсказка" id="8"/>
+							<ChildItems>
+								<Table name="ЗарегистрированныеОбращения" id="9">
+									<UseAlternationRowColor>true</UseAlternationRowColor>
+									<EnableStartDrag>true</EnableStartDrag>
+									<DataPath>ЗарегистрированныеОбращения</DataPath>
+									<RowPictureDataPath>ЗарегистрированныеОбращения.DefaultPicture</RowPictureDataPath>
+									<CommandSet>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+									</CommandSet>
+									<AutoRefresh>false</AutoRefresh>
+									<AutoRefreshPeriod>60</AutoRefreshPeriod>
+									<Period>
+										<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+										<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+										<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+									</Period>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<RestoreCurrentRow>false</RestoreCurrentRow>
+									<TopLevelParent xsi:nil="true"/>
+									<ShowRoot>true</ShowRoot>
+									<AllowRootChoice>false</AllowRootChoice>
+									<UpdateOnDataChange>Auto</UpdateOnDataChange>
+									<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+									<ContextMenu name="ЗарегистрированныеОбращенияКонтекстноеМеню" id="10"/>
+									<AutoCommandBar name="ЗарегистрированныеОбращенияКоманднаяПанель" id="11">
+										<ChildItems>
+											<Button name="ЗарегистрированныеОбращенияДокументбестОбращенияСоздатьНаОсновании" id="272">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.бестОбращения.StandardCommand.CreateBasedOn</CommandName>
+												<DataPath>Items.ЗарегистрированныеОбращения.CurrentData.Ссылка</DataPath>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Создать на основании</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ЗарегистрированныеОбращенияДокументбестОбращенияСоздатьНаОснованииРасширеннаяПодсказка" id="273"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ЗарегистрированныеОбращенияРасширеннаяПодсказка" id="12"/>
+									<SearchStringAddition name="ЗарегистрированныеОбращенияСтрокаПоиска" id="13">
+										<AdditionSource>
+											<Item>ЗарегистрированныеОбращения</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗарегистрированныеОбращенияСтрокаПоискаКонтекстноеМеню" id="14"/>
+										<ExtendedTooltip name="ЗарегистрированныеОбращенияСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ЗарегистрированныеОбращенияСостояниеПросмотра" id="16">
+										<AdditionSource>
+											<Item>ЗарегистрированныеОбращения</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗарегистрированныеОбращенияСостояниеПросмотраКонтекстноеМеню" id="17"/>
+										<ExtendedTooltip name="ЗарегистрированныеОбращенияСостояниеПросмотраРасширеннаяПодсказка" id="18"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ЗарегистрированныеОбращенияУправлениеПоиском" id="19">
+										<AdditionSource>
+											<Item>ЗарегистрированныеОбращения</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ЗарегистрированныеОбращенияУправлениеПоискомКонтекстноеМеню" id="20"/>
+										<ExtendedTooltip name="ЗарегистрированныеОбращенияУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">ЗарегистрированныеОбращенияПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="ЗарегистрированныеОбращенияСсылка" id="267">
+											<DataPath>ЗарегистрированныеОбращения.Ссылка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Документ</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ЗарегистрированныеОбращенияСсылкаКонтекстноеМеню" id="268"/>
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияСсылкаРасширеннаяПодсказка" id="269"/>
+										</LabelField>
+										<ColumnGroup name="ЗарегистрированныеОбращенияГруппа2" id="125">
+											<Visible>false</Visible>
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияГруппа2РасширеннаяПодсказка" id="126"/>
+											<ChildItems>
+												<LabelField name="ЗарегистрированныеОбращенияДата" id="43">
+													<DataPath>ЗарегистрированныеОбращения.Дата</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияДатаКонтекстноеМеню" id="44"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияДатаРасширеннаяПодсказка" id="45"/>
+												</LabelField>
+												<LabelField name="ЗарегистрированныеОбращенияНомер" id="73">
+													<DataPath>ЗарегистрированныеОбращения.Номер</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияНомерКонтекстноеМеню" id="74"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияНомерРасширеннаяПодсказка" id="75"/>
+												</LabelField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="ЗарегистрированныеОбращенияГруппа1" id="123">
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияГруппа1РасширеннаяПодсказка" id="124"/>
+											<ChildItems>
+												<LabelField name="ЗарегистрированныеОбращенияАбонент" id="31">
+													<DataPath>ЗарегистрированныеОбращения.Абонент</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияАбонентКонтекстноеМеню" id="32"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияАбонентРасширеннаяПодсказка" id="33"/>
+												</LabelField>
+												<LabelField name="ЗарегистрированныеОбращенияДоговор" id="52">
+													<DataPath>ЗарегистрированныеОбращения.Договор</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияДоговорКонтекстноеМеню" id="53"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияДоговорРасширеннаяПодсказка" id="54"/>
+												</LabelField>
+											</ChildItems>
+										</ColumnGroup>
+										<LabelField name="ЗарегистрированныеОбращенияВидОбращения" id="37">
+											<DataPath>ЗарегистрированныеОбращения.ВидОбращения</DataPath>
+											<ContextMenu name="ЗарегистрированныеОбращенияВидОбращенияКонтекстноеМеню" id="38"/>
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияВидОбращенияРасширеннаяПодсказка" id="39"/>
+										</LabelField>
+										<ColumnGroup name="ЗарегистрированныеОбращенияГруппа3" id="127">
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияГруппа3РасширеннаяПодсказка" id="128"/>
+											<ChildItems>
+												<LabelField name="ЗарегистрированныеОбращенияЭтапОбращения" id="118">
+													<DataPath>ЗарегистрированныеОбращения.ЭтапОбращения</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияЭтапОбращенияКонтекстноеМеню" id="119"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияЭтапОбращенияРасширеннаяПодсказка" id="120"/>
+												</LabelField>
+												<LabelField name="ЗарегистрированныеОбращенияОписаниеЭтапа" id="79">
+													<DataPath>ЗарегистрированныеОбращения.ОписаниеЭтапа</DataPath>
+													<ContextMenu name="ЗарегистрированныеОбращенияОписаниеЭтапаКонтекстноеМеню" id="80"/>
+													<ExtendedTooltip name="ЗарегистрированныеОбращенияОписаниеЭтапаРасширеннаяПодсказка" id="81"/>
+												</LabelField>
+											</ChildItems>
+										</ColumnGroup>
+										<LabelField name="ЗарегистрированныеОбращенияОбъектРасчета" id="76">
+											<DataPath>ЗарегистрированныеОбращения.ОбъектРасчета</DataPath>
+											<ContextMenu name="ЗарегистрированныеОбращенияОбъектРасчетаКонтекстноеМеню" id="77"/>
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияОбъектРасчетаРасширеннаяПодсказка" id="78"/>
+										</LabelField>
+										<LabelField name="ЗарегистрированныеОбращенияОтветственный" id="91">
+											<DataPath>ЗарегистрированныеОбращения.Ответственный</DataPath>
+											<ContextMenu name="ЗарегистрированныеОбращенияОтветственныйКонтекстноеМеню" id="92"/>
+											<ExtendedTooltip name="ЗарегистрированныеОбращенияОтветственныйРасширеннаяПодсказка" id="93"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПросроченныеОбращения" id="121">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Просроченные обращения</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа просроченные обращения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Collapsible</Behavior>
+							<ControlRepresentation>Picture</ControlRepresentation>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаПросроченныеОбращенияРасширеннаяПодсказка" id="122"/>
+							<ChildItems>
+								<Table name="ПросроченныеЗаявки" id="249">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ПросроченныеЗаявки</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+									</CommandSet>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПросроченныеЗаявкиКонтекстноеМеню" id="250"/>
+									<AutoCommandBar name="ПросроченныеЗаявкиКоманднаяПанель" id="251">
+										<ChildItems>
+											<Button name="ПросроченныеЗаявкиОбновитьПросроченныеЗаявки" id="265">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОбновитьПросроченныеЗаявки</CommandName>
+												<ExtendedTooltip name="ПросроченныеЗаявкиОбновитьПросроченныеЗаявкиРасширеннаяПодсказка" id="266"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ПросроченныеЗаявкиРасширеннаяПодсказка" id="252"/>
+									<SearchStringAddition name="ПросроченныеЗаявкиСтрокаПоиска" id="253">
+										<AdditionSource>
+											<Item>ПросроченныеЗаявки</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПросроченныеЗаявкиСтрокаПоискаКонтекстноеМеню" id="254"/>
+										<ExtendedTooltip name="ПросроченныеЗаявкиСтрокаПоискаРасширеннаяПодсказка" id="255"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПросроченныеЗаявкиСостояниеПросмотра" id="256">
+										<AdditionSource>
+											<Item>ПросроченныеЗаявки</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПросроченныеЗаявкиСостояниеПросмотраКонтекстноеМеню" id="257"/>
+										<ExtendedTooltip name="ПросроченныеЗаявкиСостояниеПросмотраРасширеннаяПодсказка" id="258"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПросроченныеЗаявкиУправлениеПоиском" id="259">
+										<AdditionSource>
+											<Item>ПросроченныеЗаявки</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПросроченныеЗаявкиУправлениеПоискомКонтекстноеМеню" id="260"/>
+										<ExtendedTooltip name="ПросроченныеЗаявкиУправлениеПоискомРасширеннаяПодсказка" id="261"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ПросроченныеЗаявкиРегистратор" id="262">
+											<DataPath>ПросроченныеЗаявки.Регистратор</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПросроченныеЗаявкиРегистраторКонтекстноеМеню" id="263"/>
+											<ExtendedTooltip name="ПросроченныеЗаявкиРегистраторРасширеннаяПодсказка" id="264"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Этапы обращений</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Collapsible</Behavior>
+					<ControlRepresentation>Picture</ControlRepresentation>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<Table name="ЭтапыОбращений" id="129">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ЭтапыОбращений</DataPath>
+							<RowPictureDataPath>ЭтапыОбращений.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Create</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ЭтапыОбращенийКонтекстноеМеню" id="130"/>
+							<AutoCommandBar name="ЭтапыОбращенийКоманднаяПанель" id="131">
+								<ChildItems>
+									<Button name="ЭтапыОбращенийДокументбестОбращенияСоздатьНаОсновании" id="270">
+										<Type>CommandBarButton</Type>
+										<CommandName>Document.бестОбращения.StandardCommand.CreateBasedOn</CommandName>
+										<DataPath>Items.ЭтапыОбращений.CurrentData.Ссылка</DataPath>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать на основании</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ЭтапыОбращенийДокументбестОбращенияСоздатьНаОснованииРасширеннаяПодсказка" id="271"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ЭтапыОбращенийРасширеннаяПодсказка" id="132"/>
+							<SearchStringAddition name="ЭтапыОбращенийСтрокаПоиска" id="133">
+								<AdditionSource>
+									<Item>ЭтапыОбращений</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭтапыОбращенийСтрокаПоискаКонтекстноеМеню" id="134"/>
+								<ExtendedTooltip name="ЭтапыОбращенийСтрокаПоискаРасширеннаяПодсказка" id="135"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЭтапыОбращенийСостояниеПросмотра" id="136">
+								<AdditionSource>
+									<Item>ЭтапыОбращений</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭтапыОбращенийСостояниеПросмотраКонтекстноеМеню" id="137"/>
+								<ExtendedTooltip name="ЭтапыОбращенийСостояниеПросмотраРасширеннаяПодсказка" id="138"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЭтапыОбращенийУправлениеПоиском" id="139">
+								<AdditionSource>
+									<Item>ЭтапыОбращений</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭтапыОбращенийУправлениеПоискомКонтекстноеМеню" id="140"/>
+								<ExtendedTooltip name="ЭтапыОбращенийУправлениеПоискомРасширеннаяПодсказка" id="141"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<ColumnGroup name="ЭтапыОбращенийГруппа1" id="241">
+									<ExtendedTooltip name="ЭтапыОбращенийГруппа1РасширеннаяПодсказка" id="242"/>
+									<ChildItems>
+										<LabelField name="ЭтапыОбращенийНомер" id="193">
+											<DataPath>ЭтапыОбращений.Номер</DataPath>
+											<ContextMenu name="ЭтапыОбращенийНомерКонтекстноеМеню" id="194"/>
+											<ExtendedTooltip name="ЭтапыОбращенийНомерРасширеннаяПодсказка" id="195"/>
+										</LabelField>
+										<LabelField name="ЭтапыОбращенийДата" id="163">
+											<DataPath>ЭтапыОбращений.Дата</DataPath>
+											<ContextMenu name="ЭтапыОбращенийДатаКонтекстноеМеню" id="164"/>
+											<ExtendedTooltip name="ЭтапыОбращенийДатаРасширеннаяПодсказка" id="165"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ЭтапыОбращенийГруппа2" id="243">
+									<ExtendedTooltip name="ЭтапыОбращенийГруппа2РасширеннаяПодсказка" id="244"/>
+									<ChildItems>
+										<LabelField name="ЭтапыОбращенийАбонент" id="151">
+											<DataPath>ЭтапыОбращений.Абонент</DataPath>
+											<ContextMenu name="ЭтапыОбращенийАбонентКонтекстноеМеню" id="152"/>
+											<ExtendedTooltip name="ЭтапыОбращенийАбонентРасширеннаяПодсказка" id="153"/>
+										</LabelField>
+										<LabelField name="ЭтапыОбращенийДоговор" id="172">
+											<DataPath>ЭтапыОбращений.Договор</DataPath>
+											<ContextMenu name="ЭтапыОбращенийДоговорКонтекстноеМеню" id="173"/>
+											<ExtendedTooltip name="ЭтапыОбращенийДоговорРасширеннаяПодсказка" id="174"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="ЭтапыОбращенийВидОбращения" id="157">
+									<DataPath>ЭтапыОбращений.ВидОбращения</DataPath>
+									<ContextMenu name="ЭтапыОбращенийВидОбращенияКонтекстноеМеню" id="158"/>
+									<ExtendedTooltip name="ЭтапыОбращенийВидОбращенияРасширеннаяПодсказка" id="159"/>
+								</LabelField>
+								<ColumnGroup name="ЭтапыОбращенийГруппа3" id="245">
+									<ExtendedTooltip name="ЭтапыОбращенийГруппа3РасширеннаяПодсказка" id="246"/>
+									<ChildItems>
+										<LabelField name="ЭтапыОбращенийЭтапОбращения" id="238">
+											<DataPath>ЭтапыОбращений.ЭтапОбращения</DataPath>
+											<ContextMenu name="ЭтапыОбращенийЭтапОбращенияКонтекстноеМеню" id="239"/>
+											<ExtendedTooltip name="ЭтапыОбращенийЭтапОбращенияРасширеннаяПодсказка" id="240"/>
+										</LabelField>
+										<LabelField name="ЭтапыОбращенийОписаниеЭтапа" id="199">
+											<DataPath>ЭтапыОбращений.ОписаниеЭтапа</DataPath>
+											<ContextMenu name="ЭтапыОбращенийОписаниеЭтапаКонтекстноеМеню" id="200"/>
+											<ExtendedTooltip name="ЭтапыОбращенийОписаниеЭтапаРасширеннаяПодсказка" id="201"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="ЭтапыОбращенийОбъектРасчета" id="196">
+									<DataPath>ЭтапыОбращений.ОбъектРасчета</DataPath>
+									<ContextMenu name="ЭтапыОбращенийОбъектРасчетаКонтекстноеМеню" id="197"/>
+									<ExtendedTooltip name="ЭтапыОбращенийОбъектРасчетаРасширеннаяПодсказка" id="198"/>
+								</LabelField>
+								<LabelField name="ЭтапыОбращенийОснование" id="205">
+									<DataPath>ЭтапыОбращений.Основание</DataPath>
+									<ContextMenu name="ЭтапыОбращенийОснованиеКонтекстноеМеню" id="206"/>
+									<ExtendedTooltip name="ЭтапыОбращенийОснованиеРасширеннаяПодсказка" id="207"/>
+								</LabelField>
+								<ColumnGroup name="ЭтапыОбращенийГруппа4" id="247">
+									<ExtendedTooltip name="ЭтапыОбращенийГруппа4РасширеннаяПодсказка" id="248"/>
+									<ChildItems>
+										<LabelField name="ЭтапыОбращенийТекстОбращения" id="232">
+											<DataPath>ЭтапыОбращений.ТекстОбращения</DataPath>
+											<ContextMenu name="ЭтапыОбращенийТекстОбращенияКонтекстноеМеню" id="233"/>
+											<ExtendedTooltip name="ЭтапыОбращенийТекстОбращенияРасширеннаяПодсказка" id="234"/>
+										</LabelField>
+										<LabelField name="ЭтапыОбращенийОтвет" id="208">
+											<DataPath>ЭтапыОбращений.Ответ</DataPath>
+											<ContextMenu name="ЭтапыОбращенийОтветКонтекстноеМеню" id="209"/>
+											<ExtendedTooltip name="ЭтапыОбращенийОтветРасширеннаяПодсказка" id="210"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.бестРаботаСОбращениями</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ЗарегистрированныеОбращения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрированные обращения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументбестОбращения.Ссылка КАК Ссылка,
+	ДокументбестОбращения.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументбестОбращения.Номер КАК Номер,
+	ДокументбестОбращения.Дата КАК Дата,
+	ДокументбестОбращения.Проведен КАК Проведен,
+	ДокументбестОбращения.Абонент КАК Абонент,
+	ДокументбестОбращения.ВидОбращения КАК ВидОбращения,
+	ДокументбестОбращения.Комментарий КАК Комментарий,
+	ДокументбестОбращения.ЛицевойСчет КАК ЛицевойСчет,
+	ДокументбестОбращения.МКД КАК МКД,
+	ДокументбестОбращения.Организация КАК Организация,
+	ДокументбестОбращения.Ответ КАК Ответ,
+	ДокументбестОбращения.Ответственный КАК Ответственный,
+	ДокументбестОбращения.Район КАК Район,
+	ДокументбестОбращения.ТекстОбращения КАК ТекстОбращения,
+	ДокументбестОбращения.ЭтапОбращения КАК ЭтапОбращения,
+	ДокументбестОбращения.Основание КАК Основание,
+	ДокументбестОбращения.АдресОбъекта КАК АдресОбъекта,
+	ДокументбестОбращения.ОтветственныйЗаИсполнение КАК ОтветственныйЗаИсполнение,
+	ДокументбестОбращения.ПлановаяДатаОкончанияЭтапа КАК ПлановаяДатаОкончанияЭтапа,
+	ДокументбестОбращения.traceId КАК traceId,
+	ДокументбестОбращения.requestId КАК requestId,
+	ДокументбестОбращения.eventName КАК eventName,
+	ДокументбестОбращения.Услуга КАК Услуга,
+	ДокументбестОбращения.ОписаниеЭтапа КАК ОписаниеЭтапа,
+	ДокументбестОбращения.КлючПомещения КАК КлючПомещения,
+	ДокументбестОбращения.ВидОперации КАК ВидОперации,
+	ДокументбестОбращения.Договор КАК Договор,
+	ДокументбестОбращения.Контрагент КАК Контрагент,
+	ДокументбестОбращения.КодДоговораERP КАК КодДоговораERP,
+	ДокументбестОбращения.ОбъектРасчета КАК ОбъектРасчета,
+	ДокументбестОбращения.энргДатаПоследнегоИзменения КАК ДатаПоследнегоИзменения,
+	ДокументбестОбращения.энргДатаСозданияДокумента КАК ДатаСозданияДокумента,
+	ДокументбестОбращения.МоментВремени КАК МоментВремени
+ИЗ
+	Документ.бестОбращения КАК ДокументбестОбращения
+ГДЕ
+	ДокументбестОбращения.Основание = ЗНАЧЕНИЕ(Документ.бестОбращения.ПустаяСсылка)</QueryText>
+				<MainTable>Document.бестОбращения</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПросроченныеЗаявки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просроченные заявки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Регистратор" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистратор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.бестОбращения</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЭтапыОбращений" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Этапы обращений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументбестОбращения.Ссылка КАК Ссылка,
+	ДокументбестОбращения.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументбестОбращения.Номер КАК Номер,
+	ДокументбестОбращения.Дата КАК Дата,
+	ДокументбестОбращения.Проведен КАК Проведен,
+	ДокументбестОбращения.Абонент КАК Абонент,
+	ДокументбестОбращения.ВидОбращения КАК ВидОбращения,
+	ДокументбестОбращения.Комментарий КАК Комментарий,
+	ДокументбестОбращения.ЛицевойСчет КАК ЛицевойСчет,
+	ДокументбестОбращения.МКД КАК МКД,
+	ДокументбестОбращения.Организация КАК Организация,
+	ДокументбестОбращения.Ответ КАК Ответ,
+	ДокументбестОбращения.Ответственный КАК Ответственный,
+	ДокументбестОбращения.Район КАК Район,
+	ДокументбестОбращения.ТекстОбращения КАК ТекстОбращения,
+	ДокументбестОбращения.ЭтапОбращения КАК ЭтапОбращения,
+	ДокументбестОбращения.Основание КАК Основание,
+	ДокументбестОбращения.АдресОбъекта КАК АдресОбъекта,
+	ДокументбестОбращения.ОтветственныйЗаИсполнение КАК ОтветственныйЗаИсполнение,
+	ДокументбестОбращения.ПлановаяДатаОкончанияЭтапа КАК ПлановаяДатаОкончанияЭтапа,
+	ДокументбестОбращения.traceId КАК traceId,
+	ДокументбестОбращения.requestId КАК requestId,
+	ДокументбестОбращения.eventName КАК eventName,
+	ДокументбестОбращения.Услуга КАК Услуга,
+	ДокументбестОбращения.ОписаниеЭтапа КАК ОписаниеЭтапа,
+	ДокументбестОбращения.КлючПомещения КАК КлючПомещения,
+	ДокументбестОбращения.ВидОперации КАК ВидОперации,
+	ДокументбестОбращения.Договор КАК Договор,
+	ДокументбестОбращения.Контрагент КАК Контрагент,
+	ДокументбестОбращения.КодДоговораERP КАК КодДоговораERP,
+	ДокументбестОбращения.ОбъектРасчета КАК ОбъектРасчета,
+	ДокументбестОбращения.энргДатаПоследнегоИзменения КАК ДатаПоследнегоИзменения,
+	ДокументбестОбращения.энргДатаСозданияДокумента КАК ДатаСозданияДокумента,
+	ДокументбестОбращения.МоментВремени КАК МоментВремени,
+	ДокументбестОбращения.ПервоначальныйДокумент КАК ПервоначальныйДокумент
+ИЗ
+	Документ.бестОбращения КАК ДокументбестОбращения
+ГДЕ
+	НЕ ДокументбестОбращения.Основание = ЗНАЧЕНИЕ(Документ.бестОбращения.ПустаяСсылка)</QueryText>
+				<MainTable>Document.бестОбращения</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОбновитьПросроченныеЗаявки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить просроченные заявки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьПросроченныеЗаявки</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

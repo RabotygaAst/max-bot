@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="25">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="10">
+			<DataPath>Объект.Организация</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Район" id="13">
+			<DataPath>Объект.Район</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РайонКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="МКД" id="16">
+			<DataPath>Объект.МКД</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="МКДКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="МКДРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<Pages name="Группа2" id="27">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<Page name="ГруппаОбъемыУК" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объемы УК</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа объемы УК</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОбъемыУКРасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<Table name="ДвижениябестОбъемНачисленийНП" id="33">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДвижениябестОбъемНачисленийНПКонтекстноеМеню" id="34"/>
+							<AutoCommandBar name="ДвижениябестОбъемНачисленийНПКоманднаяПанель" id="35"/>
+							<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПРасширеннаяПодсказка" id="36"/>
+							<SearchStringAddition name="ДвижениябестОбъемНачисленийНПСтрокаПоиска" id="37">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийНП</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийНПСтрокаПоискаКонтекстноеМеню" id="38"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПСтрокаПоискаРасширеннаяПодсказка" id="39"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДвижениябестОбъемНачисленийНПСостояниеПросмотра" id="40">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийНП</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийНПСостояниеПросмотраКонтекстноеМеню" id="41"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДвижениябестОбъемНачисленийНПУправлениеПоиском" id="43">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийНП</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийНПУправлениеПоискомКонтекстноеМеню" id="44"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПУправлениеПоискомРасширеннаяПодсказка" id="45"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДвижениябестОбъемНачисленийНПНомерСтроки" id="46">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПНомерСтрокиКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПНомерСтрокиРасширеннаяПодсказка" id="48"/>
+								</LabelField>
+								<InputField name="ДвижениябестОбъемНачисленийНПДоговор" id="61">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.Договор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПДоговорКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПДоговорРасширеннаяПодсказка" id="63"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПОбъектРасчета" id="64">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.ОбъектРасчета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПОбъектРасчетаКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПОбъектРасчетаРасширеннаяПодсказка" id="66"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПУслуга" id="67">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПУслугаКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПУслугаРасширеннаяПодсказка" id="69"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПТарифнаяЗона" id="85">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.ТарифнаяЗона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПТарифнаяЗонаКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПТарифнаяЗонаРасширеннаяПодсказка" id="87"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНППоставщик" id="97">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.Поставщик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНППоставщикКонтекстноеМеню" id="98"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНППоставщикРасширеннаяПодсказка" id="99"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПЗначениеТарифа" id="106">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.ЗначениеТарифа</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПЗначениеТарифаКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПЗначениеТарифаРасширеннаяПодсказка" id="108"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПОбъемУслуги" id="112">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.ОбъемУслуги</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПОбъемУслугиКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПОбъемУслугиРасширеннаяПодсказка" id="114"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПОбъемУслугиПотребленный" id="115">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.ОбъемУслугиПотребленный</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПОбъемУслугиПотребленныйКонтекстноеМеню" id="116"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПОбъемУслугиПотребленныйРасширеннаяПодсказка" id="117"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПСумма" id="130">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.Сумма</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПСуммаКонтекстноеМеню" id="131"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПСуммаРасширеннаяПодсказка" id="132"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийНПСуммаНДС" id="133">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийНП.СуммаНДС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийНПСуммаНДСКонтекстноеМеню" id="134"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийНПСуммаНДСРасширеннаяПодсказка" id="135"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОбъемыУКЭЭ" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объемы УК по Электроэнергии</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа объемы УКЭЭ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОбъемыУКЭЭРасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<Table name="ДвижениябестОбъемНачисленийЭлектроэнергии" id="136">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииКонтекстноеМеню" id="137"/>
+							<AutoCommandBar name="ДвижениябестОбъемНачисленийЭлектроэнергииКоманднаяПанель" id="138"/>
+							<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииРасширеннаяПодсказка" id="139"/>
+							<SearchStringAddition name="ДвижениябестОбъемНачисленийЭлектроэнергииСтрокаПоиска" id="140">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийЭлектроэнергии</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииСтрокаПоискаКонтекстноеМеню" id="141"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииСтрокаПоискаРасширеннаяПодсказка" id="142"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДвижениябестОбъемНачисленийЭлектроэнергииСостояниеПросмотра" id="143">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийЭлектроэнергии</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииСостояниеПросмотраКонтекстноеМеню" id="144"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииСостояниеПросмотраРасширеннаяПодсказка" id="145"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДвижениябестОбъемНачисленийЭлектроэнергииУправлениеПоиском" id="146">
+								<AdditionSource>
+									<Item>ДвижениябестОбъемНачисленийЭлектроэнергии</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииУправлениеПоискомКонтекстноеМеню" id="147"/>
+								<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииУправлениеПоискомРасширеннаяПодсказка" id="148"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДвижениябестОбъемНачисленийЭлектроэнергииНомерСтроки" id="149">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииНомерСтрокиКонтекстноеМеню" id="150"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииНомерСтрокиРасширеннаяПодсказка" id="151"/>
+								</LabelField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъектРасчета" id="182">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.ОбъектРасчета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъектРасчетаКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъектРасчетаРасширеннаяПодсказка" id="184"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииУслуга" id="188">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииУслугаКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииУслугаРасширеннаяПодсказка" id="190"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииПоставщик" id="191">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.Поставщик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииПоставщикКонтекстноеМеню" id="192"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииПоставщикРасширеннаяПодсказка" id="193"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииДоговор" id="194">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.Договор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииДоговорКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииДоговорРасширеннаяПодсказка" id="196"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииТарифнаяЗона" id="203">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.ТарифнаяЗона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииТарифнаяЗонаКонтекстноеМеню" id="204"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииТарифнаяЗонаРасширеннаяПодсказка" id="205"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъемУслуги" id="209">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.ОбъемУслуги</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъемУслугиКонтекстноеМеню" id="210"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииОбъемУслугиРасширеннаяПодсказка" id="211"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииСумма" id="224">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.Сумма</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииСуммаКонтекстноеМеню" id="225"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииСуммаРасширеннаяПодсказка" id="226"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииСуммаНДС" id="239">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.СуммаНДС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииСуммаНДСКонтекстноеМеню" id="240"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииСуммаНДСРасширеннаяПодсказка" id="241"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииЦеноваяКатегория" id="242">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.ЦеноваяКатегория</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииЦеноваяКатегорияКонтекстноеМеню" id="243"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииЦеноваяКатегорияРасширеннаяПодсказка" id="244"/>
+								</InputField>
+								<InputField name="ДвижениябестОбъемНачисленийЭлектроэнергииТариф" id="266">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.Тариф</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииТарифКонтекстноеМеню" id="267"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииТарифРасширеннаяПодсказка" id="268"/>
+								</InputField>
+								<CheckBoxField name="ДвижениябестОбъемНачисленийЭлектроэнергииНДСВнутри" id="281">
+									<DataPath>Объект.RegisterRecords.бестОбъемНачисленийЭлектроэнергии.НДСВнутри</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДвижениябестОбъемНачисленийЭлектроэнергииНДСВнутриКонтекстноеМеню" id="282"/>
+									<ExtendedTooltip name="ДвижениябестОбъемНачисленийЭлектроэнергииНДСВнутриРасширеннаяПодсказка" id="283"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Примечание" id="19">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="Ответственный" id="22">
+			<DataPath>Объект.Ответственный</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="24"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестНачислениеОбъемовУК</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+</Form>

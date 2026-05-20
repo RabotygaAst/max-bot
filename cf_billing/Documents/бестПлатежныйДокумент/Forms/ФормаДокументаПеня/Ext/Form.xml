@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="101">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="102"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="НомерПД" id="135">
+					<DataPath>Объект.НомерПД</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="НомерПДКонтекстноеМеню" id="136"/>
+					<ExtendedTooltip name="НомерПДРасширеннаяПодсказка" id="137"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<LabelField name="ПериодНачисления" id="103">
+			<DataPath>Объект.ПериодНачисления</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Format>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДФ='ММММ гггг'</v8:content>
+				</v8:item>
+			</Format>
+			<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="104"/>
+			<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="105"/>
+		</LabelField>
+		<InputField name="ВидОперации" id="132">
+			<DataPath>Объект.ВидОперации</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<BackColor>#CCFFFF</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="133"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="134"/>
+		</InputField>
+		<UsualGroup name="Группа5" id="156">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="157"/>
+			<ChildItems>
+				<UsualGroup name="Группа6" id="158">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="159"/>
+					<ChildItems>
+						<InputField name="Организация" id="10">
+							<DataPath>Объект.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Район" id="13">
+							<DataPath>Объект.Район</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РайонКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">РайонПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Договор" id="19">
+							<DataPath>Объект.Договор</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДоговорКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Пеня" id="160">
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Пеня</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПеняКонтекстноеМеню" id="161"/>
+			<AutoCommandBar name="ПеняКоманднаяПанель" id="162"/>
+			<ExtendedTooltip name="ПеняРасширеннаяПодсказка" id="163"/>
+			<SearchStringAddition name="ПеняСтрокаПоиска" id="164">
+				<AdditionSource>
+					<Item>Пеня</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеняСтрокаПоискаКонтекстноеМеню" id="165"/>
+				<ExtendedTooltip name="ПеняСтрокаПоискаРасширеннаяПодсказка" id="166"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПеняСостояниеПросмотра" id="167">
+				<AdditionSource>
+					<Item>Пеня</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеняСостояниеПросмотраКонтекстноеМеню" id="168"/>
+				<ExtendedTooltip name="ПеняСостояниеПросмотраРасширеннаяПодсказка" id="169"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПеняУправлениеПоиском" id="170">
+				<AdditionSource>
+					<Item>Пеня</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеняУправлениеПоискомКонтекстноеМеню" id="171"/>
+				<ExtendedTooltip name="ПеняУправлениеПоискомРасширеннаяПодсказка" id="172"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ПеняНомерСтроки" id="173">
+					<DataPath>Объект.Пеня.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПеняНомерСтрокиКонтекстноеМеню" id="174"/>
+					<ExtendedTooltip name="ПеняНомерСтрокиРасширеннаяПодсказка" id="175"/>
+				</LabelField>
+				<ColumnGroup name="ПеняГруппа4" id="230">
+					<ExtendedTooltip name="ПеняГруппа4РасширеннаяПодсказка" id="231"/>
+					<ChildItems>
+						<InputField name="ПеняПериодНачисления" id="188">
+							<DataPath>Объект.Пеня.ПлатежныйДокумент.ПериодНачисления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняПериодНачисленияКонтекстноеМеню" id="189"/>
+							<ExtendedTooltip name="ПеняПериодНачисленияРасширеннаяПодсказка" id="190"/>
+						</InputField>
+						<InputField name="ПеняСуммаЗадолженности" id="176">
+							<DataPath>Объект.Пеня.СуммаЗадолженности</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняСуммаЗадолженностиКонтекстноеМеню" id="177"/>
+							<ExtendedTooltip name="ПеняСуммаЗадолженностиРасширеннаяПодсказка" id="178"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПеняГруппа1" id="224">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начисления пени</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ПеняГруппа1РасширеннаяПодсказка" id="225"/>
+					<ChildItems>
+						<InputField name="ПеняИзначальнаяДатаНачисленияПени" id="209">
+							<DataPath>Объект.Пеня.ИзначальнаяДатаНачисленияПени</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Начальная</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняИзначальнаяДатаНачисленияПениКонтекстноеМеню" id="210"/>
+							<ExtendedTooltip name="ПеняИзначальнаяДатаНачисленияПениРасширеннаяПодсказка" id="211"/>
+						</InputField>
+						<InputField name="ПеняДатаНачалаНачисленияПени" id="191">
+							<DataPath>Объект.Пеня.ДатаНачалаНачисленияПени</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В текущем периоде</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняДатаНачалаНачисленияПениКонтекстноеМеню" id="192"/>
+							<ExtendedTooltip name="ПеняДатаНачалаНачисленияПениРасширеннаяПодсказка" id="193"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПеняГруппа2" id="226">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дней просрочки</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ПеняГруппа2РасширеннаяПодсказка" id="227"/>
+					<ChildItems>
+						<InputField name="ПеняДнейПросрочкиСДатыНачалаНачисленийПени" id="194">
+							<DataPath>Объект.Пеня.ДнейПросрочкиСДатыНачалаНачисленийПени</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>С начала начисления</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняДнейПросрочкиСДатыНачалаНачисленийПениКонтекстноеМеню" id="195"/>
+							<ExtendedTooltip name="ПеняДнейПросрочкиСДатыНачалаНачисленийПениРасширеннаяПодсказка" id="196"/>
+						</InputField>
+						<InputField name="ПеняДнейПросрочки" id="179">
+							<DataPath>Объект.Пеня.ДнейПросрочки</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В текущем периоде</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняДнейПросрочкиКонтекстноеМеню" id="180"/>
+							<ExtendedTooltip name="ПеняДнейПросрочкиРасширеннаяПодсказка" id="181"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ПеняПроцентПени" id="239">
+					<DataPath>Объект.Пеня.ПроцентПени</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<MultiLine>false</MultiLine>
+					<ContextMenu name="ПеняПроцентПениКонтекстноеМеню" id="240"/>
+					<ExtendedTooltip name="ПеняПроцентПениРасширеннаяПодсказка" id="241"/>
+				</InputField>
+				<ColumnGroup name="ПеняГруппа5" id="232">
+					<ExtendedTooltip name="ПеняГруппа5РасширеннаяПодсказка" id="233"/>
+					<ChildItems>
+						<InputField name="ПеняСтавкаРефинансирования" id="182">
+							<DataPath>Объект.Пеня.СтавкаРефинансирования</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняСтавкаРефинансированияКонтекстноеМеню" id="183"/>
+							<ExtendedTooltip name="ПеняСтавкаРефинансированияРасширеннаяПодсказка" id="184"/>
+						</InputField>
+						<InputField name="ПеняКоэффициентЧислитель" id="197">
+							<DataPath>Объект.Пеня.КоэффициентЧислитель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняКоэффициентЧислительКонтекстноеМеню" id="198"/>
+							<ExtendedTooltip name="ПеняКоэффициентЧислительРасширеннаяПодсказка" id="199"/>
+						</InputField>
+						<InputField name="ПеняКоэффициентЗнаменатель" id="200">
+							<DataPath>Объект.Пеня.КоэффициентЗнаменатель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняКоэффициентЗнаменательКонтекстноеМеню" id="201"/>
+							<ExtendedTooltip name="ПеняКоэффициентЗнаменательРасширеннаяПодсказка" id="202"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПеняГруппа3" id="228">
+					<Visible>false</Visible>
+					<ExtendedTooltip name="ПеняГруппа3РасширеннаяПодсказка" id="229"/>
+					<ChildItems>
+						<InputField name="ПеняСуммаПениНДС" id="221">
+							<DataPath>Объект.Пеня.СуммаПениНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Пеня.TotalСуммаПениНДС</FooterDataPath>
+							<ContextMenu name="ПеняСуммаПениНДСКонтекстноеМеню" id="222"/>
+							<ExtendedTooltip name="ПеняСуммаПениНДСРасширеннаяПодсказка" id="223"/>
+						</InputField>
+						<InputField name="ПеняСтавкаНДС" id="218">
+							<DataPath>Объект.Пеня.СтавкаНДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняСтавкаНДСКонтекстноеМеню" id="219"/>
+							<ExtendedTooltip name="ПеняСтавкаНДСРасширеннаяПодсказка" id="220"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПеняГруппа6" id="234">
+					<ExtendedTooltip name="ПеняГруппа6РасширеннаяПодсказка" id="235"/>
+					<ChildItems>
+						<InputField name="ПеняСуммаПени" id="185">
+							<DataPath>Объект.Пеня.СуммаПени</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Пеня.TotalСуммаПени</FooterDataPath>
+							<ContextMenu name="ПеняСуммаПениКонтекстноеМеню" id="186"/>
+							<ExtendedTooltip name="ПеняСуммаПениРасширеннаяПодсказка" id="187"/>
+						</InputField>
+						<LabelField name="ПеняПлатежныйДокументТипЗадолженности" id="236">
+							<DataPath>Объект.Пеня.ПлатежныйДокумент.ТипЗадолженности</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняПлатежныйДокументТипЗадолженностиКонтекстноеМеню" id="237"/>
+							<ExtendedTooltip name="ПеняПлатежныйДокументТипЗадолженностиРасширеннаяПодсказка" id="238"/>
+						</LabelField>
+						<InputField name="ПеняПлатежныйДокумент" id="212">
+							<DataPath>Объект.Пеня.ПлатежныйДокумент</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеняПлатежныйДокументКонтекстноеМеню" id="213"/>
+							<ExtendedTooltip name="ПеняПлатежныйДокументРасширеннаяПодсказка" id="214"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<InputField name="Ответственный" id="22">
+			<DataPath>Объект.Ответственный</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<InputField name="Примечание" id="25">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<InputField name="ДокументОснование" id="242">
+			<DataPath>Объект.ДокументОснование</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="243"/>
+			<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="244"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестПлатежныйДокумент</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСчетаНаОстаток</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСчетФактураНаРеализацию</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСчетаНаОплатуПред</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСчетаНаОплатуПост</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСоглашениеНаКорректировку</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьКорректировочнойСФ</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьИсправительнойСФ</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьАктаПриемаПередачи</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьАктаПерерасчета</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьАктаПриемаПередачиПоЭЭ</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.бестПлатежныйДокумент.Command.ПечатьСчетаНаПредварительнуюОплату</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Поставщик" id="7">
+			<DataPath>Объект.Поставщик</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПоставщикКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПоставщикРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Документ" id="10">
+			<DataPath>Объект.Документ</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<DropListButton>true</DropListButton>
+			<ContextMenu name="ДокументКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="OnChange">ДокументПриИзменении</Event>
+			</Events>
+		</InputField>
+		<CheckBoxField name="ЗагрузитьИзDBF" id="41">
+			<DataPath>Объект.ЗагрузитьИзDBF</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Если не установлен флаг, то по умолчанию загрузка будет происходить из Excel!</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ЗагрузитьИзDBFКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="ЗагрузитьИзDBFРасширеннаяПодсказка" id="43"/>
+			<Events>
+				<Event name="OnChange">ЗагрузитьИзDBFПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Table name="Соответствие" id="44">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.Соответствие</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СоответствиеКонтекстноеМеню" id="45"/>
+			<AutoCommandBar name="СоответствиеКоманднаяПанель" id="46">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СоответствиеРасширеннаяПодсказка" id="47"/>
+			<SearchStringAddition name="СоответствиеСтрокаПоиска" id="48">
+				<AdditionSource>
+					<Item>Соответствие</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СоответствиеСтрокаПоискаКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="СоответствиеСтрокаПоискаРасширеннаяПодсказка" id="52"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СоответствиеСостояниеПросмотра" id="53">
+				<AdditionSource>
+					<Item>Соответствие</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СоответствиеСостояниеПросмотраКонтекстноеМеню" id="56"/>
+				<ExtendedTooltip name="СоответствиеСостояниеПросмотраРасширеннаяПодсказка" id="57"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СоответствиеУправлениеПоиском" id="58">
+				<AdditionSource>
+					<Item>Соответствие</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СоответствиеУправлениеПоискомКонтекстноеМеню" id="61"/>
+				<ExtendedTooltip name="СоответствиеУправлениеПоискомРасширеннаяПодсказка" id="62"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СоответствиеНомерСтроки" id="63">
+					<DataPath>Объект.Соответствие.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СоответствиеНомерСтрокиКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="СоответствиеНомерСтрокиРасширеннаяПодсказка" id="65"/>
+				</LabelField>
+				<InputField name="СоответствиеРеквизитДокумента" id="66">
+					<DataPath>Объект.Соответствие.РеквизитДокумента</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СоответствиеРеквизитДокументаКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="СоответствиеРеквизитДокументаРасширеннаяПодсказка" id="68"/>
+				</InputField>
+				<InputField name="СоответствиеСиноним" id="72">
+					<DataPath>Объект.Соответствие.Синоним</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СоответствиеСинонимКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="СоответствиеСинонимРасширеннаяПодсказка" id="74"/>
+				</InputField>
+				<InputField name="СоответствиеНазваниеКолонки" id="69">
+					<DataPath>Объект.Соответствие.НазваниеКолонки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СоответствиеНазваниеКолонкиКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="СоответствиеНазваниеКолонкиРасширеннаяПодсказка" id="71"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргСоотвествиеПолей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СоответствиеНомерСтроки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СоответствиеНазваниеКолонки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СоответствиеРеквизитДокумента</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Соответствие.РеквизитДокумента</dcsset:left>
+						<dcsset:comparisonType>Contains</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">Табличная часть</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BEA469</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="11" bold="true" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

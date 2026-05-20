@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="56">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="57"/>
+			<ChildItems>
+				<InputField name="Номер" id="58">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="60"/>
+				</InputField>
+				<InputField name="Дата" id="61">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="63"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ТочкиПриема" id="75">
+			<DataPath>Объект.ТочкиПриема</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ТочкиПриемаКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="ТочкиПриемаРасширеннаяПодсказка" id="77"/>
+			<Events>
+				<Event name="OnChange">ТочкиПриемаПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Table name="ТочкиПоставки" id="78">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ТочкиПоставки</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТочкиПоставкиКонтекстноеМеню" id="79"/>
+			<AutoCommandBar name="ТочкиПоставкиКоманднаяПанель" id="80"/>
+			<ExtendedTooltip name="ТочкиПоставкиРасширеннаяПодсказка" id="81"/>
+			<SearchStringAddition name="ТочкиПоставкиСтрокаПоиска" id="82">
+				<AdditionSource>
+					<Item>ТочкиПоставки</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТочкиПоставкиСтрокаПоискаКонтекстноеМеню" id="83"/>
+				<ExtendedTooltip name="ТочкиПоставкиСтрокаПоискаРасширеннаяПодсказка" id="84"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТочкиПоставкиСостояниеПросмотра" id="85">
+				<AdditionSource>
+					<Item>ТочкиПоставки</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТочкиПоставкиСостояниеПросмотраКонтекстноеМеню" id="86"/>
+				<ExtendedTooltip name="ТочкиПоставкиСостояниеПросмотраРасширеннаяПодсказка" id="87"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТочкиПоставкиУправлениеПоиском" id="88">
+				<AdditionSource>
+					<Item>ТочкиПоставки</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТочкиПоставкиУправлениеПоискомКонтекстноеМеню" id="89"/>
+				<ExtendedTooltip name="ТочкиПоставкиУправлениеПоискомРасширеннаяПодсказка" id="90"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeDeleteRow">ТочкиПоставкиПередУдалением</Event>
+				<Event name="OnActivateRow">ТочкиПоставкиПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ТочкиПоставкиНомерСтроки" id="152">
+					<DataPath>Объект.ТочкиПоставки.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТочкиПоставкиНомерСтрокиКонтекстноеМеню" id="153"/>
+					<ExtendedTooltip name="ТочкиПоставкиНомерСтрокиРасширеннаяПодсказка" id="154"/>
+				</LabelField>
+				<ColumnGroup name="ТочкиПоставкиГруппа1" id="97">
+					<ExtendedTooltip name="ТочкиПоставкиГруппа1РасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиТочкаПрисоединения" id="155">
+							<DataPath>Объект.ТочкиПоставки.ТочкаПрисоединения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиТочкаПрисоединенияКонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="ТочкиПоставкиТочкаПрисоединенияРасширеннаяПодсказка" id="157"/>
+						</InputField>
+						<InputField name="ТочкиПоставкиТочкаПоставки" id="200">
+							<DataPath>Объект.ТочкиПоставки.ТочкаПоставки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.ЭтоТочкаПриема</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Объект.ТочкиПриема</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ChoiceParameters>
+								<app:item name="Отбор.ЭтоТочкаПоставки">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="ТочкиПоставкиТочкаПоставкиКонтекстноеМеню" id="201"/>
+							<ExtendedTooltip name="ТочкиПоставкиТочкаПоставкиРасширеннаяПодсказка" id="202"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТочкиПоставкиГруппа2" id="105">
+					<ExtendedTooltip name="ТочкиПоставкиГруппа2РасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиМаксимальнаяМощность" id="161">
+							<DataPath>Объект.ТочкиПоставки.МаксимальнаяМощность</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиМаксимальнаяМощностьКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="ТочкиПоставкиМаксимальнаяМощностьРасширеннаяПодсказка" id="163"/>
+						</InputField>
+						<InputField name="ТочкиПоставкиПрисоединеннаяМощность" id="164">
+							<DataPath>Объект.ТочкиПоставки.ПрисоединеннаяМощность</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиПрисоединеннаяМощностьКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="ТочкиПоставкиПрисоединеннаяМощностьРасширеннаяПодсказка" id="166"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТочкиПоставкиГруппа3" id="113">
+					<ExtendedTooltip name="ТочкиПоставкиГруппа3РасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиУровеньНапряжения" id="167">
+							<DataPath>Объект.ТочкиПоставки.УровеньНапряжения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиУровеньНапряженияКонтекстноеМеню" id="168"/>
+							<ExtendedTooltip name="ТочкиПоставкиУровеньНапряженияРасширеннаяПодсказка" id="169"/>
+						</InputField>
+						<InputField name="ТочкиПоставкиУровеньНапряженияРасчетный" id="170">
+							<DataPath>Объект.ТочкиПоставки.УровеньНапряженияРасчетный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиУровеньНапряженияРасчетныйКонтекстноеМеню" id="171"/>
+							<ExtendedTooltip name="ТочкиПоставкиУровеньНапряженияРасчетныйРасширеннаяПодсказка" id="172"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТочкиПоставкиГруппа4" id="121">
+					<ExtendedTooltip name="ТочкиПоставкиГруппа4РасширеннаяПодсказка" id="122"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиСетеваяОрганизация" id="173">
+							<DataPath>Объект.ТочкиПоставки.СетеваяОрганизация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиСетеваяОрганизацияКонтекстноеМеню" id="174"/>
+							<ExtendedTooltip name="ТочкиПоставкиСетеваяОрганизацияРасширеннаяПодсказка" id="175"/>
+						</InputField>
+						<InputField name="ТочкиПоставкиОтделениеЭК" id="176">
+							<DataPath>Объект.ТочкиПоставки.ОтделениеЭК</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиОтделениеЭККонтекстноеМеню" id="177"/>
+							<ExtendedTooltip name="ТочкиПоставкиОтделениеЭКРасширеннаяПодсказка" id="178"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТочкиПоставкиГруппа5" id="129">
+					<ExtendedTooltip name="ТочкиПоставкиГруппа5РасширеннаяПодсказка" id="130"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиСтруктураСети" id="179">
+							<DataPath>Объект.ТочкиПоставки.СтруктураСети</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиСтруктураСетиКонтекстноеМеню" id="180"/>
+							<ExtendedTooltip name="ТочкиПоставкиСтруктураСетиРасширеннаяПодсказка" id="181"/>
+						</InputField>
+						<InputField name="ТочкиПоставкиГТП" id="182">
+							<DataPath>Объект.ТочкиПоставки.ГТП</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиГТПКонтекстноеМеню" id="183"/>
+							<ExtendedTooltip name="ТочкиПоставкиГТПРасширеннаяПодсказка" id="184"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ТочкиПоставкиНапряжениеГБП" id="225">
+					<DataPath>Объект.ТочкиПоставки.НапряжениеГБП</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТочкиПоставкиНапряжениеГБПКонтекстноеМеню" id="226"/>
+					<ExtendedTooltip name="ТочкиПоставкиНапряжениеГБПРасширеннаяПодсказка" id="227"/>
+				</InputField>
+				<ColumnGroup name="ГруппаПараметрыТочкиПриема" id="137">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа параметры точки приема</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа параметры точки приема</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаПараметрыТочкиПриемаРасширеннаяПодсказка" id="138"/>
+					<ChildItems>
+						<InputField name="ТочкиПоставкиВидРынка" id="185">
+							<DataPath>Объект.ТочкиПоставки.ВидРынка</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкиПоставкиВидРынкаКонтекстноеМеню" id="186"/>
+							<ExtendedTooltip name="ТочкиПоставкиВидРынкаРасширеннаяПодсказка" id="187"/>
+						</InputField>
+						<ColumnGroup name="ТочкиПоставкиГруппа6" id="142">
+							<ExtendedTooltip name="ТочкиПоставкиГруппа6РасширеннаяПодсказка" id="143"/>
+							<ChildItems>
+								<InputField name="ТочкиПоставкиСмежныйСубъектОРЭМ" id="188">
+									<DataPath>Объект.ТочкиПоставки.СмежныйСубъектОРЭМ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТочкиПоставкиСмежныйСубъектОРЭМКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="ТочкиПоставкиСмежныйСубъектОРЭМРасширеннаяПодсказка" id="190"/>
+								</InputField>
+								<InputField name="ТочкиПоставкиРеквизитыПСИ" id="191">
+									<DataPath>Объект.ТочкиПоставки.РеквизитыПСИ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТочкиПоставкиРеквизитыПСИКонтекстноеМеню" id="192"/>
+									<ExtendedTooltip name="ТочкиПоставкиРеквизитыПСИРасширеннаяПодсказка" id="193"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ТочкиПоставкиГруппа7" id="150">
+							<ExtendedTooltip name="ТочкиПоставкиГруппа7РасширеннаяПодсказка" id="151"/>
+							<ChildItems>
+								<InputField name="ТочкиПоставкиДоговорПередачи" id="194">
+									<DataPath>Объект.ТочкиПоставки.ДоговорПередачи</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТочкиПоставкиДоговорПередачиКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="ТочкиПоставкиДоговорПередачиРасширеннаяПодсказка" id="196"/>
+								</InputField>
+								<InputField name="ТочкиПоставкиДоговорПокупки" id="197">
+									<DataPath>Объект.ТочкиПоставки.ДоговорПокупки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТочкиПоставкиДоговорПокупкиКонтекстноеМеню" id="198"/>
+									<ExtendedTooltip name="ТочкиПоставкиДоговорПокупкиРасширеннаяПодсказка" id="199"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<Table name="КатегорииНадежности" id="203">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.КатегорииНадежности</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="КатегорииНадежностиКонтекстноеМеню" id="204"/>
+			<AutoCommandBar name="КатегорииНадежностиКоманднаяПанель" id="205"/>
+			<ExtendedTooltip name="КатегорииНадежностиРасширеннаяПодсказка" id="206"/>
+			<SearchStringAddition name="КатегорииНадежностиСтрокаПоиска" id="207">
+				<AdditionSource>
+					<Item>КатегорииНадежности</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КатегорииНадежностиСтрокаПоискаКонтекстноеМеню" id="208"/>
+				<ExtendedTooltip name="КатегорииНадежностиСтрокаПоискаРасширеннаяПодсказка" id="209"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="КатегорииНадежностиСостояниеПросмотра" id="210">
+				<AdditionSource>
+					<Item>КатегорииНадежности</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КатегорииНадежностиСостояниеПросмотраКонтекстноеМеню" id="211"/>
+				<ExtendedTooltip name="КатегорииНадежностиСостояниеПросмотраРасширеннаяПодсказка" id="212"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="КатегорииНадежностиУправлениеПоиском" id="213">
+				<AdditionSource>
+					<Item>КатегорииНадежности</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="КатегорииНадежностиУправлениеПоискомКонтекстноеМеню" id="214"/>
+				<ExtendedTooltip name="КатегорииНадежностиУправлениеПоискомРасширеннаяПодсказка" id="215"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnChange">КатегорииНадежностиПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="КатегорииНадежностиКатегорияНадежности" id="219">
+					<DataPath>Объект.КатегорииНадежности.КатегорияНадежности</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КатегорииНадежностиКатегорияНадежностиКонтекстноеМеню" id="220"/>
+					<ExtendedTooltip name="КатегорииНадежностиКатегорияНадежностиРасширеннаяПодсказка" id="221"/>
+				</InputField>
+				<CheckBoxField name="КатегорииНадежностиВТомЧисле" id="222">
+					<DataPath>Объект.КатегорииНадежности.ВТомЧисле</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="КатегорииНадежностиВТомЧислеКонтекстноеМеню" id="223"/>
+					<ExtendedTooltip name="КатегорииНадежностиВТомЧислеРасширеннаяПодсказка" id="224"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="64">
+			<DataPath>Объект.Примечание</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="65"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="66"/>
+		</InputField>
+		<UsualGroup name="ГруппаПодвал" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<LabelField name="Ответственный" id="69">
+					<DataPath>Объект.Ответственный</DataPath>
+					<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="71"/>
+				</LabelField>
+				<LabelField name="ДатаПоследнегоИзменения" id="72">
+					<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+					<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="74"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.энргУстановитьПараметрыТочекПоставок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+</Form>
