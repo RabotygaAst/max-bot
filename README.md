@@ -110,7 +110,7 @@ curl -X POST http://localhost:8080/internal/notifications/send \
 | `REQUEST_TIMEOUT_SECONDS` | таймаут вызовов MAX и 1С |
 | `MAX_BASE_URL` | базовый URL MAX API |
 | `MAX_TOKEN` | токен MAX Bot API |
-| `WEBHOOK_SECRET` | секрет Webhook-подписки |
+| `WEBHOOK_SECRET` | секрет Webhook-подписки (если пустой, бот сгенерирует новый при старте и выведет в лог) |
 | `WEBHOOK_SECRET_HEADER` | имя заголовка, где ожидается секрет |
 | `ONEC_BASE_URL` | базовый URL HTTP API 1С |
 | `ONEC_TOKEN` | внутренний токен интеграции с 1С |

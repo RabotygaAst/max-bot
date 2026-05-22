@@ -23,6 +23,9 @@ func main() {
 		log.Error("config error", "err", err)
 		os.Exit(1)
 	}
+	if os.Getenv("WEBHOOK_SECRET") == "" {
+		log.Warn("WEBHOOK_SECRET was not set, generated new value for this launch", "webhook_secret", cfg.WebhookSecret)
+	}
 
 	// Инициализируем хранилище
 	var botStore store.Store

@@ -1,6 +1,8 @@
 package config
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"os"
 	"strconv"
@@ -21,12 +23,21 @@ type Config struct {
 }
 
 func Load() (Config, error) {
+	webhookSecret := os.Getenv("WEBHOOK_SECRET")
+	if webhookSecret == "" {
+		generated, err := generateWebhookSecret()
+		if err != nil {
+			return Config{}, fmt.Errorf("generate WEBHOOK_SECRET: %w", err)
+		}
+		webhookSecret = generated
+	}
+
 	cfg := Config{
 		HTTPAddr:            env("HTTP_ADDR", ":8080"),
 		WebhookSecretHeader: env("WEBHOOK_SECRET_HEADER", "X-Max-Webhook-Secret"),
 		MAXBaseURL:          env("MAX_BASE_URL", "https://platform-api.max.ru"),
 		OneCBaseURL:         os.Getenv("ONEC_BASE_URL"),
-		WebhookSecret:       os.Getenv("WEBHOOK_SECRET"),
+		WebhookSecret:       webhookSecret,
 		InternalAPIToken:    os.Getenv("INTERNAL_API_TOKEN"),
 		MAXToken:            os.Getenv("MAX_TOKEN"),
 		OneCToken:           os.Getenv("ONEC_TOKEN"),
@@ -48,9 +59,6 @@ func Load() (Config, error) {
 	if cfg.OneCToken == "" {
 		return Config{}, fmt.Errorf("ONEC_TOKEN is required")
 	}
-	if cfg.WebhookSecret == "" {
-		return Config{}, fmt.Errorf("WEBHOOK_SECRET is required")
-	}
 	if cfg.InternalAPIToken == "" {
 		return Config{}, fmt.Errorf("INTERNAL_API_TOKEN is required")
 	}
@@ -63,4 +71,12 @@ func env(key, def string) string {
 		return v
 	}
 	return def
+}
+
+func generateWebhookSecret() (string, error) {
+	buf := make([]byte, 32)
+	if _, err := rand.Read(buf); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(buf), nil
 }
