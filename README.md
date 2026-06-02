@@ -1,14 +1,14 @@
 # MAX-бот ЖКХ: Go backend + интеграция с 1С
 
-Минимальный каркас backend-сервиса для MAX-бота по ТЗ: прием Webhook, проверка секрета, идемпотентность входящих событий, вызовы HTTP API 1С и отправка сообщений пользователю.
+Backend-сервис принимает webhook-события от MAX, ведет диалог с пользователем, хранит идемпотентность и состояние сессии в PostgreSQL, вызывает HTTP API 1С из папки `cf_billing` и отправляет ответы пользователю через MAX Bot API.
 
 ## Что реализовано
 
-- `POST /webhook/max` — прием событий MAX.
-- Проверка Webhook secret через заголовок, по умолчанию `X-Max-Webhook-Secret`.
-- Быстрый ответ Webhook и асинхронная обработка события.
+- `POST /webhook/max` — прием событий MAX с проверкой секрета из заголовка.
+- Быстрый ответ webhook и асинхронная обработка входящего сообщения.
 - Идемпотентность по `message.body.mid` или вычисленному `event_id`.
-- Вызовы 1С по методам:
+- PostgreSQL-хранилище для `max_events` и `dialog_sessions`; без `DATABASE_URL` доступен in-memory режим для разработки.
+- HTTP-клиент 1С для методов:
   - `POST /max/v1/users/start`
   - `POST /max/v1/consents`
   - `POST /max/v1/account-link/start`
@@ -20,7 +20,7 @@
   - `POST /max/v1/accounts/{account_id}/appeals`
   - `GET /max/v1/reference/help`
 - Служебный endpoint для уведомлений из 1С: `POST /internal/notifications/send`.
-- JSON-логи через `log/slog`.
+- Локальный mock-контур для smoke-тестов: PostgreSQL + MockServer для 1С и MAX `/messages`.
 
 ## Структура проекта
 
@@ -32,28 +32,133 @@ internal/service                сценарии бота
 internal/clients/max            клиент MAX API
 internal/clients/onec           клиент 1С API
 internal/model                  DTO MAX и 1С
-internal/store                  интерфейс хранилища и in-memory реализация
+internal/store                  PostgreSQL и in-memory хранилища
+cf_billing                      конфигурация 1С и логика интеграции
+init-db.sql                     схема локальной PostgreSQL БД
+mock-onec-config.json           mock-ответы 1С и MAX для локального теста
 ```
 
-## Быстрый запуск
+## Единая инструкция запуска, активации и проверки
+
+### 1. Подготовьте переменные окружения
+
+Создайте `.env` из шаблона:
 
 ```bash
 cp .env.example .env
-# Заполните .env реальными значениями
-export $(grep -v '^#' .env | xargs)
-go run ./cmd/bot
 ```
 
-Проверка:
+Для локального smoke-теста менять значения не нужно: `MAX_BASE_URL` и `ONEC_BASE_URL` уже смотрят в контейнер `mock-onec`, а `ONEC_TOKEN` совпадает с `mock-onec-config.json`.
+
+Для боевого запуска замените минимум:
+
+```dotenv
+MAX_BASE_URL=https://platform-api.max.ru
+MAX_TOKEN=<реальный токен MAX-бота>
+WEBHOOK_SECRET=<длинный секрет webhook>
+ONEC_BASE_URL=<публичный или внутренний URL HTTP-сервиса 1С>
+ONEC_TOKEN=<токен интеграции с 1С>
+INTERNAL_API_TOKEN=<токен для уведомлений из 1С в backend>
+```
+
+> Не коммитьте `.env`: он содержит токены и секреты.
+
+### 2. Запустите локальный контур
+
+```bash
+docker-compose up -d --build
+```
+
+Контур поднимает:
+
+- `max-bot-postgres` — PostgreSQL на порту `5433` хоста;
+- `max-bot-mock-onec` — MockServer на порту `1080` хоста;
+- `max-bot` — backend на порту `8080` хоста.
+
+Проверьте состояние контейнеров:
+
+```bash
+docker-compose ps
+```
+
+В логах бота должна быть строка `using PostgreSQL store`:
+
+```bash
+docker-compose logs max-bot | tail -50
+```
+
+### 3. Проверьте health-check
 
 ```bash
 curl http://localhost:8080/healthz
 ```
 
-## Пример Webhook-запроса
+Ожидаемый ответ:
+
+```json
+{"status":"ok"}
+```
+
+### 4. Прогоните сценарий диалога без реального MAX
+
+`/debug/send-test-update` имитирует входящее сообщение от MAX и удобен для локальной проверки без публичного webhook:
 
 ```bash
-curl -X POST http://localhost:8080/webhook/max \
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-001","text":"/start"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-002","text":"согласен"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-003","text":"привязать 000123456"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-004","text":"код 000123456 1234"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-005","text":"баланс"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-006","text":"показания"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-007","text":"показание MTR-001 245.678"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-008","text":"обращение не убран подъезд"}'
+
+curl -s -X POST http://localhost:8080/debug/send-test-update \
+  -H 'Content-Type: application/json' \
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-009","text":"справка"}'
+```
+
+Каждый вызов должен вернуть:
+
+```json
+{"success":true}
+```
+
+Ответы бота можно увидеть в журнале запросов MockServer к `/messages`:
+
+```bash
+curl -s -X PUT http://localhost:1080/mockserver/retrieve \
+  -H 'Content-Type: application/json' \
+  -d '{"path":"/messages"}'
+```
+
+### 5. Проверьте webhook с секретом
+
+```bash
+curl -s -X POST http://localhost:8080/webhook/max \
   -H 'Content-Type: application/json' \
   -H 'X-Max-Webhook-Secret: CHANGE_ME_SECRET_2026' \
   -d '{
@@ -62,12 +167,72 @@ curl -X POST http://localhost:8080/webhook/max \
     "message":{
       "sender":{"user_id":123456789,"first_name":"Иван"},
       "recipient":{"chat_id":987654321},
-      "body":{"mid":"mid.example.1","text":"/start"}
+      "body":{"mid":"smoke-webhook-001","text":"баланс"}
     }
   }'
 ```
 
-Ожидаемый ответ Webhook:
+Ожидаемый ответ:
+
+```json
+{"success":true}
+```
+
+Проверка отрицательного сценария:
+
+```bash
+curl -i -s -X POST http://localhost:8080/webhook/max \
+  -H 'Content-Type: application/json' \
+  -H 'X-Max-Webhook-Secret: WRONG_SECRET' \
+  -d '{"update_type":"message_created","message":{"sender":{"user_id":1},"recipient":{"chat_id":1},"body":{"mid":"bad-secret","text":"/start"}}}'
+```
+
+Ожидается HTTP `401 Unauthorized`.
+
+### 6. Проверьте БД
+
+```bash
+docker-compose exec -T postgres psql -U maxbot -d maxbot -c "SELECT event_id, status, operation_id, error_text FROM max_events ORDER BY received_at DESC LIMIT 10;"
+```
+
+Все smoke-события должны иметь статус `processed` и пустой `error_text`.
+
+```bash
+docker-compose exec -T postgres psql -U maxbot -d maxbot -c "SELECT max_user_id, active_account_id, temp, updated_at FROM dialog_sessions;"
+```
+
+После команды `код 000123456 1234` у пользователя должен быть активный счет `ACC-000123456`.
+
+### 7. Активируйте реальный webhook в MAX
+
+После успешной локальной проверки опубликуйте backend по HTTPS, например через reverse proxy или временно через ngrok:
+
+```bash
+ngrok http 8080
+```
+
+Укажите в настройках MAX-бота:
+
+- URL webhook: `https://<ваш-домен>/webhook/max`;
+- секрет webhook: значение `WEBHOOK_SECRET` из `.env`;
+- токен бота: значение `MAX_TOKEN`.
+
+Если регистрация webhook выполняется через API MAX, используйте официальный метод платформы MAX для управления webhook и передайте тот же URL и секрет. После активации отправьте боту в MAX команды `/start`, `согласен`, `привязать 000123456`, `код 000123456 1234`, `баланс`, `показания`, `справка` и проверьте логи backend.
+
+### 8. Отправьте служебное уведомление из 1С
+
+```bash
+curl -s -X POST http://localhost:8080/internal/notifications/send \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer CHANGE_ME_INTERNAL_TOKEN_2026' \
+  -d '{
+    "chat_id":987654321,
+    "text":"Статус обращения №ОБР-000001 изменен: в работе.",
+    "operation_id":"1c-20260601-000001"
+  }'
+```
+
+Ожидаемый ответ:
 
 ```json
 {"success":true}
@@ -82,89 +247,52 @@ curl -X POST http://localhost:8080/webhook/max \
 код 000123456 1234
 баланс
 показания
-показание MTR-001 123.456
+показание MTR-001 245.678
 обращение не убран подъезд
 справка
-```
-
-## Служебное уведомление из 1С
-
-1С или интеграционный контур может вызвать backend, чтобы отправить пользователю уведомление о квитанции, оплате или статусе обращения.
-
-```bash
-curl -X POST http://localhost:8080/internal/notifications/send \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer CHANGE_ME_INTERNAL_TOKEN' \
-  -d '{
-    "chat_id": 987654321,
-    "text": "Статус обращения №123 изменен: в работе.",
-    "operation_id": "1c-20260506-000123"
-  }'
 ```
 
 ## Переменные окружения
 
 | Переменная | Назначение |
 |---|---|
-| `HTTP_ADDR` | адрес HTTP-сервера, например `:8080` |
-| `REQUEST_TIMEOUT_SECONDS` | таймаут вызовов MAX и 1С |
-| `MAX_BASE_URL` | базовый URL MAX API |
-| `MAX_TOKEN` | токен MAX Bot API |
-| `WEBHOOK_SECRET` | секрет Webhook-подписки (если пустой, бот сгенерирует новый при старте и выведет в лог) |
-| `WEBHOOK_SECRET_HEADER` | имя заголовка, где ожидается секрет |
-| `ONEC_BASE_URL` | базовый URL HTTP API 1С |
-| `ONEC_TOKEN` | внутренний токен интеграции с 1С |
-| `INTERNAL_API_TOKEN` | токен для служебных вызовов от 1С к backend |
+| `HTTP_ADDR` | Адрес HTTP-сервера, например `:8080`. |
+| `REQUEST_TIMEOUT_SECONDS` | Таймаут вызовов MAX и 1С. |
+| `MAX_BASE_URL` | Базовый URL MAX API или локального mock-сервера. |
+| `MAX_TOKEN` | Токен MAX Bot API. |
+| `WEBHOOK_SECRET` | Секрет webhook-подписки. Если пустой, бот сгенерирует временный секрет при старте и выведет его в лог. |
+| `WEBHOOK_SECRET_HEADER` | Имя заголовка с секретом, по умолчанию `X-Max-Webhook-Secret`. |
+| `ONEC_BASE_URL` | Базовый URL HTTP API 1С. |
+| `ONEC_TOKEN` | Токен интеграции с 1С. |
+| `INTERNAL_API_TOKEN` | Токен для служебных вызовов от 1С к backend. |
+| `DATABASE_URL` | PostgreSQL DSN. Если не задан, используется in-memory хранилище. |
 
-## Как адаптировать под production
+## Диагностика
 
-1. Заменить `MemoryStore` на PostgreSQL или Redis.
-2. Добавить таблицы `max_events`, `dialog_sessions`, `outbox_messages`.
-3. Заменить goroutine-обработку на очередь.
-4. Добавить retries для технических ошибок 1С и MAX.
-5. Добавить метрики Prometheus: количество событий, ошибки 1С, длительность обработки.
-6. Настроить reverse proxy с TLS и ограничением доступа.
-7. Согласовать с ИБ точный заголовок Webhook secret и правила маскирования ПДн.
-8. Сверить `clients/max/client.go` с фактическим форматом отправки сообщений в MAX Bot API.
-
-## Схема таблиц для production-хранилища
-
-```sql
-create table max_events (
-  event_id text primary key,
-  status text not null,
-  operation_id text,
-  error_text text,
-  received_at timestamptz not null default now(),
-  processed_at timestamptz
-);
-
-create table dialog_sessions (
-  max_user_id bigint primary key,
-  step text,
-  active_account_id text,
-  temp jsonb not null default '{}',
-  updated_at timestamptz not null default now()
-);
+```bash
+docker-compose logs max-bot | tail -100
+docker-compose logs postgres | tail -100
+docker-compose logs mock-onec | tail -100
 ```
 
-## Примечания по 1С
+Проверка ошибок в обработке событий:
 
-Backend ожидает типовой JSON-ответ:
-
-```json
-{
-  "success": true,
-  "code": "OK",
-  "message": "Операция выполнена",
-  "operation_id": "1c-20260506-000001",
-  "actual_at": "2026-05-06T12:00:00+03:00",
-  "data": {}
-}
+```bash
+docker-compose exec -T postgres psql -U maxbot -d maxbot -c "SELECT * FROM max_events WHERE status <> 'processed' ORDER BY received_at DESC;"
 ```
 
-Для бизнес-ошибок 1С должна возвращать `success=false`, человекочитаемое `message` и код вроде `LINK_REQUIRED`, `READING_PERIOD_CLOSED`, `READING_LESS_THAN_PREVIOUS`.
+Повторная чистая проверка с удалением данных:
 
-## Важное ограничение
+```bash
+docker-compose down -v
+docker-compose up -d --build
+```
 
-Это простой каркас для разработки и тестового стенда. Его нельзя считать промышленным решением без постоянного хранилища, очереди, TLS/reverse proxy, мониторинга, регламентов ИБ и полноценной реализации всех сценариев согласия, отзыва согласия, отвязки ЛС, квитанций и вложений.
+## Production-рекомендации
+
+1. Использовать постоянный HTTPS endpoint и стабильную регистрацию webhook в MAX.
+2. Хранить токены в secret manager, а не в файлах на сервере.
+3. Добавить очередь/outbox и retries для технических ошибок MAX и 1С.
+4. Настроить метрики и алерты: ошибки 1С, ошибки MAX, длительность обработки, дубликаты webhook.
+5. Согласовать с ИБ маскирование ПДн в логах и текстах ответов.
+6. Сверить `internal/clients/max/client.go` с актуальным форматом отправки сообщений в MAX Bot API перед боевым включением.

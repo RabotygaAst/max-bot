@@ -61,7 +61,8 @@ func (s *BotService) SendNotification(ctx context.Context, req model.Notificatio
 }
 
 func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, error) {
-	text := normalize(upd.Text())
+	rawText := strings.TrimSpace(upd.Text())
+	text := normalize(rawText)
 	operationID := ""
 
 	if text == "/start" || text == "старт" || text == "начать" {
@@ -92,7 +93,7 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 	}
 
 	if strings.HasPrefix(text, "привязать ") {
-		accountNumber := strings.TrimSpace(strings.TrimPrefix(text, "привязать "))
+		accountNumber := tailAfterFirstWord(rawText)
 		resp, err := s.onec.StartAccountLink(ctx, model.AccountLinkStartRequest{
 			MaxUserID:     upd.UserID(),
 			AccountNumber: accountNumber,
@@ -107,7 +108,7 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 	}
 
 	if strings.HasPrefix(text, "код ") {
-		parts := strings.Fields(text)
+		parts := strings.Fields(rawText)
 		if len(parts) != 3 {
 			return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Неверный формат. Используйте: код <номер ЛС> <код>.")
 		}
@@ -134,11 +135,11 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 	}
 
 	if strings.HasPrefix(text, "показание ") {
-		return s.handleReading(ctx, upd, text)
+		return s.handleReading(ctx, upd, rawText)
 	}
 
 	if strings.HasPrefix(text, "обращение ") || strings.HasPrefix(text, "заявка ") {
-		return s.handleAppeal(ctx, upd, text)
+		return s.handleAppeal(ctx, upd, rawText)
 	}
 
 	if text == "справка" || text == "помощь" || text == "help" {
@@ -246,7 +247,7 @@ func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text
 		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Для создания обращения сначала привяжите лицевой счет.")
 	}
 
-	appealText := strings.TrimSpace(strings.TrimPrefix(strings.TrimPrefix(text, "обращение"), "заявка"))
+	appealText := tailAfterFirstWord(text)
 	if appealText == "" {
 		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Опишите обращение после слова 'обращение'. Например: обращение не убран подъезд.")
 	}
@@ -297,6 +298,19 @@ func welcomeText() string {
 
 func defaultHelpText() string {
 	return "Доступные команды: /start, согласен, привязать <номер ЛС>, код <номер ЛС> <код>, баланс, показания, показание <meter_id> <значение>, обращение <текст>."
+}
+
+func tailAfterFirstWord(s string) string {
+	fields := strings.Fields(s)
+	if len(fields) == 0 {
+		return ""
+	}
+	runes := []rune(strings.TrimSpace(s))
+	firstWordLen := len([]rune(fields[0]))
+	if len(runes) <= firstWordLen {
+		return ""
+	}
+	return strings.TrimSpace(string(runes[firstWordLen:]))
 }
 
 func normalize(s string) string {

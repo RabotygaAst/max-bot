@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 )
@@ -25,13 +26,11 @@ func New(baseURL, token string, timeout time.Duration) *Client {
 }
 
 func (c *Client) SendMessage(ctx context.Context, chatID int64, text string) error {
-	// Тело запроса вынесено в один метод, потому что фактический формат MAX API
-	// может отличаться в зависимости от подключенного режима и версии API.
 	body := map[string]any{
-		"chat_id": chatID,
-		"text":    text,
+		"text": text,
 	}
-	return c.post(ctx, "/messages", body)
+	path := "/messages?chat_id=" + url.QueryEscape(fmt.Sprint(chatID))
+	return c.post(ctx, path, body)
 }
 
 func (c *Client) post(ctx context.Context, path string, body any) error {
