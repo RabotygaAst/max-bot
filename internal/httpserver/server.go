@@ -153,7 +153,14 @@ func (s *Server) sendNotification(w http.ResponseWriter, r *http.Request) {
 func (s *Server) validWebhookSecret(r *http.Request) bool {
 	got := r.Header.Get(s.cfg.WebhookSecretHeader)
 	if got == "" {
-		// Резервные имена заголовков для разных прокси/интеграций. Секрет в URL не поддерживается.
+		// Официальный заголовок MAX Bot API для секрета webhook-подписки.
+		got = r.Header.Get("X-Max-Bot-Api-Secret")
+	}
+	if got == "" {
+		// Резервные имена заголовков для старых конфигураций/прокси. Секрет в URL не поддерживается.
+		got = r.Header.Get("X-Max-Webhook-Secret")
+	}
+	if got == "" {
 		got = r.Header.Get("X-Webhook-Secret")
 	}
 	return subtle.ConstantTimeCompare([]byte(got), []byte(s.cfg.WebhookSecret)) == 1

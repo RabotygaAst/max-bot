@@ -34,14 +34,13 @@ func Load() (Config, error) {
 
 	cfg := Config{
 		HTTPAddr:            env("HTTP_ADDR", ":8080"),
-		WebhookSecretHeader: env("WEBHOOK_SECRET_HEADER", "X-Max-Webhook-Secret"),
-		MAXBaseURL:          env("MAX_BASE_URL", "https://platform-api.max.ru"),
-		OneCBaseURL:         os.Getenv("ONEC_BASE_URL"),
-		WebhookSecret:       webhookSecret,
-		InternalAPIToken:    os.Getenv("INTERNAL_API_TOKEN"),
-		MAXToken:            os.Getenv("MAX_TOKEN"),
-		OneCToken:           os.Getenv("ONEC_TOKEN"),
-		DatabaseURL:         os.Getenv("DATABASE_URL"),
+		WebhookSecretHeader: env("WEBHOOK_SECRET_HEADER", "X-Max-Bot-Api-Secret"), MAXBaseURL: env("MAX_BASE_URL", "https://platform-api.max.ru"),
+		OneCBaseURL:      os.Getenv("ONEC_BASE_URL"),
+		WebhookSecret:    webhookSecret,
+		InternalAPIToken: os.Getenv("INTERNAL_API_TOKEN"),
+		MAXToken:         os.Getenv("MAX_TOKEN"),
+		OneCToken:        os.Getenv("ONEC_TOKEN"),
+		DatabaseURL:      os.Getenv("DATABASE_URL"),
 	}
 
 	timeoutSeconds, err := strconv.Atoi(env("REQUEST_TIMEOUT_SECONDS", "10"))

@@ -116,7 +116,37 @@ set +a
 go run ./cmd/bot
 ```
 
+#### Windows PowerShell
+
+Если команда `go run ./cmd/devmock ...` пишет `stat ...\cmd\devmock: directory not found`, значит в вашей локальной папке нет файлов из актуальной версии проекта. Сначала проверьте наличие файла и обновите репозиторий:
+
+```powershell
+Test-Path .\cmd\devmock\main.go
+git pull
+```
+
+После обновления можно запустить оба процесса одной командой из корня репозитория:
+
+```powershell
+.\scripts\run-local.ps1
+```
+
+Или вручную в двух окнах PowerShell:
+
+```powershell
+# Окно 1: mock 1C/MAX
+go run .\cmd\devmock -addr ":1080" -config "mock-onec-config.json"
+```
+
+```powershell
+# Окно 2: переменные окружения и bot
+Copy-Item .env.local.example .env.local -ErrorAction SilentlyContinue
+Get-Content .env.local | Where-Object { $_ -and $_ -notmatch '^\s*#' } | ForEach-Object { $name, $value = $_ -split '=', 2; Set-Item -Path "Env:$name" -Value $value }
+go run .\cmd\bot
+```
+
 В логах бота должна быть строка `using in-memory store (for development only)`. После этого проверки из разделов 3–5 и 8 можно выполнять теми же `curl`-командами. Раздел 6 про PostgreSQL для такого режима не нужен: состояние хранится только в памяти процесса и сбрасывается при перезапуске.
+
 
 ### 3. Проверьте health-check
 
