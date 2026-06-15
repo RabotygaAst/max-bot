@@ -25,6 +25,29 @@ type UpdatesResponse struct {
 	Marker  *int64            `json:"marker"`
 }
 
+type Button struct {
+	Type    string `json:"type"`
+	Text    string `json:"text"`
+	Payload string `json:"payload,omitempty"`
+}
+
+type Keyboard [][]Button
+
+type messageBody struct {
+	Text        string       `json:"text"`
+	Format      string       `json:"format,omitempty"`
+	Attachments []attachment `json:"attachments,omitempty"`
+}
+
+type attachment struct {
+	Type    string          `json:"type"`
+	Payload keyboardPayload `json:"payload"`
+}
+
+type keyboardPayload struct {
+	Buttons Keyboard `json:"buttons"`
+}
+
 func New(baseURL, token string, timeout time.Duration) *Client {
 	return &Client{
 		baseURL: strings.TrimRight(baseURL, "/"),
@@ -33,9 +56,18 @@ func New(baseURL, token string, timeout time.Duration) *Client {
 	}
 }
 
+func NewCallbackButton(text, payload string) Button {
+	return Button{Type: "callback", Text: text, Payload: payload}
+}
+
 func (c *Client) SendMessage(ctx context.Context, chatID int64, text string) error {
-	body := map[string]any{
-		"text": text,
+	return c.SendMessageWithKeyboard(ctx, chatID, text, nil)
+}
+
+func (c *Client) SendMessageWithKeyboard(ctx context.Context, chatID int64, text string, keyboard Keyboard) error {
+	body := messageBody{Text: text, Format: "markdown"}
+	if len(keyboard) > 0 {
+		body.Attachments = []attachment{{Type: "inline_keyboard", Payload: keyboardPayload{Buttons: keyboard}}}
 	}
 	path := "/messages?chat_id=" + url.QueryEscape(fmt.Sprint(chatID))
 	return c.post(ctx, path, body)
@@ -88,7 +120,8 @@ func (c *Client) post(ctx context.Context, path string, body any) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
-		return fmt.Errorf("max api returned status %d", resp.StatusCode)
+		body, _ := io.ReadAll(io.LimitReader(resp.Body, 4096))
+		return fmt.Errorf("max api returned status %d: %s", resp.StatusCode, strings.TrimSpace(string(body)))
 	}
 	return nil
 }

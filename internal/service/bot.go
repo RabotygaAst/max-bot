@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"unicode"
 
 	maxclient "example.com/max-bot-go/internal/clients/max"
 	"example.com/max-bot-go/internal/clients/onec"
@@ -17,6 +18,19 @@ import (
 const (
 	consentVersion = "pdn-v1-2026-05-06"
 	sourceMAX      = "MAX"
+
+	stepAwaitAccountNumber = "await_account_number"
+	stepAwaitLinkCode      = "await_link_code"
+	stepAwaitAppealText    = "await_appeal_text"
+
+	actionMenu          = "menu"
+	actionConsentAccept = "consent_accept"
+	actionLinkStart     = "link_start"
+	actionBalance       = "balance"
+	actionMeters        = "meters"
+	actionReadingStart  = "reading_start"
+	actionAppealStart   = "appeal_start"
+	actionHelp          = "help"
 )
 
 type BotService struct {
@@ -46,7 +60,7 @@ func (s *BotService) ProcessUpdate(ctx context.Context, upd model.MAXUpdate) {
 	if err != nil {
 		s.log.Error("process event failed", "event_id", eventID, "err", err)
 		_ = s.store.FinishEvent(ctx, eventID, "error", operationID, safeError(err))
-		_ = s.max.SendMessage(ctx, upd.ChatID(), "Временная ошибка. Попробуйте позже или обратитесь в поддержку.")
+		_ = s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), errorText(), mainKeyboard())
 		return
 	}
 
@@ -64,8 +78,9 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 	rawText := strings.TrimSpace(upd.Text())
 	text := normalize(rawText)
 	operationID := ""
+	session := s.currentSession(ctx, upd.UserID())
 
-	if text == "/start" || text == "старт" || text == "начать" {
+	if isStart(text) || text == actionMenu || text == "меню" {
 		resp, err := s.onec.StartUser(ctx, model.StartUserRequest{
 			MaxUserID: upd.UserID(),
 			ChatID:    upd.ChatID(),
@@ -76,10 +91,15 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 			return operationID, err
 		}
 		operationID = resp.OperationID
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), welcomeText())
+		_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", session.ActiveAccountID, session.Temp))
+		return operationID, s.sendOnboarding(ctx, upd.ChatID(), upd.FirstName())
 	}
 
-	if text == "согласен" || text == "принять согласие" || text == "согласие" {
+	if text == actionHelp || text == "справка" || text == "помощь" || text == "help" {
+		return s.handleHelp(ctx, upd)
+	}
+
+	if text == actionConsentAccept || text == "согласен" || text == "принять согласие" || text == "согласие" {
 		resp, err := s.onec.SaveConsent(ctx, model.ConsentRequest{
 			MaxUserID:      upd.UserID(),
 			ConsentVersion: consentVersion,
@@ -89,48 +109,32 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 			return operationID, err
 		}
 		operationID = resp.OperationID
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Согласие принято. Для привязки лицевого счета отправьте: привязать <номер ЛС>.")
+		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil))
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), consentAcceptedText(), linkKeyboard())
 	}
 
-	if strings.HasPrefix(text, "привязать ") {
-		accountNumber := tailAfterFirstWord(rawText)
-		resp, err := s.onec.StartAccountLink(ctx, model.AccountLinkStartRequest{
-			MaxUserID:     upd.UserID(),
-			AccountNumber: accountNumber,
-			Source:        sourceMAX,
-		})
-		if err != nil {
-			return operationID, err
-		}
-		operationID = resp.OperationID
-		_ = s.store.SaveSession(ctx, store.Session{MaxUserID: upd.UserID(), Step: "await_link_code", Temp: map[string]string{"account_number": accountNumber}})
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Проверка начата. Отправьте контрольный код в формате: код <номер ЛС> <код>.")
+	if text == actionLinkStart || text == "привязать" || text == "привязать лс" {
+		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil))
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkStartText(), linkKeyboard())
 	}
 
-	if strings.HasPrefix(text, "код ") {
-		parts := strings.Fields(rawText)
-		if len(parts) != 3 {
-			return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Неверный формат. Используйте: код <номер ЛС> <код>.")
+	if strings.HasPrefix(text, "привязать ") || (session.Step == stepAwaitAccountNumber && looksLikeAccountNumber(text)) {
+		accountNumber := rawText
+		if strings.HasPrefix(text, "привязать ") {
+			accountNumber = tailAfterFirstWord(rawText)
 		}
-		resp, err := s.onec.ConfirmAccountLink(ctx, model.AccountLinkConfirmRequest{
-			MaxUserID:     upd.UserID(),
-			AccountNumber: parts[1],
-			Code:          parts[2],
-			Source:        sourceMAX,
-		})
-		if err != nil {
-			return operationID, err
-		}
-		operationID = resp.OperationID
-		_ = s.store.SaveSession(ctx, store.Session{MaxUserID: upd.UserID(), ActiveAccountID: resp.Data.ID})
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Лицевой счет привязан. Теперь доступны баланс, показания и обращения.")
+		return s.startAccountLink(ctx, upd, strings.TrimSpace(accountNumber), session)
 	}
 
-	if text == "баланс" || text == "мой лицевой счет" || text == "лс" {
+	if strings.HasPrefix(text, "код ") || (session.Step == stepAwaitLinkCode && looksLikeCode(text)) {
+		return s.confirmAccountLink(ctx, upd, rawText, session)
+	}
+
+	if text == actionBalance || text == "баланс" || text == "мой лицевой счет" || text == "лс" {
 		return s.handleBalance(ctx, upd)
 	}
 
-	if text == "показания" || text == "передать показания" {
+	if text == actionMeters || text == actionReadingStart || text == "показания" || text == "передать показания" {
 		return s.handleMeters(ctx, upd)
 	}
 
@@ -138,23 +142,67 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 		return s.handleReading(ctx, upd, rawText)
 	}
 
-	if strings.HasPrefix(text, "обращение ") || strings.HasPrefix(text, "заявка ") {
+	if text == actionAppealStart || text == "обращение" || text == "заявка" {
+		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAppealText, session.ActiveAccountID, session.Temp))
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), appealStartText(), backToMenuKeyboard())
+	}
+
+	if strings.HasPrefix(text, "обращение ") || strings.HasPrefix(text, "заявка ") || (session.Step == stepAwaitAppealText && rawText != "") {
 		return s.handleAppeal(ctx, upd, rawText)
 	}
 
-	if text == "справка" || text == "помощь" || text == "help" {
-		resp, err := s.onec.Help(ctx)
-		if err != nil {
-			return operationID, err
-		}
-		operationID = resp.OperationID
-		if strings.TrimSpace(resp.Data.Text) == "" {
-			return operationID, s.max.SendMessage(ctx, upd.ChatID(), defaultHelpText())
-		}
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), resp.Data.Text)
-	}
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), unknownCommandText(), mainKeyboard())
+}
 
-	return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Команда не распознана. Напишите /start, баланс, показания, обращение <текст> или справка.")
+func (s *BotService) startAccountLink(ctx context.Context, upd model.MAXUpdate, accountNumber string, session store.Session) (string, error) {
+	operationID := ""
+	if strings.TrimSpace(accountNumber) == "" {
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkStartText(), linkKeyboard())
+	}
+	resp, err := s.onec.StartAccountLink(ctx, model.AccountLinkStartRequest{
+		MaxUserID:     upd.UserID(),
+		AccountNumber: accountNumber,
+		Source:        sourceMAX,
+	})
+	if err != nil {
+		return operationID, err
+	}
+	operationID = resp.OperationID
+	_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitLinkCode, session.ActiveAccountID, map[string]string{"account_number": accountNumber}))
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkCodeText(accountNumber), backToMenuKeyboard())
+}
+
+func (s *BotService) confirmAccountLink(ctx context.Context, upd model.MAXUpdate, rawText string, session store.Session) (string, error) {
+	operationID := ""
+	accountNumber := session.Temp["account_number"]
+	code := strings.TrimSpace(rawText)
+	parts := strings.Fields(rawText)
+	if strings.EqualFold(parts[0], "код") {
+		if len(parts) == 3 {
+			accountNumber = parts[1]
+			code = parts[2]
+		} else if len(parts) == 2 && accountNumber != "" {
+			code = parts[1]
+		} else {
+			return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), codeFormatText(), backToMenuKeyboard())
+		}
+	}
+	if accountNumber == "" || code == "" {
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), codeFormatText(), backToMenuKeyboard())
+	}
+	resp, err := s.onec.ConfirmAccountLink(ctx, model.AccountLinkConfirmRequest{
+		MaxUserID:     upd.UserID(),
+		AccountNumber: accountNumber,
+		Code:          code,
+		Source:        sourceMAX,
+	})
+	if err != nil {
+		return operationID, err
+	}
+	operationID = resp.OperationID
+	accountID := fallback(resp.Data.ID, accountNumber)
+	_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", accountID, nil))
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkSuccessText(accountNumber), mainKeyboard())
 }
 
 func (s *BotService) handleBalance(ctx context.Context, upd model.MAXUpdate) (string, error) {
@@ -163,7 +211,7 @@ func (s *BotService) handleBalance(ctx context.Context, upd model.MAXUpdate) (st
 		return operationID, err
 	}
 	if account.ID == "" {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Для просмотра баланса сначала привяжите лицевой счет: привязать <номер ЛС>.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("посмотреть баланс"), linkKeyboard())
 	}
 	resp, err := s.onec.Balance(ctx, upd.UserID(), account.ID)
 	if err != nil {
@@ -171,9 +219,9 @@ func (s *BotService) handleBalance(ctx context.Context, upd model.MAXUpdate) (st
 	}
 	operationID = resp.OperationID
 	b := resp.Data
-	msg := fmt.Sprintf("Лицевой счет: %s\nАдрес: %s\nБаланс на %s: задолженность %.2f %s, переплата %.2f %s.",
-		account.Number, maskAddress(account.Address), fallback(b.ActualAt, account.UpdatedAt), b.Debt, fallback(b.Currency, "руб."), b.Overpay, fallback(b.Currency, "руб."))
-	return operationID, s.max.SendMessage(ctx, upd.ChatID(), msg)
+	msg := fmt.Sprintf("💳 *Баланс лицевого счета*\n\nЛС: `%s`\nАдрес: %s\nДата: %s\n\nЗадолженность: *%.2f %s*\nПереплата: *%.2f %s*",
+		fallback(account.Number, account.ID), maskAddress(account.Address), fallback(b.ActualAt, fallback(account.UpdatedAt, "сейчас")), b.Debt, fallback(b.Currency, "руб."), b.Overpay, fallback(b.Currency, "руб."))
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, mainKeyboard())
 }
 
 func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (string, error) {
@@ -182,7 +230,7 @@ func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (str
 		return operationID, err
 	}
 	if account.ID == "" {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Для передачи показаний сначала привяжите лицевой счет: привязать <номер ЛС>.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("передать показания"), linkKeyboard())
 	}
 	resp, err := s.onec.Meters(ctx, upd.UserID(), account.ID)
 	if err != nil {
@@ -190,27 +238,27 @@ func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (str
 	}
 	operationID = resp.OperationID
 	if len(resp.Data) == 0 {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "По активному лицевому счету нет доступных приборов учета.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "📊 По активному лицевому счету пока нет доступных приборов учета.\n\nКогда 1С вернет список счетчиков, я покажу их здесь и подскажу формат передачи.", mainKeyboard())
 	}
 
 	var b strings.Builder
-	b.WriteString("Активные приборы учета:\n")
+	b.WriteString("📊 *Приборы учета*\n\n")
 	for _, m := range resp.Data {
-		fmt.Fprintf(&b, "- %s, № %s, meter_id=%s, последнее: %.3f от %s\n", m.Resource, maskSerial(m.SerialNumber), m.ID, m.LastValue, m.LastReadingDate)
+		fmt.Fprintf(&b, "• %s, № %s\n  ID: `%s`\n  Последнее: %.3f от %s\n\n", m.Resource, maskSerial(m.SerialNumber), m.ID, m.LastValue, fallback(m.LastReadingDate, "—"))
 	}
-	b.WriteString("\nДля передачи отправьте: показание <meter_id> <значение>. Например: показание MTR-001 123.456")
-	return operationID, s.max.SendMessage(ctx, upd.ChatID(), b.String())
+	b.WriteString("Чтобы передать показание, отправьте:\n`показание <ID> <значение>`\n\nНапример: `показание MTR-001 123.456`")
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), b.String(), mainKeyboard())
 }
 
 func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {
 	parts := strings.Fields(text)
 	operationID := ""
 	if len(parts) != 3 {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Неверный формат. Используйте: показание <meter_id> <значение>.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Почти готово — нужен ID счетчика и значение.\n\nФормат: `показание <ID> <значение>`\nПример: `показание MTR-001 123.456`", mainKeyboard())
 	}
 	value, err := strconv.ParseFloat(strings.ReplaceAll(parts[2], ",", "."), 64)
 	if err != nil || value < 0 {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Показание должно быть положительным числом. Проверьте ввод.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Показание должно быть положительным числом. Проверьте значение и отправьте еще раз.", mainKeyboard())
 	}
 
 	account, operationID, err := s.activeAccount(ctx, upd.UserID())
@@ -218,7 +266,7 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, err
 	}
 	if account.ID == "" {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Для передачи показаний сначала привяжите лицевой счет.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("передать показания"), linkKeyboard())
 	}
 
 	resp, err := s.onec.SendReading(ctx, account.ID, parts[1], model.ReadingRequest{
@@ -233,9 +281,9 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	msg := fmt.Sprintf("Показание принято.\nЛицевой счет: %s\nПрибор: %s\nПериод: %s\nПоказание: %.3f\nДокумент: %s от %s",
-		account.Number, resp.Data.MeterID, time.Now().Format("2006-01"), resp.Data.Value, resp.Data.DocumentNumber, resp.Data.DocumentDate)
-	return operationID, s.max.SendMessage(ctx, upd.ChatID(), msg)
+	msg := fmt.Sprintf("✅ *Показание принято*\n\nЛС: `%s`\nПрибор: `%s`\nПериод: %s\nПоказание: *%.3f*\nДокумент: %s от %s",
+		fallback(account.Number, account.ID), resp.Data.MeterID, time.Now().Format("2006-01"), resp.Data.Value, fallback(resp.Data.DocumentNumber, "—"), fallback(resp.Data.DocumentDate, "—"))
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, mainKeyboard())
 }
 
 func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {
@@ -244,12 +292,15 @@ func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text
 		return operationID, err
 	}
 	if account.ID == "" {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Для создания обращения сначала привяжите лицевой счет.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("создать обращение"), linkKeyboard())
 	}
 
-	appealText := tailAfterFirstWord(text)
+	appealText := strings.TrimSpace(text)
+	if strings.HasPrefix(normalize(appealText), "обращение ") || strings.HasPrefix(normalize(appealText), "заявка ") {
+		appealText = tailAfterFirstWord(appealText)
+	}
 	if appealText == "" {
-		return operationID, s.max.SendMessage(ctx, upd.ChatID(), "Опишите обращение после слова 'обращение'. Например: обращение не убран подъезд.")
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), appealStartText(), backToMenuKeyboard())
 	}
 
 	resp, err := s.onec.CreateAppeal(ctx, account.ID, model.AppealRequest{
@@ -264,8 +315,23 @@ func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	msg := fmt.Sprintf("Обращение зарегистрировано.\nНомер: %s\nСтатус: %s\nСрок обработки: %s", resp.Data.Number, resp.Data.Status, fallback(resp.Data.SLA, "по регламенту организации"))
-	return operationID, s.max.SendMessage(ctx, upd.ChatID(), msg)
+	_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", account.ID, nil))
+	msg := fmt.Sprintf("✅ *Обращение зарегистрировано*\n\nНомер: *%s*\nСтатус: %s\nСрок обработки: %s\n\nЯ передал текст в 1С и сохраню дальнейшую логику в рамках доступной конфигурации billing.", fallback(resp.Data.Number, resp.Data.AppealID), fallback(resp.Data.Status, "принято"), fallback(resp.Data.SLA, "по регламенту организации"))
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, mainKeyboard())
+}
+
+func (s *BotService) handleHelp(ctx context.Context, upd model.MAXUpdate) (string, error) {
+	operationID := ""
+	resp, err := s.onec.Help(ctx)
+	if err != nil {
+		return operationID, err
+	}
+	operationID = resp.OperationID
+	text := strings.TrimSpace(resp.Data.Text)
+	if text == "" {
+		text = defaultHelpText()
+	}
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), text, mainKeyboard())
 }
 
 func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.Account, string, error) {
@@ -274,14 +340,14 @@ func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.
 	if err != nil {
 		return model.Account{}, "", err
 	}
-	if len(accountsResp.Data) == 0 {
-		return model.Account{}, accountsResp.OperationID, nil
-	}
 	if session.ActiveAccountID != "" {
 		for _, account := range accountsResp.Data {
 			if account.ID == session.ActiveAccountID {
 				return account, accountsResp.OperationID, nil
 			}
+		}
+		if len(accountsResp.Data) == 0 {
+			return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, accountsResp.OperationID, nil
 		}
 	}
 	for _, account := range accountsResp.Data {
@@ -289,15 +355,116 @@ func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.
 			return account, accountsResp.OperationID, nil
 		}
 	}
-	return accountsResp.Data[0], accountsResp.OperationID, nil
+	if len(accountsResp.Data) > 0 {
+		return accountsResp.Data[0], accountsResp.OperationID, nil
+	}
+	return model.Account{}, accountsResp.OperationID, nil
 }
 
-func welcomeText() string {
-	return "Здравствуйте! Я MAX-бот ЖКХ. Могу показать баланс, помочь передать показания и создать обращение.\n\nПеред персональными функциями нужно согласие на обработку данных и привязка лицевого счета. Напишите: согласен."
+func (s *BotService) sendOnboarding(ctx context.Context, chatID int64, firstName string) error {
+	return s.max.SendMessageWithKeyboard(ctx, chatID, welcomeText(firstName), onboardingKeyboard())
+}
+
+func (s *BotService) currentSession(ctx context.Context, maxUserID int64) store.Session {
+	session, ok, err := s.store.GetSession(ctx, maxUserID)
+	if err != nil || !ok {
+		return store.Session{MaxUserID: maxUserID, Temp: map[string]string{}}
+	}
+	if session.Temp == nil {
+		session.Temp = map[string]string{}
+	}
+	return session
+}
+
+func (s *BotService) saveSession(ctx context.Context, session store.Session) error {
+	if session.Temp == nil {
+		session.Temp = map[string]string{}
+	}
+	return s.store.SaveSession(ctx, session)
+}
+
+func sessionFor(maxUserID int64, step string, activeAccountID string, temp map[string]string) store.Session {
+	if temp == nil {
+		temp = map[string]string{}
+	}
+	return store.Session{MaxUserID: maxUserID, Step: step, ActiveAccountID: activeAccountID, Temp: temp}
+}
+
+func onboardingKeyboard() maxclient.Keyboard {
+	return maxclient.Keyboard{
+		{maxclient.NewCallbackButton("✅ Дать согласие", actionConsentAccept)},
+		{maxclient.NewCallbackButton("🔗 Привязать ЛС", actionLinkStart), maxclient.NewCallbackButton("❓ Что умею", actionHelp)},
+	}
+}
+
+func mainKeyboard() maxclient.Keyboard {
+	return maxclient.Keyboard{
+		{maxclient.NewCallbackButton("💳 Баланс", actionBalance), maxclient.NewCallbackButton("📊 Показания", actionMeters)},
+		{maxclient.NewCallbackButton("📝 Обращение", actionAppealStart), maxclient.NewCallbackButton("🔗 Привязать ЛС", actionLinkStart)},
+		{maxclient.NewCallbackButton("❓ Помощь", actionHelp)},
+	}
+}
+
+func linkKeyboard() maxclient.Keyboard {
+	return maxclient.Keyboard{
+		{maxclient.NewCallbackButton("↩️ В меню", actionMenu), maxclient.NewCallbackButton("❓ Помощь", actionHelp)},
+	}
+}
+
+func backToMenuKeyboard() maxclient.Keyboard {
+	return maxclient.Keyboard{{maxclient.NewCallbackButton("↩️ В меню", actionMenu)}}
+}
+
+func welcomeText(firstName string) string {
+	name := strings.TrimSpace(firstName)
+	if name != "" {
+		name = ", " + name
+	}
+	return "👋 *Здравствуйте" + name + "!*\n\nЯ помогу по услугам ЖКХ в MAX:\n\n• быстро проверить баланс;\n• посмотреть счетчики и передать показания;\n• создать обращение в УК/РСО;\n• привязать лицевой счет без лишних команд.\n\nДля персональных разделов сначала нужно согласие на обработку данных, затем привязка лицевого счета. Нажмите кнопку ниже — я проведу по шагам."
+}
+
+func consentAcceptedText() string {
+	return "✅ *Согласие принято*\n\nТеперь привяжем лицевой счет. Отправьте номер ЛС одним сообщением.\n\nЕсли удобнее старым способом, команда тоже работает:\n`привязать <номер ЛС>`"
+}
+
+func linkStartText() string {
+	return "🔗 *Привязка лицевого счета*\n\nОтправьте номер ЛС одним сообщением. Я проверю его в 1С и попрошу контрольный код."
+}
+
+func linkCodeText(accountNumber string) string {
+	return fmt.Sprintf("📨 *Проверка начата*\n\nЛС: `%s`\n\nОтправьте контрольный код из 1С/СМС одним сообщением. Также поддерживается старый формат:\n`код %s <код>`", accountNumber, accountNumber)
+}
+
+func linkSuccessText(accountNumber string) string {
+	return fmt.Sprintf("🎉 *Лицевой счет привязан*\n\nЛС `%s` теперь активен. Можно смотреть баланс, работать с показаниями и создавать обращения.", accountNumber)
+}
+
+func codeFormatText() string {
+	return "Нужен контрольный код. Если я уже знаю номер ЛС, отправьте просто код.\n\nИли используйте формат:\n`код <номер ЛС> <код>`"
+}
+
+func needAccountText(action string) string {
+	return fmt.Sprintf("🔒 Чтобы %s, сначала нужно привязать лицевой счет.\n\nНажмите «Привязать ЛС» или отправьте:\n`привязать <номер ЛС>`", action)
+}
+
+func appealStartText() string {
+	return "📝 *Новое обращение*\n\nОпишите проблему одним сообщением: что случилось, адрес/подъезд/квартира при необходимости и удобный контакт.\n\nПример: `Не горит свет в подъезде, 2 этаж.`"
+}
+
+func errorText() string {
+	return "⚠️ Временная ошибка связи с сервисом. Попробуйте еще раз через минуту. Если ошибка повторится — проверьте настройки 1С и токены."
+}
+
+func unknownCommandText() string {
+	return "Я не распознал команду, но могу провести по сценарию кнопками.\n\nВыберите нужное действие ниже или напишите `помощь`."
 }
 
 func defaultHelpText() string {
-	return "Доступные команды: /start, согласен, привязать <номер ЛС>, код <номер ЛС> <код>, баланс, показания, показание <meter_id> <значение>, обращение <текст>."
+	return "❓ *Что я умею*\n\nНажимайте кнопки — так быстрее и меньше ошибок. Текстовые команды тоже доступны:\n\n• `/start` или `меню` — главное меню;\n• `привязать <номер ЛС>` — начать привязку;\n• `код <номер ЛС> <код>` — подтвердить привязку;\n• `баланс` — посмотреть задолженность/переплату;\n• `показания` — список счетчиков;\n• `показание <ID> <значение>` — передать показание;\n• `обращение <текст>` — создать обращение."
+}
+
+func isStart(text string) bool {
+	return text == "/start" || text == "старт" || text == "начать"
 }
 
 func tailAfterFirstWord(s string) string {
@@ -315,6 +482,32 @@ func tailAfterFirstWord(s string) string {
 
 func normalize(s string) string {
 	return strings.ToLower(strings.TrimSpace(s))
+}
+
+func looksLikeAccountNumber(text string) bool {
+	text = strings.TrimSpace(text)
+	if len([]rune(text)) < 4 || strings.Contains(text, " ") {
+		return false
+	}
+	for _, r := range text {
+		if !unicode.IsDigit(r) && r != '-' && r != '/' {
+			return false
+		}
+	}
+	return true
+}
+
+func looksLikeCode(text string) bool {
+	text = strings.TrimSpace(text)
+	if len([]rune(text)) < 3 || strings.Contains(text, " ") {
+		return false
+	}
+	for _, r := range text {
+		if !unicode.IsDigit(r) && !unicode.IsLetter(r) && r != '-' {
+			return false
+		}
+	}
+	return true
 }
 
 func safeError(err error) string {
@@ -344,9 +537,8 @@ func fallback(value, def string) string {
 }
 
 func maskAddress(address string) string {
-	// В промышленной версии маскирование согласуется с ИБ.
 	if len([]rune(address)) <= 12 {
-		return address
+		return fallback(address, "не указан")
 	}
 	runes := []rune(address)
 	return string(runes[:12]) + "..."
