@@ -10,12 +10,12 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $repoRoot
 
 if (-not (Test-Path ".\cmd\bot\devmock\main.go")) {
-    throw "Не найден .\cmd\bot\devmock\main.go. Обновите локальную копию репозитория (например: git pull) и повторите запуск."
+    throw "Missing .\cmd\bot\devmock\main.go. Update the repository and retry."
 }
 
 if (-not (Test-Path ".\.env.local")) {
     Copy-Item ".\.env.local.example" ".\.env.local"
-    Write-Host "Создан .env.local из .env.local.example"
+    Write-Host "Created .env.local from .env.local.example"
 }
 
 Get-Content ".\.env.local" | ForEach-Object {
@@ -32,12 +32,12 @@ Get-Content ".\.env.local" | ForEach-Object {
     [Environment]::SetEnvironmentVariable($parts[0].Trim(), $parts[1].Trim(), "Process")
 }
 
-Write-Host "Запускаю локальный mock 1C/MAX на $MockAddr..."
+Write-Host "Starting local 1C/MAX mock on $MockAddr..."
 $mockProcess = Start-Process -FilePath "go" -ArgumentList @("run", "./cmd/bot/devmock", "-addr", $MockAddr, "-config", $MockConfig) -PassThru -NoNewWindow
 
 try {
     Start-Sleep -Seconds 2
-    Write-Host "Запускаю бота на $env:HTTP_ADDR с in-memory хранилищем..."
+    Write-Host "Starting webhook/debug bot on $env:HTTP_ADDR with in-memory storage..."
     go run ./cmd/bot
 }
 finally {
