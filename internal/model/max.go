@@ -2,9 +2,13 @@ package model
 
 import "fmt"
 
+const UpdateTypeBotStarted = "bot_started"
+
 type MAXUpdate struct {
 	UpdateType string     `json:"update_type"`
 	Timestamp  int64      `json:"timestamp"`
+	ChatIDRaw  int64      `json:"chat_id,omitempty"`
+	User       *MAXSender `json:"user,omitempty"`
 	Message    MAXMessage `json:"message"`
 	Callback   *Callback  `json:"callback,omitempty"`
 }
@@ -37,22 +41,47 @@ func (u MAXUpdate) EventID() string {
 	if u.Message.Body.MID != "" {
 		return u.Message.Body.MID
 	}
-	return fmt.Sprintf("%s:%d:%d:%s", u.UpdateType, u.Timestamp, u.Message.Sender.UserID, u.CallbackPayload())
+	return fmt.Sprintf("%s:%d:%d:%d:%s", u.UpdateType, u.Timestamp, u.UserID(), u.ChatID(), u.CallbackPayload())
 }
 
 func (u MAXUpdate) UserID() int64 {
-	return u.Message.Sender.UserID
+	if u.Message.Sender.UserID != 0 {
+		return u.Message.Sender.UserID
+	}
+	if u.User != nil {
+		return u.User.UserID
+	}
+	return 0
 }
 
 func (u MAXUpdate) ChatID() int64 {
-	return u.Message.Recipient.ChatID
+	if u.Message.Recipient.ChatID != 0 {
+		return u.Message.Recipient.ChatID
+	}
+	return u.ChatIDRaw
 }
 
 func (u MAXUpdate) Text() string {
 	if u.Callback != nil && u.Callback.Payload != "" {
 		return u.Callback.Payload
 	}
-	return u.Message.Body.Text
+	if u.Message.Body.Text != "" {
+		return u.Message.Body.Text
+	}
+	if u.UpdateType == UpdateTypeBotStarted {
+		return "/start"
+	}
+	return ""
+}
+
+func (u MAXUpdate) FirstName() string {
+	if u.Message.Sender.FirstName != "" {
+		return u.Message.Sender.FirstName
+	}
+	if u.User != nil {
+		return u.User.FirstName
+	}
+	return ""
 }
 
 func (u MAXUpdate) CallbackPayload() string {

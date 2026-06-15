@@ -1,46 +1,232 @@
 [
   {
-    "httpRequest": {"method": "POST", "path": "/messages"},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true}"}
+    "httpRequest": {
+      "method": "GET",
+      "path": "/updates"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"updates\":[],\"marker\":1}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/users/start", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Пользователь создан\",\"operation_id\":\"1c-test-001\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/messages"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/consents", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Согласие зафиксировано\",\"operation_id\":\"1c-test-002\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/users/start",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Пользователь создан\",\"operation_id\":\"1c-test-001\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/account-link/start", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Началась привязка счета\",\"operation_id\":\"1c-test-003\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/consents",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Согласие зафиксировано\",\"operation_id\":\"1c-test-002\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/account-link/confirm", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Счет привязан\",\"operation_id\":\"1c-test-004\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"account_id\":\"ACC-000123456\",\"number\":\"000123456\",\"address\":\"г. Тестовый, ул. Центральная, д. 1, кв. 1\",\"is_active\":true,\"updated_at\":\"2026-05-06\"}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/account-link/start",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Началась привязка счета\",\"operation_id\":\"1c-test-003\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{}}"
+    }
   },
   {
-    "httpRequest": {"method": "GET", "path": "/max/v1/accounts", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Список счетов\",\"operation_id\":\"1c-test-005\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"account_id\":\"ACC-000123456\",\"number\":\"000123456\",\"address\":\"г. Тестовый, ул. Центральная, д. 1, кв. 1\",\"is_active\":true,\"updated_at\":\"2026-05-06\"}]}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/account-link/confirm",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Счет привязан\",\"operation_id\":\"1c-test-004\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"account_id\":\"ACC-000123456\",\"number\":\"000123456\",\"address\":\"г. Тестовый, ул. Центральная, д. 1, кв. 1\",\"is_active\":true,\"updated_at\":\"2026-05-06\"}}"
+    }
   },
   {
-    "httpRequest": {"method": "GET", "path": "/max/v1/accounts/ACC-000123456/balance", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Баланс\",\"operation_id\":\"1c-test-006\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"account_id\":\"ACC-000123456\",\"debt\":5432.10,\"overpay\":0,\"currency\":\"руб.\",\"actual_at\":\"2026-05-06\"}}"}
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/accounts",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Список счетов\",\"operation_id\":\"1c-test-005\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"account_id\":\"ACC-000123456\",\"number\":\"000123456\",\"address\":\"г. Тестовый, ул. Центральная, д. 1, кв. 1\",\"is_active\":true,\"updated_at\":\"2026-05-06\"}]}"
+    }
   },
   {
-    "httpRequest": {"method": "GET", "path": "/max/v1/accounts/ACC-000123456/meters", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Приборы\",\"operation_id\":\"1c-test-007\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"meter_id\":\"MTR-001\",\"resource\":\"ХВС\",\"serial_number\":\"SN12345678\",\"last_value\":234.56,\"last_reading_date\":\"2026-04-06\",\"verification_to\":\"2028-12-31\"}]}"}
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/accounts/ACC-000123456/balance",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Баланс\",\"operation_id\":\"1c-test-006\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"account_id\":\"ACC-000123456\",\"debt\":5432.10,\"overpay\":0,\"currency\":\"руб.\",\"actual_at\":\"2026-05-06\"}}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/accounts/ACC-000123456/meters/MTR-001/readings", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Показание принято\",\"operation_id\":\"1c-test-008\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"document_number\":\"ПМ-000001\",\"document_date\":\"2026-05-06\",\"meter_id\":\"MTR-001\",\"value\":245.678}}"}
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/accounts/ACC-000123456/meters",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Приборы\",\"operation_id\":\"1c-test-007\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"meter_id\":\"MTR-001\",\"resource\":\"ХВС\",\"serial_number\":\"SN12345678\",\"last_value\":234.56,\"last_reading_date\":\"2026-04-06\",\"verification_to\":\"2028-12-31\"}]}"
+    }
   },
   {
-    "httpRequest": {"method": "POST", "path": "/max/v1/accounts/ACC-000123456/appeals", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Обращение создано\",\"operation_id\":\"1c-test-009\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"appeal_id\":\"APL-test-001\",\"number\":\"ОБР-000001\",\"status\":\"зарегистрировано\",\"sla\":\"3 рабочих дня\"}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/accounts/ACC-000123456/meters/MTR-001/readings",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Показание принято\",\"operation_id\":\"1c-test-008\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"document_number\":\"ПМ-000001\",\"document_date\":\"2026-05-06\",\"meter_id\":\"MTR-001\",\"value\":245.678}}"
+    }
   },
   {
-    "httpRequest": {"method": "GET", "path": "/max/v1/reference/help", "headers": {"Authorization": ["Bearer MOCK_ONEC_TOKEN"]}},
-    "httpResponse": {"statusCode": 200, "headers": {"Content-Type": ["application/json"]}, "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Справка\",\"operation_id\":\"1c-test-010\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"text\":\"Справочная информация от 1С: /start, согласен, привязать <номер ЛС>, баланс, показания, обращение <текст>.\"}}"}
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/accounts/ACC-000123456/appeals",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Обращение создано\",\"operation_id\":\"1c-test-009\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"appeal_id\":\"APL-test-001\",\"number\":\"ОБР-000001\",\"status\":\"зарегистрировано\",\"sla\":\"3 рабочих дня\"}}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/reference/help",
+      "headers": {
+        "Authorization": [
+          "Bearer MOCK_ONEC_TOKEN"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Справка\",\"operation_id\":\"1c-test-010\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"text\":\"Справочная информация от 1С: /start, согласен, привязать <номер ЛС>, баланс, показания, обращение <текст>.\"}}"
+    }
   }
 ]

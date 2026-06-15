@@ -69,7 +69,7 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 		resp, err := s.onec.StartUser(ctx, model.StartUserRequest{
 			MaxUserID: upd.UserID(),
 			ChatID:    upd.ChatID(),
-			FirstName: upd.Message.Sender.FirstName,
+			FirstName: upd.FirstName(),
 			Source:    sourceMAX,
 		})
 		if err != nil {
