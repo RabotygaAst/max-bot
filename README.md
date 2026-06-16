@@ -157,7 +157,13 @@ go run .\cmd\bot
 .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
 ```
 
-Если PowerShell запрещает запуск `.ps1`, используйте разовый обход политики только для текущей команды:
+Если PowerShell запрещает запуск `.ps1`, используйте `.cmd`-обертку, она сама запускает PowerShell с `-ExecutionPolicy Bypass` только для текущей команды:
+
+```cmd
+.\scripts\setup-postgres-local.cmd -WriteEnvLocal
+```
+
+Либо выполните тот же обход вручную:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
@@ -171,13 +177,25 @@ powershell -ExecutionPolicy Bypass -File .\scripts\setup-postgres-local.ps1 -Wri
 postgres://maxbot:maxbot_local_2026@localhost:5432/maxbot?sslmode=disable
 ```
 
-После этого webhook/debug режим на Windows можно запускать с сохранением сессий и обработанных событий в PostgreSQL:
+После этого webhook/debug режим на Windows можно запускать с сохранением сессий и обработанных событий в PostgreSQL. Если `.ps1` заблокирован политикой, запускайте `.cmd`:
+
+```cmd
+.\scripts\run-local.cmd -UsePostgres
+```
+
+Или напрямую через PowerShell, если выполнение `.ps1` разрешено:
 
 ```powershell
 .\scripts\run-local.ps1 -UsePostgres
 ```
 
-Polling-режим с реальным MAX и локальным mock 1С тоже может использовать ту же локальную PostgreSQL:
+Polling-режим с реальным MAX и локальным mock 1С тоже может использовать ту же локальную PostgreSQL. Для случая с Execution Policy удобнее так:
+
+```cmd
+.\scripts\run-polling-local.cmd -MaxToken "<реальный токен MAX-бота>" -UsePostgres
+```
+
+Или напрямую через PowerShell:
 
 ```powershell
 .\scripts\run-polling-local.ps1 -MaxToken "<реальный токен MAX-бота>" -UsePostgres
