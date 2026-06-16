@@ -34,12 +34,18 @@ type MAXBody struct {
 }
 
 type Callback struct {
-	Payload string `json:"payload"`
+	CallbackID string      `json:"callback_id,omitempty"`
+	Payload    string      `json:"payload"`
+	User       *MAXSender  `json:"user,omitempty"`
+	Message    *MAXMessage `json:"message,omitempty"`
 }
 
 func (u MAXUpdate) EventID() string {
 	if u.Message.Body.MID != "" {
 		return u.Message.Body.MID
+	}
+	if u.Callback != nil && u.Callback.CallbackID != "" {
+		return u.Callback.CallbackID
 	}
 	return fmt.Sprintf("%s:%d:%d:%d:%s", u.UpdateType, u.Timestamp, u.UserID(), u.ChatID(), u.CallbackPayload())
 }
@@ -47,6 +53,9 @@ func (u MAXUpdate) EventID() string {
 func (u MAXUpdate) UserID() int64 {
 	if u.Message.Sender.UserID != 0 {
 		return u.Message.Sender.UserID
+	}
+	if u.Callback != nil && u.Callback.User != nil && u.Callback.User.UserID != 0 {
+		return u.Callback.User.UserID
 	}
 	if u.User != nil {
 		return u.User.UserID
@@ -57,6 +66,9 @@ func (u MAXUpdate) UserID() int64 {
 func (u MAXUpdate) ChatID() int64 {
 	if u.Message.Recipient.ChatID != 0 {
 		return u.Message.Recipient.ChatID
+	}
+	if u.Callback != nil && u.Callback.Message != nil && u.Callback.Message.Recipient.ChatID != 0 {
+		return u.Callback.Message.Recipient.ChatID
 	}
 	return u.ChatIDRaw
 }
@@ -77,6 +89,9 @@ func (u MAXUpdate) Text() string {
 func (u MAXUpdate) FirstName() string {
 	if u.Message.Sender.FirstName != "" {
 		return u.Message.Sender.FirstName
+	}
+	if u.Callback != nil && u.Callback.User != nil && u.Callback.User.FirstName != "" {
+		return u.Callback.User.FirstName
 	}
 	if u.User != nil {
 		return u.User.FirstName
