@@ -21,8 +21,8 @@ function Find-Psql {
         return $cmd.Source
     }
 
-    $candidates = Get-ChildItem "C:\Program Files\PostgreSQL\*\bin\psql.exe" -ErrorAction SilentlyContinue |
-        Sort-Object FullName -Descending
+    $candidates = @(Get-ChildItem "C:\Program Files\PostgreSQL\*\bin\psql.exe" -ErrorAction SilentlyContinue |
+        Sort-Object FullName -Descending)
     if ($candidates.Count -gt 0) {
         return $candidates[0].FullName
     }
