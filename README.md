@@ -149,7 +149,55 @@ go run .\cmd\bot
 
 В логах бота должна быть строка `using in-memory store (for development only)`. После этого проверки из разделов 3–5 и 8 можно выполнять теми же `curl`-командами. Раздел 6 про PostgreSQL для такого режима не нужен: состояние хранится только в памяти процесса и сбрасывается при перезапуске.
 
-### 2b. Альтернатива для реального MAX без публичного webhook: Long Polling
+### 2b. Windows: локальная PostgreSQL без Docker
+
+Если PostgreSQL установлен на Windows, но БД/пользователь еще не созданы, выполните из корня репозитория:
+
+```powershell
+.\scripts\setup-postgres-local.ps1 -WriteEnvLocal
+```
+
+Если PowerShell запрещает запуск `.ps1`, используйте разовый обход политики только для текущей команды:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
+```
+
+Скрипт найдет `psql.exe`, попросит пароль администратора PostgreSQL `postgres`, создаст пользователя `maxbot`, базу `maxbot`, применит схему из `init-db.sql` и запишет локальный `DATABASE_URL` в `.env.local`.
+
+Значение по умолчанию:
+
+```text
+postgres://maxbot:maxbot_local_2026@localhost:5432/maxbot?sslmode=disable
+```
+
+После этого webhook/debug режим на Windows можно запускать с сохранением сессий и обработанных событий в PostgreSQL:
+
+```powershell
+.\scripts\run-local.ps1 -UsePostgres
+```
+
+Polling-режим с реальным MAX и локальным mock 1С тоже может использовать ту же локальную PostgreSQL:
+
+```powershell
+.\scripts\run-polling-local.ps1 -MaxToken "<реальный токен MAX-бота>" -UsePostgres
+```
+
+Если нужно указать другой пароль, порт или имя БД, сначала создайте БД с нужными параметрами:
+
+```powershell
+.\scripts\setup-postgres-local.ps1 -Database "maxbot" -AppUser "maxbot" -AppPassword "my_local_password" -WriteEnvLocal
+```
+
+А затем передайте DSN при запуске:
+
+```powershell
+.\scripts\run-polling-local.ps1 -MaxToken "<реальный токен MAX-бота>" -UsePostgres -DatabaseUrl "postgres://maxbot:my_local_password@localhost:5432/maxbot?sslmode=disable"
+```
+
+Linux/Docker-сценарий не меняется: `docker-compose.yml` по-прежнему поднимает PostgreSQL-контейнер и использует `DATABASE_URL` внутри Docker-сети.
+
+### 2c. Альтернатива для реального MAX без публичного webhook: Long Polling
 
 Если публичный HTTPS endpoint недоступен, можно оставить webhook-режим для сервера и запустить отдельный polling-процесс локально. MAX Bot API поддерживает `GET /updates` для разработки и тестирования; при таком запуске бот сам забирает входящие события и переиспользует те же сценарии обработки, что и webhook. Для production предпочтителен webhook.
 

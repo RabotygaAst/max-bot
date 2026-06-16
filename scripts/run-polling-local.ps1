@@ -2,7 +2,9 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$MaxToken,
     [string]$MockAddr = ":1080",
-    [string]$MockConfig = "mock-onec-config.json"
+    [string]$MockConfig = "mock-onec-config.json",
+    [switch]$UsePostgres,
+    [string]$DatabaseUrl = "postgres://maxbot:maxbot_local_2026@localhost:5432/maxbot?sslmode=disable"
 )
 
 Set-StrictMode -Version Latest
@@ -28,7 +30,13 @@ if (-not (Test-Path ".\cmd\bot-polling\main.go")) {
 [Environment]::SetEnvironmentVariable("POLLING_TIMEOUT_SECONDS", "30", "Process")
 [Environment]::SetEnvironmentVariable("POLLING_RETRY_SECONDS", "5", "Process")
 [Environment]::SetEnvironmentVariable("POLLING_TYPES", "message_created,message_callback,bot_started", "Process")
-[Environment]::SetEnvironmentVariable("DATABASE_URL", $null, "Process")
+if ($UsePostgres) {
+    [Environment]::SetEnvironmentVariable("DATABASE_URL", $DatabaseUrl, "Process")
+    Write-Host "Using PostgreSQL storage: $DatabaseUrl"
+} else {
+    [Environment]::SetEnvironmentVariable("DATABASE_URL", $null, "Process")
+    Write-Host "Using in-memory storage. Add -UsePostgres to persist sessions/events."
+}
 
 Write-Host "Starting local 1C mock on $MockAddr..."
 $mockProcess = Start-Process -FilePath "go" -ArgumentList @("run", "./cmd/bot/devmock", "-addr", $MockAddr, "-config", $MockConfig) -PassThru -NoNewWindow

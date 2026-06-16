@@ -1,6 +1,8 @@
 param(
     [string]$MockAddr = ":1080",
-    [string]$MockConfig = "mock-onec-config.json"
+    [string]$MockConfig = "mock-onec-config.json",
+    [switch]$UsePostgres,
+    [string]$DatabaseUrl = "postgres://maxbot:maxbot_local_2026@localhost:5432/maxbot?sslmode=disable"
 )
 
 Set-StrictMode -Version Latest
@@ -32,12 +34,19 @@ Get-Content ".\.env.local" | ForEach-Object {
     [Environment]::SetEnvironmentVariable($parts[0].Trim(), $parts[1].Trim(), "Process")
 }
 
+if ($UsePostgres) {
+    [Environment]::SetEnvironmentVariable("DATABASE_URL", $DatabaseUrl, "Process")
+    Write-Host "Using PostgreSQL storage: $DatabaseUrl"
+} elseif (-not [Environment]::GetEnvironmentVariable("DATABASE_URL", "Process")) {
+    Write-Host "Using in-memory storage. Add -UsePostgres to persist sessions/events."
+}
+
 Write-Host "Starting local 1C/MAX mock on $MockAddr..."
 $mockProcess = Start-Process -FilePath "go" -ArgumentList @("run", "./cmd/bot/devmock", "-addr", $MockAddr, "-config", $MockConfig) -PassThru -NoNewWindow
 
 try {
     Start-Sleep -Seconds 2
-    Write-Host "Starting webhook/debug bot on $env:HTTP_ADDR with in-memory storage..."
+    Write-Host "Starting webhook/debug bot on $env:HTTP_ADDR..."
     go run ./cmd/bot
 }
 finally {
