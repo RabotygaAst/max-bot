@@ -193,6 +193,70 @@ curl -X POST http://localhost:8080/internal/notifications/send \
   -d '{"chat_id":987654321,"text":"Начисление обновлено","operation_id":"onec-001"}'
 ```
 
+
+### 2c. Как связать локальный bot backend с Apache, который публикует HTTP-сервис 1С
+
+Да, локальный сервер из этого репозитория можно связать с Apache, который уже привязан к 1С. Для этого bot backend должен видеть HTTP-публикацию 1С по сети, а Apache/1С должны видеть локальный HTTP API bot backend для исходящих уведомлений. Webhook MAX при этом не нужен: входящие сообщения из MAX забираются через Long Polling.
+
+Рекомендуемая локальная схема:
+
+```text
+MAX Bot API <--long polling--> max-bot на вашем ПК:8080
+                                  |
+                                  | HTTP + Bearer ONEC_TOKEN
+                                  v
+Apache на сервере 1С --> публикация HTTP-сервиса 1С, например /hs/max
+
+1С/Apache --HTTP + Bearer INTERNAL_API_TOKEN--> max-bot на вашем ПК:8080/internal/notifications/send
+```
+
+Что нужно подготовить:
+
+1. На ПК с ботом установите Go 1.22+ или Docker, склонируйте репозиторий и создайте локальный `.env.local` из `.env.local.example`.
+2. На сервере 1С проверьте публикацию HTTP-сервиса через Apache. Например, если Apache доступен как `http://onec-server`, а публикация называется `hs/max`, то в боте укажите `ONEC_BASE_URL=http://onec-server/hs/max`.
+3. В Apache/1С должен быть включен доступ к методам, которые вызывает бот:
+   - `POST /max/v1/users/start`
+   - `POST /max/v1/consents`
+   - `POST /max/v1/account-link/start`
+   - `POST /max/v1/account-link/confirm`
+   - `GET /max/v1/accounts`
+   - `GET /max/v1/accounts/{account_id}/balance`
+   - `GET /max/v1/accounts/{account_id}/meters`
+   - `POST /max/v1/accounts/{account_id}/meters/{meter_id}/readings`
+   - `POST /max/v1/accounts/{account_id}/appeals`
+   - `GET /max/v1/reference/help`
+4. Apache/1С должен принимать заголовок `Authorization: Bearer <ONEC_TOKEN>` от бота. Значение `<ONEC_TOKEN>` должно совпадать с `ONEC_TOKEN` в `.env.local`.
+5. Если 1С будет сама отправлять сообщения пользователю через бота, сервер 1С должен иметь сетевой доступ к ПК с ботом по адресу вида `http://<ip-вашего-пк>:8080/internal/notifications/send`, а запрос должен содержать `Authorization: Bearer <INTERNAL_API_TOKEN>`.
+
+Минимальный `.env.local` для связки с Apache/1С:
+
+```dotenv
+HTTP_ADDR=:8080
+MAX_BASE_URL=https://platform-api.max.ru
+MAX_TOKEN=<токен MAX-бота>
+MAX_POLLING_ENABLED=true
+MAX_POLLING_LIMIT=100
+MAX_POLLING_TIMEOUT_SECONDS=30
+MAX_POLLING_TYPES=message_created,message_callback
+
+ONEC_BASE_URL=http://<apache-host-or-ip>/hs/max
+ONEC_TOKEN=<токен, который проверяет HTTP-сервис 1С>
+INTERNAL_API_TOKEN=<токен, с которым 1С вызывает backend бота>
+DATABASE_URL=
+```
+
+Проверки перед запуском с реальным MAX:
+
+```bash
+# ПК с ботом должен видеть Apache/1С
+curl -i -H "Authorization: Bearer <ONEC_TOKEN>" http://<apache-host-or-ip>/hs/max/max/v1/reference/help
+
+# Сервер 1С должен видеть bot backend на ПК
+curl -i http://<ip-вашего-пк>:8080/healthz
+```
+
+Если второй curl с сервера 1С не проходит, откройте порт `8080` в firewall Windows/Linux или запустите backend на адресе всех интерфейсов (`HTTP_ADDR=0.0.0.0:8080`). Если Apache и бот находятся на одном ПК, можно использовать `ONEC_BASE_URL=http://localhost/hs/max` или порт Apache, например `http://localhost:8081/hs/max`.
+
 ### 3. Проверьте health-check
 
 ```bash
