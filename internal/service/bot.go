@@ -22,6 +22,7 @@ const (
 	stepAwaitAccountNumber = "await_account_number"
 	stepAwaitLinkCode      = "await_link_code"
 	stepAwaitAppealText    = "await_appeal_text"
+	stepAwaitReadingText   = "await_reading_text"
 
 	actionMenu          = "menu"
 	actionAuthorize     = "authorize"
@@ -169,11 +170,15 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 		return s.handleBalance(ctx, upd)
 	}
 
-	if text == actionMeters || text == actionReadingStart || text == "показания" || text == "передать показания" {
+	if text == actionMeters || text == "показания" {
 		return s.handleMeters(ctx, upd)
 	}
 
-	if strings.HasPrefix(text, "показание ") {
+	if text == actionReadingStart || text == "внести показания" || text == "передать показания" {
+		return s.startReadingInput(ctx, upd, session)
+	}
+
+	if strings.HasPrefix(text, "показание ") || (session.Step == stepAwaitReadingText && rawText != "") {
 		return s.handleReading(ctx, upd, rawText)
 	}
 
@@ -244,6 +249,9 @@ func (s *BotService) confirmAccountLink(ctx context.Context, upd model.MAXUpdate
 	}
 	operationID = resp.OperationID
 	accountID := fallback(resp.Data.ID, accountNumber)
+	if err := s.store.SaveLinkedAccount(ctx, store.LinkedAccountRecord{MaxUserID: upd.UserID(), AccountID: accountID, AccountNumber: fallback(resp.Data.Number, accountNumber), Source: sourceMAX}); err != nil {
+		return operationID, err
+	}
 	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", accountID, nil)); err != nil {
 		return operationID, err
 	}
@@ -291,13 +299,30 @@ func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (str
 	for _, m := range resp.Data {
 		fmt.Fprintf(&b, "• %s, № %s\n  ID: `%s`\n  Последнее: %.3f от %s\n\n", m.Resource, maskSerial(m.SerialNumber), m.ID, m.LastValue, fallback(m.LastReadingDate, "—"))
 	}
-	b.WriteString("Чтобы передать показание, отправьте:\n`показание <ID> <значение>`\n\nНапример: `показание MTR-001 123.456`")
+	b.WriteString("Чтобы передать показание, нажмите *«Внести показания»* или отправьте:\n`показание <ID> <значение>`\n\nНапример: `показание MTR-001 123.456`")
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), b.String(), authorizedKeyboard())
+}
+
+func (s *BotService) startReadingInput(ctx context.Context, upd model.MAXUpdate, session store.Session) (string, error) {
+	account, operationID, err := s.activeAccount(ctx, upd.UserID())
+	if err != nil {
+		return operationID, err
+	}
+	if account.ID == "" {
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("передать показания"), guestKeyboard())
+	}
+	if err := s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitReadingText, account.ID, session.Temp)); err != nil {
+		return operationID, err
+	}
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "✍️ *Внесение показаний*\n\nОтправьте ID счетчика и значение в формате:\n`показание <ID> <значение>`\n\nНапример: `показание MTR-001 123.456`", backToMenuKeyboard())
 }
 
 func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {
 	parts := strings.Fields(text)
 	operationID := ""
+	if len(parts) == 2 {
+		parts = []string{"показание", parts[0], parts[1]}
+	}
 	if len(parts) != 3 {
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Почти готово — нужен ID счетчика и значение.\n\nФормат: `показание <ID> <значение>`\nПример: `показание MTR-001 123.456`", authorizedKeyboard())
 	}
@@ -314,8 +339,9 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("передать показания"), guestKeyboard())
 	}
 
+	period := time.Now().Format("2006-01")
 	resp, err := s.onec.SendReading(ctx, account.ID, parts[1], model.ReadingRequest{
-		Period:      time.Now().Format("2006-01"),
+		Period:      period,
 		Value:       value,
 		Source:      sourceMAX,
 		MaxUserID:   upd.UserID(),
@@ -326,8 +352,14 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, err
 	}
 	operationID = resp.OperationID
+	if err := s.store.SaveReading(ctx, store.ReadingRecord{MaxUserID: upd.UserID(), AccountID: account.ID, AccountNumber: fallback(account.Number, account.ID), MeterID: parts[1], Period: period, Value: value, OperationID: operationID, MessageID: upd.EventID(), Source: sourceMAX}); err != nil {
+		return operationID, err
+	}
+	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", account.ID, nil)); err != nil {
+		return operationID, err
+	}
 	msg := fmt.Sprintf("✅ *Показание принято*\n\nЛС: `%s`\nПрибор: `%s`\nПериод: %s\nПоказание: *%.3f*\nДокумент: %s от %s",
-		fallback(account.Number, account.ID), resp.Data.MeterID, time.Now().Format("2006-01"), resp.Data.Value, fallback(resp.Data.DocumentNumber, "—"), fallback(resp.Data.DocumentDate, "—"))
+		fallback(account.Number, account.ID), resp.Data.MeterID, period, resp.Data.Value, fallback(resp.Data.DocumentNumber, "—"), fallback(resp.Data.DocumentDate, "—"))
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, authorizedKeyboard())
 }
 
@@ -360,6 +392,9 @@ func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text
 		return operationID, err
 	}
 	operationID = resp.OperationID
+	if err := s.store.SaveAppeal(ctx, store.AppealRecord{MaxUserID: upd.UserID(), AccountID: account.ID, AccountNumber: fallback(account.Number, account.ID), AppealID: resp.Data.AppealID, AppealNumber: resp.Data.Number, Text: appealText, OperationID: operationID, MessageID: upd.EventID(), Source: sourceMAX}); err != nil {
+		return operationID, err
+	}
 	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", account.ID, nil)); err != nil {
 		return operationID, err
 	}
@@ -472,7 +507,7 @@ func mainKeyboard() maxclient.Keyboard {
 func authorizedKeyboard() maxclient.Keyboard {
 	return maxclient.Keyboard{
 		{maxclient.NewCallbackButton("💳 Баланс", actionBalance), maxclient.NewCallbackButton("📊 Показания", actionMeters)},
-		{maxclient.NewCallbackButton("📝 Обращение", actionAppealStart)},
+		{maxclient.NewCallbackButton("✍️ Внести показания", actionReadingStart), maxclient.NewCallbackButton("📝 Обращение", actionAppealStart)},
 		{maxclient.NewCallbackButton("❓ Помощь", actionHelp)},
 	}
 }
