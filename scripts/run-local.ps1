@@ -9,8 +9,8 @@ $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $repoRoot
 
-if (-not (Test-Path ".\cmd\devmock\main.go")) {
-    throw "Не найден .\cmd\devmock\main.go. Обновите локальную копию репозитория (например: git pull) и повторите запуск."
+if (-not (Test-Path ".\cmd\bot\devmock\main.go")) {
+    throw "Не найден .\cmd\bot\devmock\main.go. Обновите локальную копию репозитория (например: git pull) и повторите запуск."
 }
 
 if (-not (Test-Path ".\.env.local")) {
@@ -33,7 +33,7 @@ Get-Content ".\.env.local" | ForEach-Object {
 }
 
 Write-Host "Запускаю локальный mock 1C/MAX на $MockAddr..."
-$mockProcess = Start-Process -FilePath "go" -ArgumentList @("run", "./cmd/devmock", "-addr", $MockAddr, "-config", $MockConfig) -PassThru -NoNewWindow
+$mockProcess = Start-Process -FilePath "go" -ArgumentList @("run", "./cmd/bot/devmock", "-addr", $MockAddr, "-config", $MockConfig) -PassThru -NoNewWindow
 
 try {
     Start-Sleep -Seconds 2
