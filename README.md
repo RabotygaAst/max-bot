@@ -250,7 +250,7 @@ Remove-Item Env:DATABASE_URL -ErrorAction SilentlyContinue
 go run .\cmd\bot-polling
 ```
 
-После запуска напишите боту в MAX `/start`, `согласен`, `привязать 000123456`, `код 000123456 1234`, `баланс`, `показания`, `справка`. Ответы будут отправляться в настоящий чат MAX, а данные 1С будут браться из локального mock.
+После запуска напишите боту в MAX `/start`, нажмите «Авторизоваться» или отправьте `авторизоваться`, затем `000123456`, `1234`, `баланс`, `показания`, `справка`. Ответы будут отправляться в настоящий чат MAX, а данные 1С будут браться из локального mock.
 
 В Linux/macOS аналогично:
 
@@ -287,15 +287,15 @@ curl -s -X POST http://localhost:8080/debug/send-test-update \
 
 curl -s -X POST http://localhost:8080/debug/send-test-update \
   -H 'Content-Type: application/json' \
-  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-002","text":"согласен"}'
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-002","text":"авторизоваться"}'
 
 curl -s -X POST http://localhost:8080/debug/send-test-update \
   -H 'Content-Type: application/json' \
-  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-003","text":"привязать 000123456"}'
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-003","text":"000123456"}'
 
 curl -s -X POST http://localhost:8080/debug/send-test-update \
   -H 'Content-Type: application/json' \
-  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-004","text":"код 000123456 1234"}'
+  -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-004","text":"1234"}'
 
 curl -s -X POST http://localhost:8080/debug/send-test-update \
   -H 'Content-Type: application/json' \
@@ -379,7 +379,7 @@ docker-compose exec -T postgres psql -U maxbot -d maxbot -c "SELECT event_id, st
 docker-compose exec -T postgres psql -U maxbot -d maxbot -c "SELECT max_user_id, active_account_id, temp, updated_at FROM dialog_sessions;"
 ```
 
-После команды `код 000123456 1234` у пользователя должен быть активный счет `ACC-000123456`.
+После ввода кода `1234` у пользователя должен быть активный счет `ACC-000123456`.
 
 ### 7. Активируйте реальный webhook в MAX
 
@@ -395,7 +395,7 @@ ngrok http 8080
 - секрет webhook: значение `WEBHOOK_SECRET` из `.env`;
 - токен бота: значение `MAX_TOKEN`.
 
-Если регистрация webhook выполняется через API MAX, используйте официальный метод платформы MAX для управления webhook и передайте тот же URL и секрет. После активации отправьте боту в MAX команды `/start`, `согласен`, `привязать 000123456`, `код 000123456 1234`, `баланс`, `показания`, `справка` и проверьте логи backend.
+Если регистрация webhook выполняется через API MAX, используйте официальный метод платформы MAX для управления webhook и передайте тот же URL и секрет. После активации отправьте боту в MAX команды `/start`, нажмите «Авторизоваться» или отправьте `авторизоваться`, затем `000123456`, `1234`, `баланс`, `показания`, `справка` и проверьте логи backend.
 
 ### 8. Отправьте служебное уведомление из 1С
 
@@ -420,9 +420,9 @@ curl -s -X POST http://localhost:8080/internal/notifications/send \
 
 ```text
 /start
-согласен
-привязать 000123456
-код 000123456 1234
+авторизоваться
+000123456
+1234
 баланс
 показания
 показание MTR-001 245.678

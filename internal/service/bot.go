@@ -24,6 +24,7 @@ const (
 	stepAwaitAppealText    = "await_appeal_text"
 
 	actionMenu          = "menu"
+	actionAuthorize     = "authorize"
 	actionConsentAccept = "consent_accept"
 	actionLinkStart     = "link_start"
 	actionBalance       = "balance"
@@ -99,7 +100,7 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 		return s.handleHelp(ctx, upd)
 	}
 
-	if text == actionConsentAccept || text == "согласен" || text == "принять согласие" || text == "согласие" {
+	if text == actionAuthorize || text == actionConsentAccept || text == "авторизоваться" || text == "войти" || text == "согласен" || text == "принять согласие" || text == "согласие" {
 		resp, err := s.onec.SaveConsent(ctx, model.ConsentRequest{
 			MaxUserID:      upd.UserID(),
 			ConsentVersion: consentVersion,
@@ -118,7 +119,7 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkStartText(), linkKeyboard())
 	}
 
-	if strings.HasPrefix(text, "привязать ") || (session.Step == stepAwaitAccountNumber && looksLikeAccountNumber(text)) {
+	if strings.HasPrefix(text, "привязать ") || (session.Step == stepAwaitAccountNumber && rawText != "") {
 		accountNumber := rawText
 		if strings.HasPrefix(text, "привязать ") {
 			accountNumber = tailAfterFirstWord(rawText)
@@ -392,15 +393,15 @@ func sessionFor(maxUserID int64, step string, activeAccountID string, temp map[s
 
 func onboardingKeyboard() maxclient.Keyboard {
 	return maxclient.Keyboard{
-		{maxclient.NewCallbackButton("✅ Дать согласие", actionConsentAccept)},
-		{maxclient.NewCallbackButton("🔗 Привязать ЛС", actionLinkStart), maxclient.NewCallbackButton("❓ Что умею", actionHelp)},
+		{maxclient.NewCallbackButton("🔐 Авторизоваться", actionAuthorize)},
+		{maxclient.NewCallbackButton("❓ Что умею", actionHelp)},
 	}
 }
 
 func mainKeyboard() maxclient.Keyboard {
 	return maxclient.Keyboard{
 		{maxclient.NewCallbackButton("💳 Баланс", actionBalance), maxclient.NewCallbackButton("📊 Показания", actionMeters)},
-		{maxclient.NewCallbackButton("📝 Обращение", actionAppealStart), maxclient.NewCallbackButton("🔗 Привязать ЛС", actionLinkStart)},
+		{maxclient.NewCallbackButton("📝 Обращение", actionAppealStart), maxclient.NewCallbackButton("🔐 Авторизоваться", actionLinkStart)},
 		{maxclient.NewCallbackButton("❓ Помощь", actionHelp)},
 	}
 }
@@ -420,19 +421,19 @@ func welcomeText(firstName string) string {
 	if name != "" {
 		name = ", " + name
 	}
-	return "👋 *Здравствуйте" + name + "!*\n\nЯ помогу по услугам ЖКХ в MAX:\n\n• быстро проверить баланс;\n• посмотреть счетчики и передать показания;\n• создать обращение в УК/РСО;\n• привязать лицевой счет без лишних команд.\n\nДля персональных разделов сначала нужно согласие на обработку данных, затем привязка лицевого счета. Нажмите кнопку ниже — я проведу по шагам."
+	return "👋 *Здравствуйте" + name + "!*\n\nЯ помогу по услугам ЖКХ в MAX:\n\n• проверить баланс;\n• посмотреть счетчики и передать показания;\n• создать обращение в УК/РСО;\n• быстро авторизоваться по лицевому счету.\n\nЧтобы открыть персональные разделы, нажмите *«Авторизоваться»*. Я попрошу номер ЛС, проверю его в базе бота и 1С, отправлю код на привязанный телефон и попрошу ввести код в чат."
 }
 
 func consentAcceptedText() string {
-	return "✅ *Согласие принято*\n\nТеперь привяжем лицевой счет. Отправьте номер ЛС одним сообщением.\n\nЕсли удобнее старым способом, команда тоже работает:\n`привязать <номер ЛС>`"
+	return "🔐 *Авторизация*\n\nОтправьте номер лицевого счета одним сообщением. Я проверю его в базе бота и 1С. Если ЛС найден, отправлю код на привязанный номер телефона и попрошу продублировать код здесь в чате.\n\nЕсли удобнее старым способом, команда тоже работает:\n`привязать <номер ЛС>`"
 }
 
 func linkStartText() string {
-	return "🔗 *Привязка лицевого счета*\n\nОтправьте номер ЛС одним сообщением. Я проверю его в 1С и попрошу контрольный код."
+	return "🔐 *Авторизация по лицевому счету*\n\nОтправьте номер ЛС одним сообщением. Я проверю его в базе бота и 1С. Если найду совпадение, отправлю код на привязанный номер телефона."
 }
 
 func linkCodeText(accountNumber string) string {
-	return fmt.Sprintf("📨 *Проверка начата*\n\nЛС: `%s`\n\nОтправьте контрольный код из 1С/СМС одним сообщением. Также поддерживается старый формат:\n`код %s <код>`", accountNumber, accountNumber)
+	return fmt.Sprintf("📨 *Лицевой счет найден*\n\nЛС: `%s`\n\nЯ отправил код подтверждения на номер телефона, привязанный к этому ЛС. Продублируйте код здесь одним сообщением. Также поддерживается старый формат:\n`код %s <код>`", accountNumber, accountNumber)
 }
 
 func linkSuccessText(accountNumber string) string {
@@ -444,7 +445,7 @@ func codeFormatText() string {
 }
 
 func needAccountText(action string) string {
-	return fmt.Sprintf("🔒 Чтобы %s, сначала нужно привязать лицевой счет.\n\nНажмите «Привязать ЛС» или отправьте:\n`привязать <номер ЛС>`", action)
+	return fmt.Sprintf("🔒 Чтобы %s, сначала нужно авторизоваться по лицевому счету.\n\nНажмите «Авторизоваться» или отправьте:\n`привязать <номер ЛС>`", action)
 }
 
 func appealStartText() string {
