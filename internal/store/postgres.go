@@ -166,3 +166,41 @@ func (s *PostgresStore) ClearSession(ctx context.Context, maxUserID int64) error
 func (s *PostgresStore) Close() error {
 	return s.db.Close()
 }
+
+func (s *PostgresStore) SaveLinkedAccount(ctx context.Context, record LinkedAccountRecord) error {
+	query := `
+		INSERT INTO linked_accounts (max_user_id, account_id, account_number, source, updated_at)
+		VALUES ($1, $2, $3, $4, NOW())
+		ON CONFLICT (max_user_id, account_id) DO UPDATE
+		SET account_number = $3, source = $4, updated_at = NOW()
+	`
+	_, err := s.db.ExecContext(ctx, query, record.MaxUserID, record.AccountID, record.AccountNumber, record.Source)
+	if err != nil {
+		return fmt.Errorf("save linked account failed: %w", err)
+	}
+	return nil
+}
+
+func (s *PostgresStore) SaveReading(ctx context.Context, record ReadingRecord) error {
+	query := `
+		INSERT INTO meter_readings (max_user_id, account_id, account_number, meter_id, period, value, operation_id, message_id, source)
+		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+	`
+	_, err := s.db.ExecContext(ctx, query, record.MaxUserID, record.AccountID, record.AccountNumber, record.MeterID, record.Period, record.Value, record.OperationID, record.MessageID, record.Source)
+	if err != nil {
+		return fmt.Errorf("save reading failed: %w", err)
+	}
+	return nil
+}
+
+func (s *PostgresStore) SaveAppeal(ctx context.Context, record AppealRecord) error {
+	query := `
+		INSERT INTO appeals (max_user_id, account_id, account_number, appeal_id, appeal_number, text, operation_id, message_id, source)
+		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+	`
+	_, err := s.db.ExecContext(ctx, query, record.MaxUserID, record.AccountID, record.AccountNumber, record.AppealID, record.AppealNumber, record.Text, record.OperationID, record.MessageID, record.Source)
+	if err != nil {
+		return fmt.Errorf("save appeal failed: %w", err)
+	}
+	return nil
+}
