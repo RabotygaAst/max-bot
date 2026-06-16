@@ -421,32 +421,20 @@ func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.
 	if err != nil {
 		return model.Account{}, "", err
 	}
+	if session.ActiveAccountID == "" {
+		return model.Account{}, "", nil
+	}
+
 	accountsResp, err := s.onec.Accounts(ctx, maxUserID)
 	if err != nil {
-		if session.ActiveAccountID != "" {
-			return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, "", nil
-		}
-		return model.Account{}, "", err
-	}
-	if session.ActiveAccountID != "" {
-		for _, account := range accountsResp.Data {
-			if account.ID == session.ActiveAccountID {
-				return account, accountsResp.OperationID, nil
-			}
-		}
-		if len(accountsResp.Data) == 0 {
-			return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, accountsResp.OperationID, nil
-		}
+		return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, "", nil
 	}
 	for _, account := range accountsResp.Data {
-		if account.IsActive {
+		if account.ID == session.ActiveAccountID {
 			return account, accountsResp.OperationID, nil
 		}
 	}
-	if len(accountsResp.Data) > 0 {
-		return accountsResp.Data[0], accountsResp.OperationID, nil
-	}
-	return model.Account{}, accountsResp.OperationID, nil
+	return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, accountsResp.OperationID, nil
 }
 
 func (s *BotService) sendMainMenu(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {

@@ -17,6 +17,45 @@ import (
 	"example.com/max-bot-go/internal/store"
 )
 
+func TestStartShowsAuthorizationForUserWithoutLocalSession(t *testing.T) {
+	var sentText string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch {
+		case r.Method == http.MethodPost && r.URL.Path == "/messages":
+			var req struct {
+				Text string `json:"text"`
+			}
+			if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+				t.Fatalf("decode message request: %v", err)
+			}
+			sentText = req.Text
+			_, _ = w.Write([]byte(`{"success":true}`))
+		case r.Method == http.MethodPost && r.URL.Path == "/max/v1/users/start":
+			_, _ = w.Write([]byte(`{"success":true,"code":"OK","operation_id":"op-start","data":{}}`))
+		default:
+			t.Fatalf("unexpected request before authorization: %s %s", r.Method, r.URL.String())
+		}
+	}))
+	defer server.Close()
+
+	svc := New(
+		slog.New(slog.NewTextHandler(testWriter{t: t}, nil)),
+		store.NewMemoryStore(),
+		maxclient.New(server.URL, "TEST_MAX_TOKEN", 5*time.Second),
+		onec.New(server.URL, "TEST_ONEC_TOKEN", 5*time.Second),
+	)
+
+	svc.ProcessUpdate(context.Background(), testUpdate("m-start-guest", "/start"))
+
+	if !strings.Contains(sentText, "Авторизоваться") {
+		t.Fatalf("start must offer authorization for a user without local session, got: %q", sentText)
+	}
+	if strings.Contains(sentText, "Баланс лицевого счета") || strings.Contains(sentText, "Главное меню") {
+		t.Fatalf("start must not expose authorized functionality before local authorization, got: %q", sentText)
+	}
+}
+
 func TestAuthorizationFlowAcceptsPlainAccountNumber(t *testing.T) {
 	var mu sync.Mutex
 	var sentTexts []string
@@ -150,14 +189,18 @@ func TestAuthorizedUserMenuDoesNotRequestAuthorizationAgain(t *testing.T) {
 	}))
 	defer server.Close()
 
+	memoryStore := store.NewMemoryStore()
+	ctx := context.Background()
+	if err := memoryStore.SaveSession(ctx, store.Session{MaxUserID: 123456789, ActiveAccountID: "ACC-42"}); err != nil {
+		t.Fatalf("seed session: %v", err)
+	}
 	svc := New(
 		slog.New(slog.NewTextHandler(testWriter{t: t}, nil)),
-		store.NewMemoryStore(),
+		memoryStore,
 		maxclient.New(server.URL, "TEST_MAX_TOKEN", 5*time.Second),
 		onec.New(server.URL, "TEST_ONEC_TOKEN", 5*time.Second),
 	)
 
-	ctx := context.Background()
 	svc.ProcessUpdate(ctx, testUpdate("m-start-authorized", "/start"))
 	svc.ProcessUpdate(ctx, testUpdate("m-menu-authorized", "меню"))
 
@@ -207,14 +250,18 @@ func TestAppealTextAfterCallbackButtonCreatesAppeal(t *testing.T) {
 	}))
 	defer server.Close()
 
+	memoryStore := store.NewMemoryStore()
+	ctx := context.Background()
+	if err := memoryStore.SaveSession(ctx, store.Session{MaxUserID: 123456789, ActiveAccountID: "ACC-42"}); err != nil {
+		t.Fatalf("seed session: %v", err)
+	}
 	svc := New(
 		slog.New(slog.NewTextHandler(testWriter{t: t}, nil)),
-		store.NewMemoryStore(),
+		memoryStore,
 		maxclient.New(server.URL, "TEST_MAX_TOKEN", 5*time.Second),
 		onec.New(server.URL, "TEST_ONEC_TOKEN", 5*time.Second),
 	)
 
-	ctx := context.Background()
 	svc.ProcessUpdate(ctx, testCallbackUpdate("cb-appeal", actionAppealStart))
 	svc.ProcessUpdate(ctx, testUpdate("m-appeal-text", "скацпфпрскрмкрф"))
 
@@ -265,15 +312,20 @@ func TestProblemTextCreatesAppealWithoutExplicitCommand(t *testing.T) {
 	}))
 	defer server.Close()
 
+	memoryStore := store.NewMemoryStore()
+	ctx := context.Background()
+	if err := memoryStore.SaveSession(ctx, store.Session{MaxUserID: 123456789, ActiveAccountID: "ACC-42"}); err != nil {
+		t.Fatalf("seed session: %v", err)
+	}
 	svc := New(
 		slog.New(slog.NewTextHandler(testWriter{t: t}, nil)),
-		store.NewMemoryStore(),
+		memoryStore,
 		maxclient.New(server.URL, "TEST_MAX_TOKEN", 5*time.Second),
 		onec.New(server.URL, "TEST_ONEC_TOKEN", 5*time.Second),
 	)
 
 	text := "прорвало трубу, ул. Пушкина, дом Калатушкина"
-	svc.ProcessUpdate(context.Background(), testUpdate("m-problem-text", text))
+	svc.ProcessUpdate(ctx, testUpdate("m-problem-text", text))
 
 	if strings.Contains(sentText, "не распознал") {
 		t.Fatalf("problem text should not be treated as unknown command: %q", sentText)
