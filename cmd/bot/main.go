@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"errors"
 	"log/slog"
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	maxclient "example.com/max-bot-go/internal/clients/max"
 	"example.com/max-bot-go/internal/clients/onec"
@@ -43,10 +45,28 @@ func main() {
 		botStore = store.NewMemoryStore()
 	}
 
-	maxAPI := maxclient.New(cfg.MAXBaseURL, cfg.MAXToken, cfg.RequestTimeout)
+	maxTimeout := cfg.RequestTimeout
+	if cfg.MAXPollingEnabled {
+		pollingTimeout := time.Duration(cfg.MAXPollingTimeout+5) * time.Second
+		if pollingTimeout > maxTimeout {
+			maxTimeout = pollingTimeout
+		}
+	}
+	maxAPI := maxclient.New(cfg.MAXBaseURL, cfg.MAXToken, maxTimeout)
 	onecAPI := onec.New(cfg.OneCBaseURL, cfg.OneCToken, cfg.RequestTimeout)
 	botService := service.New(log, botStore, maxAPI, onecAPI)
 	server := httpserver.New(cfg, log, botService)
+
+	if cfg.MAXPollingEnabled {
+		poller := service.NewPoller(log, botService, service.PollerConfig{
+			Enabled:        true,
+			Limit:          cfg.MAXPollingLimit,
+			TimeoutSeconds: cfg.MAXPollingTimeout,
+			RetryDelay:     cfg.RequestTimeout,
+			Types:          cfg.MAXPollingTypes,
+		})
+		go poller.Run(context.Background())
+	}
 
 	if err := server.Run(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		log.Error("server stopped", "err", err)

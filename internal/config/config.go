@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -20,6 +21,10 @@ type Config struct {
 	OneCBaseURL         string
 	OneCToken           string
 	DatabaseURL         string
+	MAXPollingEnabled   bool
+	MAXPollingLimit     int
+	MAXPollingTimeout   int
+	MAXPollingTypes     []string
 }
 
 func Load() (Config, error) {
@@ -34,13 +39,16 @@ func Load() (Config, error) {
 
 	cfg := Config{
 		HTTPAddr:            env("HTTP_ADDR", ":8080"),
-		WebhookSecretHeader: env("WEBHOOK_SECRET_HEADER", "X-Max-Bot-Api-Secret"), MAXBaseURL: env("MAX_BASE_URL", "https://platform-api.max.ru"),
-		OneCBaseURL:      os.Getenv("ONEC_BASE_URL"),
-		WebhookSecret:    webhookSecret,
-		InternalAPIToken: os.Getenv("INTERNAL_API_TOKEN"),
-		MAXToken:         os.Getenv("MAX_TOKEN"),
-		OneCToken:        os.Getenv("ONEC_TOKEN"),
-		DatabaseURL:      os.Getenv("DATABASE_URL"),
+		WebhookSecretHeader: env("WEBHOOK_SECRET_HEADER", "X-Max-Bot-Api-Secret"),
+		MAXBaseURL:          env("MAX_BASE_URL", "https://platform-api.max.ru"),
+		OneCBaseURL:         os.Getenv("ONEC_BASE_URL"),
+		WebhookSecret:       webhookSecret,
+		InternalAPIToken:    os.Getenv("INTERNAL_API_TOKEN"),
+		MAXToken:            os.Getenv("MAX_TOKEN"),
+		OneCToken:           os.Getenv("ONEC_TOKEN"),
+		DatabaseURL:         os.Getenv("DATABASE_URL"),
+		MAXPollingEnabled:   envBool("MAX_POLLING_ENABLED", false),
+		MAXPollingTypes:     envCSV("MAX_POLLING_TYPES", "message_created,message_callback"),
 	}
 
 	timeoutSeconds, err := strconv.Atoi(env("REQUEST_TIMEOUT_SECONDS", "10"))
@@ -48,6 +56,18 @@ func Load() (Config, error) {
 		return Config{}, fmt.Errorf("REQUEST_TIMEOUT_SECONDS must be positive integer")
 	}
 	cfg.RequestTimeout = time.Duration(timeoutSeconds) * time.Second
+
+	pollingLimit, err := strconv.Atoi(env("MAX_POLLING_LIMIT", "100"))
+	if err != nil || pollingLimit <= 0 || pollingLimit > 1000 {
+		return Config{}, fmt.Errorf("MAX_POLLING_LIMIT must be integer from 1 to 1000")
+	}
+	cfg.MAXPollingLimit = pollingLimit
+
+	pollingTimeout, err := strconv.Atoi(env("MAX_POLLING_TIMEOUT_SECONDS", "30"))
+	if err != nil || pollingTimeout < 0 || pollingTimeout > 90 {
+		return Config{}, fmt.Errorf("MAX_POLLING_TIMEOUT_SECONDS must be integer from 0 to 90")
+	}
+	cfg.MAXPollingTimeout = pollingTimeout
 
 	if cfg.MAXToken == "" {
 		return Config{}, fmt.Errorf("MAX_TOKEN is required")
@@ -63,6 +83,27 @@ func Load() (Config, error) {
 	}
 
 	return cfg, nil
+}
+
+func envBool(key string, def bool) bool {
+	v := strings.TrimSpace(strings.ToLower(os.Getenv(key)))
+	if v == "" {
+		return def
+	}
+	return v == "1" || v == "true" || v == "yes" || v == "on"
+}
+
+func envCSV(key, def string) []string {
+	raw := env(key, def)
+	parts := strings.Split(raw, ",")
+	values := make([]string, 0, len(parts))
+	for _, part := range parts {
+		part = strings.TrimSpace(part)
+		if part != "" {
+			values = append(values, part)
+		}
+	}
+	return values
 }
 
 func env(key, def string) string {
