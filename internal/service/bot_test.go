@@ -81,6 +81,45 @@ func TestAuthorizationFlowAcceptsPlainAccountNumber(t *testing.T) {
 	}
 }
 
+func TestPlainAccountNumberStartsAuthorizationWithoutSession(t *testing.T) {
+	var sentText string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch {
+		case r.Method == http.MethodPost && r.URL.Path == "/messages":
+			var req struct {
+				Text string `json:"text"`
+			}
+			if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+				t.Fatalf("decode message request: %v", err)
+			}
+			sentText = req.Text
+			_, _ = w.Write([]byte(`{"success":true}`))
+		case r.Method == http.MethodPost && r.URL.Path == "/max/v1/account-link/start":
+			_, _ = w.Write([]byte(`{"success":true,"code":"OK","operation_id":"op-link-start","data":{}}`))
+		default:
+			t.Fatalf("unexpected request: %s %s", r.Method, r.URL.String())
+		}
+	}))
+	defer server.Close()
+
+	svc := New(
+		slog.New(slog.NewTextHandler(testWriter{t: t}, nil)),
+		store.NewMemoryStore(),
+		maxclient.New(server.URL, "TEST_MAX_TOKEN", 5*time.Second),
+		onec.New(server.URL, "TEST_ONEC_TOKEN", 5*time.Second),
+	)
+
+	svc.ProcessUpdate(context.Background(), testUpdate("m-account", "12345"))
+
+	if strings.Contains(sentText, "не распознал") {
+		t.Fatalf("plain account number without session was treated as unknown command: %q", sentText)
+	}
+	if !strings.Contains(sentText, "Лицевой счет найден") {
+		t.Fatalf("plain account number should start authorization, got: %q", sentText)
+	}
+}
+
 func testUpdate(mid, text string) model.MAXUpdate {
 	return model.MAXUpdate{
 		UpdateType: "message_created",

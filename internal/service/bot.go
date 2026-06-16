@@ -92,7 +92,9 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 			return operationID, err
 		}
 		operationID = resp.OperationID
-		_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", session.ActiveAccountID, session.Temp))
+		if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", session.ActiveAccountID, session.Temp)); err != nil {
+			return operationID, err
+		}
 		return operationID, s.sendOnboarding(ctx, upd.ChatID(), upd.FirstName())
 	}
 
@@ -110,25 +112,29 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 			return operationID, err
 		}
 		operationID = resp.OperationID
-		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil))
+		if err := s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil)); err != nil {
+			return operationID, err
+		}
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), consentAcceptedText(), linkKeyboard())
 	}
 
 	if text == actionLinkStart || text == "привязать" || text == "привязать лс" {
-		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil))
+		if err := s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAccountNumber, session.ActiveAccountID, nil)); err != nil {
+			return operationID, err
+		}
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkStartText(), linkKeyboard())
 	}
 
-	if strings.HasPrefix(text, "привязать ") || (session.Step == stepAwaitAccountNumber && rawText != "") {
+	if strings.HasPrefix(text, "код ") || (session.Step == stepAwaitLinkCode && looksLikeCode(text)) {
+		return s.confirmAccountLink(ctx, upd, rawText, session)
+	}
+
+	if strings.HasPrefix(text, "привязать ") || looksLikeAccountNumber(text) || (session.Step == stepAwaitAccountNumber && rawText != "") {
 		accountNumber := rawText
 		if strings.HasPrefix(text, "привязать ") {
 			accountNumber = tailAfterFirstWord(rawText)
 		}
 		return s.startAccountLink(ctx, upd, strings.TrimSpace(accountNumber), session)
-	}
-
-	if strings.HasPrefix(text, "код ") || (session.Step == stepAwaitLinkCode && looksLikeCode(text)) {
-		return s.confirmAccountLink(ctx, upd, rawText, session)
 	}
 
 	if text == actionBalance || text == "баланс" || text == "мой лицевой счет" || text == "лс" {
@@ -144,7 +150,9 @@ func (s *BotService) handle(ctx context.Context, upd model.MAXUpdate) (string, e
 	}
 
 	if text == actionAppealStart || text == "обращение" || text == "заявка" {
-		_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAppealText, session.ActiveAccountID, session.Temp))
+		if err := s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitAppealText, session.ActiveAccountID, session.Temp)); err != nil {
+			return operationID, err
+		}
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), appealStartText(), backToMenuKeyboard())
 	}
 
@@ -169,7 +177,9 @@ func (s *BotService) startAccountLink(ctx context.Context, upd model.MAXUpdate, 
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	_ = s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitLinkCode, session.ActiveAccountID, map[string]string{"account_number": accountNumber}))
+	if err := s.saveSession(ctx, sessionFor(upd.UserID(), stepAwaitLinkCode, session.ActiveAccountID, map[string]string{"account_number": accountNumber})); err != nil {
+		return operationID, err
+	}
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkCodeText(accountNumber), backToMenuKeyboard())
 }
 
@@ -202,7 +212,9 @@ func (s *BotService) confirmAccountLink(ctx context.Context, upd model.MAXUpdate
 	}
 	operationID = resp.OperationID
 	accountID := fallback(resp.Data.ID, accountNumber)
-	_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", accountID, nil))
+	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", accountID, nil)); err != nil {
+		return operationID, err
+	}
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkSuccessText(accountNumber), mainKeyboard())
 }
 
@@ -316,7 +328,9 @@ func (s *BotService) handleAppeal(ctx context.Context, upd model.MAXUpdate, text
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	_ = s.saveSession(ctx, sessionFor(upd.UserID(), "", account.ID, nil))
+	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", account.ID, nil)); err != nil {
+		return operationID, err
+	}
 	msg := fmt.Sprintf("✅ *Обращение зарегистрировано*\n\nНомер: *%s*\nСтатус: %s\nСрок обработки: %s\n\nЯ передал текст в 1С и сохраню дальнейшую логику в рамках доступной конфигурации billing.", fallback(resp.Data.Number, resp.Data.AppealID), fallback(resp.Data.Status, "принято"), fallback(resp.Data.SLA, "по регламенту организации"))
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, mainKeyboard())
 }
