@@ -148,6 +148,51 @@ go run .\cmd\bot
 В логах бота должна быть строка `using in-memory store (for development only)`. После этого проверки из разделов 3–5 и 8 можно выполнять теми же `curl`-командами. Раздел 6 про PostgreSQL для такого режима не нужен: состояние хранится только в памяти процесса и сбрасывается при перезапуске.
 
 
+### 2b. Локальный запуск с реальным MAX без webhook: Long Polling
+
+Если бот должен работать на вашем ПК без публичного HTTPS/webhook, включите Long Polling. В этом режиме backend сам опрашивает MAX `GET /updates`, продолжает поднимать локальный HTTP API для 1С и принимает уведомления от 1С через `POST /internal/notifications/send`.
+
+В `.env.local` или `.env` укажите реальные токены и адрес 1С, доступный с вашего ПК:
+
+```dotenv
+MAX_BASE_URL=https://platform-api.max.ru
+MAX_TOKEN=<реальный токен MAX-бота>
+ONEC_BASE_URL=http://localhost:8081/hs/max
+ONEC_TOKEN=<токен интеграции с 1С>
+INTERNAL_API_TOKEN=<токен для вызовов из 1С в backend>
+MAX_POLLING_ENABLED=true
+MAX_POLLING_LIMIT=100
+MAX_POLLING_TIMEOUT_SECONDS=30
+MAX_POLLING_TYPES=message_created,message_callback
+```
+
+Запустите backend:
+
+```bash
+set -a
+source .env.local
+set +a
+go run ./cmd/bot
+```
+
+Для Windows PowerShell:
+
+```powershell
+Get-Content .env.local | Where-Object { $_ -and $_ -notmatch '^\s*#' } | ForEach-Object { $name, $value = $_ -split '=', 2; Set-Item -Path "Env:$name" -Value $value }
+go run .\cmd\bot
+```
+
+Важно: у бота должен быть отключен webhook/subscription в MAX, иначе `GET /updates` не будет использоваться как основной канал доставки событий. Long Polling подходит для локальной разработки и тестирования; для production MAX рекомендует Webhook.
+
+1С может отправлять исходящие уведомления пользователю в локальный backend так:
+
+```bash
+curl -X POST http://localhost:8080/internal/notifications/send \
+  -H 'Authorization: Bearer <INTERNAL_API_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{"chat_id":987654321,"text":"Начисление обновлено","operation_id":"onec-001"}'
+```
+
 ### 3. Проверьте health-check
 
 ```bash
@@ -324,6 +369,10 @@ curl -s -X POST http://localhost:8080/internal/notifications/send \
 | `MAX_TOKEN` | Токен MAX Bot API. |
 | `WEBHOOK_SECRET` | Секрет webhook-подписки. Если пустой, бот сгенерирует временный секрет при старте и выведет его в лог. |
 | `WEBHOOK_SECRET_HEADER` | Имя заголовка с секретом, по умолчанию `X-Max-Webhook-Secret`. |
+| `MAX_POLLING_ENABLED` | Включает локальное получение событий через MAX Long Polling без публичного webhook. |
+| `MAX_POLLING_LIMIT` | Максимальное число событий за один запрос `GET /updates`, от 1 до 1000. |
+| `MAX_POLLING_TIMEOUT_SECONDS` | Таймаут long polling запроса к MAX, от 0 до 90 секунд. |
+| `MAX_POLLING_TYPES` | Список типов событий для long polling, например `message_created,message_callback`. |
 | `ONEC_BASE_URL` | Базовый URL HTTP API 1С. |
 | `ONEC_TOKEN` | Токен интеграции с 1С. |
 | `INTERNAL_API_TOKEN` | Токен для служебных вызовов от 1С к backend. |
