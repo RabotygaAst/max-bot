@@ -651,3 +651,58 @@ SELECT * FROM billing_accruals_cache;
 SELECT * FROM invoices_cache;
 SELECT * FROM appointments;
 ```
+
+## Проверка реальной интеграции с 1С HTTP-сервисом MAXBot
+
+1. Загрузите/обновите конфигурацию из `cf_billing` и опубликуйте HTTP-сервисы базы 1С на веб-сервере. В конфигурации используется HTTP-сервис `MAXBotHTTP` с root URL `max_bot` и методами `/max/v1/...`.
+2. Base URL для Go указывайте до каталога HTTP-сервисов 1С, без завершающего `/`: `ONEC_BASE_URL=https://<server>/<base>/hs`.
+3. В 1С заполните константу `MAXBotToken`; Go передает ее как `Authorization: Bearer <ONEC_TOKEN>`.
+4. Минимальный `.env` для проверки:
+
+```dotenv
+ONEC_BASE_URL=https://<server>/<base>/hs
+ONEC_TOKEN=<token>
+MAX_BASE_URL=http://localhost:1080
+MAX_TOKEN=MOCK_MAX_TOKEN
+INTERNAL_API_TOKEN=CHANGE_ME_INTERNAL_TOKEN
+DATABASE_URL=postgres://maxbot:maxbot_password@localhost:5432/maxbot?sslmode=disable
+```
+
+### Curl-smoke endpoints 1С
+
+```bash
+BASE="https://<server>/<base>/hs"
+TOKEN="<token>"
+AUTH=(-H "Authorization: Bearer ${TOKEN}" -H 'Content-Type: application/json')
+
+curl -s -X POST "$BASE/max/v1/users/start" "${AUTH[@]}" -d '{"max_user_id":123456789,"chat_id":987654321,"first_name":"Иван","source":"MAX"}'
+curl -s -X POST "$BASE/max/v1/consents" "${AUTH[@]}" -d '{"max_user_id":123456789,"consent_version":"2026-05","source":"MAX"}'
+curl -s -X POST "$BASE/max/v1/account-link/start" "${AUTH[@]}" -d '{"max_user_id":123456789,"account_number":"000123456","source":"MAX"}'
+curl -s -X POST "$BASE/max/v1/account-link/confirm" "${AUTH[@]}" -d '{"max_user_id":123456789,"account_number":"000123456","code":"1234","source":"MAX"}'
+curl -s "$BASE/max/v1/accounts?max_user_id=123456789" "${AUTH[@]}"
+curl -s "$BASE/max/v1/accounts/<account_id>/balance?max_user_id=123456789" "${AUTH[@]}"
+curl -s "$BASE/max/v1/accounts/<account_id>/meters?max_user_id=123456789" "${AUTH[@]}"
+curl -s -X POST "$BASE/max/v1/accounts/<account_id>/meters/MTR-001/readings" "${AUTH[@]}" -d '{"period":"2026-05","value":245.678,"source":"MAX","max_user_id":123456789,"message_id":"smoke-reading-001","operation_id":"max-smoke-reading-001"}'
+curl -s -X POST "$BASE/max/v1/accounts/<account_id>/appeals" "${AUTH[@]}" -d '{"max_user_id":123456789,"category":"general","text":"не убран подъезд","attachments":[],"source":"MAX","message_id":"smoke-appeal-001","operation_id":"max-smoke-appeal-001"}'
+curl -s "$BASE/max/v1/reference/help" "${AUTH[@]}"
+curl -s "$BASE/max/v1/reference/organization" "${AUTH[@]}"
+curl -s "$BASE/max/v1/reference/emergency" "${AUTH[@]}"
+curl -s "$BASE/max/v1/accounts/<account_id>/invoice?period=2026-05&max_user_id=123456789" "${AUTH[@]}"
+curl -s -X POST "$BASE/max/v1/accounts/<account_id>/payment-link" "${AUTH[@]}" -d '{"max_user_id":123456789,"source":"MAX","operation_id":"max-smoke-payment-001","return_url":""}'
+curl -s "$BASE/max/v1/accounts/<account_id>/outages?max_user_id=123456789" "${AUTH[@]}"
+curl -s "$BASE/max/v1/reference/appointment-topics" "${AUTH[@]}"
+curl -s -X POST "$BASE/max/v1/accounts/<account_id>/appointments" "${AUTH[@]}" -d '{"max_user_id":123456789,"topic_id":"billing","source":"MAX","operation_id":"max-smoke-appointment-001"}'
+```
+
+### Проверка через Go debug endpoint
+
+```bash
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-start-001","text":"/start"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-auth-001","text":"авторизоваться"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-auth-002","text":"000123456"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-auth-003","text":"1234"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-balance-001","text":"баланс"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-invoice-001","text":"квитанция 2026-05"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-meters-001","text":"показания"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"real-1c-reading-001","text":"показание MTR-001 245.678"}'
+```
