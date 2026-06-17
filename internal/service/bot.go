@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -347,41 +348,106 @@ func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (str
 	}
 	operationID = resp.OperationID
 	if len(resp.Data) == 0 {
-		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "📊 По активному лицевому счету пока нет доступных приборов учета.\n\nКогда 1С вернет список счетчиков, я покажу их здесь и подскажу формат передачи.", authorizedKeyboard())
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "📊 По активному лицевому счету пока нет доступных точек передачи показаний.\n\nКогда 1С вернет список услуг/тарифов, я покажу их здесь и подскажу формат передачи.", authorizedKeyboard())
+	}
+
+	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), formatMetersMessage(resp.Data), authorizedKeyboard())
+}
+
+func formatMetersMessage(meters []model.Meter) string {
+	items := append([]model.Meter(nil), meters...)
+	sort.SliceStable(items, func(i, j int) bool {
+		li, lj := meterDisplayName(items[i]), meterDisplayName(items[j])
+		ri, rj := meterSortRank(li), meterSortRank(lj)
+		if ri != rj {
+			return ri < rj
+		}
+		if li != lj {
+			return li < lj
+		}
+		return items[i].ID < items[j].ID
+	})
+
+	names := make(map[string]int, len(items))
+	for _, m := range items {
+		names[meterDisplayName(m)]++
 	}
 
 	var b strings.Builder
-	b.WriteString("📊 *Приборы учета*\n\n")
-	for _, m := range resp.Data {
-		writeMeter(&b, m)
+	b.WriteString("📊 *Показания*\n\n")
+	available := make([]string, 0, len(items))
+	for _, m := range items {
+		name := meterDisplayName(m)
+		if names[name] > 1 {
+			if t := strings.TrimSpace(m.TariffName); t != "" && t != name && !strings.Contains(name, t) {
+				name += " / " + t
+			} else if r := strings.TrimSpace(m.Resource); r != "" && r != name && !strings.Contains(name, r) {
+				name += " / " + r
+			} else if m.ID != "" {
+				name += " / " + m.ID
+			}
+		}
+		writeReadingPoint(&b, name, m)
+		if m.CanSubmit && strings.TrimSpace(m.ID) != "" {
+			available = append(available, fmt.Sprintf("%s — %s", name, m.ID))
+		}
 	}
-	b.WriteString("Чтобы передать показание, отправьте:\n`показание <ID> <значение>`\n\nID берите из списка выше: `показание <ID> 123.456`")
-	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), b.String(), authorizedKeyboard())
+	b.WriteString("\nЧтобы передать показание:\n`показание <ID> <значение>`\n")
+	if len(available) > 0 {
+		b.WriteString("\nДоступные ID:\n")
+		for _, line := range available {
+			b.WriteString(line)
+			b.WriteByte('\n')
+		}
+	}
+	return strings.TrimRight(b.String(), "\n")
 }
 
-func writeMeter(b *strings.Builder, m model.Meter) {
-	title := strings.TrimSpace(m.Resource)
-	if m.ServiceName != "" && m.ServiceName != m.Resource {
-		title = strings.TrimSpace(title + " / " + m.ServiceName)
+func writeReadingPoint(b *strings.Builder, name string, m model.Meter) {
+	if strings.TrimSpace(m.LastReadingDate) == "" && m.LastValue == 0 {
+		fmt.Fprintf(b, "%s: нет переданных показаний\n", name)
+	} else {
+		unit := strings.TrimSpace(m.Unit)
+		value := fmt.Sprintf("%.3f", m.LastValue)
+		if unit != "" {
+			value += " " + unit
+		}
+		fmt.Fprintf(b, "%s: %s — %s\n", name, value, formatReadingDate(m.LastReadingDate))
 	}
-	if title == "" {
-		title = "Прибор учета"
-	}
-	fmt.Fprintf(b, "• %s\n", title)
-	if m.ServiceName != "" {
-		fmt.Fprintf(b, "  Услуга: %s\n", m.ServiceName)
-	}
-	if m.TariffName != "" {
-		fmt.Fprintf(b, "  Тариф: %s\n", m.TariffName)
-	}
-	if m.Unit != "" {
-		fmt.Fprintf(b, "  Ед. изм.: %s\n", m.Unit)
-	}
-	fmt.Fprintf(b, "  №: %s\n  ID: `%s`\n  Последнее: %.3f от %s\n", maskSerial(m.SerialNumber), m.ID, m.LastValue, fallback(m.LastReadingDate, "—"))
 	if !m.CanSubmit {
-		fmt.Fprintf(b, "  Передача показаний недоступна: %s\n", fallback(m.Reason, "причина не указана 1С"))
+		fmt.Fprintf(b, "   Нельзя передать: %s\n", fallback(m.Reason, "причина не указана 1С"))
 	}
-	b.WriteString("\n")
+}
+
+func meterDisplayName(m model.Meter) string {
+	for _, v := range []string{m.DisplayName, m.ServiceName, m.TariffName, m.Resource, m.ID} {
+		if s := strings.TrimSpace(v); s != "" {
+			return s
+		}
+	}
+	return "Точка передачи показаний"
+}
+
+func meterSortRank(name string) int {
+	n := strings.ToLower(strings.TrimSpace(name))
+	order := []string{"хвс", "гвс", "водоотведение", "электроэнергия", "тариф рэк", "газ", "отопление"}
+	for i, v := range order {
+		if n == v || strings.HasPrefix(n, v+" /") {
+			return i
+		}
+	}
+	return len(order)
+}
+
+func formatReadingDate(date string) string {
+	date = strings.TrimSpace(date)
+	if date == "" {
+		return "дата не указана"
+	}
+	if t, err := time.Parse("2006-01-02", date); err == nil {
+		return t.Format("02.01.2006")
+	}
+	return date
 }
 
 func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {
