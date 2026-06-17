@@ -228,5 +228,110 @@
       },
       "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Справка\",\"operation_id\":\"1c-test-010\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"text\":\"Справочная информация от 1С: /start, авторизоваться, номер ЛС, код подтверждения, баланс, показания, обращение <текст>.\"}}"
     }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/reference/organization"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Сведения об организации\", \"operation_id\": \"1c-org-001\", \"data\": {\"name\": \"ООО Управляющая компания\", \"phone\": \"+7 800 000-00-00\", \"email\": \"info@example.ru\", \"site\": \"https://example.ru\", \"work_hours\": \"Пн-Пт 09:00-18:00\", \"office_address\": \"г. Тестовый, ул. Центральная, д. 1\", \"customer_service_hours\": \"Пн-Пт 10:00-17:00\"}}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/reference/emergency"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Контакты служб\", \"operation_id\": \"1c-emergency-001\", \"data\": {\"dispatcher_phone\": \"+7 800 100-00-01\", \"emergency_phone\": \"+7 800 200-00-02\", \"gas_phone\": \"104\", \"electricity_phone\": \"+7 800 300-00-03\", \"comment\": \"При угрозе жизни звоните 112.\"}}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/accounts/ACC-000123456/invoice"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Квитанция\", \"operation_id\": \"1c-invoice-001\", \"data\": {\"account_id\": \"ACC-000123456\", \"period\": \"2026-05\", \"amount\": 5432.1, \"currency\": \"руб.\", \"document_number\": \"КВ-000001\", \"document_date\": \"2026-05-06\", \"download_url\": \"https://example.ru/invoices/KV-000001.pdf\"}}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/accounts/ACC-000123456/payment-link"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Ссылка на оплату создана\", \"operation_id\": \"1c-payment-001\", \"data\": {\"account_id\": \"ACC-000123456\", \"amount\": 5432.1, \"currency\": \"руб.\", \"payment_url\": \"https://pay.example.ru/pay/abc123\", \"expires_at\": \"2026-05-06T18:00:00+03:00\"}}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/accounts/ACC-000123456/outages"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Отключения\", \"operation_id\": \"1c-outages-001\", \"data\": [{\"outage_id\": \"OUT-001\", \"resource\": \"ГВС\", \"status\": \"planned\", \"address\": \"г. Тестовый, ул. Центральная, д. 1\", \"starts_at\": \"2026-05-15T09:00:00+03:00\", \"ends_at\": \"2026-05-15T18:00:00+03:00\", \"reason\": \"Плановые ремонтные работы\", \"comment\": \"После окончания работ возможна кратковременная мутность воды.\"}]}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/max/v1/reference/appointment-topics"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Темы приема\", \"operation_id\": \"1c-topics-001\", \"data\": [{\"topic_id\": \"billing\", \"title\": \"Начисления и перерасчеты\"}, {\"topic_id\": \"meters\", \"title\": \"Приборы учета\"}, {\"topic_id\": \"contract\", \"title\": \"Договор\"}]}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/max/v1/accounts/ACC-000123456/appointments"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "body": "{\"success\": true, \"code\": \"OK\", \"message\": \"Запись создана\", \"operation_id\": \"1c-appointment-001\", \"data\": {\"appointment_id\": \"APT-001\", \"number\": \"ПР-000001\", \"topic_title\": \"Начисления и перерасчеты\", \"office_address\": \"г. Тестовый, ул. Центральная, д. 1\", \"starts_at\": \"2026-05-12T14:30:00+03:00\", \"status\": \"confirmed\"}}"
+    }
   }
 ]

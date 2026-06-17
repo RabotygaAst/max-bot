@@ -68,6 +68,38 @@ func (c *Client) CreateAppeal(ctx context.Context, accountID string, req model.A
 	return do[model.AppealResult](c, ctx, http.MethodPost, path, req)
 }
 
+func (c *Client) Organization(ctx context.Context) (model.APIResponse[model.OrganizationInfo], error) {
+	return do[model.OrganizationInfo](c, ctx, http.MethodGet, "/max/v1/reference/organization", nil)
+}
+
+func (c *Client) Emergency(ctx context.Context) (model.APIResponse[model.EmergencyInfo], error) {
+	return do[model.EmergencyInfo](c, ctx, http.MethodGet, "/max/v1/reference/emergency", nil)
+}
+
+func (c *Client) Invoice(ctx context.Context, maxUserID int64, accountID, period string) (model.APIResponse[model.Invoice], error) {
+	path := fmt.Sprintf("/max/v1/accounts/%s/invoice?period=%s&max_user_id=%s", url.PathEscape(accountID), url.QueryEscape(period), url.QueryEscape(fmt.Sprint(maxUserID)))
+	return do[model.Invoice](c, ctx, http.MethodGet, path, nil)
+}
+
+func (c *Client) PaymentLink(ctx context.Context, accountID string, req model.PaymentLinkRequest) (model.APIResponse[model.PaymentLink], error) {
+	path := fmt.Sprintf("/max/v1/accounts/%s/payment-link", url.PathEscape(accountID))
+	return do[model.PaymentLink](c, ctx, http.MethodPost, path, req)
+}
+
+func (c *Client) Outages(ctx context.Context, maxUserID int64, accountID string) (model.APIResponse[[]model.Outage], error) {
+	path := fmt.Sprintf("/max/v1/accounts/%s/outages?max_user_id=%s", url.PathEscape(accountID), url.QueryEscape(fmt.Sprint(maxUserID)))
+	return do[[]model.Outage](c, ctx, http.MethodGet, path, nil)
+}
+
+func (c *Client) AppointmentTopics(ctx context.Context) (model.APIResponse[[]model.AppointmentTopic], error) {
+	return do[[]model.AppointmentTopic](c, ctx, http.MethodGet, "/max/v1/reference/appointment-topics", nil)
+}
+
+func (c *Client) CreateAppointment(ctx context.Context, accountID string, req model.AppointmentRequest) (model.APIResponse[model.AppointmentResult], error) {
+	path := fmt.Sprintf("/max/v1/accounts/%s/appointments", url.PathEscape(accountID))
+	return do[model.AppointmentResult](c, ctx, http.MethodPost, path, req)
+}
+
 func (c *Client) Help(ctx context.Context) (model.APIResponse[model.HelpBlock], error) {
 	return do[model.HelpBlock](c, ctx, http.MethodGet, "/max/v1/reference/help", nil)
 }

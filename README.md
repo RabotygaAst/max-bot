@@ -486,3 +486,38 @@ docker-compose up -d --build
 4. Настроить метрики и алерты: ошибки 1С, ошибки MAX, длительность обработки, дубликаты webhook.
 5. Согласовать с ИБ маскирование ПДн в логах и текстах ответов.
 6. Сверить `internal/clients/max/client.go` с актуальным форматом отправки сообщений в MAX Bot API перед боевым включением.
+## Расширенные ЖКХ-сценарии MAX
+
+Добавлены пользовательские команды: `организация`, `об организации`, `аварийная`, `диспетчерская`, `квитанция [YYYY-MM]`, `счет [YYYY-MM]`, `оплатить`, `оплата`, `отключения`, `перерывы`, `нет воды`, `нет света`, `запись`, `запись <topic_id>`, а также категории обращений `обращение`, `заявка`, `авария`, `жалоба`.
+
+### Новые ожидаемые endpoint 1С
+
+- `GET /max/v1/reference/organization`
+- `GET /max/v1/reference/emergency`
+- `GET /max/v1/accounts/{account_id}/invoice?period=YYYY-MM&max_user_id={max_user_id}`
+- `POST /max/v1/accounts/{account_id}/payment-link`
+- `GET /max/v1/accounts/{account_id}/outages?max_user_id={max_user_id}`
+- `GET /max/v1/reference/appointment-topics`
+- `POST /max/v1/accounts/{account_id}/appointments`
+
+Endpoint `POST /internal/notifications/send` сохранил обратную совместимость и дополнительно принимает optional-поля `type` и `account_id`.
+
+### Smoke-test новых сценариев через debug endpoint
+
+После запуска `docker-compose up -d --build` можно отправить события:
+
+```bash
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-org-001","text":"организация"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-emergency-001","text":"аварийная"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-start-001","text":"/start"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-auth-001","text":"авторизоваться"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-auth-002","text":"000123456"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-auth-003","text":"1234"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-invoice-001","text":"квитанция 2026-05"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-payment-001","text":"оплатить"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-outages-001","text":"отключения"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-appointment-001","text":"запись"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-appointment-002","text":"запись billing"}'
+```
+
+Каждый запрос должен вернуть `{"success":true}`, а ответы бота отправляются в mock MAX `/messages`.
