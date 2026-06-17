@@ -166,13 +166,13 @@
           "application/json"
         ]
       },
-      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Приборы\",\"operation_id\":\"1c-test-007\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"meter_id\":\"MTR-001\",\"resource\":\"ХВС\",\"serial_number\":\"SN12345678\",\"last_value\":234.56,\"last_reading_date\":\"2026-04-06\",\"verification_to\":\"2028-12-31\",\"service_id\":\"MOCK-SERVICE-HVS\",\"service_name\":\"MOCK Холодное водоснабжение\",\"tariff_id\":\"MOCK-TARIFF-HVS\",\"tariff_name\":\"MOCK Тариф ХВС\",\"unit\":\"м³\",\"can_submit\":true,\"reason\":\"\"}]}"
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Точки передачи показаний\",\"operation_id\":\"1c-test-007\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":[{\"meter_id\":\"MOCK-HVS-001\",\"display_name\":\"ХВС\",\"resource\":\"ХВС\",\"service_id\":\"MOCK-SVC-HVS\",\"service_name\":\"ХВС\",\"tariff_id\":\"MOCK-TAR-HVS\",\"tariff_name\":\"Тариф ХВС\",\"unit\":\"м³\",\"serial_number\":\"MOCK-SN-HVS\",\"last_value\":234.56,\"last_reading_date\":\"2026-04-06\",\"can_submit\":true},{\"meter_id\":\"MOCK-GVS-001\",\"display_name\":\"ГВС\",\"resource\":\"ГВС\",\"service_id\":\"MOCK-SVC-GVS\",\"service_name\":\"ГВС\",\"tariff_id\":\"MOCK-TAR-GVS\",\"tariff_name\":\"Тариф ГВС\",\"unit\":\"м³\",\"serial_number\":\"MOCK-SN-GVS\",\"last_value\":128.4,\"last_reading_date\":\"2026-04-06\",\"can_submit\":true},{\"meter_id\":\"MOCK-REK-001\",\"display_name\":\"Тариф РЭК\",\"resource\":\"Электроэнергия\",\"service_id\":\"MOCK-SVC-EL\",\"service_name\":\"Электроэнергия\",\"tariff_id\":\"MOCK-TAR-REK\",\"tariff_name\":\"Тариф РЭК\",\"unit\":\"кВт⋅ч\",\"serial_number\":\"MOCK-SN-REK\",\"last_value\":10543,\"last_reading_date\":\"2026-04-06\",\"can_submit\":true}]}"
     }
   },
   {
     "httpRequest": {
       "method": "POST",
-      "path": "/max/v1/accounts/ACC-000123456/meters/MTR-001/readings",
+      "path": "/max/v1/accounts/ACC-000123456/meters/MOCK-HVS-001/readings",
       "headers": {
         "Authorization": [
           "Bearer MOCK_ONEC_TOKEN"
@@ -186,7 +186,7 @@
           "application/json"
         ]
       },
-      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Показание принято\",\"operation_id\":\"1c-test-008\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"document_number\":\"ПМ-000001\",\"document_date\":\"2026-05-06\",\"meter_id\":\"MTR-001\",\"value\":245.678}}"
+      "body": "{\"success\":true,\"code\":\"OK\",\"message\":\"Показание принято\",\"operation_id\":\"1c-test-008\",\"actual_at\":\"2026-05-06T12:00:00+03:00\",\"data\":{\"document_number\":\"ПМ-000001\",\"document_date\":\"2026-05-06\",\"meter_id\":\"MOCK-HVS-001\",\"value\":245.678}}"
     }
   },
   {
