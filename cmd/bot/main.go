@@ -39,7 +39,7 @@ func main() {
 		defer pgStore.Close()
 		botStore = pgStore
 	} else {
-		log.Info("using in-memory store (for development only)")
+		log.Warn("using in-memory store: state will be lost after restart")
 		botStore = store.NewMemoryStore()
 	}
 

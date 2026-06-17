@@ -147,7 +147,7 @@ Get-Content .env.local | Where-Object { $_ -and $_ -notmatch '^\s*#' } | ForEach
 go run .\cmd\bot
 ```
 
-В логах бота должна быть строка `using in-memory store (for development only)`. После этого проверки из разделов 3–5 и 8 можно выполнять теми же `curl`-командами. Раздел 6 про PostgreSQL для такого режима не нужен: состояние хранится только в памяти процесса и сбрасывается при перезапуске.
+В логах бота должна быть строка `using in-memory store: state will be lost after restart`. После этого проверки из разделов 3–5 и 8 можно выполнять теми же `curl`-командами. Раздел 6 про PostgreSQL для такого режима не нужен: состояние хранится только в памяти процесса и сбрасывается при перезапуске.
 
 ### 2b. Windows: локальная PostgreSQL без Docker
 
@@ -521,3 +521,133 @@ curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: a
 ```
 
 Каждый запрос должен вернуть `{"success":true}`, а ответы бота отправляются в mock MAX `/messages`.
+
+## Постоянное состояние бота
+
+PostgreSQL — основной режим хранения состояния. Таблицы `max_users` и `account_links` хранят постоянную авторизацию MAX-пользователя и активный лицевой счет; `dialog_sessions` используется только для временных шагов диалога. Без `DATABASE_URL` запускается только development fallback in-memory, состояние в нем теряется после перезапуска.
+
+## PostgreSQL как основной режим
+
+Docker Compose поднимает PostgreSQL и применяет `init-db.sql`. Для ручного запуска задайте `DATABASE_URL`, например:
+
+```bash
+export DATABASE_URL='postgres://maxbot:maxbot@localhost:5432/maxbot?sslmode=disable'
+go run ./cmd/bot
+```
+
+Добавлены таблицы: `max_users`, `account_links`, `billing_accruals_cache`, `invoices_cache`, `payments_cache`, `appointments`, `appeals_cache`, `notification_logs`.
+
+## Windows без Docker
+
+1. Установите PostgreSQL 15+ и убедитесь, что `psql.exe` доступен в `PATH` либо находится в `C:\Program Files\PostgreSQL\*\bin`.
+2. Выполните:
+
+```powershell
+Copy-Item .env.local.example .env.local -ErrorAction SilentlyContinue
+.\scripts\setup-postgres-local.ps1 -WriteEnvLocal
+.\scripts\seed-postgres-local.ps1
+.\scripts\run-local.ps1 -UsePostgres
+```
+
+CMD-обертки:
+
+```cmd
+.\scripts\setup-postgres-local.cmd -WriteEnvLocal
+.\scripts\seed-postgres-local.cmd
+.\scripts\run-local.cmd -UsePostgres
+```
+
+## Seed тестовых данных
+
+```powershell
+.\scripts\seed-postgres-local.ps1
+```
+
+Seed создает пользователя `123456789`, чат `987654321`, лицевой счет `000123456`, кэш баланса за `2026-05`, квитанцию, платеж, обращение и запись на прием.
+
+## Новые команды пользователя
+
+```text
+/start
+меню
+помощь
+справка
+организация
+об организации
+контакты
+аварийная
+диспетчерская
+авторизоваться
+привязать <номер ЛС>
+код <номер ЛС> <код>
+<номер ЛС>
+<код>
+баланс
+квитанция
+квитанция 2026-05
+счет 2026-05
+оплатить
+оплата
+показания
+показание MTR-001 245.678
+обращение
+обращение не убран подъезд
+заявка не работает домофон
+авария прорвало трубу
+жалоба некачественная уборка
+отключения
+перерывы
+нет воды
+нет света
+запись
+запись billing
+прием
+```
+
+## Новые endpoint 1С
+
+```text
+GET  /max/v1/reference/organization
+GET  /max/v1/reference/emergency
+GET  /max/v1/accounts/{account_id}/invoice?period=YYYY-MM&max_user_id={max_user_id}
+POST /max/v1/accounts/{account_id}/payment-link
+GET  /max/v1/accounts/{account_id}/outages?max_user_id={max_user_id}
+GET  /max/v1/reference/appointment-topics
+POST /max/v1/accounts/{account_id}/appointments
+```
+
+## Smoke-тесты
+
+После запуска `scripts/run-local.ps1 -UsePostgres` debug endpoint должен возвращать `{"success":true}`:
+
+```bash
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-org-001","text":"организация"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-emergency-001","text":"аварийная"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-start-001","text":"/start"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-auth-001","text":"авторизоваться"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-balance-001","text":"баланс"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-invoice-001","text":"квитанция 2026-05"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-payment-001","text":"оплатить"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-outages-001","text":"отключения"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-appointment-001","text":"запись"}'
+curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-appointment-002","text":"запись billing"}'
+```
+
+## Проверка сохранения после перезапуска
+
+1. Запустите бота с PostgreSQL.
+2. Авторизуйте пользователя (`авторизоваться` → `000123456` → `1234`).
+3. Остановите бота.
+4. Запустите снова с тем же `DATABASE_URL`.
+5. Отправьте `/start`.
+6. Бот должен ответить, что пользователь уже авторизован, без повторного ввода ЛС.
+
+SQL-проверка:
+
+```sql
+SELECT * FROM max_users;
+SELECT * FROM account_links;
+SELECT * FROM billing_accruals_cache;
+SELECT * FROM invoices_cache;
+SELECT * FROM appointments;
+```

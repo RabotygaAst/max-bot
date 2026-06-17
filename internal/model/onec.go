@@ -180,4 +180,5 @@ type NotificationRequest struct {
 	OperationID string `json:"operation_id"`
 	Type        string `json:"type,omitempty"`
 	AccountID   string `json:"account_id,omitempty"`
+	MaxUserID   int64  `json:"max_user_id,omitempty"`
 }
