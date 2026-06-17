@@ -296,11 +296,14 @@ func (s *BotService) confirmAccountLink(ctx context.Context, upd model.MAXUpdate
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	accountID := fallback(resp.Data.ID, accountNumber)
+	accountID := strings.TrimSpace(resp.Data.ID)
+	if accountID == "" {
+		return operationID, fmt.Errorf("1C account-link/confirm returned empty account_id")
+	}
 	if err := s.saveSession(ctx, sessionFor(upd.UserID(), "", accountID, nil)); err != nil {
 		return operationID, err
 	}
-	if err := s.store.SaveAccountLink(ctx, store.AccountLink{MaxUserID: upd.UserID(), AccountID: accountID, AccountNumber: fallback(resp.Data.Number, accountNumber), MaskedAddress: maskAddress(resp.Data.Address), IsActive: true, Source: sourceMAX}); err != nil {
+	if err := s.store.SaveAccountLink(ctx, store.AccountLink{MaxUserID: upd.UserID(), AccountID: accountID, AccountNumber: resp.Data.Number, MaskedAddress: maskAddress(resp.Data.Address), IsActive: true, Source: sourceMAX}); err != nil {
 		return operationID, err
 	}
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), linkSuccessText(resp.Data, accountNumber), authorizedKeyboard())
@@ -350,21 +353,46 @@ func (s *BotService) handleMeters(ctx context.Context, upd model.MAXUpdate) (str
 	var b strings.Builder
 	b.WriteString("📊 *Приборы учета*\n\n")
 	for _, m := range resp.Data {
-		fmt.Fprintf(&b, "• %s, № %s\n  ID: `%s`\n  Последнее: %.3f от %s\n\n", m.Resource, maskSerial(m.SerialNumber), m.ID, m.LastValue, fallback(m.LastReadingDate, "—"))
+		writeMeter(&b, m)
 	}
-	b.WriteString("Чтобы передать показание, отправьте:\n`показание <ID> <значение>`\n\nНапример: `показание MTR-001 123.456`")
+	b.WriteString("Чтобы передать показание, отправьте:\n`показание <ID> <значение>`\n\nID берите из списка выше: `показание <ID> 123.456`")
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), b.String(), authorizedKeyboard())
+}
+
+func writeMeter(b *strings.Builder, m model.Meter) {
+	title := strings.TrimSpace(m.Resource)
+	if m.ServiceName != "" && m.ServiceName != m.Resource {
+		title = strings.TrimSpace(title + " / " + m.ServiceName)
+	}
+	if title == "" {
+		title = "Прибор учета"
+	}
+	fmt.Fprintf(b, "• %s\n", title)
+	if m.ServiceName != "" {
+		fmt.Fprintf(b, "  Услуга: %s\n", m.ServiceName)
+	}
+	if m.TariffName != "" {
+		fmt.Fprintf(b, "  Тариф: %s\n", m.TariffName)
+	}
+	if m.Unit != "" {
+		fmt.Fprintf(b, "  Ед. изм.: %s\n", m.Unit)
+	}
+	fmt.Fprintf(b, "  №: %s\n  ID: `%s`\n  Последнее: %.3f от %s\n", maskSerial(m.SerialNumber), m.ID, m.LastValue, fallback(m.LastReadingDate, "—"))
+	if !m.CanSubmit {
+		fmt.Fprintf(b, "  Передача показаний недоступна: %s\n", fallback(m.Reason, "причина не указана 1С"))
+	}
+	b.WriteString("\n")
 }
 
 func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, text string) (string, error) {
 	parts := strings.Fields(text)
 	operationID := ""
 	if len(parts) != 3 {
-		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Почти готово — нужен ID счетчика и значение.\n\nФормат: `показание <ID> <значение>`\nПример: `показание MTR-001 123.456`", authorizedKeyboard())
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Почти готово — нужен ID счетчика и значение.\n\nФормат: `показание <ID> <значение>`\nПример: `показание <ID> 123.456`", authorizedKeyboard())
 	}
 	value, err := strconv.ParseFloat(strings.ReplaceAll(parts[2], ",", "."), 64)
 	if err != nil || value < 0 {
-		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Показание должно быть положительным числом. Проверьте значение и отправьте еще раз.\n\nФормат: `показание <ID> <значение>`\nПример: `показание MTR-001 123.456`", authorizedKeyboard())
+		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), "Показание должно быть положительным числом. Проверьте значение и отправьте еще раз.\n\nФормат: `показание <ID> <значение>`\nПример: `показание <ID> 123.456`", authorizedKeyboard())
 	}
 
 	account, operationID, err := s.activeAccount(ctx, upd.UserID())
@@ -456,9 +484,6 @@ func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.
 	}
 	accountsResp, err := s.onec.Accounts(ctx, maxUserID)
 	if err != nil {
-		if session.ActiveAccountID != "" {
-			return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, "", nil
-		}
 		return model.Account{}, "", err
 	}
 	if session.ActiveAccountID != "" {
@@ -467,9 +492,7 @@ func (s *BotService) activeAccount(ctx context.Context, maxUserID int64) (model.
 				return account, accountsResp.OperationID, nil
 			}
 		}
-		if len(accountsResp.Data) == 0 {
-			return model.Account{ID: session.ActiveAccountID, Number: session.ActiveAccountID, IsActive: true}, accountsResp.OperationID, nil
-		}
+
 	}
 	for _, account := range accountsResp.Data {
 		if account.IsActive {
@@ -897,7 +920,7 @@ func (s *BotService) handleAppointmentCreate(ctx context.Context, upd model.MAXU
 	}
 	a := resp.Data
 	_ = s.store.SaveAppointment(ctx, store.CachedAppointment{MaxUserID: upd.UserID(), AccountID: account.ID, AppointmentID: a.AppointmentID, Number: a.Number, TopicID: topic, TopicTitle: a.TopicTitle, OfficeAddress: a.OfficeAddress, StartsAt: a.StartsAt, Status: a.Status})
-	msg := fmt.Sprintf("✅ *Вы записаны на прием*\n\nНомер записи: %s\nТема: %s\nАдрес: %s\nВремя: %s\nСтатус: %s", fallback(a.Number, a.AppointmentID), fallback(a.TopicTitle, topic), fallback(a.OfficeAddress, "—"), fallback(a.StartsAt, "—"), fallback(a.Status, "confirmed"))
+	msg := fmt.Sprintf("✅ *Вы записаны на прием*\n\nНомер записи: %s\nТема: %s\nАдрес: %s\nВремя: %s\nСтатус: %s", fallback(a.Number, a.AppointmentID), fallback(a.TopicTitle, topic), fallback(a.OfficeAddress, "—"), fallback(a.StartsAt, "—"), fallback(a.Status, "—"))
 	return resp.OperationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, authorizedKeyboard())
 }
 
