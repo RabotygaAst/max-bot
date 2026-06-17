@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="Группа2" id="50">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<UsualGroup name="Группа4" id="54">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<InputField name="Наименование" id="4">
+							<DataPath>Объект.Description</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификатор макроса</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="Родитель" id="23">
+							<DataPath>Объект.Parent</DataPath>
+							<ContextMenu name="РодительКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<UsualGroup name="Группа1" id="56">
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="57"/>
+							<ChildItems>
+								<CheckBoxField name="НижнийКолонтитул" id="58">
+									<DataPath>Объект.НижнийКолонтитул</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="НижнийКолонтитулКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="НижнийКолонтитулРасширеннаяПодсказка" id="60"/>
+								</CheckBoxField>
+								<InputField name="НомерНижнегоКолонтитула" id="61">
+									<DataPath>Объект.НомерНижнегоКолонтитула</DataPath>
+									<ContextMenu name="НомерНижнегоКолонтитулаКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="НомерНижнегоКолонтитулаРасширеннаяПодсказка" id="63"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа6" id="64">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="65"/>
+							<ChildItems>
+								<CheckBoxField name="ВерхнийКолонтитул" id="66">
+									<DataPath>Объект.ВерхнийКолонтитул</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВерхнийКолонтитулКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ВерхнийКолонтитулРасширеннаяПодсказка" id="68"/>
+								</CheckBoxField>
+								<InputField name="НомерВерхнегоКолонтитула" id="69">
+									<DataPath>Объект.НомерВерхнегоКолонтитула</DataPath>
+									<ContextMenu name="НомерВерхнегоКолонтитулаКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="НомерВерхнегоКолонтитулаРасширеннаяПодсказка" id="71"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа5" id="72">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<CheckBoxField name="ИскатьВТаблицах" id="74">
+									<DataPath>Объект.ИскатьВТаблицах</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИскатьВТаблицахКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="ИскатьВТаблицахРасширеннаяПодсказка" id="76"/>
+								</CheckBoxField>
+								<InputField name="НомерТаблицы" id="77">
+									<DataPath>Объект.НомерТаблицы</DataPath>
+									<ContextMenu name="НомерТаблицыКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="НомерТаблицыРасширеннаяПодсказка" id="79"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа7" id="80">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<CheckBoxField name="ФормированиеТаблицы" id="82">
+									<DataPath>Объект.ФормированиеТаблицы</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ФормированиеТаблицыКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ФормированиеТаблицыРасширеннаяПодсказка" id="84"/>
+								</CheckBoxField>
+								<InputField name="НомерФормируемойТаблицы" id="85">
+									<DataPath>Объект.НомерФормируемойТаблицы</DataPath>
+									<ContextMenu name="НомерФормируемойТаблицыКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="НомерФормируемойТаблицыРасширеннаяПодсказка" id="87"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="52">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="31"/>
+						</InputField>
+						<CheckBoxField name="ВсеОбъекты" id="10">
+							<DataPath>Объект.ВсеОбъекты</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВсеОбъектыКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ВсеОбъектыРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="OnChange">ВсеОбъектыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ВладельцыМакроса" id="13">
+			<Representation>List</Representation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ВладельцыМакроса</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВладельцыМакросаКонтекстноеМеню" id="14"/>
+			<AutoCommandBar name="ВладельцыМакросаКоманднаяПанель" id="15"/>
+			<ExtendedTooltip name="ВладельцыМакросаРасширеннаяПодсказка" id="35"/>
+			<SearchStringAddition name="ВладельцыМакросаСтрокаПоиска" id="36">
+				<AdditionSource>
+					<Item>ВладельцыМакроса</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВладельцыМакросаСтрокаПоискаКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="ВладельцыМакросаСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВладельцыМакросаСостояниеПросмотра" id="39">
+				<AdditionSource>
+					<Item>ВладельцыМакроса</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВладельцыМакросаСостояниеПросмотраКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="ВладельцыМакросаСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВладельцыМакросаУправлениеПоиском" id="42">
+				<AdditionSource>
+					<Item>ВладельцыМакроса</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВладельцыМакросаУправлениеПоискомКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ВладельцыМакросаУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ВладельцыМакросаНомерСтроки" id="29">
+					<DataPath>Объект.ВладельцыМакроса.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВладельцыМакросаНомерСтрокиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ВладельцыМакросаНомерСтрокиРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<InputField name="ВладельцыМакросаДокументВладелец" id="26">
+					<DataPath>Объект.ВладельцыМакроса.ОбъектВладелец</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ВладельцыМакросаДокументВладелецКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ВладельцыМакросаДокументВладелецРасширеннаяПодсказка" id="46"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="7">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="47"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.макрМакросы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.ВладельцыМакроса"/>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>Catalog.макрМакросы.Command.КодыМакроса</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

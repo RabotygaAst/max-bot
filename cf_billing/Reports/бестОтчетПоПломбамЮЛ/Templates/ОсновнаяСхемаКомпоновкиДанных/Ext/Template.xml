@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаУчета</dataPath>
+			<field>ТочкаУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеТУ</dataPath>
+			<field>НаименованиеТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование ТУ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеОбъектаПотребителя</dataPath>
+			<field>НаименованиеОбъектаПотребителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование объекта потребителя</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектРасчета</dataPath>
+			<field>ОбъектРасчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриборУчета</dataPath>
+			<field>ПриборУчета</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МестоУстановки</dataPath>
+			<field>МестоУстановки</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерПломбы</dataPath>
+			<field>НомерПломбы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПломбы</dataPath>
+			<field>ВидПломбы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СотрудникУстановившийПломбу</dataPath>
+			<field>СотрудникУстановившийПломбу</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник установивший пломбу</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУстановкиПломбы</dataPath>
+			<field>ДатаУстановкиПломбы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки пломбы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеПотребителя</dataPath>
+			<field>НаименованиеПотребителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование потребителя</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресЭнергоснабжаемогоОбъекта</dataPath>
+			<field>АдресЭнергоснабжаемогоОбъекта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес энергоснабжаемого объекта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	бестАктивностьТочекУчетаНПСрезПоследних.ТочкаУчета КАК ТочкаУчета,
+	бестАктивностьТочекУчетаНПСрезПоследних.ОбъектРасчета КАК ОбъектРасчета,
+	бестАктивностьТочекУчетаНПСрезПоследних.Организация КАК Организация,
+	бестАктивностьТочекУчетаНПСрезПоследних.Район КАК Район
+ПОМЕСТИТЬ АктивныеТочкиУчетаОбъекта
+ИЗ
+	РегистрСведений.бестАктивностьТочекУчетаНП.СрезПоследних(&amp;Период, Организация = &amp;Организация) КАК бестАктивностьТочекУчетаНПСрезПоследних
+ГДЕ
+	бестАктивностьТочекУчетаНПСрезПоследних.Состояние = ЗНАЧЕНИЕ(Перечисление.энргСостояниеТочекУчета.Включена)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестПриборыТочекУчетаНПСрезПоследних.ТочкаУчета КАК ТочкаУчета,
+	бестПриборыТочекУчетаНПСрезПоследних.ОбъектРасчета КАК ОбъектРасчета,
+	бестПриборыТочекУчетаНПСрезПоследних.ПриборУчета КАК ПриборУчета,
+	бестПриборыТочекУчетаНПСрезПоследних.Организация КАК Организация,
+	бестПриборыТочекУчетаНПСрезПоследних.Район КАК Район
+ПОМЕСТИТЬ ПриборыТочекУчета
+ИЗ
+	РегистрСведений.бестПриборыТочекУчетаНП.СрезПоследних(
+			&amp;Период,
+			(Организация, Район, ТочкаУчета, ОбъектРасчета) В
+				(ВЫБРАТЬ
+					АктивныеТочкиУчетаОбъекта.Организация КАК Организация,
+					АктивныеТочкиУчетаОбъекта.Район КАК Район,
+					АктивныеТочкиУчетаОбъекта.ТочкаУчета КАК ТочкаУчета,
+					АктивныеТочкиУчетаОбъекта.ОбъектРасчета КАК ОбъектРасчета
+				ИЗ
+					АктивныеТочкиУчетаОбъекта КАК АктивныеТочкиУчетаОбъекта)) КАК бестПриборыТочекУчетаНПСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестСостояниеПриборовУчетаНПСрезПоследних.ТочкаУчета КАК ТочкаУчета,
+	бестСостояниеПриборовУчетаНПСрезПоследних.ПриборУчета КАК ПриборУчета,
+	бестСостояниеПриборовУчетаНПСрезПоследних.ОбъектРасчета КАК ОбъектРасчета,
+	бестСостояниеПриборовУчетаНПСрезПоследних.Организация КАК Организация,
+	бестСостояниеПриборовУчетаНПСрезПоследних.Район КАК Район
+ПОМЕСТИТЬ ВведенныеПриборы
+ИЗ
+	РегистрСведений.бестСостояниеПриборовУчетаНП.СрезПоследних(
+			&amp;Период,
+			(Организация, Район, ОбъектРасчета, ТочкаУчета, ПриборУчета) В
+				(ВЫБРАТЬ
+					ПриборыТочекУчета.Организация КАК Организация,
+					ПриборыТочекУчета.Район КАК Район,
+					ПриборыТочекУчета.ОбъектРасчета КАК ОбъектРасчета,
+					ПриборыТочекУчета.ТочкаУчета КАК ТочкаУчета,
+					ПриборыТочекУчета.ПриборУчета КАК ПриборУчета
+				ИЗ
+					ПриборыТочекУчета КАК ПриборыТочекУчета)) КАК бестСостояниеПриборовУчетаНПСрезПоследних
+ГДЕ
+	бестСостояниеПриборовУчетаНПСрезПоследних.Состояние = ЗНАЧЕНИЕ(Перечисление.энргСостояниеПриборовУчета.Ввод)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестУслугиТочекУчетаНПСрезПоследних.ТочкаУчета КАК ТочкаУчета,
+	ЕСТЬNULL(энргВидыУслугСоставляющиеУслуг.Услуга, бестУслугиТочекУчетаНПСрезПоследних.Услуга) КАК Услуга,
+	бестУслугиТочекУчетаНПСрезПоследних.Организация КАК Организация,
+	бестУслугиТочекУчетаНПСрезПоследних.Район КАК Район,
+	бестУслугиТочекУчетаНПСрезПоследних.ОбъектРасчета КАК ОбъектРасчета
+ПОМЕСТИТЬ УслугиТочекУчета
+ИЗ
+	РегистрСведений.бестУслугиТочекУчетаНП.СрезПоследних(
+			&amp;Период,
+			(Организация, Район, ОбъектРасчета, ТочкаУчета) В
+				(ВЫБРАТЬ
+					АктивныеТочкиУчетаОбъекта.Организация КАК Организация,
+					АктивныеТочкиУчетаОбъекта.Район КАК Район,
+					АктивныеТочкиУчетаОбъекта.ОбъектРасчета КАК ОбъектРасчета,
+					АктивныеТочкиУчетаОбъекта.ТочкаУчета КАК ТочкаУчета
+				ИЗ
+					АктивныеТочкиУчетаОбъекта КАК АктивныеТочкиУчетаОбъекта)) КАК бестУслугиТочекУчетаНПСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргВидыУслуг.СоставляющиеУслуг КАК энргВидыУслугСоставляющиеУслуг
+		ПО бестУслугиТочекУчетаНПСрезПоследних.Услуга = энргВидыУслугСоставляющиеУслуг.Ссылка
+			И (НЕ бестУслугиТочекУчетаНПСрезПоследних.Услуга.бестИспользоватьРасчетПоМощности)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	бестДоговорыТочекУчетаСрезПоследних.Организация КАК Организация,
+	бестДоговорыТочекУчетаСрезПоследних.Район КАК Район,
+	бестДоговорыТочекУчетаСрезПоследних.ОбъектРасчета КАК ОбъектРасчета,
+	бестДоговорыТочекУчетаСрезПоследних.ТочкаУчета КАК ТочкаУчета,
+	бестДоговорыТочекУчетаСрезПоследних.Услуга КАК Услуга,
+	бестДоговорыТочекУчетаСрезПоследних.Договор КАК Договор
+ПОМЕСТИТЬ ДоговорыТУ
+ИЗ
+	РегистрСведений.бестДоговорыТочекУчета.СрезПоследних(
+			&amp;Период,
+			(Организация, Район, ОбъектРасчета, ТочкаУчета, Услуга) В
+				(ВЫБРАТЬ
+					УслугиТочекУчета.Организация КАК Организация,
+					УслугиТочекУчета.Район КАК Район,
+					УслугиТочекУчета.ОбъектРасчета КАК ОбъектРасчета,
+					УслугиТочекУчета.ТочкаУчета КАК ТочкаУчета,
+					УслугиТочекУчета.Услуга КАК Услуга
+				ИЗ
+					УслугиТочекУчета КАК УслугиТочекУчета)) КАК бестДоговорыТочекУчетаСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВведенныеПриборы.Организация КАК Организация,
+	ВведенныеПриборы.Район КАК Подразделение,
+	ВведенныеПриборы.ОбъектРасчета КАК НаименованиеОбъектаПотребителя,
+	ВведенныеПриборы.ТочкаУчета КАК НаименованиеТУ,
+	ВведенныеПриборы.ПриборУчета КАК ПриборУчета,
+	ДоговорыТУ.Услуга КАК Услуга,
+	ДоговорыТУ.Договор КАК Договор,
+	бестНомерПломбПриборовУчетаНПСрезПоследних.МестоУстановки КАК МестоУстановки,
+	бестНомерПломбПриборовУчетаНПСрезПоследних.НомерПломбы КАК НомерПломбы,
+	бестНомерПломбПриборовУчетаНПСрезПоследних.ВидПломбы КАК ВидПломбы,
+	бестНомерПломбПриборовУчетаНПСрезПоследних.ОтветственноеЛицо КАК СотрудникУстановившийПломбу,
+	бестНомерПломбПриборовУчетаНПСрезПоследних.ДатаОперацииСПломбой КАК ДатаУстановкиПломбы,
+	энргДоговорыКонтрагентов.Контрагент КАК НаименованиеПотребителя,
+	бестОбъектыРасчетаКонтактнаяИнформация.Представление КАК АдресЭнергоснабжаемогоОбъекта
+ИЗ
+	ВведенныеПриборы КАК ВведенныеПриборы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.бестНомерПломбПриборовУчетаНП.СрезПоследних(
+				&amp;Период,
+				Состояние
+					И (Организация, Район, ПриборУчета) В
+						(ВЫБРАТЬ
+							ВведенныеПриборы.Организация КАК Организация,
+							ВведенныеПриборы.Район КАК Район,
+							ВведенныеПриборы.ПриборУчета КАК ПриборУчета
+						ИЗ
+							ВведенныеПриборы КАК ВведенныеПриборы)) КАК бестНомерПломбПриборовУчетаНПСрезПоследних
+		ПО ВведенныеПриборы.Организация = бестНомерПломбПриборовУчетаНПСрезПоследних.Организация
+			И ВведенныеПриборы.Район = бестНомерПломбПриборовУчетаНПСрезПоследних.Район
+			И ВведенныеПриборы.ПриборУчета = бестНомерПломбПриборовУчетаНПСрезПоследних.ПриборУчета
+		ЛЕВОЕ СОЕДИНЕНИЕ ДоговорыТУ КАК ДоговорыТУ
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+			ПО ДоговорыТУ.Договор = энргДоговорыКонтрагентов.Ссылка
+		ПО ВведенныеПриборы.Организация = ДоговорыТУ.Организация
+			И ВведенныеПриборы.Район = ДоговорыТУ.Район
+			И ВведенныеПриборы.ТочкаУчета = ДоговорыТУ.ТочкаУчета
+			И ВведенныеПриборы.ОбъектРасчета = ДоговорыТУ.ОбъектРасчета
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.бестОбъектыРасчета.КонтактнаяИнформация КАК бестОбъектыРасчетаКонтактнаяИнформация
+		ПО ВведенныеПриборы.ОбъектРасчета = бестОбъектыРасчетаКонтактнаяИнформация.Ссылка
+			И (бестОбъектыРасчетаКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресОбъектаРасчета))</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по пломбам (ЮЛ)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Подразделение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидПломбы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерПломбы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаУстановкиПломбы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СотрудникУстановившийПломбу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Договор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеПотребителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеОбъектаПотребителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеТУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МестоУстановки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресЭнергоснабжаемогоОбъекта</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Район</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e9f03e08-08c7-4971-a1b8-60278e31d608</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>961f54ed-751c-406a-99f2-0fa7421dc6b3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НаименованиеПотребителя</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2586814f-931d-4de3-a667-76c25d0de357</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>b87810b6-fd8c-4dc0-9dab-daa894a45914</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>37b03f44-9796-44a4-9285-b09f27d6c111</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Подразделение</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

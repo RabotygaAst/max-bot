@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа5" id="267">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="268"/>
+			<ChildItems>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа, к которой относится услуга, при наличии</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКолонки" id="99">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа колонки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа колонки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКолонкиРасширеннаяПодсказка" id="100"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЛево" id="101">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<InputField name="Наименование" id="4">
+							<DataPath>Объект.Description</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование услуги</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+						</InputField>
+						<InputField name="ЕдиницаИзмерения" id="16">
+							<DataPath>Объект.ЕдиницаИзмерения</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Единица измерения услуги</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЕдиницаИзмеренияРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="Сезонность" id="25">
+							<DataPath>Объект.Сезонность</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отопительный или поливной сезон при наличии</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СезонностьКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="СезонностьРасширеннаяПодсказка" id="27"/>
+						</InputField>
+						<InputField name="ТипУслуги" id="28">
+							<DataPath>Объект.ТипУслуги</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тип, к которому относится услуга</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТипУслугиКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ТипУслугиРасширеннаяПодсказка" id="30"/>
+							<Events>
+								<Event name="OnChange">ТипУслугиПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВидПлощади" id="93">
+							<DataPath>Объект.ВидПлощади</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Устанавливается для услуг рассчитываемых от площади.
+Например, отопление.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ВидПлощадиКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="ВидПлощадиРасширеннаяПодсказка" id="95"/>
+						</InputField>
+						<CheckBoxField name="СоставнаяУслуга" id="13">
+							<DataPath>Объект.СоставнаяУслуга</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Устанавливается для элементов, в составе которых хранится набор услуг.
+Например, ХВС + водоотведение</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СоставнаяУслугаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СоставнаяУслугаРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">СоставнаяУслугаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="НормативДляИндивидуальных" id="150">
+							<DataPath>Объект.НормативДляИндивидуальных</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Устанавливается для услуг имеющих только норматив на индивидуальные нужды, который используется также расчета общедомовых нужд. 
+Например, отопление и теплоэнергия на подогрев</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НормативДляИндивидуальныхКонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="НормативДляИндивидуальныхРасширеннаяПодсказка" id="152"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПраво" id="103">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<UsualGroup name="Группа3" id="263">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="264"/>
+							<ChildItems>
+								<InputField name="ПредставлениеДляПечати" id="159">
+									<DataPath>Объект.ПредставлениеДляПечати</DataPath>
+									<ContextMenu name="ПредставлениеДляПечатиКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="ПредставлениеДляПечатиРасширеннаяПодсказка" id="161"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ЗависитОтУслуги" id="147">
+							<DataPath>Объект.ЗависитОтУслуги</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Указывается, от какой услуги зависит при расчётах настраиваемая услуга. 
+Например, компонент ГВС Тепловая энергия на подогрев зависит от компонента ГВС Теплоноситель</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ЗависитОтУслугиКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ЗависитОтУслугиРасширеннаяПодсказка" id="149"/>
+						</InputField>
+						<InputField name="СпособОпределенияСоциальнойНормы" id="269">
+							<DataPath>Объект.СпособОпределенияСоциальнойНормы</DataPath>
+							<Visible>false</Visible>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Не использовать</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="СпособОпределенияСоциальнойНормыКонтекстноеМеню" id="270"/>
+							<ExtendedTooltip name="СпособОпределенияСоциальнойНормыРасширеннаяПодсказка" id="271"/>
+						</InputField>
+						<InputField name="ВидПлощадиМКД" id="144">
+							<DataPath>Объект.ВидПлощадиМКД</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Площадь МОП МКД</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="ВидПлощадиМКДКонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="ВидПлощадиМКДРасширеннаяПодсказка" id="146"/>
+						</InputField>
+						<CheckBoxField name="НачислятьПоСостояниюНаНачалоРасчетногоПериода" id="197">
+							<DataPath>Объект.НачислятьПоСостояниюНаНачалоРасчетногоПериода</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НачислятьПоСостояниюНаНачалоРасчетногоПериодаКонтекстноеМеню" id="198"/>
+							<ExtendedTooltip name="НачислятьПоСостояниюНаНачалоРасчетногоПериодаРасширеннаяПодсказка" id="199"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа2" id="211">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="212"/>
+							<ChildItems>
+								<CheckBoxField name="КорректироватьИндивидуальныйОбъемСУчетомОДПУ" id="213">
+									<DataPath>Объект.КорректироватьИндивидуальныйОбъемСУчетомОДПУ</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Корректировка объемов индивидуального начисления объемов по отоплению с учетом распределения  объемов общедомового прибора учета</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="КорректироватьИндивидуальныйОбъемСУчетомОДПУКонтекстноеМеню" id="214"/>
+									<ExtendedTooltip name="КорректироватьИндивидуальныйОбъемСУчетомОДПУРасширеннаяПодсказка" id="215"/>
+								</CheckBoxField>
+								<LabelDecoration name="ДекорацияСправкаКорректироватьИндивидуальныйОбъемСУчетомОДПУ" id="216">
+									<Visible>false</Visible>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>?</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="ДекорацияСправкаКорректироватьИндивидуальныйОбъемСУчетомОДПУКонтекстноеМеню" id="217"/>
+									<ExtendedTooltip name="ДекорацияСправкаКорректироватьИндивидуальныйОбъемСУчетомОДПУРасширеннаяПодсказка" id="218"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа1" id="203">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="204"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьКоэффициентСдерживанияРостаПлаты" id="200">
+									<DataPath>Объект.ИспользоватьКоэффициентСдерживанияРостаПлаты</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Коэффициент отношение разности площадей используемый в отоплении 
+(Общая площадь помещения – Площадь индивидуально отапливаемого помещения)/( Общая площадь помещения – Площадь индивидуально отапливаемого помещения + Площадь общего имущества) </v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьКоэффициентСдерживанияРостаПлатыКонтекстноеМеню" id="201"/>
+									<ExtendedTooltip name="ИспользоватьКоэффициентСдерживанияРостаПлатыРасширеннаяПодсказка" id="202"/>
+								</CheckBoxField>
+								<LabelDecoration name="ДекорацияСправкаИспользоватьКоэффициентСдерживанияРостаПлаты" id="205">
+									<Visible>false</Visible>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>?</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="ДекорацияСправкаИспользоватьКоэффициентСдерживанияРостаПлатыКонтекстноеМеню" id="206"/>
+									<ExtendedTooltip name="ДекорацияСправкаИспользоватьКоэффициентСдерживанияРостаПлатыРасширеннаяПодсказка" id="207"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="бестИспользоватьРасчетЭлектроэнергии" id="375">
+							<DataPath>Объект.бестИспользоватьРасчетЭлектроэнергии</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="бестИспользоватьРасчетЭлектроэнергииКонтекстноеМеню" id="376"/>
+							<ExtendedTooltip name="бестИспользоватьРасчетЭлектроэнергииРасширеннаяПодсказка" id="377"/>
+						</CheckBoxField>
+						<CheckBoxField name="бестИспользоватьРасчетПоМощности" id="372">
+							<DataPath>Объект.бестИспользоватьРасчетПоМощности</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="бестИспользоватьРасчетПоМощностиКонтекстноеМеню" id="373"/>
+							<ExtendedTooltip name="бестИспользоватьРасчетПоМощностиРасширеннаяПодсказка" id="374"/>
+						</CheckBoxField>
+						<CheckBoxField name="НеПрименятьЗависимостьЕслиБольшеОднойТочки" id="354">
+							<DataPath>Объект.НеПрименятьЗависимостьЕслиБольшеОднойТочки</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НеПрименятьЗависимостьЕслиБольшеОднойТочкиКонтекстноеМеню" id="355"/>
+							<ExtendedTooltip name="НеПрименятьЗависимостьЕслиБольшеОднойТочкиРасширеннаяПодсказка" id="356"/>
+						</CheckBoxField>
+						<CheckBoxField name="ИспользоватьРасчетРеактивнойЭнергии" id="378">
+							<DataPath>Объект.ИспользоватьРасчетРеактивнойЭнергии</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьРасчетРеактивнойЭнергииКонтекстноеМеню" id="379"/>
+							<ExtendedTooltip name="ИспользоватьРасчетРеактивнойЭнергииРасширеннаяПодсказка" id="380"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницыФормы" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы формы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы формы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыФормыРасширеннаяПодсказка" id="55"/>
+			<ChildItems>
+				<Page name="СтраницаСпособыРасчетаПоНаправлениям" id="221">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способы расчета по направлениям</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница способы расчета по направлениям</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСпособыРасчетаПоНаправлениямРасширеннаяПодсказка" id="222"/>
+					<ChildItems>
+						<Table name="СпособыРасчетаПоНаправлениям" id="223">
+							<Height>1</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>СпособыРасчетаПоНаправлениям</DataPath>
+							<RowPictureDataPath>СпособыРасчетаПоНаправлениям.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Find</ExcludedCommand>
+							</CommandSet>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СпособыРасчетаПоНаправлениямКонтекстноеМеню" id="224"/>
+							<AutoCommandBar name="СпособыРасчетаПоНаправлениямКоманднаяПанель" id="225"/>
+							<ExtendedTooltip name="СпособыРасчетаПоНаправлениямРасширеннаяПодсказка" id="226"/>
+							<SearchStringAddition name="СпособыРасчетаПоНаправлениямСтрокаПоиска" id="227">
+								<AdditionSource>
+									<Item>СпособыРасчетаПоНаправлениям</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СпособыРасчетаПоНаправлениямСтрокаПоискаКонтекстноеМеню" id="228"/>
+								<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСтрокаПоискаРасширеннаяПодсказка" id="229"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СпособыРасчетаПоНаправлениямСостояниеПросмотра" id="230">
+								<AdditionSource>
+									<Item>СпособыРасчетаПоНаправлениям</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СпособыРасчетаПоНаправлениямСостояниеПросмотраКонтекстноеМеню" id="231"/>
+								<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСостояниеПросмотраРасширеннаяПодсказка" id="232"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СпособыРасчетаПоНаправлениямУправлениеПоиском" id="233">
+								<AdditionSource>
+									<Item>СпособыРасчетаПоНаправлениям</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СпособыРасчетаПоНаправлениямУправлениеПоискомКонтекстноеМеню" id="234"/>
+								<ExtendedTooltip name="СпособыРасчетаПоНаправлениямУправлениеПоискомРасширеннаяПодсказка" id="235"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СпособыРасчетаПоНаправлениямПериод" id="288">
+									<DataPath>СпособыРасчетаПоНаправлениям.Period</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямПериодКонтекстноеМеню" id="289"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямПериодРасширеннаяПодсказка" id="290"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямОрганизация" id="285">
+									<DataPath>СпособыРасчетаПоНаправлениям.Организация</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямОрганизацияКонтекстноеМеню" id="286"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямОрганизацияРасширеннаяПодсказка" id="287"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямРайон" id="282">
+									<DataPath>СпособыРасчетаПоНаправлениям.Район</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямРайонКонтекстноеМеню" id="283"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямРайонРасширеннаяПодсказка" id="284"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямУслуга" id="236">
+									<DataPath>СпособыРасчетаПоНаправлениям.Услуга</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямУслугаКонтекстноеМеню" id="237"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямУслугаРасширеннаяПодсказка" id="238"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямНаправлениеИспользования" id="239">
+									<DataPath>СпособыРасчетаПоНаправлениям.НаправлениеИспользованияТУ</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямНаправлениеИспользованияКонтекстноеМеню" id="240"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямНаправлениеИспользованияРасширеннаяПодсказка" id="241"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямЗнаменательЕдиницыИзмерения" id="363">
+									<DataPath>СпособыРасчетаПоНаправлениям.ЗнаменательЕдиницыИзмерения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Знаменатель ед. изм.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямЗнаменательЕдиницыИзмеренияКонтекстноеМеню" id="364"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямЗнаменательЕдиницыИзмеренияРасширеннаяПодсказка" id="365"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямВидПлощади" id="242">
+									<DataPath>СпособыРасчетаПоНаправлениям.ВидПлощади</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямВидПлощадиКонтекстноеМеню" id="243"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямВидПлощадиРасширеннаяПодсказка" id="244"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямСезонность" id="245">
+									<DataPath>СпособыРасчетаПоНаправлениям.Сезонность</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямСезонностьКонтекстноеМеню" id="246"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСезонностьРасширеннаяПодсказка" id="247"/>
+								</LabelField>
+								<CheckBoxField name="СпособыРасчетаПоНаправлениямНачислятьЗаПолныйМесяц" id="291">
+									<DataPath>СпособыРасчетаПоНаправлениям.НачислятьЗаПолныйМесяц</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямНачислятьЗаПолныйМесяцКонтекстноеМеню" id="292"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямНачислятьЗаПолныйМесяцРасширеннаяПодсказка" id="293"/>
+								</CheckBoxField>
+								<CheckBoxField name="СпособыРасчетаПоНаправлениямНормативПоДням" id="257">
+									<DataPath>СпособыРасчетаПоНаправлениям.НормативПоДням</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямНормативПоДнямКонтекстноеМеню" id="258"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямНормативПоДнямРасширеннаяПодсказка" id="259"/>
+								</CheckBoxField>
+								<LabelField name="СпособыРасчетаПоНаправлениямСпособОпределенияСоциальнойНормы" id="276">
+									<DataPath>СпособыРасчетаПоНаправлениям.СпособОпределенияСоциальнойНормы</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямСпособОпределенияСоциальнойНормыКонтекстноеМеню" id="277"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСпособОпределенияСоциальнойНормыРасширеннаяПодсказка" id="278"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямСпособРасчетаНорматива" id="366">
+									<DataPath>СпособыРасчетаПоНаправлениям.СпособРасчетаНорматива</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямСпособРасчетаНормативаКонтекстноеМеню" id="367"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСпособРасчетаНормативаРасширеннаяПодсказка" id="368"/>
+								</LabelField>
+								<LabelField name="СпособыРасчетаПоНаправлениямСпособРасчетаСоциальногоНорматива" id="369">
+									<DataPath>СпособыРасчетаПоНаправлениям.СпособРасчетаСоциальногоНорматива</DataPath>
+									<ContextMenu name="СпособыРасчетаПоНаправлениямСпособРасчетаСоциальногоНормативаКонтекстноеМеню" id="370"/>
+									<ExtendedTooltip name="СпособыРасчетаПоНаправлениямСпособРасчетаСоциальногоНормативаРасширеннаяПодсказка" id="371"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЮридическиеЛица" id="272">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Юридические лица</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница юридические лица</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЮридическиеЛицаРасширеннаяПодсказка" id="273"/>
+					<ChildItems>
+						<UsualGroup name="Группа4" id="265">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="266"/>
+							<ChildItems>
+								<InputField name="бестКоличествоЧасовНештатнойРаботы" id="260">
+									<DataPath>Объект.бестКоличествоЧасовНештатнойРаботы</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="бестКоличествоЧасовНештатнойРаботыКонтекстноеМеню" id="261"/>
+									<ExtendedTooltip name="бестКоличествоЧасовНештатнойРаботыРасширеннаяПодсказка" id="262"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СпособДосчётаРесурса" id="279">
+							<DataPath>Объект.СпособДосчётаРесурса</DataPath>
+							<ContextMenu name="СпособДосчётаРесурсаКонтекстноеМеню" id="280"/>
+							<ExtendedTooltip name="СпособДосчётаРесурсаРасширеннаяПодсказка" id="281"/>
+						</InputField>
+						<CheckBoxField name="бестИспользоватьТемпературныйКоэффициентПоВоде" id="251">
+							<DataPath>Объект.бестИспользоватьТемпературныйКоэффициентПоВоде</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="бестИспользоватьТемпературныйКоэффициентПоВодеКонтекстноеМеню" id="252"/>
+							<ExtendedTooltip name="бестИспользоватьТемпературныйКоэффициентПоВодеРасширеннаяПодсказка" id="253"/>
+						</CheckBoxField>
+						<CheckBoxField name="бестИспользоватьТемпературныйКоэффициентПоВоздуху" id="254">
+							<DataPath>Объект.бестИспользоватьТемпературныйКоэффициентПоВоздуху</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="бестИспользоватьТемпературныйКоэффициентПоВоздухуКонтекстноеМеню" id="255"/>
+							<ExtendedTooltip name="бестИспользоватьТемпературныйКоэффициентПоВоздухуРасширеннаяПодсказка" id="256"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа8" id="324">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="325"/>
+							<ChildItems>
+								<CheckBoxField name="СодержитПотери" id="248">
+									<DataPath>Объект.СодержитПотери</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СодержитПотериКонтекстноеМеню" id="249"/>
+									<ExtendedTooltip name="СодержитПотериРасширеннаяПодсказка" id="250"/>
+								</CheckBoxField>
+								<InputField name="бестЗависитОтУслугиПоПотерям" id="329">
+									<DataPath>Объект.бестЗависитОтУслугиПоПотерям</DataPath>
+									<ContextMenu name="бестЗависитОтУслугиПоПотерямКонтекстноеМеню" id="330"/>
+									<ExtendedTooltip name="бестЗависитОтУслугиПоПотерямРасширеннаяПодсказка" id="331"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="бестОсновнаяУслугаДляРасчетаБалансовымМетодом" id="332">
+							<DataPath>Объект.бестОсновнаяУслугаДляРасчетаБалансовымМетодом</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="бестОсновнаяУслугаДляРасчетаБалансовымМетодомКонтекстноеМеню" id="333"/>
+							<ExtendedTooltip name="бестОсновнаяУслугаДляРасчетаБалансовымМетодомРасширеннаяПодсказка" id="334"/>
+						</CheckBoxField>
+						<Table name="СоставляющиеБалансовыхУслуг" id="335">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.СоставляющиеБалансовыхУслуг</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СоставляющиеБалансовыхУслугКонтекстноеМеню" id="336"/>
+							<AutoCommandBar name="СоставляющиеБалансовыхУслугКоманднаяПанель" id="337"/>
+							<ExtendedTooltip name="СоставляющиеБалансовыхУслугРасширеннаяПодсказка" id="338"/>
+							<SearchStringAddition name="СоставляющиеБалансовыхУслугСтрокаПоиска" id="339">
+								<AdditionSource>
+									<Item>СоставляющиеБалансовыхУслуг</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеБалансовыхУслугСтрокаПоискаКонтекстноеМеню" id="340"/>
+								<ExtendedTooltip name="СоставляющиеБалансовыхУслугСтрокаПоискаРасширеннаяПодсказка" id="341"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СоставляющиеБалансовыхУслугСостояниеПросмотра" id="342">
+								<AdditionSource>
+									<Item>СоставляющиеБалансовыхУслуг</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеБалансовыхУслугСостояниеПросмотраКонтекстноеМеню" id="343"/>
+								<ExtendedTooltip name="СоставляющиеБалансовыхУслугСостояниеПросмотраРасширеннаяПодсказка" id="344"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СоставляющиеБалансовыхУслугУправлениеПоиском" id="345">
+								<AdditionSource>
+									<Item>СоставляющиеБалансовыхУслуг</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеБалансовыхУслугУправлениеПоискомКонтекстноеМеню" id="346"/>
+								<ExtendedTooltip name="СоставляющиеБалансовыхУслугУправлениеПоискомРасширеннаяПодсказка" id="347"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СоставляющиеБалансовыхУслугНомерСтроки" id="348">
+									<DataPath>Объект.СоставляющиеБалансовыхУслуг.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставляющиеБалансовыхУслугНомерСтрокиКонтекстноеМеню" id="349"/>
+									<ExtendedTooltip name="СоставляющиеБалансовыхУслугНомерСтрокиРасширеннаяПодсказка" id="350"/>
+								</LabelField>
+								<InputField name="СоставляющиеБалансовыхУслугУслуга" id="351">
+									<DataPath>Объект.СоставляющиеБалансовыхУслуг.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставляющиеБалансовыхУслугУслугаКонтекстноеМеню" id="352"/>
+									<ExtendedTooltip name="СоставляющиеБалансовыхУслугУслугаРасширеннаяПодсказка" id="353"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="Товары" id="105">
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<MaxHeight>3</MaxHeight>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Товары</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыКонтекстноеМеню" id="106"/>
+							<AutoCommandBar name="ТоварыКоманднаяПанель" id="107"/>
+							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="108"/>
+							<SearchStringAddition name="ТоварыСтрокаПоиска" id="109">
+								<AdditionSource>
+									<Item>Товары</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыСтрокаПоискаКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="ТоварыСтрокаПоискаРасширеннаяПодсказка" id="111"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыСостояниеПросмотра" id="112">
+								<AdditionSource>
+									<Item>Товары</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыСостояниеПросмотраКонтекстноеМеню" id="113"/>
+								<ExtendedTooltip name="ТоварыСостояниеПросмотраРасширеннаяПодсказка" id="114"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыУправлениеПоиском" id="115">
+								<AdditionSource>
+									<Item>Товары</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТоварыУправлениеПоискомКонтекстноеМеню" id="116"/>
+								<ExtendedTooltip name="ТоварыУправлениеПоискомРасширеннаяПодсказка" id="117"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ТоварыНомерСтроки" id="118">
+									<DataPath>Объект.Товары.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="120"/>
+								</LabelField>
+								<InputField name="ТоварыТовар" id="121">
+									<DataPath>Объект.Товары.Товар</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыТоварКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="ТоварыТоварРасширеннаяПодсказка" id="123"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаФормулыРасчета" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формулы расчета</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница формулы расчета</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаФормулыРасчетаРасширеннаяПодсказка" id="59"/>
+					<ChildItems>
+						<Table name="ФормулыРасчета" id="60">
+							<Height>1</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ФормулыРасчета</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ФормулыРасчетаКонтекстноеМеню" id="61"/>
+							<AutoCommandBar name="ФормулыРасчетаКоманднаяПанель" id="62"/>
+							<ExtendedTooltip name="ФормулыРасчетаРасширеннаяПодсказка" id="63"/>
+							<SearchStringAddition name="ФормулыРасчетаСтрокаПоиска" id="64">
+								<AdditionSource>
+									<Item>ФормулыРасчета</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ФормулыРасчетаСтрокаПоискаКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="ФормулыРасчетаСтрокаПоискаРасширеннаяПодсказка" id="66"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ФормулыРасчетаСостояниеПросмотра" id="67">
+								<AdditionSource>
+									<Item>ФормулыРасчета</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ФормулыРасчетаСостояниеПросмотраКонтекстноеМеню" id="68"/>
+								<ExtendedTooltip name="ФормулыРасчетаСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ФормулыРасчетаУправлениеПоиском" id="70">
+								<AdditionSource>
+									<Item>ФормулыРасчета</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ФормулыРасчетаУправлениеПоискомКонтекстноеМеню" id="71"/>
+								<ExtendedTooltip name="ФормулыРасчетаУправлениеПоискомРасширеннаяПодсказка" id="72"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ФормулыРасчетаНомерСтроки" id="73">
+									<DataPath>Объект.ФормулыРасчета.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ФормулыРасчетаНомерСтрокиКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ФормулыРасчетаНомерСтрокиРасширеннаяПодсказка" id="75"/>
+								</LabelField>
+								<InputField name="ФормулыРасчетаСпособНачисления" id="76">
+									<DataPath>Объект.ФормулыРасчета.СпособНачисления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ФормулыРасчетаСпособНачисленияКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="ФормулыРасчетаСпособНачисленияРасширеннаяПодсказка" id="78"/>
+								</InputField>
+								<InputField name="ФормулыРасчетаУсловие" id="82">
+									<DataPath>Объект.ФормулыРасчета.Условие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>true</ChoiceButton>
+									<ContextMenu name="ФормулыРасчетаУсловиеКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ФормулыРасчетаУсловиеРасширеннаяПодсказка" id="84"/>
+									<Events>
+										<Event name="StartChoice">ФормулыРасчетаУсловиеНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="ФормулыРасчетаФормулаРасчета" id="79">
+									<DataPath>Объект.ФормулыРасчета.ФормулаРасчета</DataPath>
+									<ChoiceButton>true</ChoiceButton>
+									<ContextMenu name="ФормулыРасчетаФормулаРасчетаКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ФормулыРасчетаФормулаРасчетаРасширеннаяПодсказка" id="81"/>
+									<Events>
+										<Event name="StartChoice">ФормулыРасчетаФормулаРасчетаНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСоставляющиеУслуги" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Составляющие услуги</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница составляющие услуги</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСоставляющиеУслугиРасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<Table name="СоставляющиеУслуг" id="31">
+							<Representation>List</Representation>
+							<Height>1</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.СоставляющиеУслуг</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СоставляющиеУслугКонтекстноеМеню" id="32"/>
+							<AutoCommandBar name="СоставляющиеУслугКоманднаяПанель" id="33"/>
+							<ExtendedTooltip name="СоставляющиеУслугРасширеннаяПодсказка" id="34"/>
+							<SearchStringAddition name="СоставляющиеУслугСтрокаПоиска" id="35">
+								<AdditionSource>
+									<Item>СоставляющиеУслуг</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеУслугСтрокаПоискаКонтекстноеМеню" id="36"/>
+								<ExtendedTooltip name="СоставляющиеУслугСтрокаПоискаРасширеннаяПодсказка" id="37"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СоставляющиеУслугСостояниеПросмотра" id="38">
+								<AdditionSource>
+									<Item>СоставляющиеУслуг</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеУслугСостояниеПросмотраКонтекстноеМеню" id="39"/>
+								<ExtendedTooltip name="СоставляющиеУслугСостояниеПросмотраРасширеннаяПодсказка" id="40"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СоставляющиеУслугУправлениеПоиском" id="41">
+								<AdditionSource>
+									<Item>СоставляющиеУслуг</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставляющиеУслугУправлениеПоискомКонтекстноеМеню" id="42"/>
+								<ExtendedTooltip name="СоставляющиеУслугУправлениеПоискомРасширеннаяПодсказка" id="43"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СоставляющиеУслугНомерСтроки" id="44">
+									<DataPath>Объект.СоставляющиеУслуг.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставляющиеУслугНомерСтрокиКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="СоставляющиеУслугНомерСтрокиРасширеннаяПодсказка" id="46"/>
+								</LabelField>
+								<InputField name="СоставляющиеУслугУслуга" id="47">
+									<DataPath>Объект.СоставляющиеУслуг.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставляющиеУслугУслугаКонтекстноеМеню" id="48"/>
+									<ExtendedTooltip name="СоставляющиеУслугУслугаРасширеннаяПодсказка" id="49"/>
+								</InputField>
+								<CheckBoxField name="СоставляющиеУслугОтправлятьИнфПоПУВГИСЖКХ" id="360">
+									<DataPath>Объект.СоставляющиеУслуг.ОтправлятьИнфПоПУВГИСЖКХ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СоставляющиеУслугОтправлятьИнфПоПУВГИСЖКХКонтекстноеМеню" id="361"/>
+									<ExtendedTooltip name="СоставляющиеУслугОтправлятьИнфПоПУВГИСЖКХРасширеннаяПодсказка" id="362"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаФормулыРасчетаУслуг" id="167">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Зависимые услуги</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница формулы расчета услуг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаФормулыРасчетаУслугРасширеннаяПодсказка" id="168"/>
+					<ChildItems>
+						<Table name="ЗависимыеУслуги" id="169">
+							<Height>1</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ЗависимыеУслуги</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЗависимыеУслугиКонтекстноеМеню" id="170"/>
+							<AutoCommandBar name="ЗависимыеУслугиКоманднаяПанель" id="171"/>
+							<ExtendedTooltip name="ЗависимыеУслугиРасширеннаяПодсказка" id="172"/>
+							<SearchStringAddition name="ЗависимыеУслугиСтрокаПоиска" id="173">
+								<AdditionSource>
+									<Item>ЗависимыеУслуги</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗависимыеУслугиСтрокаПоискаКонтекстноеМеню" id="174"/>
+								<ExtendedTooltip name="ЗависимыеУслугиСтрокаПоискаРасширеннаяПодсказка" id="175"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗависимыеУслугиСостояниеПросмотра" id="176">
+								<AdditionSource>
+									<Item>ЗависимыеУслуги</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗависимыеУслугиСостояниеПросмотраКонтекстноеМеню" id="177"/>
+								<ExtendedTooltip name="ЗависимыеУслугиСостояниеПросмотраРасширеннаяПодсказка" id="178"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗависимыеУслугиУправлениеПоиском" id="179">
+								<AdditionSource>
+									<Item>ЗависимыеУслуги</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗависимыеУслугиУправлениеПоискомКонтекстноеМеню" id="180"/>
+								<ExtendedTooltip name="ЗависимыеУслугиУправлениеПоискомРасширеннаяПодсказка" id="181"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ЗависимыеУслугиНомерСтроки" id="188">
+									<DataPath>Объект.ЗависимыеУслуги.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗависимыеУслугиНомерСтрокиКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="ЗависимыеУслугиНомерСтрокиРасширеннаяПодсказка" id="190"/>
+								</LabelField>
+								<InputField name="ЗависимыеУслугиУслуга" id="191">
+									<DataPath>Объект.ЗависимыеУслуги.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="ЗависимыеУслугиУслугаКонтекстноеМеню" id="192"/>
+									<ExtendedTooltip name="ЗависимыеУслугиУслугаРасширеннаяПодсказка" id="193"/>
+									<Events>
+										<Event name="StartChoice">ЗависимыеУслугиУслугаНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<CheckBoxField name="ЗависимыеУслугиУслугаНеПрименятьЗависимостьЕслиБольшеОднойТочки" id="357">
+									<DataPath>Объект.ЗависимыеУслуги.Услуга.НеПрименятьЗависимостьЕслиБольшеОднойТочки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Не применять зависимость</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Не применять зависимость услуги, если у абонента есть другие точки учета с такой же подключенной услугой</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ЗависимыеУслугиУслугаНеПрименятьЗависимостьЕслиБольшеОднойТочкиКонтекстноеМеню" id="358"/>
+									<ExtendedTooltip name="ЗависимыеУслугиУслугаНеПрименятьЗависимостьЕслиБольшеОднойТочкиРасширеннаяПодсказка" id="359"/>
+								</CheckBoxField>
+								<InputField name="ЗависимыеУслугиУслугаЗависитОт" id="194">
+									<DataPath>Объект.ЗависимыеУслуги.УслугаЗависитОт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="ЗависимыеУслугиУслугаЗависитОтКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="ЗависимыеУслугиУслугаЗависитОтРасширеннаяПодсказка" id="196"/>
+									<Events>
+										<Event name="StartChoice">ЗависимыеУслугиУслугаЗависитОтНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаГИСЖКХ" id="274">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ГИС ЖКХ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница ГИСЖКХ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаГИСЖКХРасширеннаяПодсказка" id="275"/>
+				</Page>
+				<Page name="СтраницаКодыУслуг" id="294">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коды услуг</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница коды услуг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаКодыУслугРасширеннаяПодсказка" id="295"/>
+					<ChildItems>
+						<Table name="КодыУслуг" id="296">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>КодыУслуг</DataPath>
+							<RowPictureDataPath>КодыУслуг.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="КодыУслугКонтекстноеМеню" id="297"/>
+							<AutoCommandBar name="КодыУслугКоманднаяПанель" id="298"/>
+							<ExtendedTooltip name="КодыУслугРасширеннаяПодсказка" id="299"/>
+							<SearchStringAddition name="КодыУслугСтрокаПоиска" id="300">
+								<AdditionSource>
+									<Item>КодыУслуг</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КодыУслугСтрокаПоискаКонтекстноеМеню" id="301"/>
+								<ExtendedTooltip name="КодыУслугСтрокаПоискаРасширеннаяПодсказка" id="302"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КодыУслугСостояниеПросмотра" id="303">
+								<AdditionSource>
+									<Item>КодыУслуг</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КодыУслугСостояниеПросмотраКонтекстноеМеню" id="304"/>
+								<ExtendedTooltip name="КодыУслугСостояниеПросмотраРасширеннаяПодсказка" id="305"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КодыУслугУправлениеПоиском" id="306">
+								<AdditionSource>
+									<Item>КодыУслуг</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КодыУслугУправлениеПоискомКонтекстноеМеню" id="307"/>
+								<ExtendedTooltip name="КодыУслугУправлениеПоискомРасширеннаяПодсказка" id="308"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="КодыУслугОрганизация" id="312">
+									<DataPath>КодыУслуг.Организация</DataPath>
+									<ContextMenu name="КодыУслугОрганизацияКонтекстноеМеню" id="313"/>
+									<ExtendedTooltip name="КодыУслугОрганизацияРасширеннаяПодсказка" id="314"/>
+								</LabelField>
+								<LabelField name="КодыУслугИсточникПоступления" id="318">
+									<DataPath>КодыУслуг.ИсточникПоступления</DataPath>
+									<ContextMenu name="КодыУслугИсточникПоступленияКонтекстноеМеню" id="319"/>
+									<ExtendedTooltip name="КодыУслугИсточникПоступленияРасширеннаяПодсказка" id="320"/>
+								</LabelField>
+								<LabelField name="КодыУслугКод" id="321">
+									<DataPath>КодыУслуг.Код</DataPath>
+									<ContextMenu name="КодыУслугКодКонтекстноеМеню" id="322"/>
+									<ExtendedTooltip name="КодыУслугКодРасширеннаяПодсказка" id="323"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргВидыУслуг</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СпособыРасчетаПоНаправлениям" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способы расчета по направлениям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.энргСпособыРасчетаПоНаправлениям</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="КодыУслуг" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коды услуг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.энргКодыУслуг</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СпособыРасчетаПоНаправлениямСпособОпределенияСоциальнойНормы</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СпособыРасчетаПоНаправлениям.СпособОпределенияСоциальнойНормы</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Не использовать</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.энргПороговыеЗначенияОпределенияНормы.StandardCommand.OpenByValue.Услуга</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>InformationRegister.энргПороговыеЗначенияОпределенияНормыМКД.StandardCommand.OpenByValue.Услуга</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

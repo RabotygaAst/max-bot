@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СальдоНаНачМесяца</dataPath>
+			<field>СальдоНаНачМесяца</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сальдо на нач месяца</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>слжРазделительДляТестов</dataPath>
+			<field>слжРазделительДляТестов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыставленоЗаМесяц</dataPath>
+			<field>ВыставленоЗаМесяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выставлено за месяц</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОплаченоЗаМесяц</dataPath>
+			<field>ОплаченоЗаМесяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплачено за месяц</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыставленоСНачалаГода</dataPath>
+			<field>ВыставленоСНачалаГода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выставлено с начала года</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОплаченоСНачалаГода</dataPath>
+			<field>ОплаченоСНачалаГода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплачено с начала года</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СальдоНаКонМесяца</dataPath>
+			<field>СальдоНаКонМесяца</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сальдо на кон месяца</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНачисления</dataPath>
+			<field>ПериодНачисления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлатежныйДокумент</dataPath>
+			<field>ПлатежныйДокумент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Списание</dataPath>
+			<field>Списание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списание</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	бестВзаиморасчетыПоПениЭЭОстатки.СуммаОстаток КАК СальдоНаНачМесяца,
+	NULL КАК ВыставленоЗаМесяц,
+	NULL КАК ОплаченоЗаМесяц,
+	NULL КАК ВыставленоСНачалаГода,
+	NULL КАК ОплаченоСНачалаГода,
+	NULL КАК СальдоНаКонМесяца,
+	NULL КАК Списание
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоПениЭЭ.Остатки(
+			&amp;НачалоМесяца {(&amp;НачалоМесяца)},
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоПениЭЭОстатки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	бестВзаиморасчетыПоПениЭЭОбороты.СуммаПриход,
+	бестВзаиморасчетыПоПениЭЭОбороты.СуммаРасход,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоПениЭЭ.Обороты(
+			&amp;НачалоМесяца {(&amp;НачалоМесяца)},
+			&amp;КонецМесяца {(&amp;КонецМесяца)},
+			Регистратор,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоПениЭЭОбороты
+ГДЕ
+	НЕ бестВзаиморасчетыПоПениЭЭОбороты.Регистратор ССЫЛКА Документ.бестСписаниеВосстановлениеЗадолженности
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	NULL,
+	NULL,
+	бестВзаиморасчетыПоПениЭЭОбороты.СуммаПриход,
+	бестВзаиморасчетыПоПениЭЭОбороты.СуммаРасход,
+	NULL,
+	NULL
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоПениЭЭ.Обороты(
+			&amp;НачалоГода {(&amp;НачалоГода)},
+			&amp;КонецМесяца {(&amp;КонецМесяца)},
+			Регистратор,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоПениЭЭОбороты
+ГДЕ
+	НЕ бестВзаиморасчетыПоПениЭЭОбороты.Регистратор ССЫЛКА Документ.бестСписаниеВосстановлениеЗадолженности
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	бестВзаиморасчетыПоПениЭЭОстатки.СуммаОстаток,
+	NULL
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоПениЭЭ.Остатки(
+			&amp;КонецМесяца {(&amp;КонецМесяца)},
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК бестВзаиморасчетыПоПениЭЭОстатки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	СУММА(-бестВзаиморасчетыПоПениЭЭ.Сумма)
+ИЗ
+	РегистрНакопления.бестВзаиморасчетыПоПениЭЭ КАК бестВзаиморасчетыПоПениЭЭ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.бестСписаниеВосстановлениеЗадолженности КАК бестСписаниеВосстановлениеЗадолженности
+		ПО бестВзаиморасчетыПоПениЭЭ.Регистратор = бестСписаниеВосстановлениеЗадолженности.Ссылка
+			И (бестСписаниеВосстановлениеЗадолженности.ВидОперации = ЗНАЧЕНИЕ(Перечисление.бестВидыОпераций.СписаниеВосстановлениеЗадолженности_СписаниеЗадолженности))
+ГДЕ
+	бестВзаиморасчетыПоПениЭЭ.Организация = &amp;Организация
+	И бестВзаиморасчетыПоПениЭЭ.Район = &amp;Район
+	И бестВзаиморасчетыПоПениЭЭ.Период МЕЖДУ &amp;НачалоМесяца И &amp;КонецМесяца</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ВыставленоЗаМесяц</dataPath>
+		<expression>Сумма(ВыставленоЗаМесяц)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыставленоСНачалаГода</dataPath>
+		<expression>Сумма(ВыставленоСНачалаГода)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОплаченоЗаМесяц</dataPath>
+		<expression>Сумма(ОплаченоЗаМесяц)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОплаченоСНачалаГода</dataPath>
+		<expression>Сумма(ОплаченоСНачалаГода)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СальдоНаКонМесяца</dataPath>
+		<expression>Сумма(СальдоНаКонМесяца)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СальдоНаНачМесяца</dataPath>
+		<expression>Сумма(СальдоНаНачМесяца)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Списание</dataPath>
+		<expression>Сумма(Списание)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецМесяца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец месяца</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>Конецпериода(&amp;Период, "Месяц")</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоГода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало года</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>НАчалопериода(&amp;Период, "Год")</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоМесяца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало месяца</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>НАчалопериода(&amp;Период, "Месяц")</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Район</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Район</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргЗоныОтвественности</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ДФ=MM.yyyy</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Санкции</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Санкции</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СальдоНаНачМесяца</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыставленоЗаМесяц</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыставленоСНачалаГода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Списание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОплаченоЗаМесяц</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОплаченоСНачалаГода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СальдоНаКонМесяца</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>88c90ca1-b9e3-47f9-a625-8399f251cc82</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Район</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>7847b34a-a2e1-4e07-8f58-729671c8f8e2</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a7304cb5-6685-4850-b999-25cb14f3dd49</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

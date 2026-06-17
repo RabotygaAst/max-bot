@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаУчета</dataPath>
+			<field>ТочкаУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗначениеНагрузки</dataPath>
+			<field>ЗначениеНагрузки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МКД</dataPath>
+			<field>МКД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособНачисления</dataPath>
+			<field>СпособНачисления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектРасчета</dataPath>
+			<field>ОбъектРасчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлощадьАбонентов</dataPath>
+			<field>ПлощадьАбонентов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДолевоеРаспределение</dataPath>
+			<field>ДолевоеРаспределение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидНачисления</dataPath>
+			<field>ВидНачисления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриборУчета</dataPath>
+			<field>ПриборУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СоставнаяУслуга</dataPath>
+			<field>СоставнаяУслуга</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Шкала</dataPath>
+			<field>Шкала</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТарифнаяЗона</dataPath>
+			<field>ТарифнаяЗона</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНачисления</dataPath>
+			<field>ПериодНачисления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Распределение</dataPath>
+			<field>Распределение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособРасчетаНорматива</dataPath>
+			<field>СпособРасчетаНорматива</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемПоПрибору</dataPath>
+			<field>ОбъемПоПрибору</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемУслуги</dataPath>
+			<field>ОбъемУслуги</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемУслугиПотребленный</dataPath>
+			<field>ОбъемУслугиПотребленный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НормаПотребления</dataPath>
+			<field>НормаПотребления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЧасовШтатнойРаботыПУ</dataPath>
+			<field>КоличествоЧасовШтатнойРаботыПУ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СписатьИзНормы</dataPath>
+			<field>СписатьИзНормы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемДосчитанный</dataPath>
+			<field>ОбъемДосчитанный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоПериода</dataPath>
+			<field>НачалоПериода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлощадьМОП</dataPath>
+			<field>ПлощадьМОП</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектУчаствуетВРаспределенииМКД</dataPath>
+			<field>ОбъектУчаствуетВРаспределенииМКД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонецПериода</dataPath>
+			<field>КонецПериода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДифференцированности</dataPath>
+			<field>ВидДифференцированности</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальныеПоказания</dataPath>
+			<field>НачальныеПоказания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонечныеПоказания</dataPath>
+			<field>КонечныеПоказания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗначениеПлощади</dataPath>
+			<field>ЗначениеПлощади</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасчетПоФормуле</dataPath>
+			<field>РасчетПоФормуле</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоверки</dataPath>
+			<field>ДатаПоверки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗависимаяТочкаУчета</dataPath>
+			<field>ЗависимаяТочкаУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеПрименятьСезонность</dataPath>
+			<field>НеПрименятьСезонность</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоэффициентРасчета</dataPath>
+			<field>КоэффициентРасчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗначениеНормативаЗаДень</dataPath>
+			<field>ЗначениеНормативаЗаДень</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТемператураВнутриПомещения</dataPath>
+			<field>ТемператураВнутриПомещения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПовыщающийКоэффициент</dataPath>
+			<field>ПовыщающийКоэффициент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлощадьСобственнаяПоставка</dataPath>
+			<field>ПлощадьСобственнаяПоставка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>бестКодДоговораERP</dataPath>
+			<field>бестКодДоговораERP</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	бестОбъемНачисленийНП.Период КАК Период,
+	бестОбъемНачисленийНП.Организация КАК Организация,
+	бестОбъемНачисленийНП.Договор КАК Договор,
+	бестОбъемНачисленийНП.ОбъектРасчета КАК ОбъектРасчета,
+	бестОбъемНачисленийНП.Услуга КАК Услуга,
+	бестОбъемНачисленийНП.ТочкаУчета КАК ТочкаУчета,
+	бестОбъемНачисленийНП.ВидНачисления КАК ВидНачисления,
+	бестОбъемНачисленийНП.СпособНачисления КАК СпособНачисления,
+	бестОбъемНачисленийНП.ПриборУчета КАК ПриборУчета,
+	бестОбъемНачисленийНП.Шкала КАК Шкала,
+	бестОбъемНачисленийНП.ТарифнаяЗона КАК ТарифнаяЗона,
+	бестОбъемНачисленийНП.ПериодРасчета КАК ПериодРасчета,
+	бестОбъемНачисленийНП.ПериодНачисления КАК ПериодНачисления,
+	бестОбъемНачисленийНП.Распределение КАК Распределение,
+	бестОбъемНачисленийНП.Поставщик КАК Поставщик,
+	бестОбъемНачисленийНП.МКД КАК МКД,
+	бестОбъемНачисленийНП.ДолевоеРаспределение КАК ДолевоеРаспределение,
+	бестОбъемНачисленийНП.ОбъемПоПрибору КАК ОбъемПоПрибору,
+	бестОбъемНачисленийНП.ОбъемУслуги КАК ОбъемУслуги,
+	бестОбъемНачисленийНП.ОбъемУслугиПотребленный КАК ОбъемУслугиПотребленный,
+	бестОбъемНачисленийНП.КоличествоЧасовШтатнойРаботыПУ КАК КоличествоЧасовШтатнойРаботыПУ,
+	бестОбъемНачисленийНП.ОбъемДосчитанный КАК ОбъемДосчитанный,
+	//бестОбъемНачисленийНП.Сумма КАК Сумма,
+	бестОбъемНачисленийНП.НачалоПериода КАК НачалоПериода,
+	бестОбъемНачисленийНП.КонецПериода КАК КонецПериода,
+	бестОбъемНачисленийНП.НачальныеПоказания КАК НачальныеПоказания,
+	бестОбъемНачисленийНП.КонечныеПоказания КАК КонечныеПоказания,
+	бестОбъемНачисленийНП.ЗначениеПлощади КАК ЗначениеПлощади,
+	бестОбъемНачисленийНП.НормаПотребления КАК НормаПотребления,
+	бестОбъемНачисленийНП.РасчетПоФормуле КАК РасчетПоФормуле,
+	бестОбъемНачисленийНП.ДатаПоверки КАК ДатаПоверки,
+	бестОбъемНачисленийНП.ЗависимаяТочкаУчета КАК ЗависимаяТочкаУчета,
+	бестОбъемНачисленийНП.КоэффициентРасчета КАК КоэффициентРасчета,
+	бестОбъемНачисленийНП.ВидДифференцированности КАК ВидДифференцированности,
+	бестОбъемНачисленийНП.ЗначениеНагрузки КАК ЗначениеНагрузки,
+	бестОбъемНачисленийНП.ЗначениеНормативаЗаДень КАК ЗначениеНормативаЗаДень,
+	бестОбъемНачисленийНП.ОбъектУчаствуетВРаспределенииМКД КАК ОбъектУчаствуетВРаспределенииМКД,
+	бестОбъемНачисленийНП.СпособРасчетаНорматива КАК СпособРасчетаНорматива,
+	бестОбъемНачисленийНП.ТемператураВнутриПомещения КАК ТемператураВнутриПомещения,
+	бестОбъемНачисленийНП.СписатьИзНормы КАК СписатьИзНормы,
+	бестОбъемНачисленийНП.ПовыщающийКоэффициент КАК ПовыщающийКоэффициент,
+	бестОбъемНачисленийНП.СоставнаяУслуга КАК СоставнаяУслуга,
+	бестОбъемНачисленийНП.НеПрименятьСезонность КАК НеПрименятьСезонность,
+	бестОбъемНачисленийНП.ПлощадьМОП КАК ПлощадьМОП,
+	бестОбъемНачисленийНП.ПлощадьАбонентов КАК ПлощадьАбонентов,
+	бестОбъемНачисленийНП.ПлощадьСобственнаяПоставка КАК ПлощадьСобственнаяПоставка
+ПОМЕСТИТЬ ВрТ0
+ИЗ
+	РегистрНакопления.бестОбъемНачисленийНП КАК бестОбъемНачисленийНП
+ГДЕ
+	бестОбъемНачисленийНП.Организация = &amp;Организация
+	И бестОбъемНачисленийНП.ПериодНачисления = &amp;ПериодНачисления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВрТ0.Период КАК Период,
+	ВрТ0.Организация КАК Организация,
+	ВрТ0.Договор КАК Договор,
+	ВрТ0.ОбъектРасчета КАК ОбъектРасчета,
+	ВрТ0.Услуга КАК Услуга,
+	ВрТ0.ТочкаУчета КАК ТочкаУчета,
+	ВрТ0.ВидНачисления КАК ВидНачисления,
+	ВрТ0.СпособНачисления КАК СпособНачисления,
+	ВрТ0.ПриборУчета КАК ПриборУчета,
+	ВрТ0.Шкала КАК Шкала,
+	ВрТ0.ТарифнаяЗона КАК ТарифнаяЗона,
+	ВрТ0.ПериодНачисления КАК ПериодНачисления,
+	ВрТ0.Распределение КАК Распределение,
+	ВрТ0.Поставщик КАК Поставщик,
+	ВрТ0.МКД КАК МКД,
+	ВрТ0.ДолевоеРаспределение КАК ДолевоеРаспределение,
+	ВрТ0.ОбъемПоПрибору КАК ОбъемПоПрибору,
+	ВрТ0.ОбъемУслуги КАК ОбъемУслуги,
+	ВрТ0.ОбъемУслугиПотребленный КАК ОбъемУслугиПотребленный,
+	ВрТ0.КоличествоЧасовШтатнойРаботыПУ КАК КоличествоЧасовШтатнойРаботыПУ,
+	ВрТ0.ОбъемДосчитанный КАК ОбъемДосчитанный,
+	//ВрТ0.Сумма КАК Сумма,
+	ВрТ0.НачалоПериода КАК НачалоПериода,
+	ВрТ0.КонецПериода КАК КонецПериода,
+	ВрТ0.НачальныеПоказания КАК НачальныеПоказания,
+	ВрТ0.КонечныеПоказания КАК КонечныеПоказания,
+	ВрТ0.ЗначениеПлощади КАК ЗначениеПлощади,
+	ВрТ0.НормаПотребления КАК НормаПотребления,
+	ВрТ0.РасчетПоФормуле КАК РасчетПоФормуле,
+	ВрТ0.ДатаПоверки КАК ДатаПоверки,
+	ВрТ0.ЗависимаяТочкаУчета КАК ЗависимаяТочкаУчета,
+	ВрТ0.КоэффициентРасчета КАК КоэффициентРасчета,
+	ВрТ0.ВидДифференцированности КАК ВидДифференцированности,
+	ВрТ0.ЗначениеНагрузки КАК ЗначениеНагрузки,
+	ВрТ0.ЗначениеНормативаЗаДень КАК ЗначениеНормативаЗаДень,
+	ВрТ0.ОбъектУчаствуетВРаспределенииМКД КАК ОбъектУчаствуетВРаспределенииМКД,
+	ВрТ0.СпособРасчетаНорматива КАК СпособРасчетаНорматива,
+	ВрТ0.ТемператураВнутриПомещения КАК ТемператураВнутриПомещения,
+	ВрТ0.СписатьИзНормы КАК СписатьИзНормы,
+	ВрТ0.ПовыщающийКоэффициент КАК ПовыщающийКоэффициент,
+	ВрТ0.СоставнаяУслуга КАК СоставнаяУслуга,
+	ВрТ0.НеПрименятьСезонность КАК НеПрименятьСезонность,
+	ВрТ0.ПлощадьМОП КАК ПлощадьМОП,
+	ВрТ0.ПлощадьАбонентов КАК ПлощадьАбонентов,
+	ВрТ0.ПлощадьСобственнаяПоставка КАК ПлощадьСобственнаяПоставка,
+	энргДоговорыКонтрагентов.Контрагент КАК Контрагент,
+	энргДоговорыКонтрагентов.бестКодДоговораERP КАК бестКодДоговораERP
+ИЗ
+	ВрТ0 КАК ВрТ0
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+		ПО ВрТ0.Договор = энргДоговорыКонтрагентов.Ссылка
+			И (НЕ энргДоговорыКонтрагентов.ПометкаУдаления)</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоЧасовШтатнойРаботыПУ</dataPath>
+		<expression>Сумма(КоличествоЧасовШтатнойРаботыПУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемДосчитанный</dataPath>
+		<expression>Сумма(ОбъемДосчитанный)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемПоПрибору</dataPath>
+		<expression>Сумма(ОбъемПоПрибору)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемУслуги</dataPath>
+		<expression>Сумма(ОбъемУслуги)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемУслугиПотребленный</dataPath>
+		<expression>Сумма(ОбъемУслугиПотребленный)</expression>
+	</totalField>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ПериодНачисления</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период начисления</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начисления по юр.лицам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Договор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>бестКодДоговораERP</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КодДоговораERP</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъектРасчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Услуга</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаУчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПриборУчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Шкала</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидНачисления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособНачисления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЧасовШтатнойРаботыПУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемДосчитанный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемПоПрибору</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемУслуги</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемУслугиПотребленный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТемператураВнутриПомещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДолевоеРаспределение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗависимаяТочкаУчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗначениеНагрузки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗначениеНормативаЗаДень</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗначениеПлощади</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачальныеПоказания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныеПоказания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НеПрименятьСезонность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НормаПотребления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлощадьАбонентов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлощадьМОП</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлощадьСобственнаяПоставка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПовыщающийКоэффициент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РасчетПоФормуле</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписатьИзНормы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособРасчетаНорматива</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>0b790f4c-db42-42b9-9c27-a2933429da49</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>cc64373e-11c7-4927-bcf0-2f958b239190</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОбъектРасчета</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>d208905f-4c7b-4bec-870c-98dc4542a427</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Услуга</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>71d12983-efed-454a-ac89-60674b6918c9</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>35af82a1-ba6e-4342-818d-973b04160c68</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодНачисления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a4496ad4-4e9c-4640-8166-a94e469b7f30</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПериодНачисления</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

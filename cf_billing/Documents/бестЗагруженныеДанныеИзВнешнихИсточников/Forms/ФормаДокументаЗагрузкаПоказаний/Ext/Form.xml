@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="250">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="251"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="252">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подменю отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="253"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="254">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="255"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="256">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты перейти</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="257"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="258">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты см также</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="259"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+			<Button name="ФормаСоздатьРегистрацииПоказаний" id="380">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СоздатьРегистрацииПоказаний</CommandName>
+				<ExtendedTooltip name="ФормаСоздатьРегистрацииПоказанийРасширеннаяПодсказка" id="381"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ВидОперации" id="207">
+			<ReadOnly>true</ReadOnly>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<BackColor>#CCFFFF</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="208"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="209"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="84">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="85"/>
+			<ChildItems>
+				<InputField name="Номер" id="86">
+					<DataPath>Объект.Number</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="88"/>
+				</InputField>
+				<InputField name="Дата" id="89">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="91"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<LabelField name="ПериодНачисления" id="92">
+			<TitleFont ref="sys:DefaultGUIFont" faceName="MS Shell Dlg" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<Format>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДФ='ММММ гггг'</v8:content>
+				</v8:item>
+			</Format>
+			<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="93"/>
+			<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="94"/>
+		</LabelField>
+		<InputField name="Организация" id="260">
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="261"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="262"/>
+		</InputField>
+		<InputField name="Район" id="263">
+			<ContextMenu name="РайонКонтекстноеМеню" id="264"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="265"/>
+		</InputField>
+		<InputField name="ФайлДляЧтения" id="210">
+			<DataPath>Объект.ФайлДляЧтения</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ФайлДляЧтенияКонтекстноеМеню" id="211"/>
+			<ExtendedTooltip name="ФайлДляЧтенияРасширеннаяПодсказка" id="212"/>
+		</InputField>
+		<Pages name="Группа1" id="266">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="267"/>
+			<ChildItems>
+				<Page name="Группа2" id="268">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загруженные показания</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="269"/>
+					<ChildItems>
+						<Table name="Показания" id="272">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Показания</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПоказанияКонтекстноеМеню" id="273"/>
+							<AutoCommandBar name="ПоказанияКоманднаяПанель" id="274">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПоказанияРасширеннаяПодсказка" id="275"/>
+							<SearchStringAddition name="ПоказанияСтрокаПоиска" id="276">
+								<AdditionSource>
+									<Item>Показания</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказанияСтрокаПоискаКонтекстноеМеню" id="277"/>
+								<ExtendedTooltip name="ПоказанияСтрокаПоискаРасширеннаяПодсказка" id="278"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПоказанияСостояниеПросмотра" id="279">
+								<AdditionSource>
+									<Item>Показания</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказанияСостояниеПросмотраКонтекстноеМеню" id="280"/>
+								<ExtendedTooltip name="ПоказанияСостояниеПросмотраРасширеннаяПодсказка" id="281"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПоказанияУправлениеПоиском" id="282">
+								<AdditionSource>
+									<Item>Показания</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказанияУправлениеПоискомКонтекстноеМеню" id="283"/>
+								<ExtendedTooltip name="ПоказанияУправлениеПоискомРасширеннаяПодсказка" id="284"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПоказанияНомерСтроки" id="285">
+									<DataPath>Объект.Показания.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияНомерСтрокиКонтекстноеМеню" id="286"/>
+									<ExtendedTooltip name="ПоказанияНомерСтрокиРасширеннаяПодсказка" id="287"/>
+								</LabelField>
+								<InputField name="ПоказанияОбъектРасчета" id="294">
+									<DataPath>Объект.Показания.ОбъектРасчета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияОбъектРасчетаКонтекстноеМеню" id="295"/>
+									<ExtendedTooltip name="ПоказанияОбъектРасчетаРасширеннаяПодсказка" id="296"/>
+								</InputField>
+								<InputField name="ПоказанияТочкаУчета" id="291">
+									<DataPath>Объект.Показания.ТочкаУчета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияТочкаУчетаКонтекстноеМеню" id="292"/>
+									<ExtendedTooltip name="ПоказанияТочкаУчетаРасширеннаяПодсказка" id="293"/>
+								</InputField>
+								<InputField name="ПоказанияПриборУчета" id="288">
+									<DataPath>Объект.Показания.ПриборУчета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияПриборУчетаКонтекстноеМеню" id="289"/>
+									<ExtendedTooltip name="ПоказанияПриборУчетаРасширеннаяПодсказка" id="290"/>
+								</InputField>
+								<InputField name="ПоказанияШкала" id="312">
+									<DataPath>Объект.Показания.Шкала</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияШкалаКонтекстноеМеню" id="313"/>
+									<ExtendedTooltip name="ПоказанияШкалаРасширеннаяПодсказка" id="314"/>
+								</InputField>
+								<InputField name="ПоказанияТарифнаяЗона" id="306">
+									<DataPath>Объект.Показания.ТарифнаяЗона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияТарифнаяЗонаКонтекстноеМеню" id="307"/>
+									<ExtendedTooltip name="ПоказанияТарифнаяЗонаРасширеннаяПодсказка" id="308"/>
+								</InputField>
+								<InputField name="ПоказанияПоказания" id="318">
+									<DataPath>Объект.Показания.Показания</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказанияПоказанияКонтекстноеМеню" id="319"/>
+									<ExtendedTooltip name="ПоказанияПоказанияРасширеннаяПодсказка" id="320"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа4" id="270">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Незагруженные показания</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="271"/>
+					<ChildItems>
+						<Table name="Показания1" id="321">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Показания</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="Показания1КонтекстноеМеню" id="322"/>
+							<AutoCommandBar name="Показания1КоманднаяПанель" id="323">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="Показания1РасширеннаяПодсказка" id="324"/>
+							<SearchStringAddition name="Показания1СтрокаПоиска" id="325">
+								<AdditionSource>
+									<Item>Показания1</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Показания1СтрокаПоискаКонтекстноеМеню" id="326"/>
+								<ExtendedTooltip name="Показания1СтрокаПоискаРасширеннаяПодсказка" id="327"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="Показания1СостояниеПросмотра" id="328">
+								<AdditionSource>
+									<Item>Показания1</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="Показания1СостояниеПросмотраКонтекстноеМеню" id="329"/>
+								<ExtendedTooltip name="Показания1СостояниеПросмотраРасширеннаяПодсказка" id="330"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="Показания1УправлениеПоиском" id="331">
+								<AdditionSource>
+									<Item>Показания1</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="Показания1УправлениеПоискомКонтекстноеМеню" id="332"/>
+								<ExtendedTooltip name="Показания1УправлениеПоискомРасширеннаяПодсказка" id="333"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="Показания1НомерСтроки" id="334">
+									<DataPath>Объект.Показания.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="Показания1НомерСтрокиКонтекстноеМеню" id="335"/>
+									<ExtendedTooltip name="Показания1НомерСтрокиРасширеннаяПодсказка" id="336"/>
+								</LabelField>
+								<ColumnGroup name="Показания1Группа3" id="374">
+									<ExtendedTooltip name="Показания1Группа3РасширеннаяПодсказка" id="375"/>
+									<ChildItems>
+										<InputField name="Показания1ОбъектРасчетаИзФайла" id="352">
+											<DataPath>Объект.Показания.ОбъектРасчетаИзФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ОбъектРасчетаИзФайлаКонтекстноеМеню" id="353"/>
+											<ExtendedTooltip name="Показания1ОбъектРасчетаИзФайлаРасширеннаяПодсказка" id="354"/>
+										</InputField>
+										<InputField name="Показания1ОбъектРасчета" id="343">
+											<DataPath>Объект.Показания.ОбъектРасчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ОбъектРасчетаКонтекстноеМеню" id="344"/>
+											<ExtendedTooltip name="Показания1ОбъектРасчетаРасширеннаяПодсказка" id="345"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="Показания1Группа2" id="372">
+									<ExtendedTooltip name="Показания1Группа2РасширеннаяПодсказка" id="373"/>
+									<ChildItems>
+										<InputField name="Показания1ТочкаУчетаИзФайла" id="346">
+											<DataPath>Объект.Показания.ТочкаУчетаИзФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ТочкаУчетаИзФайлаКонтекстноеМеню" id="347"/>
+											<ExtendedTooltip name="Показания1ТочкаУчетаИзФайлаРасширеннаяПодсказка" id="348"/>
+										</InputField>
+										<InputField name="Показания1ТочкаУчета" id="340">
+											<DataPath>Объект.Показания.ТочкаУчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ТочкаУчетаКонтекстноеМеню" id="341"/>
+											<ExtendedTooltip name="Показания1ТочкаУчетаРасширеннаяПодсказка" id="342"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="Показания1Группа1" id="370">
+									<ExtendedTooltip name="Показания1Группа1РасширеннаяПодсказка" id="371"/>
+									<ChildItems>
+										<InputField name="Показания1ПриборУчетаИзФайла" id="349">
+											<DataPath>Объект.Показания.ПриборУчетаИзФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ПриборУчетаИзФайлаКонтекстноеМеню" id="350"/>
+											<ExtendedTooltip name="Показания1ПриборУчетаИзФайлаРасширеннаяПодсказка" id="351"/>
+										</InputField>
+										<InputField name="Показания1ПриборУчета" id="337">
+											<DataPath>Объект.Показания.ПриборУчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ПриборУчетаКонтекстноеМеню" id="338"/>
+											<ExtendedTooltip name="Показания1ПриборУчетаРасширеннаяПодсказка" id="339"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="Показания1Группа5" id="378">
+									<ExtendedTooltip name="Показания1Группа5РасширеннаяПодсказка" id="379"/>
+									<ChildItems>
+										<InputField name="Показания1ШкалаИзФайла" id="364">
+											<DataPath>Объект.Показания.ШкалаИзФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ШкалаИзФайлаКонтекстноеМеню" id="365"/>
+											<ExtendedTooltip name="Показания1ШкалаИзФайлаРасширеннаяПодсказка" id="366"/>
+										</InputField>
+										<InputField name="Показания1Шкала" id="361">
+											<DataPath>Объект.Показания.Шкала</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ШкалаКонтекстноеМеню" id="362"/>
+											<ExtendedTooltip name="Показания1ШкалаРасширеннаяПодсказка" id="363"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="Показания1Группа4" id="376">
+									<ExtendedTooltip name="Показания1Группа4РасширеннаяПодсказка" id="377"/>
+									<ChildItems>
+										<InputField name="Показания1ТарифнаяЗонаИзФайла" id="358">
+											<DataPath>Объект.Показания.ТарифнаяЗонаИзФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ТарифнаяЗонаИзФайлаКонтекстноеМеню" id="359"/>
+											<ExtendedTooltip name="Показания1ТарифнаяЗонаИзФайлаРасширеннаяПодсказка" id="360"/>
+										</InputField>
+										<InputField name="Показания1ТарифнаяЗона" id="355">
+											<DataPath>Объект.Показания.ТарифнаяЗона</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="Показания1ТарифнаяЗонаКонтекстноеМеню" id="356"/>
+											<ExtendedTooltip name="Показания1ТарифнаяЗонаРасширеннаяПодсказка" id="357"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="Показания1Показания" id="367">
+									<DataPath>Объект.Показания.Показания</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="Показания1ПоказанияКонтекстноеМеню" id="368"/>
+									<ExtendedTooltip name="Показания1ПоказанияРасширеннаяПодсказка" id="369"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаПодвал" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="96"/>
+			<ChildItems>
+				<InputField name="Примечание" id="99">
+					<DataPath>Объект.Примечание</DataPath>
+					<ContextMenu name="ПримечаниеКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="101"/>
+				</InputField>
+				<UsualGroup name="Группа5" id="105">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<LabelField name="Ответственный" id="107">
+							<DataPath>Объект.Ответственный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="109"/>
+						</LabelField>
+						<LabelField name="ДатаПоследнегоИзменения" id="110">
+							<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+							<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="112"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.бестЗагруженныеДанныеИзВнешнихИсточников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПоказанияНомерСтроки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияОбъектРасчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияТочкаУчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияПриборУчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияШкала</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияТарифнаяЗона</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоказанияПоказания</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ПриборУчета</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ТочкаУчета</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ОбъектРасчета</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ТарифнаяЗона</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Показания.Шкала</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Показания1НомерСтроки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ОбъектРасчетаИзФайла</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ОбъектРасчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ТочкаУчетаИзФайла</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ТочкаУчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ПриборУчета</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ПриборУчетаИзФайла</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ШкалаИзФайла</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1Шкала</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ТарифнаяЗона</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1ТарифнаяЗонаИзФайла</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Показания1Показания</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ПриборУчета</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ТочкаУчета</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ОбъектРасчета</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Показания.ТарифнаяЗона</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Показания.Шкала</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьРегистрацииПоказаний" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать регистрации показаний</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать регистрации показаний</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьРегистрацииПоказаний</Action>
+		</Command>
+	</Commands>
+</Form>

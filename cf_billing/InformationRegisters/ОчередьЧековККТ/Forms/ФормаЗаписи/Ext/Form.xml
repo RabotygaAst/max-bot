@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>ChangeHistory</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Reread</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗакрыть" id="37">
+				<Type>CommandBarButton</Type>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="38"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="ТекстОшибки" id="106">
+			<DataPath>Запись.ТекстОшибки</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Border width="1">
+				<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+			</Border>
+			<BorderColor>style:SpecialTextColor</BorderColor>
+			<TextColor>style:SpecialTextColor</TextColor>
+			<BackColor>#FFFF99</BackColor>
+			<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="107"/>
+			<ExtendedTooltip name="ТекстОшибкиРасширеннаяПодсказка" id="108"/>
+		</LabelField>
+		<UsualGroup name="Данные" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДанныеРасширеннаяПодсказка" id="95"/>
+			<ChildItems>
+				<UsualGroup name="Реквизиты" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<InputField name="ДокументОснование" id="1">
+							<DataPath>Запись.ДокументОснование</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<UsualGroup name="Группа" id="104">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="105"/>
+							<ChildItems>
+								<InputField name="СтатусЧека" id="101">
+									<DataPath>Запись.СтатусЧека</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<MaxWidth>16</MaxWidth>
+									<ContextMenu name="СтатусЧекаКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="СтатусЧекаРасширеннаяПодсказка" id="103"/>
+								</InputField>
+								<InputField name="Дата" id="4">
+									<DataPath>Запись.Дата</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СистемаНалогообложения" id="109">
+							<DataPath>Запись.СистемаНалогообложения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СистемаНалогообложенияКонтекстноеМеню" id="110"/>
+							<ExtendedTooltip name="СистемаНалогообложенияРасширеннаяПодсказка" id="111"/>
+						</InputField>
+						<InputField name="ТипДокумента" id="51">
+							<DataPath>Запись.ТипДокумента</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТипДокументаКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="53"/>
+						</InputField>
+						<InputField name="ТипРасчета" id="13">
+							<DataPath>Запись.ТипРасчета</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Организация" id="85">
+							<DataPath>Запись.Организация</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="87"/>
+						</InputField>
+						<InputField name="ОрганизацияИНН" id="112">
+							<DataPath>Запись.ОрганизацияИНН</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="114"/>
+						</InputField>
+						<InputField name="ТорговыйОбъект" id="88">
+							<DataPath>Запись.ТорговыйОбъект</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТорговыйОбъектКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ТорговыйОбъектРасширеннаяПодсказка" id="90"/>
+						</InputField>
+						<InputField name="Сумма" id="22">
+							<DataPath>Запись.Сумма</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СуммаКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="24"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Представление" id="118">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="QRКод" id="120">
+							<DataPath>QRКод</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>32</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>1</Height>
+							<ContextMenu name="QRКодКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="QRКодРасширеннаяПодсказка" id="122"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ОчередьЧековККТ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="QRКод" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>QRКод</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КартинкаQR" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка QR</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Picture</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>
