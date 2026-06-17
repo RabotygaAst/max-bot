@@ -43,10 +43,17 @@ type Balance struct {
 type Meter struct {
 	ID              string  `json:"meter_id"`
 	Resource        string  `json:"resource"`
+	ServiceID       string  `json:"service_id,omitempty"`
+	ServiceName     string  `json:"service_name,omitempty"`
+	TariffID        string  `json:"tariff_id,omitempty"`
+	TariffName      string  `json:"tariff_name,omitempty"`
+	Unit            string  `json:"unit,omitempty"`
 	SerialNumber    string  `json:"serial_number"`
 	LastValue       float64 `json:"last_value"`
 	LastReadingDate string  `json:"last_reading_date"`
 	VerificationTo  string  `json:"verification_to,omitempty"`
+	CanSubmit       bool    `json:"can_submit"`
+	Reason          string  `json:"reason,omitempty"`
 }
 
 type ReadingRequest struct {

@@ -44,6 +44,7 @@ func main() {
 	}
 
 	maxAPI := maxclient.New(cfg.MAXBaseURL, cfg.MAXToken, cfg.RequestTimeout)
+	logOneCMode(log, cfg.OneCBaseURL)
 	onecAPI := onec.New(cfg.OneCBaseURL, cfg.OneCToken, cfg.RequestTimeout)
 	botService := service.New(log, botStore, maxAPI, onecAPI)
 	server := httpserver.New(cfg, log, botService)
@@ -60,4 +61,13 @@ func maskDatabaseURL(url string) string {
 		return "***"
 	}
 	return url[:strings.Index(url, "://")+3] + "***@" + url[strings.LastIndex(url, "@")+1:]
+}
+
+func logOneCMode(log *slog.Logger, baseURL string) {
+	lower := strings.ToLower(baseURL)
+	if strings.Contains(lower, "localhost:1080") || strings.Contains(lower, "mock-onec") {
+		log.Warn("ONEC_BASE_URL points to mock 1C mode; mock-onec-config.json is test-only and is not a real data source", "onec_base_url", baseURL)
+		return
+	}
+	log.Info("ONEC_BASE_URL points to real 1C HTTP service; business data must come from 1C", "onec_base_url", baseURL)
 }

@@ -1,3 +1,4 @@
+-- MOCK/TEST-ONLY: автономные локальные данные, не пример реальной 1С.
 \i init-db.sql
 INSERT INTO max_users(max_user_id,chat_id,first_name,source) VALUES(123456789,987654321,'Иван','MAX') ON CONFLICT(max_user_id) DO UPDATE SET chat_id=EXCLUDED.chat_id, first_name=EXCLUDED.first_name,last_seen_at=NOW();
 INSERT INTO account_links(max_user_id,account_id,account_number,masked_address,is_active) VALUES(123456789,'ACC-000123456','000123456','г. Тестовый, ул. Центральная, д. 1, кв. **',true) ON CONFLICT(max_user_id,account_id) DO UPDATE SET is_active=true, masked_address=EXCLUDED.masked_address;
