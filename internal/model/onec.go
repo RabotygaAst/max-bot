@@ -69,8 +69,11 @@ type ReadingRequest struct {
 type ReadingResult struct {
 	DocumentNumber string  `json:"document_number"`
 	DocumentDate   string  `json:"document_date"`
+	DocumentRef    string  `json:"document_ref,omitempty"`
+	Posted         bool    `json:"posted"`
 	MeterID        string  `json:"meter_id"`
 	Value          float64 `json:"value"`
+	Status         string  `json:"status,omitempty"`
 }
 
 type AppealRequest struct {

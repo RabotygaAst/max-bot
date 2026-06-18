@@ -39,11 +39,16 @@ account_id=$(printf '%s' "$RESPONSE" | jq -r '.data.account_id // empty')
 call GET "/max/v1/accounts?max_user_id=${MAX_USER_ID}"
 call GET "/max/v1/accounts/${account_id}/balance?max_user_id=${MAX_USER_ID}"
 call GET "/max/v1/accounts/${account_id}/meters?max_user_id=${MAX_USER_ID}"
-meter_id=$(printf '%s' "$RESPONSE" | jq -r '.data[0].meter_id // empty')
+meter_id=$(printf '%s' "$RESPONSE" | jq -r '.data[]? | select(.can_submit == true) | .meter_id' | head -n 1)
 if [[ -z "$meter_id" ]]; then
-  findings+=("meters пустой: проверьте, есть ли в базе приборы по ЛС ${account_id}")
+  findings+=("нет can_submit=true точки передачи показаний по ЛС ${account_id}")
 else
-  call POST "/max/v1/accounts/${account_id}/meters/${meter_id}/readings" "{\"period\":\"$(date +%Y-%m)\",\"value\":1,\"source\":\"MAX\",\"max_user_id\":${MAX_USER_ID},\"message_id\":\"smoke-real-1c\",\"operation_id\":\"smoke-real-1c-$(date +%s)\"}"
+  reading_value=$(printf '%s' "$RESPONSE" | jq -r --arg meter_id "$meter_id" '(.data[]? | select(.meter_id == $meter_id) | (.last_value // 0)) + 1')
+  call POST "/max/v1/accounts/${account_id}/meters/${meter_id}/readings" "{\"period\":\"$(date +%Y-%m)\",\"value\":${reading_value},\"source\":\"MAX\",\"max_user_id\":${MAX_USER_ID},\"message_id\":\"smoke-real-1c\",\"operation_id\":\"smoke-real-1c-$(date +%s)\"}"
+  printf '%s' "$RESPONSE" | jq -e '.success == true' >/dev/null || findings+=("readings: success не true")
+  printf '%s' "$RESPONSE" | jq -e '.data.posted == false' >/dev/null || findings+=("readings: posted не false")
+  printf '%s' "$RESPONSE" | jq -e '(.data.document_number // "") != ""' >/dev/null || findings+=("readings: document_number пустой")
+  printf '%s' "$RESPONSE" | jq -e '.data.status == "saved_unposted"' >/dev/null || findings+=("readings: status не saved_unposted")
 fi
 call GET "/max/v1/accounts/${account_id}/invoice?period=$(date +%Y-%m)&max_user_id=${MAX_USER_ID}"
 call POST "/max/v1/accounts/${account_id}/appeals" "{\"max_user_id\":${MAX_USER_ID},\"category\":\"smoke\",\"text\":\"Smoke test\",\"source\":\"MAX\",\"message_id\":\"smoke-real-1c\",\"operation_id\":\"smoke-real-1c-appeal-$(date +%s)\"}"

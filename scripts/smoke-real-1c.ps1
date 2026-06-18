@@ -26,8 +26,18 @@ if (!$AccountID) { throw 'account_id пустой: 1С не вернула ид�
 Invoke-Step GET "/max/v1/accounts?max_user_id=$MAX_USER_ID"
 Invoke-Step GET "/max/v1/accounts/$AccountID/balance?max_user_id=$MAX_USER_ID"
 Invoke-Step GET "/max/v1/accounts/$AccountID/meters?max_user_id=$MAX_USER_ID"
-$MeterID = $Response.data[0].meter_id
-if (!$MeterID) { $Findings.Add("meters пустой: проверьте, есть ли в базе приборы по ЛС $AccountID") } else { Invoke-Step POST "/max/v1/accounts/$AccountID/meters/$MeterID/readings" (@{period=(Get-Date -Format 'yyyy-MM');value=1;source='MAX';max_user_id=[int64]$MAX_USER_ID;message_id='smoke-real-1c';operation_id="smoke-real-1c-$([DateTimeOffset]::Now.ToUnixTimeSeconds())"} | ConvertTo-Json) }
+$Meter = @($Response.data | Where-Object { $_.can_submit -eq $true } | Select-Object -First 1)[0]
+$MeterID = $Meter.meter_id
+if (!$MeterID) {
+  $Findings.Add("нет can_submit=true точки передачи показаний по ЛС $AccountID")
+} else {
+  $ReadingValue = [double]$Meter.last_value + 1
+  Invoke-Step POST "/max/v1/accounts/$AccountID/meters/$MeterID/readings" (@{period=(Get-Date -Format 'yyyy-MM');value=$ReadingValue;source='MAX';max_user_id=[int64]$MAX_USER_ID;message_id='smoke-real-1c';operation_id="smoke-real-1c-$([DateTimeOffset]::Now.ToUnixTimeSeconds())"} | ConvertTo-Json)
+  if ($Response.success -ne $true) { $Findings.Add('readings: success не true') }
+  if ($Response.data.posted -ne $false) { $Findings.Add('readings: posted не false') }
+  if (!$Response.data.document_number) { $Findings.Add('readings: document_number пустой') }
+  if ($Response.data.status -ne 'saved_unposted') { $Findings.Add('readings: status не saved_unposted') }
+}
 Invoke-Step GET "/max/v1/accounts/$AccountID/invoice?period=$(Get-Date -Format 'yyyy-MM')&max_user_id=$MAX_USER_ID"
 Invoke-Step POST "/max/v1/accounts/$AccountID/appeals" (@{max_user_id=[int64]$MAX_USER_ID;category='smoke';text='Smoke test';source='MAX';message_id='smoke-real-1c';operation_id="smoke-real-1c-appeal-$([DateTimeOffset]::Now.ToUnixTimeSeconds())"} | ConvertTo-Json)
 Write-Host "`n=== Подозрительные ответы / findings ==="
