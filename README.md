@@ -700,3 +700,7 @@ SELECT * FROM billing_accruals_cache;
 SELECT * FROM invoices_cache;
 SELECT * FROM appointments;
 ```
+
+## Локальный обмен и тесты
+
+- [Локальный тест обмена MAX ↔ Go bot ↔ mock 1C](docs/local-exchange-test.md) — проверка сценариев, кнопок, callback payload и контракта Go ↔ cf_billing без опубликованной 1С.
