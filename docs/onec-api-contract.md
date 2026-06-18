@@ -83,3 +83,29 @@ Endpoint сохранен для обратной совместимости, н
 ONEC_BASE_URL=https://<server>/<base>/hs
 ONEC_TOKEN=<token>
 ```
+
+## Локальная contract inventory Go ↔ cf_billing
+
+Статическая проверка выполняется тестом `TestOneCContractMatchesCfBilling` и не требует опубликованной 1С.
+
+| Go method | HTTP method | Path | 1C HTTP handler | MAXBotИнтеграция function | Required body/query fields | Expected response data | Status |
+|---|---:|---|---|---|---|---|---|
+| StartUser | POST | `/max/v1/users/start` | `UsersStartPOST` | `ЗарегистрироватьПользователя` | body: `max_user_id`, `chat_id`, `source` | object + `operation_id` | OK |
+| SaveConsent | POST | `/max/v1/consents` | `ConsentsPOST` | `ЗафиксироватьСогласие` | body: `max_user_id`, `consent_version`, `source` | object + `operation_id` | OK |
+| StartAccountLink | POST | `/max/v1/account-link/start` | `AccountLinkStartPOST` | `НачатьПривязкуЛицевогоСчета` | body: `max_user_id`, `account_number`, `source` | object + `operation_id` | OK |
+| ConfirmAccountLink | POST | `/max/v1/account-link/confirm` | `AccountLinkConfirmPOST` | `ПодтвердитьПривязкуЛицевогоСчета` | body: `max_user_id`, `account_number`, `code`, `source` | account | OK |
+| Accounts | GET | `/max/v1/accounts?max_user_id={max_user_id}` | `AccountsGET` | `ПолучитьЛицевыеСчетаПользователяJSON` | query: `max_user_id` | accounts[] | OK |
+| Balance | GET | `/max/v1/accounts/{account_id}/balance?max_user_id={max_user_id}` | `AccountBalanceGET` | `GetBalance` | path: `account_id`; query: `max_user_id` | balance | OK |
+| Meters | GET | `/max/v1/accounts/{account_id}/meters?max_user_id={max_user_id}` | `AccountMetersGET` | `ПолучитьПриборыУчетаJSON` | path: `account_id`; query: `max_user_id` | meters[] | OK |
+| SendReading | POST | `/max/v1/accounts/{account_id}/meters/{meter_id}/readings` | `AccountMeterReadingsPOST` | `СоздатьПоказаниеПрибора` | body: `max_user_id`, `period`, `value`, `message_id`, `operation_id`, `source` | reading result | OK |
+| CreateAppeal | POST | `/max/v1/accounts/{account_id}/appeals` | `AccountAppealsPOST` | `СоздатьОбращение` | body: `max_user_id`, `text`, `message_id`, `operation_id`, `source` | appeal result | OK |
+| Help | GET | `/max/v1/reference/help` | `ReferenceHelpGET` | `ПолучитьСправкуJSON` | none | help text | MISSING_IN_1C_CONFIG: handler is inline, no integration export |
+| Organization | GET | `/max/v1/reference/organization` | `ReferenceOrganizationGET` | `ПолучитьОрганизациюJSON` | none | organization | MISSING_IN_1C_CONFIG |
+| Emergency | GET | `/max/v1/reference/emergency` | `ReferenceEmergencyGET` | `ПолучитьАварийнуюСлужбуJSON` | none | emergency contacts | MISSING_IN_1C_CONFIG |
+| Invoice | GET | `/max/v1/accounts/{account_id}/invoice?period=YYYY-MM&max_user_id={max_user_id}` | `AccountInvoiceGET` | `ПолучитьКвитанциюJSON` | path: `account_id`; query: `period`, `max_user_id` | invoice | MISSING_IN_1C_CONFIG |
+| PaymentLink | POST | `/max/v1/accounts/{account_id}/payment-link` | `AccountPaymentLinkPOST` | `СоздатьСсылкуОплаты` | body: `max_user_id`, `operation_id`, `source` | payment link | MISSING_IN_1C_CONFIG |
+| Outages | GET | `/max/v1/accounts/{account_id}/outages?max_user_id={max_user_id}` | `AccountOutagesGET` | `ПолучитьОтключенияJSON` | path: `account_id`; query: `max_user_id` | outages[] | MISSING_IN_1C_CONFIG |
+| AppointmentTopics | GET | `/max/v1/reference/appointment-topics` | `ReferenceAppointmentTopicsGET` | `ПолучитьТемыЗаписиJSON` | none | topics[] | MISSING_IN_1C_CONFIG |
+| CreateAppointment | POST | `/max/v1/accounts/{account_id}/appointments` | `AccountAppointmentsPOST` | `СоздатьЗаписьНаПрием` | body: `max_user_id`, `topic_id`, `operation_id`, `source` | appointment | MISSING_IN_1C_CONFIG |
+
+`UNUSED_BY_BOT` endpoints in the checked `MAXBotHTTP` service were not found during this inventory.
