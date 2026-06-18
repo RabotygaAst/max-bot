@@ -469,8 +469,9 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), needAccountText("передать показания"), guestKeyboard())
 	}
 
+	period := time.Now().Format("2006-01")
 	resp, err := s.onec.SendReading(ctx, account.ID, parts[1], model.ReadingRequest{
-		Period:      time.Now().Format("2006-01"),
+		Period:      period,
 		Value:       value,
 		Source:      sourceMAX,
 		MaxUserID:   upd.UserID(),
@@ -481,8 +482,12 @@ func (s *BotService) handleReading(ctx context.Context, upd model.MAXUpdate, tex
 		return operationID, err
 	}
 	operationID = resp.OperationID
-	msg := fmt.Sprintf("✅ *Показание принято*\n\nЛС: `%s`\nПрибор: `%s`\nПериод: %s\nПоказание: *%.3f*\nДокумент: %s от %s",
-		fallback(account.Number, account.ID), resp.Data.MeterID, time.Now().Format("2006-01"), resp.Data.Value, fallback(resp.Data.DocumentNumber, "—"), fallback(resp.Data.DocumentDate, "—"))
+	processingLine := ""
+	if !resp.Data.Posted {
+		processingLine = "\nПроведение: нет"
+	}
+	msg := fmt.Sprintf("✅ *Показание зарегистрировано*\n\nЛС: `%s`\nТочка: `%s`\nПериод: %s\nПоказание: *%.3f*\nДокумент: %s от %s\nСтатус: записан в 1С, ожидает обработки%s",
+		fallback(account.Number, account.ID), resp.Data.MeterID, period, resp.Data.Value, fallback(resp.Data.DocumentNumber, "—"), fallback(resp.Data.DocumentDate, "—"), processingLine)
 	return operationID, s.max.SendMessageWithKeyboard(ctx, upd.ChatID(), msg, authorizedKeyboard())
 }
 
