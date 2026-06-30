@@ -2,13 +2,14 @@ services:
   postgres:
     image: postgres:16-alpine
     container_name: max-bot-postgres
+    restart: unless-stopped    
     environment:
       POSTGRES_DB: maxbot
       POSTGRES_USER: maxbot
-      POSTGRES_PASSWORD: maxbot_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U maxbot -d maxbot"]
       interval: 10s
@@ -18,14 +19,13 @@ services:
   max-bot:
     build: .
     container_name: max-bot
+    restart: unless-stopped
     env_file: .env
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     depends_on:
       postgres:
         condition: service_healthy
-    environment:
-      DATABASE_URL: postgres://maxbot:maxbot_password@postgres:5432/maxbot?sslmode=disable
 
 volumes:
   postgres_data:
