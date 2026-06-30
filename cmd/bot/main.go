@@ -4,6 +4,7 @@ import (
 	"errors"
 	"log/slog"
 	"net/http"
+	neturl "net/url"
 	"os"
 	"strings"
 
@@ -56,11 +57,19 @@ func main() {
 }
 
 // maskDatabaseURL скрывает пароль в логах
-func maskDatabaseURL(url string) string {
-	if len(url) < 20 {
+func maskDatabaseURL(rawURL string) string {
+	parsedURL, err := neturl.Parse(rawURL)
+	if err != nil || parsedURL.Scheme == "" || parsedURL.Host == "" || parsedURL.User == nil {
 		return "***"
 	}
-	return url[:strings.Index(url, "://")+3] + "***@" + url[strings.LastIndex(url, "@")+1:]
+
+	schemeIdx := strings.Index(rawURL, "://")
+	atIdx := strings.LastIndex(rawURL, "@")
+	if schemeIdx == -1 || atIdx == -1 || schemeIdx+3 >= atIdx {
+		return "***"
+	}
+
+	return rawURL[:schemeIdx+3] + "***@" + rawURL[atIdx+1:]
 }
 
 func logOneCMode(log *slog.Logger, baseURL string) {
