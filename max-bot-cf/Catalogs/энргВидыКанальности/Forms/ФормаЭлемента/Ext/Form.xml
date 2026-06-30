@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<Table name="Шкалы" id="7">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.Шкалы</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ШкалыКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="ШкалыКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="ШкалыРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="ШкалыСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>Шкалы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ШкалыСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ШкалыСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>Шкалы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ШкалыСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ШкалыУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Шкалы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ШкалыУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ШкалыНомерСтроки" id="20">
+					<DataPath>Объект.Шкалы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыНомерСтрокиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ШкалыНомерСтрокиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<InputField name="ШкалыУслуга" id="29">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыУслугаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ШкалыУслугаРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="ШкалыШкала" id="23">
+					<DataPath>Объект.Шкалы.Шкала</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыШкалаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ШкалыШкалаРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="ШкалыШкалаЕдиницаИзмерения" id="26">
+					<DataPath>Объект.Шкалы.Шкала.ЕдиницаИзмерения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыШкалаЕдиницаИзмеренияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ШкалыШкалаЕдиницаИзмеренияРасширеннаяПодсказка" id="28"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="ШкалыПоУслугам" id="32">
+			<TitleLocation>Top</TitleLocation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ШкалыПоУслугам</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Укажите, какие услуги может мерить каждая шкала</v8:content>
+				</v8:item>
+			</Title>
+			<TitleTextColor>#009646</TitleTextColor>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ШкалыПоУслугамКонтекстноеМеню" id="33"/>
+			<AutoCommandBar name="ШкалыПоУслугамКоманднаяПанель" id="34"/>
+			<ExtendedTooltip name="ШкалыПоУслугамРасширеннаяПодсказка" id="35"/>
+			<SearchStringAddition name="ШкалыПоУслугамСтрокаПоиска" id="36">
+				<AdditionSource>
+					<Item>ШкалыПоУслугам</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыПоУслугамСтрокаПоискаКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="ШкалыПоУслугамСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ШкалыПоУслугамСостояниеПросмотра" id="39">
+				<AdditionSource>
+					<Item>ШкалыПоУслугам</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыПоУслугамСостояниеПросмотраКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="ШкалыПоУслугамСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ШкалыПоУслугамУправлениеПоиском" id="42">
+				<AdditionSource>
+					<Item>ШкалыПоУслугам</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ШкалыПоУслугамУправлениеПоискомКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ШкалыПоУслугамУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ШкалыПоУслугамНомерСтроки" id="45">
+					<DataPath>Объект.ШкалыПоУслугам.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыПоУслугамНомерСтрокиКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ШкалыПоУслугамНомерСтрокиРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<InputField name="ШкалыПоУслугамШкала" id="48">
+					<DataPath>Объект.ШкалыПоУслугам.Шкала</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ContextMenu name="ШкалыПоУслугамШкалаКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="ШкалыПоУслугамШкалаРасширеннаяПодсказка" id="50"/>
+					<Events>
+						<Event name="StartChoice">ШкалыПоУслугамШкалаНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ШкалыПоУслугамУслуга" id="51">
+					<DataPath>Объект.ШкалыПоУслугам.Услуга</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШкалыПоУслугамУслугаКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ШкалыПоУслугамУслугаРасширеннаяПодсказка" id="53"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргВидыКанальности</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

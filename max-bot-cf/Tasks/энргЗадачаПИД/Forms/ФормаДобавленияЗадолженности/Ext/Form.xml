@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выберите задолженность</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="23">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="24"/>
+			</Button>
+			<Button name="ФормаОтмена" id="25">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="26"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>~Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СписокПериодНачисления" id="14">
+					<DataPath>Список.ПериодНачисления</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ='MMMM yyyy'</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокПериодНачисленияКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокПериодНачисленияРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="СписокУслуга" id="20">
+					<DataPath>Список.Услуга</DataPath>
+					<ContextMenu name="СписокУслугаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокУслугаРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="СписокСуммаОстаток" id="17">
+					<DataPath>Список.Задолженность</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Долг</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СписокСуммаОстатокКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокСуммаОстатокРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~Список.СуммаОстаток</Field>
+				<Field>Список.ПериодНачисления</Field>
+				<Field>Список.Услуга</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	&amp;ПериодНачисления_1 КАК ПериодНачисления,
+	&amp;Услуга_1 КАК Услуга
+ПОМЕСТИТЬ ВТ_ЗадолженностьЗадачи
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргЗадачаПИДЗадолженность.ПериодНачисления КАК ПериодНачисления,
+	энргЗадачаПИДЗадолженность.Услуга КАК Услуга
+ПОМЕСТИТЬ ВТ_ДолгиВПИР
+ИЗ
+	Задача.энргЗадачаПИД.Задолженность КАК энргЗадачаПИДЗадолженность
+		ЛЕВОЕ СОЕДИНЕНИЕ Задача.энргЗадачаПИД КАК энргЗадачаПИД
+		ПО энргЗадачаПИДЗадолженность.Ссылка = энргЗадачаПИД.Ссылка
+ГДЕ
+	энргЗадачаПИД.Ссылка &lt;&gt; &amp;Задача
+	И НЕ энргЗадачаПИД.Выполнена
+	И НЕ энргЗадачаПИД.ПометкаУдаления
+	И НЕ энргЗадачаПИД.ПрекращенаДеятельность
+	И энргЗадачаПИД.Организация = &amp;Организация
+	И энргЗадачаПИД.Район = &amp;Район
+	И энргЗадачаПИД.МКД = &amp;МКД
+	И энргЗадачаПИД.Абонент = &amp;Абонент
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_ЗадолженностьЗадачи.ПериодНачисления,
+	ВТ_ЗадолженностьЗадачи.Услуга
+ИЗ
+	ВТ_ЗадолженностьЗадачи КАК ВТ_ЗадолженностьЗадачи
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргВзаиморасчетыПоМесяцамОстатки.ПериодНачисления КАК ПериодНачисления,
+	энргВзаиморасчетыПоМесяцамОстатки.Услуга КАК Услуга,
+	энргВзаиморасчетыПоМесяцамОстатки.СуммаОстаток КАК СуммаОстаток,
+	энргВзаиморасчетыПоМесяцамОстатки.Организация КАК Организация,
+	энргВзаиморасчетыПоМесяцамОстатки.Район КАК Район,
+	энргВзаиморасчетыПоМесяцамОстатки.Абонент КАК Абонент
+ПОМЕСТИТЬ ВТ_Задолженность
+ИЗ
+	РегистрНакопления.энргВзаиморасчетыПоМесяцам.Остатки(
+			&amp;ТекДата,
+			Организация = &amp;Организация
+				И Район = &amp;Район
+				И МКД = &amp;МКД
+				И Абонент = &amp;Абонент) КАК энргВзаиморасчетыПоМесяцамОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ДолгиВПИР КАК ВТ_ДолгиВПИР
+		ПО энргВзаиморасчетыПоМесяцамОстатки.ПериодНачисления = ВТ_ДолгиВПИР.ПериодНачисления
+			И энргВзаиморасчетыПоМесяцамОстатки.Услуга = ВТ_ДолгиВПИР.Услуга
+ГДЕ
+	ВТ_ДолгиВПИР.ПериодНачисления ЕСТЬ NULL
+	И энргВзаиморасчетыПоМесяцамОстатки.Услуга &lt;&gt; ЗНАЧЕНИЕ(Справочник.энргВидыУслуг.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВТ_Задолженность.Организация КАК Организация,
+	ВТ_Задолженность.Район КАК Район,
+	ВТ_Задолженность.Абонент КАК Абонент,
+	ВТ_Задолженность.ПериодНачисления КАК ПериодНачисления,
+	ВТ_Задолженность.СуммаОстаток КАК СуммаОстаток,
+	ВТ_Задолженность.Услуга КАК Услуга,
+	МАКСИМУМ(энргНастройкиНачисленияПени.Период) КАК Период
+ПОМЕСТИТЬ ВТ_НепогашеныеНачисления
+ИЗ
+	ВТ_Задолженность КАК ВТ_Задолженность
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргНастройкиНачисленияПени КАК энргНастройкиНачисленияПени
+		ПО ВТ_Задолженность.Организация = энргНастройкиНачисленияПени.Организация
+			И ВТ_Задолженность.ПериодНачисления &gt;= энргНастройкиНачисленияПени.Период
+			И ВТ_Задолженность.Район = энргНастройкиНачисленияПени.Район
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Задолженность.Организация,
+	ВТ_Задолженность.Район,
+	ВТ_Задолженность.Абонент,
+	ВТ_Задолженность.ПериодНачисления,
+	ВТ_Задолженность.СуммаОстаток,
+	ВТ_Задолженность.Услуга
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВТ_НепогашеныеНачисления.ПериодНачисления КАК ПериодНачисления,
+	СУММА(ВТ_НепогашеныеНачисления.СуммаОстаток) КАК Задолженность,
+	ВТ_НепогашеныеНачисления.Услуга КАК Услуга
+ИЗ
+	ВТ_НепогашеныеНачисления КАК ВТ_НепогашеныеНачисления
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.энргНастройкиНачисленияПени КАК энргНастройкиНачисленияПени
+		ПО ВТ_НепогашеныеНачисления.Организация = энргНастройкиНачисленияПени.Организация
+			И ВТ_НепогашеныеНачисления.Район = энргНастройкиНачисленияПени.Район
+			И ВТ_НепогашеныеНачисления.Период = энргНастройкиНачисленияПени.Период
+ГДЕ
+	ДОБАВИТЬКДАТЕ(КОНЕЦПЕРИОДА(ВТ_НепогашеныеНачисления.ПериодНачисления, МЕСЯЦ), СЕКУНДА, 3600 * 24 * ЕСТЬNULL(энргНастройкиНачисленияПени.КрайнийСрокОплаты - 1, 0)) &lt; &amp;ТекДата
+
+СГРУППИРОВАТЬ ПО
+	ВТ_НепогашеныеНачисления.ПериодНачисления,
+	ВТ_НепогашеныеНачисления.Услуга
+
+ИМЕЮЩИЕ
+	СУММА(ВТ_НепогашеныеНачисления.СуммаОстаток) &gt;= 0</QueryText>
+				<KeyField>Услуга</KeyField>
+				<KeyField>ПериодНачисления</KeyField>
+				<KeyField>Задолженность</KeyField>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ПериодНачисления</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Услуга</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Организация">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Район">
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргЗоныОтвественности</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="МКД">
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргСтроения</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Абонент">
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргАбоненты</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Задача">
+			<Type>
+				<v8:Type>cfg:TaskRef.энргЗадачаПИД</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Договор">
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргДоговорыКонтрагентов</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>
