@@ -1,0 +1,1642 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Width>88</Width>
+	<Customizable>false</Customizable>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="1762">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокExtendedTooltip" id="1829"/>
+			<ChildItems>
+				<LabelDecoration name="ОписаниеРаздела" id="1763">
+					<Width>78</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменение заголовка программы, дополнительных реквизитов и других общих настроек.</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1764"/>
+					<ExtendedTooltip name="ОписаниеРазделаExtendedTooltip" id="1830"/>
+				</LabelDecoration>
+				<LabelDecoration name="Декорация" id="1793">
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</ToolTip>
+					<ContextMenu name="ДекорацияКонтекстноеМеню" id="1794"/>
+					<ExtendedTooltip name="ДекорацияРасширеннаяПодсказка" id="1831"/>
+				</LabelDecoration>
+				<CommandBar name="ГруппаСправка" id="1765">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<ExtendedTooltip name="ГруппаСправкаExtendedTooltip" id="1832"/>
+					<ChildItems>
+						<Button name="Справка" id="1766">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<ExtendedTooltip name="СправкаExtendedTooltip" id="1833"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДатаНачалаВеденияУчета" id="1993">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о начале ведения учета в ИБ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата начала ведения учета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДатаНачалаВеденияУчетаРасширеннаяПодсказка" id="1994"/>
+			<ChildItems>
+				<InputField name="энргДатаНачалаВеденияУчета" id="1995">
+					<DataPath>НаборКонстант.энргДатаНачалаВеденияУчета</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет ведется с</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<ContextMenu name="энргДатаНачалаВеденияУчетаКонтекстноеМеню" id="1996"/>
+					<ExtendedTooltip name="энргДатаНачалаВеденияУчетаРасширеннаяПодсказка" id="1997"/>
+					<Events>
+						<Event name="OnChange">энргДатаНачалаВеденияУчетаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="энргПоставщикПоУмолчанию" id="2115">
+					<DataPath>НаборКонстант.энргПоставщикПоУмолчанию</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поставщик по умолчанию</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="энргПоставщикПоУмолчаниюКонтекстноеМеню" id="2116"/>
+					<ExtendedTooltip name="энргПоставщикПоУмолчаниюРасширеннаяПодсказка" id="2117"/>
+					<Events>
+						<Event name="OnChange">энргПоставщикПоУмолчаниюПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="энргИспользоватьАбонентскиеОтделы" id="2217">
+			<DataPath>НаборКонстант.энргИспользоватьАбонентскиеОтделы</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="энргИспользоватьАбонентскиеОтделыКонтекстноеМеню" id="2218"/>
+			<ExtendedTooltip name="энргИспользоватьАбонентскиеОтделыРасширеннаяПодсказка" id="2219"/>
+			<Events>
+				<Event name="OnChange">энргИспользоватьАбонентскиеОтделыПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаПрименитьНастройки" id="1971">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа применить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа применить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПрименитьНастройкиРасширеннаяПодсказка" id="1972"/>
+			<ChildItems>
+				<LabelDecoration name="КакПрименитьНастройки" id="1973">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>После изменения настроек необходимо переоткрыть все открытые окна или перезайти в программу.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КакПрименитьНастройкиКонтекстноеМеню" id="1974"/>
+					<ExtendedTooltip name="КакПрименитьНастройкиРасширеннаяПодсказка" id="1975"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОбмены" id="2154">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа обмены</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа обмены</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбменыРасширеннаяПодсказка" id="2155"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="2220">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="2221"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОбменСЛК" id="2149">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с ЛК</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен СЛК</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаОбменСЛКРасширеннаяПодсказка" id="2150"/>
+							<ChildItems>
+								<CheckBoxField name="бестВключитьОбменСЛК" id="2151">
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестВключитьОбменСЛККонтекстноеМеню" id="2152"/>
+									<ExtendedTooltip name="бестВключитьОбменСЛКРасширеннаяПодсказка" id="2153"/>
+									<Events>
+										<Event name="OnChange">бестВключитьОбменСЛКПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменСГИС" id="2156">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с ГИС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен СГИС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаОбменСГИСРасширеннаяПодсказка" id="2157"/>
+							<ChildItems>
+								<CheckBoxField name="бестВключитьОбменСГИС" id="2158">
+									<DataPath>НаборКонстант.бестВключитьОбменСГИС</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестВключитьОбменСГИСКонтекстноеМеню" id="2159"/>
+									<ExtendedTooltip name="бестВключитьОбменСГИСРасширеннаяПодсказка" id="2160"/>
+									<Events>
+										<Event name="OnChange">бестВключитьОбменСГИСПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменСШинойГИС" id="2251">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с шиной ГИС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен с шиной ГИС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаОбменСШинойГИСРасширеннаяПодсказка" id="2252"/>
+							<ChildItems>
+								<CheckBoxField name="скэкВключитьОбменСШинойГИСЖКХ" id="2255">
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="скэкВключитьОбменСШинойГИСЖКХКонтекстноеМеню" id="2256"/>
+									<ExtendedTooltip name="скэкВключитьОбменСШинойГИСЖКХРасширеннаяПодсказка" id="2257"/>
+									<Events>
+										<Event name="OnChange">скэкВключитьОбменСШинойГИСЖКХПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменСASSIST" id="2196">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с ASSIST</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен СASSIST</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаОбменСASSISTРасширеннаяПодсказка" id="2197"/>
+							<ChildItems>
+								<CheckBoxField name="бестВключитьОбменСASSIST" id="2198">
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестВключитьОбменСASSISTКонтекстноеМеню" id="2199"/>
+									<ExtendedTooltip name="бестВключитьОбменСASSISTРасширеннаяПодсказка" id="2200"/>
+									<Events>
+										<Event name="OnChange">бестВключитьОбменСASSISTПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменСЦОК" id="2258">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с ЦОК</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен СЦОК</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаОбменСЦОКРасширеннаяПодсказка" id="2259"/>
+							<ChildItems>
+								<CheckBoxField name="скэкВключитьОбменСЦОК" id="2260">
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="скэкВключитьОбменСЦОККонтекстноеМеню" id="2261"/>
+									<ExtendedTooltip name="скэкВключитьОбменСЦОКРасширеннаяПодсказка" id="2262"/>
+									<Events>
+										<Event name="OnChange">скэкВключитьОбменСЦОКПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа6" id="2253">
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="2254"/>
+					<ChildItems>
+						<UsualGroup name="ОбменСШлюзомРассылкиСМС" id="2222">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с шлюзом рассылки СМС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обмен с шлюзом рассылки СМС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
+							<ControlRepresentation>Picture</ControlRepresentation>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ОбменСШлюзомРассылкиСМСРасширеннаяПодсказка" id="2223"/>
+							<ChildItems>
+								<CheckBoxField name="энргВключитьОбменСШлюзомРассылкиСМС" id="2224">
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="энргВключитьОбменСШлюзомРассылкиСМСКонтекстноеМеню" id="2225"/>
+									<ExtendedTooltip name="энргВключитьОбменСШлюзомРассылкиСМСРасширеннаяПодсказка" id="2226"/>
+									<Events>
+										<Event name="OnChange">энргВключитьОбменСШлюзомРассылкиСМСПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="энргАдресШлюзаРассылкиСМС" id="2227">
+									<ContextMenu name="энргАдресШлюзаРассылкиСМСКонтекстноеМеню" id="2228"/>
+									<ExtendedTooltip name="энргАдресШлюзаРассылкиСМСРасширеннаяПодсказка" id="2229"/>
+									<Events>
+										<Event name="OnChange">энргАдресШлюзаРассылкиСМСПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДеньЗавершенияОтчетногоПериода" id="1979">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа день завершения отчетного периода</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДеньЗавершенияОтчетногоПериодаРасширеннаяПодсказка" id="1980"/>
+			<ChildItems>
+				<UsualGroup name="Группа3" id="2239">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="2240"/>
+					<ChildItems>
+						<UsualGroup name="Группа5" id="2246">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="2247"/>
+							<ChildItems>
+								<UsualGroup name="Группа7" id="2280">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="2281"/>
+									<ChildItems>
+										<Button name="ДниЗавершенияРасчетногоПериодаПоУмолчанию" id="2212">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ДниЗавершенияРасчетногоПериодаПоУмолчанию</CommandName>
+											<ExtendedTooltip name="ДниЗавершенияРасчетногоПериодаПоУмолчаниюРасширеннаяПодсказка" id="2213"/>
+										</Button>
+										<Button name="ДниЗавершенияРасчетногоПериодаПоУмолчаниюЮЛ" id="2282">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ДниЗавершенияРасчетногоПериодаПоУмолчаниюЮЛ</CommandName>
+											<ExtendedTooltip name="ДниЗавершенияРасчетногоПериодаПоУмолчаниюЮЛРасширеннаяПодсказка" id="2283"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<Button name="НастройкаДлиныЛицевогоСчета" id="2128">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.НастройкаДлиныЛицевогоСчета</CommandName>
+									<ExtendedTooltip name="НастройкаДлиныЛицевогоСчетаРасширеннаяПодсказка" id="2129"/>
+								</Button>
+								<CheckBoxField name="энргИспользоватьПрикреплениеФайловСУказаниемТипа" id="2241">
+									<DataPath>НаборКонстант.энргИспользоватьПрикреплениеФайловСУказаниемТипа</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="энргИспользоватьПрикреплениеФайловСУказаниемТипаКонтекстноеМеню" id="2242"/>
+									<ExtendedTooltip name="энргИспользоватьПрикреплениеФайловСУказаниемТипаРасширеннаяПодсказка" id="2243"/>
+									<Events>
+										<Event name="OnChange">энргИспользоватьПрикреплениеФайловСУказаниемТипаПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="энргПерерасчетСреднихЗначенийОтражатьВНачислениях" id="2263">
+									<DataPath>НаборКонстант.энргПерерасчетСреднихЗначенийОтражатьВНачислениях</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="энргПерерасчетСреднихЗначенийОтражатьВНачисленияхКонтекстноеМеню" id="2264"/>
+									<ExtendedTooltip name="энргПерерасчетСреднихЗначенийОтражатьВНачисленияхРасширеннаяПодсказка" id="2265"/>
+									<Events>
+										<Event name="OnChange">энргПерерасчетСреднихЗначенийОтражатьВНачисленияхПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="энргНачальныеПоказанияПУНеРавныКонечнымВПериодеВведенияВЭксплуатациюПУ" id="2290">
+									<DataPath>НаборКонстант.энргНачальныеПоказанияПУНеРавныКонечнымВПериодеВведенияВЭксплуатациюПУ</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="энргНачальныеПоказанияПУНеРавныКонечнымВПериодеВведенияВЭксплуатациюПУКонтекстноеМеню" id="2291"/>
+									<ExtendedTooltip name="энргНачальныеПоказанияПУНеРавныКонечнымВПериодеВведенияВЭксплуатациюПУРасширеннаяПодсказка" id="2292"/>
+									<Events>
+										<Event name="OnChange">энргНачальныеПоказанияПУНеРавныКонечнымВПериодеВведенияВЭксплуатациюПУПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="бестИспользоватьДанныеДляРасчетаЭлектроэнерииЮЛ" id="2266">
+									<DataPath>НаборКонстант.бестИспользоватьДанныеДляРасчетаЭлектроэнерииЮЛ</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестИспользоватьДанныеДляРасчетаЭлектроэнерииЮЛКонтекстноеМеню" id="2267"/>
+									<ExtendedTooltip name="бестИспользоватьДанныеДляРасчетаЭлектроэнерииЮЛРасширеннаяПодсказка" id="2268"/>
+									<Events>
+										<Event name="OnChange">бестИспользоватьДанныеДляРасчетаЭлектроэнерииЮЛПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="бестИспользоватьДанныеДляРасчетаТепловойЭнергииТеплоносителяИХВСЮЛ" id="2269">
+									<DataPath>НаборКонстант.бестИспользоватьДанныеДляРасчетаТепловойЭнергииТеплоносителяИХВСЮЛ</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестИспользоватьДанныеДляРасчетаТепловойЭнергииТеплоносителяИХВСЮЛКонтекстноеМеню" id="2270"/>
+									<ExtendedTooltip name="бестИспользоватьДанныеДляРасчетаТепловойЭнергииТеплоносителяИХВСЮЛРасширеннаяПодсказка" id="2271"/>
+									<Events>
+										<Event name="OnChange">бестИспользоватьДанныеДляРасчетаТепловойЭнергииТеплоносителяИХВСЮЛПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="бестИспользоватьДоговорнойБлок" id="2293">
+									<DataPath>НаборКонстант.бестИспользоватьДоговорнойБлок</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестИспользоватьДоговорнойБлокКонтекстноеМеню" id="2294"/>
+									<ExtendedTooltip name="бестИспользоватьДоговорнойБлокРасширеннаяПодсказка" id="2295"/>
+									<Events>
+										<Event name="OnChange">бестИспользоватьДоговорнойБлокПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="бестНезависимыйСбыт" id="2296">
+									<DataPath>НаборКонстант.бестНезависимыйСбыт</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="бестНезависимыйСбытКонтекстноеМеню" id="2297"/>
+									<ExtendedTooltip name="бестНезависимыйСбытРасширеннаяПодсказка" id="2298"/>
+									<Events>
+										<Event name="OnChange">бестНезависимыйСбытПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа4" id="2244">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="2245"/>
+							<ChildItems>
+								<Button name="ДниЗавершенияРасчетногоПериода" id="1981">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ДниЗавершенияРасчетногоПериода</CommandName>
+									<ExtendedTooltip name="ДниЗавершенияРасчетногоПериодаРасширеннаяПодсказка" id="1982"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="2126">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="2127"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПериоды" id="1991">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодыРасширеннаяПодсказка" id="1992"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНастройкиМаксимальныхПоказателейПотребления" id="1983">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Максимальные показатели потребления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки максимальных показателей потребления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиМаксимальныхПоказателейПотребленияРасширеннаяПодсказка" id="1984"/>
+					<ChildItems>
+						<Button name="МаксимальныеПоказателиПотребления" id="1985">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.МаксимальныеПоказателиПотребления</CommandName>
+							<ExtendedTooltip name="МаксимальныеПоказателиПотребленияРасширеннаяПодсказка" id="1986"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройкиПриемаПоказаний" id="1987">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период предоставления показаний</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки максимальных показателей потребления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиПриемаПоказанийРасширеннаяПодсказка" id="1988"/>
+					<ChildItems>
+						<Button name="ПериодПриемаПоказаний" id="1989">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ПериодПриемаПоказаний</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Периоды приема показаний</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ПериодПриемаПоказанийРасширеннаяПодсказка" id="1990"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКоэффициентыПоказателейПотребления" id="2276">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициенты показателей потребления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа коэффициенты показателей потребления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКоэффициентыПоказателейПотребленияРасширеннаяПодсказка" id="2277"/>
+					<ChildItems>
+						<Button name="КоэффициентыПоказателейПотребления" id="2278">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.КоэффициентыПоказателейПотребления</CommandName>
+							<ExtendedTooltip name="КоэффициентыПоказателейПотребленияРасширеннаяПодсказка" id="2279"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройкиПриемаПоказанийЮЛ" id="2272">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период предоставления показаний ЮЛ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки максимальных показателей потребления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиПриемаПоказанийЮЛРасширеннаяПодсказка" id="2273"/>
+					<ChildItems>
+						<Button name="ПериодПриемаПоказанийЮЛ" id="2274">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ПериодПриемаПоказанийЮЛ</CommandName>
+							<ExtendedTooltip name="ПериодПриемаПоказанийЮЛРасширеннаяПодсказка" id="2275"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкаПорядкаПогашенияЗадолженности" id="1998">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Порядок погашения задолженности</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкаПорядкаПогашенияЗадолженностиРасширеннаяПодсказка" id="1999"/>
+			<ChildItems>
+				<LabelField name="СпособРаспределенияОплаты" id="2094">
+					<DataPath>СпособРаспределенияОплаты</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="СпособРаспределенияОплатыКонтекстноеМеню" id="2095"/>
+					<ExtendedTooltip name="СпособРаспределенияОплатыРасширеннаяПодсказка" id="2096"/>
+				</LabelField>
+				<Button name="ИсторияНастройкиРаспределенияОплаты" id="2097">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ИсторияНастройкиРаспределенияОплаты</CommandName>
+					<ExtendedTooltip name="ИсторияНастройкиРаспределенияОплатыРасширеннаяПодсказка" id="2098"/>
+				</Button>
+				<Button name="НастройкаПорядкаПогашенияЗадолженности" id="2000">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.НастройкаПорядкаПогашенияЗадолженности</CommandName>
+					<ExtendedTooltip name="НастройкаПорядкаПогашенияЗадолженностиРасширеннаяПодсказка" id="2001"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="энргИспользоватьРассрочку" id="2188">
+			<DataPath>НаборКонстант.энргИспользоватьРассрочку</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="энргИспользоватьРассрочкуКонтекстноеМеню" id="2189"/>
+			<ExtendedTooltip name="энргИспользоватьРассрочкуРасширеннаяПодсказка" id="2190"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаНастройкиТочекУчета" id="2191">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки точек учета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки точек учета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиТочекУчетаРасширеннаяПодсказка" id="2192"/>
+			<ChildItems>
+				<CheckBoxField name="энргИспользоватьПодчиненныеТочкиУчета" id="2214">
+					<DataPath>НаборКонстант.энргИспользоватьПодчиненныеТочкиУчета</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргИспользоватьПодчиненныеТочкиУчетаКонтекстноеМеню" id="2215"/>
+					<ExtendedTooltip name="энргИспользоватьПодчиненныеТочкиУчетаРасширеннаяПодсказка" id="2216"/>
+					<Events>
+						<Event name="OnChange">Подключаемый_ПриИзмененииРеквизита</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="энргИспользоватьНаправленияИспользованияТУ" id="2193">
+					<DataPath>НаборКонстант.энргИспользоватьНаправленияИспользованияТУ</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргИспользоватьНаправленияИспользованияТУКонтекстноеМеню" id="2194"/>
+					<ExtendedTooltip name="энргИспользоватьНаправленияИспользованияТУРасширеннаяПодсказка" id="2195"/>
+					<Events>
+						<Event name="OnChange">энргИспользоватьНаправленияИспользованияТУПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="энрРучноеИзменениеСпособаНачислений" id="2230">
+					<DataPath>НаборКонстант.энрРучноеИзменениеСпособаНачислений</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энрРучноеИзменениеСпособаНачисленийКонтекстноеМеню" id="2231"/>
+					<ExtendedTooltip name="энрРучноеИзменениеСпособаНачисленийРасширеннаяПодсказка" id="2232"/>
+					<Events>
+						<Event name="OnChange">Подключаемый_ПриИзмененииРеквизита</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="энргПовышающийКоэффициентНесанкционированногоПодключения" id="2236">
+					<DataPath>НаборКонстант.энргПовышающийКоэффициентНесанкционированногоПодключения</DataPath>
+					<ContextMenu name="энргПовышающийКоэффициентНесанкционированногоПодключенияКонтекстноеМеню" id="2237"/>
+					<ExtendedTooltip name="энргПовышающийКоэффициентНесанкционированногоПодключенияРасширеннаяПодсказка" id="2238"/>
+					<Events>
+						<Event name="OnChange">энргПовышающийКоэффициентНесанкционированногоПодключенияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="энргНеПрименятьЗависимостьЕслиБольшеОднойТочки" id="2209">
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргНеПрименятьЗависимостьЕслиБольшеОднойТочкиКонтекстноеМеню" id="2210"/>
+					<ExtendedTooltip name="энргНеПрименятьЗависимостьЕслиБольшеОднойТочкиРасширеннаяПодсказка" id="2211"/>
+					<Events>
+						<Event name="OnChange">Подключаемый_ПриИзмененииРеквизита</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкиРаботыСПриборамиУчета" id="2118">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки работы с приборами учета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиРаботыСПриборамиУчетаРасширеннаяПодсказка" id="2119"/>
+			<ChildItems>
+				<CheckBoxField name="энргИспользоватьТарифныеЗоны" id="2120">
+					<DataPath>НаборКонстант.энргИспользоватьТарифныеЗоны</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргИспользоватьТарифныеЗоныКонтекстноеМеню" id="2121"/>
+					<ExtendedTooltip name="энргИспользоватьТарифныеЗоныРасширеннаяПодсказка" id="2122"/>
+					<Events>
+						<Event name="OnChange">энргИспользоватьТарифныеЗоныПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="энргИспользоватьШкалыПриборовУчета" id="2123">
+					<DataPath>НаборКонстант.энргИспользоватьШкалыПриборовУчета</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргИспользоватьШкалыПриборовУчетаКонтекстноеМеню" id="2124"/>
+					<ExtendedTooltip name="энргИспользоватьШкалыПриборовУчетаРасширеннаяПодсказка" id="2125"/>
+					<Events>
+						<Event name="OnChange">энргИспользоватьШкалыПриборовУчетаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="бестИспользоватьТарифныеЗоны" id="2284">
+					<DataPath>НаборКонстант.бестИспользоватьТарифныеЗоны</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="бестИспользоватьТарифныеЗоныКонтекстноеМеню" id="2285"/>
+					<ExtendedTooltip name="бестИспользоватьТарифныеЗоныРасширеннаяПодсказка" id="2286"/>
+					<Events>
+						<Event name="OnChange">бестИспользоватьТарифныеЗоныПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="бестИспользоватьШкалыПриборовУчета" id="2287">
+					<DataPath>НаборКонстант.бестИспользоватьШкалыПриборовУчета</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="бестИспользоватьШкалыПриборовУчетаКонтекстноеМеню" id="2288"/>
+					<ExtendedTooltip name="бестИспользоватьШкалыПриборовУчетаРасширеннаяПодсказка" id="2289"/>
+					<Events>
+						<Event name="OnChange">бестИспользоватьШкалыПриборовУчетаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="энргУзлыУчетаФизическихЛиц" id="2248">
+					<DataPath>НаборКонстант.энргУзлыУчетаФизическихЛиц</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргУзлыУчетаФизическихЛицКонтекстноеМеню" id="2249"/>
+					<ExtendedTooltip name="энргУзлыУчетаФизическихЛицРасширеннаяПодсказка" id="2250"/>
+					<Events>
+						<Event name="OnChange">энргУзлыУчетаФизическихЛицПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="энргЗапретитьПроведениеДокументовБезПоказаний" id="2299">
+					<DataPath>НаборКонстант.энргЗапретитьПроведениеДокументовБезПоказаний</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="энргЗапретитьПроведениеДокументовБезПоказанийКонтекстноеМеню" id="2300"/>
+					<ExtendedTooltip name="энргЗапретитьПроведениеДокументовБезПоказанийРасширеннаяПодсказка" id="2301"/>
+					<Events>
+						<Event name="OnChange">энргЗапретитьПроведениеДокументовБезПоказанийПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="энргКоличествоНедопусковДляОтклоненияПоказаний" id="2233">
+					<DataPath>НаборКонстант.энргКоличествоНедопусковДляОтклоненияПоказаний</DataPath>
+					<ContextMenu name="энргКоличествоНедопусковДляОтклоненияПоказанийКонтекстноеМеню" id="2234"/>
+					<ExtendedTooltip name="энргКоличествоНедопусковДляОтклоненияПоказанийРасширеннаяПодсказка" id="2235"/>
+					<Events>
+						<Event name="OnChange">энргКоличествоНедопусковДляОтклоненияПоказанийПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРассчитываемаяУслугаПоУмолчанию" id="2002">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки расчета услуг по формулам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаРассчитываемаяУслугаПоУмолчаниюРасширеннаяПодсказка" id="2003"/>
+			<ChildItems>
+				<InputField name="энргРассчитываемаяУслугаПоУмолчанию" id="2004">
+					<DataPath>НаборКонстант.энргРассчитываемаяУслугаПоУмолчанию</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рассчитываемая услуга (по умолачнию)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="энргРассчитываемаяУслугаПоУмолчаниюКонтекстноеМеню" id="2005"/>
+					<ExtendedTooltip name="энргРассчитываемаяУслугаПоУмолчаниюРасширеннаяПодсказка" id="2006"/>
+					<Events>
+						<Event name="OnChange">энргРассчитываемаяУслугаПоУмолчаниюПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкиНачисленияПени" id="2083">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки начисления пени</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиНачисленияПениРасширеннаяПодсказка" id="2084"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДопУслуги" id="2111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доп услуги</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа доп услуги</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДопУслугиРасширеннаяПодсказка" id="2112"/>
+					<ChildItems>
+						<CheckBoxField name="энргИспользоватьДопУслуги" id="2108">
+							<DataPath>НаборКонстант.энргИспользоватьДопУслуги</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использовать расчет начислений за дополнительные услуги</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="энргИспользоватьДопУслугиКонтекстноеМеню" id="2109"/>
+							<ExtendedTooltip name="энргИспользоватьДопУслугиРасширеннаяПодсказка" id="2110"/>
+							<Events>
+								<Event name="OnChange">энргИспользоватьДопУслугиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНачислениеПени" id="2113">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начисление пени</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа начисление пени</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНачислениеПениРасширеннаяПодсказка" id="2114"/>
+					<ChildItems>
+						<CheckBoxField name="энргНачислятьПеню" id="2080">
+							<DataPath>НаборКонстант.энргНачислятьПеню</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выполнять начисление пени</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="энргНачислятьПенюКонтекстноеМеню" id="2081"/>
+							<ExtendedTooltip name="энргНачислятьПенюРасширеннаяПодсказка" id="2082"/>
+							<Events>
+								<Event name="OnChange">энргНачислятьПенюПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<Button name="НастройкиНачисленияПени" id="2085">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастройкиНачисленияПени</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прочие настройки</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="НастройкиНачисленияПениРасширеннаяПодсказка" id="2086"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидыКонтакнойИнформацииПИР" id="2130">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды контакной информации ПИР</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды контакной информации ПИР</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаВидыКонтакнойИнформацииПИРРасширеннаяПодсказка" id="2131"/>
+			<ChildItems>
+				<InputField name="энргВидЭлектроногоАдресаДляПИР" id="2132">
+					<DataPath>НаборКонстант.энргВидЭлектроногоАдресаДляПИР</DataPath>
+					<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+					<ContextMenu name="энргВидЭлектроногоАдресаДляПИРКонтекстноеМеню" id="2133"/>
+					<ExtendedTooltip name="энргВидЭлектроногоАдресаДляПИРРасширеннаяПодсказка" id="2134"/>
+					<Events>
+						<Event name="OnChange">энргВидЭлектроногоАдресаДляПИРПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="энргВидТелефонаДляПИР" id="2135">
+					<DataPath>НаборКонстант.энргВидТелефонаДляПИР</DataPath>
+					<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+					<ContextMenu name="энргВидТелефонаДляПИРКонтекстноеМеню" id="2136"/>
+					<ExtendedTooltip name="энргВидТелефонаДляПИРРасширеннаяПодсказка" id="2137"/>
+					<Events>
+						<Event name="OnChange">энргВидТелефонаДляПИРПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизитыФилиала" id="2138">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты филиала</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты филиала</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаРеквизитыФилиалаРасширеннаяПодсказка" id="2139"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитыФилиалаАдреса" id="2161">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала адреса</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала адреса</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитыФилиалаАдресаРасширеннаяПодсказка" id="2162"/>
+					<ChildItems>
+						<InputField name="энргРеквизитФилиалаАдрес" id="2140">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаАдрес</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаАдресКонтекстноеМеню" id="2141"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаАдресРасширеннаяПодсказка" id="2142"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаАдресПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаЮридическийАдрес" id="2163">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаЮридическийАдрес</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Юридический адрес</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаЮридическийАдресКонтекстноеМеню" id="2164"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаЮридическийАдресРасширеннаяПодсказка" id="2165"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаЮридическийАдресПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитыФилиалаКонтакты" id="2166">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала контакты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала контакты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитыФилиалаКонтактыРасширеннаяПодсказка" id="2167"/>
+					<ChildItems>
+						<InputField name="энргРеквизитФилиалаТелефон" id="2143">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаТелефон</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Телефон</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаТелефонКонтекстноеМеню" id="2144"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаТелефонРасширеннаяПодсказка" id="2145"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаТелефонПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаФакс" id="2185">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаФакс</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Факс</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаФаксКонтекстноеМеню" id="2186"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаФаксРасширеннаяПодсказка" id="2187"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаФаксПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаЭлекАдрес" id="2168">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаЭлекАдрес</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>e-mail</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаЭлекАдресКонтекстноеМеню" id="2169"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаЭлекАдресРасширеннаяПодсказка" id="2170"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаЭлекАдресПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаАдресСайта" id="2146">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаАдресСайта</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сайт</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаАдресСайтаКонтекстноеМеню" id="2147"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаАдресСайтаРасширеннаяПодсказка" id="2148"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаАдресСайтаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитыФилиалаФинИнф" id="2171">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала фин инф</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизиты филиала фин инф</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитыФилиалаФинИнфРасширеннаяПодсказка" id="2172"/>
+					<ChildItems>
+						<InputField name="энргРеквизитФилиалаОКПО" id="2173">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаОКПО</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ОКПО</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаОКПОКонтекстноеМеню" id="2174"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаОКПОРасширеннаяПодсказка" id="2175"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаОКПОПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаОГРН" id="2176">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаОГРН</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ОГРН</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаОГРНКонтекстноеМеню" id="2177"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаОГРНРасширеннаяПодсказка" id="2178"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаОГРНПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаИНН" id="2179">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаИНН</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ИНН</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаИННКонтекстноеМеню" id="2180"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаИННРасширеннаяПодсказка" id="2181"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаИННПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="энргРеквизитФилиалаКПП" id="2182">
+							<DataPath>НаборКонстант.энргРеквизитФилиалаКПП</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>КПП</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="энргРеквизитФилиалаКППКонтекстноеМеню" id="2183"/>
+							<ExtendedTooltip name="энргРеквизитФилиалаКППРасширеннаяПодсказка" id="2184"/>
+							<Events>
+								<Event name="OnChange">энргРеквизитФилиалаКПППриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкаТемператур" id="2201">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Температуры окружающей среды (по умолчанию)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройка температур</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкаТемпературРасширеннаяПодсказка" id="2202"/>
+			<ChildItems>
+				<InputField name="бестПроектнаяТемператураНаружногоВоздухаПоУмолчанию" id="2203">
+					<DataPath>НаборКонстант.бестПроектнаяТемператураНаружногоВоздухаПоУмолчанию</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проектная температура наружного воздуха</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="бестПроектнаяТемператураНаружногоВоздухаПоУмолчаниюКонтекстноеМеню" id="2204"/>
+					<ExtendedTooltip name="бестПроектнаяТемператураНаружногоВоздухаПоУмолчаниюРасширеннаяПодсказка" id="2205"/>
+					<Events>
+						<Event name="OnChange">бестПроектнаяТемператураНаружногоВоздухаПоУмолчаниюПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="бестТемператураВнутриПомещенияПоУмолчанию" id="2206">
+					<DataPath>НаборКонстант.бестТемператураВнутриПомещенияПоУмолчанию</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Температура внутри помещения</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="бестТемператураВнутриПомещенияПоУмолчаниюКонтекстноеМеню" id="2207"/>
+					<ExtendedTooltip name="бестТемператураВнутриПомещенияПоУмолчаниюРасширеннаяПодсказка" id="2208"/>
+					<Events>
+						<Event name="OnChange">бестТемператураВнутриПомещенияПоУмолчаниюПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройкиПечатныхФорм" id="2007">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки печатных форм</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки печатных форм</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиПечатныхФормРасширеннаяПодсказка" id="2008"/>
+			<ChildItems>
+				<Table name="НаборРегистрСведенийНастройкиПечатныхФорм" id="2041">
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>НаборНастройкиПечатныхФорм</DataPath>
+					<RowPictureDataPath>НаборНастройкиПечатныхФорм.DefaultPicture</RowPictureDataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормКонтекстноеМеню" id="2042"/>
+					<AutoCommandBar name="НаборРегистрСведенийНастройкиПечатныхФормКоманднаяПанель" id="2043"/>
+					<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормРасширеннаяПодсказка" id="2044"/>
+					<SearchStringAddition name="НаборРегистрСведенийНастройкиПечатныхФормСтрокаПоиска" id="2045">
+						<AdditionSource>
+							<Item>НаборРегистрСведенийНастройкиПечатныхФорм</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормСтрокаПоискаКонтекстноеМеню" id="2046"/>
+						<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормСтрокаПоискаРасширеннаяПодсказка" id="2047"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="НаборРегистрСведенийНастройкиПечатныхФормСостояниеПросмотра" id="2048">
+						<AdditionSource>
+							<Item>НаборРегистрСведенийНастройкиПечатныхФорм</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормСостояниеПросмотраКонтекстноеМеню" id="2049"/>
+						<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормСостояниеПросмотраРасширеннаяПодсказка" id="2050"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="НаборРегистрСведенийНастройкиПечатныхФормУправлениеПоиском" id="2051">
+						<AdditionSource>
+							<Item>НаборРегистрСведенийНастройкиПечатныхФорм</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормУправлениеПоискомКонтекстноеМеню" id="2052"/>
+						<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормУправлениеПоискомРасширеннаяПодсказка" id="2053"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="НаборРегистрСведенийНастройкиПечатныхФормОбъектМетаданных" id="2099">
+							<DataPath>НаборНастройкиПечатныхФорм.ОбъектМетаданных</DataPath>
+							<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормОбъектМетаданныхКонтекстноеМеню" id="2100"/>
+							<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормОбъектМетаданныхРасширеннаяПодсказка" id="2101"/>
+						</LabelField>
+						<LabelField name="НаборРегистрСведенийНастройкиПечатныхФормПараметр" id="2102">
+							<DataPath>НаборНастройкиПечатныхФорм.Параметр</DataPath>
+							<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормПараметрКонтекстноеМеню" id="2103"/>
+							<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормПараметрРасширеннаяПодсказка" id="2104"/>
+						</LabelField>
+						<LabelField name="НаборРегистрСведенийНастройкиПечатныхФормЗначениеПараметра" id="2105">
+							<DataPath>НаборНастройкиПечатныхФорм.ЗначениеПараметра</DataPath>
+							<ContextMenu name="НаборРегистрСведенийНастройкиПечатныхФормЗначениеПараметраКонтекстноеМеню" id="2106"/>
+							<ExtendedTooltip name="НаборРегистрСведенийНастройкиПечатныхФормЗначениеПараметраРасширеннаяПодсказка" id="2107"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаборКонстант" id="1">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СпособРаспределенияОплаты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ распределения оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.энргСпособыРаспределенияОплаты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НаборНастройкиПечатныхФорм" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор настройки печатных форм</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.энргНастройкиПечатныхФорм</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОбъектМетаданных</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+					</dcsset:item>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДниЗавершенияРасчетногоПериода" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода (для конкретного периода)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДниЗавершенияРасчетногоПериода</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="МаксимальныеПоказателиПотребления" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальные показатели потребления</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальные показатели потребления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>МаксимальныеПоказателиПотребления</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПериодПриемаПоказаний" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период приема показаний</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период приема показаний</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПериодПриемаПоказаний</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкаПорядкаПогашенияЗадолженности" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка порядка погашения задолженности</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка порядка погашения задолженности</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкаПорядкаПогашенияЗадолженности</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкиНачисленияПени" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки начисления пени</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки начисления пени</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкиНачисленияПени</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИсторияНастройкиРаспределенияОплаты" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История настройки распределения оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История настройки распределения оплаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИсторияНастройкиРаспределенияОплаты</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкаДлиныЛицевогоСчета" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка длины лицевого счета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка длины лицевого счета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкаДлиныЛицевогоСчета</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДниЗавершенияРасчетногоПериодаПоУмолчанию" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода (по умолчанию)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода по умолчанию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДниЗавершенияРасчетногоПериодаПоУмолчанию</Action>
+		</Command>
+		<Command name="ПериодПриемаПоказанийЮЛ" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период приема показаний ЮЛ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период приема показаний ЮЛ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПериодПриемаПоказанийЮЛ</Action>
+		</Command>
+		<Command name="КоэффициентыПоказателейПотребления" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициенты показателей потребления ЮЛ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициенты показателей потребления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоэффициентыПоказателейПотребления</Action>
+		</Command>
+		<Command name="ДниЗавершенияРасчетногоПериодаПоУмолчаниюЮЛ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода ЮЛ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни завершения расчетного периода по умолчанию ЮЛ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДниЗавершенияРасчетногоПериодаПоУмолчаниюЮЛ</Action>
+		</Command>
+	</Commands>
+</Form>

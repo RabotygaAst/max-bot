@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Организация" id="1">
+			<DataPath>Организация</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Район" id="4">
+			<DataPath>Район</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="РайонКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">РайонПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Услуга" id="10">
+			<DataPath>Услуга</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="УслугаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="УслугаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Период" id="7">
+			<DataPath>Период</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ПериодПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаОтборы" id="86">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="87"/>
+			<ChildItems>
+				<InputField name="ЛС" id="88">
+					<DataPath>ЛС</DataPath>
+					<ContextMenu name="ЛСКонтекстноеМеню" id="89"/>
+					<ExtendedTooltip name="ЛСРасширеннаяПодсказка" id="90"/>
+				</InputField>
+				<InputField name="ОбъектРасчета" id="91">
+					<DataPath>ОбъектРасчета</DataPath>
+					<ContextMenu name="ОбъектРасчетаКонтекстноеМеню" id="92"/>
+					<ExtendedTooltip name="ОбъектРасчетаРасширеннаяПодсказка" id="93"/>
+				</InputField>
+				<InputField name="Договор" id="94">
+					<DataPath>Договор</DataPath>
+					<ContextMenu name="ДоговорКонтекстноеМеню" id="95"/>
+					<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="96"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ОбъемНачислений" id="13">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ОбъемНачислений</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОбъемНачисленийКонтекстноеМеню" id="14"/>
+			<AutoCommandBar name="ОбъемНачисленийКоманднаяПанель" id="15">
+				<ChildItems>
+					<Button name="ОбъемНачисленийЗаполнить" id="97">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<ExtendedTooltip name="ОбъемНачисленийЗаполнитьРасширеннаяПодсказка" id="98"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ОбъемНачисленийРасширеннаяПодсказка" id="16"/>
+			<SearchStringAddition name="ОбъемНачисленийСтрокаПоиска" id="17">
+				<AdditionSource>
+					<Item>ОбъемНачислений</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъемНачисленийСтрокаПоискаКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ОбъемНачисленийСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОбъемНачисленийСостояниеПросмотра" id="20">
+				<AdditionSource>
+					<Item>ОбъемНачислений</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъемНачисленийСостояниеПросмотраКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ОбъемНачисленийСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОбъемНачисленийУправлениеПоиском" id="23">
+				<AdditionSource>
+					<Item>ОбъемНачислений</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъемНачисленийУправлениеПоискомКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ОбъемНачисленийУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ОбъемНачисленийРасчетныйПериод" id="26">
+					<DataPath>ОбъемНачислений.РасчетныйПериод</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбъемНачисленийРасчетныйПериодКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ОбъемНачисленийРасчетныйПериодРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ОбъемНачисленийОбъектРасчета" id="29">
+					<DataPath>ОбъемНачислений.ОбъектРасчета</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбъемНачисленийОбъектРасчетаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ОбъемНачисленийОбъектРасчетаРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<ColumnGroup name="ОбъемНачисленийГруппа1" id="99">
+					<ExtendedTooltip name="ОбъемНачисленийГруппа1РасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<InputField name="ОбъемНачисленийПоставщик" id="32">
+							<DataPath>ОбъемНачислений.Поставщик</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийПоставщикКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ОбъемНачисленийПоставщикРасширеннаяПодсказка" id="34"/>
+						</InputField>
+						<InputField name="ОбъемНачисленийТочкаУчета" id="35">
+							<DataPath>ОбъемНачислений.ТочкаУчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<QuickChoice>false</QuickChoice>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ОбъемНачисленийТочкаУчетаКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ОбъемНачисленийТочкаУчетаРасширеннаяПодсказка" id="37"/>
+							<Events>
+								<Event name="StartChoice">РучнойПерерасчетТочкаУчетаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъемНачисленийУслуга" id="38">
+							<DataPath>ОбъемНачислений.Услуга</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<QuickChoice>false</QuickChoice>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ОбъемНачисленийУслугаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ОбъемНачисленийУслугаРасширеннаяПодсказка" id="40"/>
+							<Events>
+								<Event name="StartChoice">РучнойПерерасчетУслугаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ОбъемНачисленийГруппа2" id="101">
+					<ExtendedTooltip name="ОбъемНачисленийГруппа2РасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<InputField name="ОбъемНачисленийДоговор" id="41">
+							<DataPath>ОбъемНачислений.Договор</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийДоговорКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ОбъемНачисленийДоговорРасширеннаяПодсказка" id="43"/>
+						</InputField>
+						<InputField name="ОбъемНачисленийПриборУчета" id="44">
+							<DataPath>ОбъемНачислений.ПриборУчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийПриборУчетаКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ОбъемНачисленийПриборУчетаРасширеннаяПодсказка" id="46"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ОбъемНачисленийГруппа3" id="103">
+					<ExtendedTooltip name="ОбъемНачисленийГруппа3РасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<InputField name="ОбъемНачисленийШкала" id="47">
+							<DataPath>ОбъемНачислений.Шкала</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийШкалаКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ОбъемНачисленийШкалаРасширеннаяПодсказка" id="49"/>
+						</InputField>
+						<InputField name="ОбъемНачисленийТарифнаяЗона" id="50">
+							<DataPath>ОбъемНачислений.ТарифнаяЗона</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийТарифнаяЗонаКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ОбъемНачисленийТарифнаяЗонаРасширеннаяПодсказка" id="52"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ОбъемНачисленийГруппа4" id="105">
+					<ExtendedTooltip name="ОбъемНачисленийГруппа4РасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<InputField name="ОбъемНачисленийОбъемУслуги" id="53">
+							<DataPath>ОбъемНачислений.ОбъемУслуги</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийОбъемУслугиКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ОбъемНачисленийОбъемУслугиРасширеннаяПодсказка" id="55"/>
+							<Events>
+								<Event name="OnChange">ОбъемНачисленийОбъемУслугиПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъемНачисленийОбъемПотребленный" id="56">
+							<DataPath>ОбъемНачислений.ОбъемПотребленный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийОбъемПотребленныйКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ОбъемНачисленийОбъемПотребленныйРасширеннаяПодсказка" id="58"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ОбъемНачисленийГруппа5" id="107">
+					<ExtendedTooltip name="ОбъемНачисленийГруппа5РасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<InputField name="ОбъемНачисленийСумма" id="59">
+							<DataPath>ОбъемНачислений.Сумма</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийСуммаКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ОбъемНачисленийСуммаРасширеннаяПодсказка" id="61"/>
+						</InputField>
+						<InputField name="ОбъемНачисленийТарифнаяГруппа" id="62">
+							<DataPath>ОбъемНачислений.ТарифнаяГруппа</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийТарифнаяГруппаКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ОбъемНачисленийТарифнаяГруппаРасширеннаяПодсказка" id="64"/>
+						</InputField>
+						<InputField name="ОбъемНачисленийЗначениеТарифа" id="65">
+							<DataPath>ОбъемНачислений.ЗначениеТарифа</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъемНачисленийЗначениеТарифаКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ОбъемНачисленийЗначениеТарифаРасширеннаяПодсказка" id="67"/>
+							<Events>
+								<Event name="OnChange">ОбъемНачисленийЗначениеТарифаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<Table name="СозданныеДокументы" id="68">
+			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
+			<Header>false</Header>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<DataPath>СозданныеДокументы</DataPath>
+			<RowPictureDataPath>СозданныеДокументы.Picture</RowPictureDataPath>
+			<ContextMenu name="СозданныеДокументыКонтекстноеМеню" id="69"/>
+			<AutoCommandBar name="СозданныеДокументыКоманднаяПанель" id="70">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СозданныеДокументыСоздатьДокументы" id="84">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьДокументы</CommandName>
+						<ExtendedTooltip name="СозданныеДокументыСоздатьДокументыРасширеннаяПодсказка" id="85"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СозданныеДокументыРасширеннаяПодсказка" id="71"/>
+			<SearchStringAddition name="СозданныеДокументыСтрокаПоиска" id="72">
+				<AdditionSource>
+					<Item>СозданныеДокументы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СозданныеДокументыСтрокаПоискаКонтекстноеМеню" id="73"/>
+				<ExtendedTooltip name="СозданныеДокументыСтрокаПоискаРасширеннаяПодсказка" id="74"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СозданныеДокументыСостояниеПросмотра" id="75">
+				<AdditionSource>
+					<Item>СозданныеДокументы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СозданныеДокументыСостояниеПросмотраКонтекстноеМеню" id="76"/>
+				<ExtendedTooltip name="СозданныеДокументыСостояниеПросмотраРасширеннаяПодсказка" id="77"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СозданныеДокументыУправлениеПоиском" id="78">
+				<AdditionSource>
+					<Item>СозданныеДокументы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СозданныеДокументыУправлениеПоискомКонтекстноеМеню" id="79"/>
+				<ExtendedTooltip name="СозданныеДокументыУправлениеПоискомРасширеннаяПодсказка" id="80"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="СозданныеДокументыЗначение" id="81">
+					<DataPath>СозданныеДокументы.Value</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Созданные документы</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СозданныеДокументыЗначениеКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="СозданныеДокументыЗначениеРасширеннаяПодсказка" id="83"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.бестМассовыйВводАктированногоРасхода</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Период" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Район" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Территориальный орган</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргЗоныОтвественности</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Услуга" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Услуга</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргВидыУслуг</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Договор" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргДоговорыКонтрагентов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбъектРасчета" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект расчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.бестОбъектыРасчета</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛС" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЛС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СозданныеДокументы" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Созданные документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:DocumentRef.бестПерерасчетНП</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОбъемНачислений" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем начислений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="РасчетныйПериод" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расчетный период</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОбъектРасчета" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект расчета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.бестОбъектыРасчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Поставщик" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поставщик</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргКонтрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТочкаУчета" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Точка учета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргТочкиУчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Услуга" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Услуга</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргВидыУслуг</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Договор" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргДоговорыКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПриборУчета" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибор учета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргПриборыУчетаАбонента</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Шкала" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шкала</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргШкалыПриборовУчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТарифнаяЗона" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тарифная зона</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргТарифныеЗоны</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбъемУслуги" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем услуги</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>6</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОбъемПотребленный" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем потребленный</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>6</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТарифнаяГруппа" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тарифная группа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.энргГруппыПотребителей</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗначениеТарифа" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение тарифа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПериодНачисления" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период начисления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьДокументы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДокументы</Action>
+		</Command>
+		<Command name="Заполнить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+	</Commands>
+</Form>

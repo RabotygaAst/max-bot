@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<CommandsVisibility>
+		<Command name="Catalog.энргСтроения.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Catalog.энргНежилыеПомещения.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Report.энргБалансПоМКД.StandardCommand.Open">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Report.энргИнформацияПоМКД.StandardCommand.Open">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Report.энргРеестрУправляющихКомпаний.StandardCommand.Open">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+			</Visibility>
+		</Command>
+	</CommandsVisibility>
+	<CommandsPlacement>
+		<Command name="Catalog.энргСтроения.StandardCommand.OpenList">
+			<CommandGroup>NavigationPanelImportant</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="Catalog.энргНежилыеПомещения.StandardCommand.OpenList">
+			<CommandGroup>NavigationPanelImportant</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+	</CommandsPlacement>
+	<CommandsOrder>
+		<Command name="Catalog.энргСтроения.StandardCommand.OpenList">
+			<CommandGroup>NavigationPanelImportant</CommandGroup>
+		</Command>
+		<Command name="Catalog.энргНежилыеПомещения.StandardCommand.OpenList">
+			<CommandGroup>NavigationPanelImportant</CommandGroup>
+		</Command>
+	</CommandsOrder>
+	<SubsystemsOrder>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.МКД</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.Услуги</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.Приборы</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.ТочкиПоставки</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.Показания</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.ПрочиеПараметрыМКД</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.НежилыеПомещения</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.энргМКД_Отчеты</Subsystem>
+		<Subsystem>Subsystem.энргБиллингРаботаСМКД.Subsystem.энргСмТакжеРаботаСМКД</Subsystem>
+	</SubsystemsOrder>
+	<GroupsOrder>
+		<Group>NavigationPanelImportant</Group>
+	</GroupsOrder>
+</CommandInterface>

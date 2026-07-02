@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюСоздатьНаОсновании" id="540">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>Picture</Representation>
+				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="541"/>
+			</Popup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="542">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="543"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="544">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>PictureAndText</Representation>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="545"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="546">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="547"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="548">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="549"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="550">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="551"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+			<Popup name="ПодменюДополнительныхОбработокЗаполнения" id="552">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Заполнение</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные команды заполнения</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюДополнительныхОбработокЗаполненияРасширеннаяПодсказка" id="553"/>
+			</Popup>
+			<Popup name="ПодменюПечать" id="554">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды печати</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="555"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ВидОперации" id="16">
+			<DataPath>Объект.ВидОперации</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.энргВидыОпераций.EnumValue.энргПерерасчет_ИзменениеПризнакаНаличияПрибораСНачалаГода</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<BackColor>#CCFFFF</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<UsualGroup name="ГруппаДатаНомер" id="513">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="514"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<LabelField name="ПериодНачисления" id="40">
+			<DataPath>Объект.ПериодНачисления</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Format>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДФ='ММММ гггг'</v8:content>
+				</v8:item>
+			</Format>
+			<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="42"/>
+		</LabelField>
+		<InputField name="Организация" id="34">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="36"/>
+		</InputField>
+		<InputField name="Район" id="49">
+			<DataPath>Объект.Район</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РайонКонтекстноеМеню" id="50"/>
+			<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="51"/>
+		</InputField>
+		<InputField name="Строение" id="28">
+			<DataPath>Объект.Строение</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СтроениеКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="СтроениеРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<Table name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду" id="515">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду</DataPath>
+			<RowPictureDataPath>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>CommandBar</SearchStringLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуКонтекстноеМеню" id="516"/>
+			<AutoCommandBar name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуКоманднаяПанель" id="517"/>
+			<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуРасширеннаяПодсказка" id="518"/>
+			<SearchStringAddition name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСтрокаПоиска" id="519">
+				<AdditionSource>
+					<Item>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСтрокаПоискаКонтекстноеМеню" id="520"/>
+				<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСтрокаПоискаРасширеннаяПодсказка" id="521"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСостояниеПросмотра" id="522">
+				<AdditionSource>
+					<Item>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСостояниеПросмотраКонтекстноеМеню" id="523"/>
+				<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуСостояниеПросмотраРасширеннаяПодсказка" id="524"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуУправлениеПоиском" id="525">
+				<AdditionSource>
+					<Item>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуУправлениеПоискомКонтекстноеМеню" id="526"/>
+				<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуУправлениеПоискомРасширеннаяПодсказка" id="527"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуПериод" id="528">
+					<DataPath>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду.Period</DataPath>
+					<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуПериодКонтекстноеМеню" id="529"/>
+					<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуПериодРасширеннаяПодсказка" id="530"/>
+				</LabelField>
+				<LabelField name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуРегистратор" id="531">
+					<DataPath>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду.Recorder</DataPath>
+					<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуРегистраторКонтекстноеМеню" id="532"/>
+					<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуРегистраторРасширеннаяПодсказка" id="533"/>
+				</LabelField>
+				<LabelField name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуНомерСтроки" id="537">
+					<DataPath>ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду.LineNumber</DataPath>
+					<ContextMenu name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуНомерСтрокиКонтекстноеМеню" id="538"/>
+					<ExtendedTooltip name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГодуНомерСтрокиРасширеннаяПодсказка" id="539"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<InputField name="Примечание" id="43">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="45"/>
+		</InputField>
+		<LabelField name="Ответственный" id="37">
+			<DataPath>Объект.Ответственный</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="39"/>
+		</LabelField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.энргПерерасчет</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ИзменениеПризнакаБылУстановленныйПриборВЭтомГоду" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение признака был установленный прибор в этом году</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>AccumulationRegister.энргОбъемНачислений</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

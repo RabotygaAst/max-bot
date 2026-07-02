@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КлючПомещения</dataPath>
+			<field>КлючПомещения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Абонент</dataPath>
+			<field>Абонент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Район</dataPath>
+			<field>Район</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаУчета</dataPath>
+			<field>ТочкаУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УдалитьАбонент</dataPath>
+			<field>УдалитьАбонент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОткрытыеЛС</dataPath>
+			<field>ОткрытыеЛС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открытые ЛС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗакрытыеЛС</dataPath>
+			<field>ЗакрытыеЛС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрытые ЛС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРассчитаныхАбон</dataPath>
+			<field>КоличествоРассчитаныхАбон</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество рассчитаных абон</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отключены</dataPath>
+			<field>Отключены</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключены</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоТП</dataPath>
+			<field>ДоТП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>До ТП</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОРП</dataPath>
+			<field>ОРП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОРП</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отсутствие</dataPath>
+			<field>Отсутствие</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отсутствие</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Всего</dataPath>
+			<field>Всего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипСтроения</dataPath>
+			<field>ТипСтроения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип строения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	энргСостояниеЛССрезПоследних.Период КАК Период,
+	энргСостояниеЛССрезПоследних.Организация КАК Организация,
+	энргСостояниеЛССрезПоследних.Район КАК Район,
+	энргСостояниеЛССрезПоследних.Абонент КАК Абонент,
+	энргСостояниеЛССрезПоследних.Состояние КАК Состояние
+ПОМЕСТИТЬ АктуальноеСостояниеЛС
+ИЗ
+	РегистрСведений.энргСостояниеЛС.СрезПоследних(
+			&amp;КонецПериодаГраница,
+			Организация = &amp;Организация
+				И Район = &amp;Район) КАК энргСостояниеЛССрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргФилиалыАбонентовСрезПоследних.Абонент КАК Абонент,
+	энргФилиалыАбонентовСрезПоследних.Филиал КАК Филиал
+ПОМЕСТИТЬ АбонентскиеОтделыАбонентов
+ИЗ
+	РегистрСведений.энргФилиалыАбонентов.СрезПоследних(
+			&amp;КонецПериодаГраница,
+			Абонент В
+				(ВЫБРАТЬ
+					АктуальноеСостояниеЛС.Абонент КАК Абонент
+				ИЗ
+					АктуальноеСостояниеЛС КАК АктуальноеСостояниеЛС)) КАК энргФилиалыАбонентовСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	АктуальноеСостояниеЛС.Организация КАК Организация,
+	АктуальноеСостояниеЛС.Район КАК Район,
+	АктуальноеСостояниеЛС.Абонент КАК Абонент,
+	АктуальноеСостояниеЛС.Период КАК Период,
+	АктуальноеСостояниеЛС.Состояние КАК Состояние,
+	энргАбоненты.КлючПомещения КАК КлючПомещения,
+	энргАбоненты.КлючПомещения.Строение КАК Строение,
+	энргАбоненты.КлючПомещения.Помещение КАК Помещение,
+	энргАбоненты.КлючПомещения.ЧастныйСектор КАК ЧастныйСектор
+ПОМЕСТИТЬ ТаблицаДляСвязывания
+ИЗ
+	АктуальноеСостояниеЛС КАК АктуальноеСостояниеЛС
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргАбоненты КАК энргАбоненты
+		ПО АктуальноеСостояниеЛС.Абонент = энргАбоненты.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ АбонентскиеОтделыАбонентов КАК АбонентскиеОтделыАбонентов
+		ПО АктуальноеСостояниеЛС.Абонент = АбонентскиеОтделыАбонентов.Абонент
+{ГДЕ
+	(АбонентскиеОтделыАбонентов.Филиал В (&amp;АбонентскийОтдел))}
+
+СГРУППИРОВАТЬ ПО
+	АктуальноеСостояниеЛС.Организация,
+	АктуальноеСостояниеЛС.Район,
+	АктуальноеСостояниеЛС.Абонент,
+	АктуальноеСостояниеЛС.Состояние,
+	АктуальноеСостояниеЛС.Период,
+	энргАбоненты.КлючПомещения,
+	энргАбоненты.КлючПомещения.Строение,
+	энргАбоненты.КлючПомещения.Помещение,
+	энргАбоненты.КлючПомещения.ЧастныйСектор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаДляСвязывания.Организация КАК Организация,
+	ТаблицаДляСвязывания.Район КАК Район,
+	ТаблицаДляСвязывания.Абонент КАК Абонент,
+	ТаблицаДляСвязывания.КлючПомещения КАК КлючПомещения,
+	ТаблицаДляСвязывания.Состояние КАК Состояние
+ПОМЕСТИТЬ АбонентыРассчитанные
+ИЗ
+	ТаблицаДляСвязывания КАК ТаблицаДляСвязывания
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.энргОбъемНачислений КАК энргОбъемНачислений
+		ПО ТаблицаДляСвязывания.Организация = энргОбъемНачислений.Организация
+			И ТаблицаДляСвязывания.Район = энргОбъемНачислений.Район
+			И ТаблицаДляСвязывания.Абонент = энргОбъемНачислений.Абонент
+ГДЕ
+	энргОбъемНачислений.Активность
+	И энргОбъемНачислений.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И энргОбъемНачислений.Организация = &amp;Организация
+	И энргОбъемНачислений.Район = &amp;Район
+	И энргОбъемНачислений.УслугаОграничена = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаДляСвязывания.Организация,
+	ТаблицаДляСвязывания.Район,
+	ТаблицаДляСвязывания.КлючПомещения,
+	ТаблицаДляСвязывания.Абонент,
+	ТаблицаДляСвязывания.Состояние
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаДляСвязывания.Организация КАК Организация,
+	ТаблицаДляСвязывания.Район КАК Район,
+	ТаблицаДляСвязывания.Абонент КАК Абонент,
+	ТаблицаДляСвязывания.КлючПомещения КАК КлючПомещения,
+	ТаблицаДляСвязывания.Состояние КАК Состояние,
+	ТаблицаДляСвязывания.Строение КАК Строение,
+	ТаблицаДляСвязывания.Помещение КАК Помещение,
+	ТаблицаДляСвязывания.ЧастныйСектор КАК ЧастныйСектор
+ПОМЕСТИТЬ НеРассчитанныеАбоненты
+ИЗ
+	ТаблицаДляСвязывания КАК ТаблицаДляСвязывания
+		ЛЕВОЕ СОЕДИНЕНИЕ АбонентыРассчитанные КАК АбонентыРассчитанные
+		ПО ТаблицаДляСвязывания.Абонент = АбонентыРассчитанные.Абонент
+ГДЕ
+	АбонентыРассчитанные.Абонент ЕСТЬ NULL
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаДляСвязывания.Организация,
+	ТаблицаДляСвязывания.Район,
+	ТаблицаДляСвязывания.Абонент,
+	ТаблицаДляСвязывания.КлючПомещения,
+	ТаблицаДляСвязывания.Состояние,
+	ТаблицаДляСвязывания.Строение,
+	ТаблицаДляСвязывания.Помещение,
+	ТаблицаДляСвязывания.ЧастныйСектор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргДоговорыАбонентовСрезПоследних.Абонент КАК Абонент,
+	энргДоговорыАбонентовСрезПоследних.Договор КАК Договор
+ПОМЕСТИТЬ ДоговорыАбонентов
+ИЗ
+	РегистрСведений.энргДоговорыАбонентов.СрезПоследних(
+			&amp;КонецПериодаГраница,
+			Абонент В
+				(ВЫБРАТЬ
+					НеРассчитанныеАбоненты.Абонент КАК Абонент
+				ИЗ
+					НеРассчитанныеАбоненты КАК НеРассчитанныеАбоненты
+				ГДЕ
+					НеРассчитанныеАбоненты.Состояние)) КАК энргДоговорыАбонентовСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргДоговорыКонтрагентов.Организация КАК Организация,
+	энргДоговорыКонтрагентов.Район КАК Район,
+	ДоговорыАбонентов.Абонент КАК Абонент,
+	ДоговорыАбонентов.Абонент.КлючПомещения КАК КлючПомещения
+ПОМЕСТИТЬ НерассчитанныеДоТП
+ИЗ
+	ДоговорыАбонентов КАК ДоговорыАбонентов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.энргДоговорыКонтрагентов КАК энргДоговорыКонтрагентов
+		ПО ДоговорыАбонентов.Договор = энргДоговорыКонтрагентов.Ссылка
+			И (энргДоговорыКонтрагентов.Статус = ЗНАЧЕНИЕ(Перечисление.бестСтатусыДоговоровКонтрагентов.ЗаключенДоТП))
+
+СГРУППИРОВАТЬ ПО
+	энргДоговорыКонтрагентов.Организация,
+	энргДоговорыКонтрагентов.Район,
+	ДоговорыАбонентов.Абонент,
+	ДоговорыАбонентов.Абонент.КлючПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргАктивностьТочекУчетаСрезПоследних.Организация КАК Организация,
+	энргАктивностьТочекУчетаСрезПоследних.Район КАК Район,
+	энргАктивностьТочекУчетаСрезПоследних.КлючПомещения КАК КлючПомещения,
+	МИНИМУМ(энргАктивностьТочекУчетаСрезПоследних.Состояние) КАК Состояние
+ПОМЕСТИТЬ Отключена_И_ОРП_ТочкаУчета
+ИЗ
+	РегистрСведений.энргАктивностьТочекУчета.СрезПоследних(
+			&amp;КонецПериодаГраница,
+			(Организация, Район, КлючПомещения) В
+				(ВЫБРАТЬ
+					НеРассчитанныеАбоненты.Организация КАК Организация,
+					НеРассчитанныеАбоненты.Район КАК Район,
+					НеРассчитанныеАбоненты.КлючПомещения КАК КлючПомещения
+				ИЗ
+					НеРассчитанныеАбоненты КАК НеРассчитанныеАбоненты
+				ГДЕ
+					НеРассчитанныеАбоненты.Состояние)) КАК энргАктивностьТочекУчетаСрезПоследних
+ГДЕ
+	(энргАктивностьТочекУчетаСрезПоследних.Состояние = ЗНАЧЕНИЕ(перечисление.энргСостояниеТочекУчета.ОРП)
+			ИЛИ энргАктивностьТочекУчетаСрезПоследних.Состояние = ЗНАЧЕНИЕ(перечисление.энргСостояниеТочекУчета.Отключена))
+
+СГРУППИРОВАТЬ ПО
+	энргАктивностьТочекУчетаСрезПоследних.Организация,
+	энргАктивностьТочекУчетаСрезПоследних.Район,
+	энргАктивностьТочекУчетаСрезПоследних.КлючПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Отключена_И_ОРП_ТочкаУчета.Организация КАК Организация,
+	Отключена_И_ОРП_ТочкаУчета.Район КАК Район,
+	Отключена_И_ОРП_ТочкаУчета.КлючПомещения КАК КлючПомещения
+ПОМЕСТИТЬ НерассчитанныеОРП
+ИЗ
+	Отключена_И_ОРП_ТочкаУчета КАК Отключена_И_ОРП_ТочкаУчета
+ГДЕ
+	Отключена_И_ОРП_ТочкаУчета.Состояние = ЗНАЧЕНИЕ(Перечисление.энргСостояниеТочекУчета.ОРП)
+
+СГРУППИРОВАТЬ ПО
+	Отключена_И_ОРП_ТочкаУчета.Организация,
+	Отключена_И_ОРП_ТочкаУчета.Район,
+	Отключена_И_ОРП_ТочкаУчета.КлючПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Отключена_И_ОРП_ТочкаУчета.Организация КАК Организация,
+	Отключена_И_ОРП_ТочкаУчета.Район КАК Район,
+	Отключена_И_ОРП_ТочкаУчета.КлючПомещения КАК КлючПомещения
+ПОМЕСТИТЬ НерассчитанныеОтключены
+ИЗ
+	Отключена_И_ОРП_ТочкаУчета КАК Отключена_И_ОРП_ТочкаУчета
+ГДЕ
+	Отключена_И_ОРП_ТочкаУчета.Состояние = ЗНАЧЕНИЕ(Перечисление.энргСостояниеТочекУчета.Отключена)
+
+СГРУППИРОВАТЬ ПО
+	Отключена_И_ОРП_ТочкаУчета.Организация,
+	Отключена_И_ОРП_ТочкаУчета.Район,
+	Отключена_И_ОРП_ТочкаУчета.КлючПомещения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НеРассчитанныеАбоненты.Организация КАК Организация,
+	НеРассчитанныеАбоненты.Район КАК Район,
+	НеРассчитанныеАбоненты.Абонент КАК Абонент,
+	НеРассчитанныеАбоненты.КлючПомещения КАК КлючПомещения
+ПОМЕСТИТЬ ВременноеОтсутствие
+ИЗ
+	НеРассчитанныеАбоненты КАК НеРассчитанныеАбоненты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.энргКоличествоДнейИспользованияУслугПриОтсутствии КАК энргКоличествоДнейИспользованияУслугПриОтсутствии
+		ПО (энргКоличествоДнейИспользованияУслугПриОтсутствии.Период &lt;= &amp;КонецПериода)
+			И (энргКоличествоДнейИспользованияУслугПриОтсутствии.ПериодНачисления = &amp;ПериодНачисления)
+			И (энргКоличествоДнейИспользованияУслугПриОтсутствии.Организация = &amp;Организация)
+			И (энргКоличествоДнейИспользованияУслугПриОтсутствии.Район = &amp;Район)
+			И НеРассчитанныеАбоненты.Организация = энргКоличествоДнейИспользованияУслугПриОтсутствии.Организация
+			И НеРассчитанныеАбоненты.Район = энргКоличествоДнейИспользованияУслугПриОтсутствии.Район
+			И НеРассчитанныеАбоненты.ЧастныйСектор = энргКоличествоДнейИспользованияУслугПриОтсутствии.ЧастныйСектор
+			И НеРассчитанныеАбоненты.Строение = энргКоличествоДнейИспользованияУслугПриОтсутствии.Строение
+			И НеРассчитанныеАбоненты.Помещение = энргКоличествоДнейИспользованияУслугПриОтсутствии.Помещение
+			И (НеРассчитанныеАбоненты.Состояние)
+
+СГРУППИРОВАТЬ ПО
+	НеРассчитанныеАбоненты.Организация,
+	НеРассчитанныеАбоненты.Район,
+	НеРассчитанныеАбоненты.КлючПомещения,
+	НеРассчитанныеАбоненты.Абонент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	энргСтроения.ТипСтроения КАК ТипСтроения,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаДляСвязывания.Состояние
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОткрытыеЛС,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &gt;= &amp;НачалоПериода
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ЗакрытыеЛС,
+	СУММА(ВЫБОР
+			КОГДА НЕ АбонентыРассчитанные.Абонент ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КоличествоРассчитаныхАбон,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &lt; &amp;НачалоПериода
+				ТОГДА 0
+			КОГДА НЕ НерассчитанныеДоТП.Абонент ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ДоТП,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &lt; &amp;НачалоПериода
+				ТОГДА 0
+			КОГДА НЕ НерассчитанныеОтключены.КлючПомещения ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Отключены,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &lt; &amp;НачалоПериода
+				ТОГДА 0
+			КОГДА НЕ ВременноеОтсутствие.Абонент ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Отсутствие,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &lt; &amp;НачалоПериода
+				ТОГДА 0
+			КОГДА НЕ НерассчитанныеОРП.КлючПомещения ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОРП,
+	СУММА(ВЫБОР
+			КОГДА НЕ ТаблицаДляСвязывания.Состояние
+					И ТаблицаДляСвязывания.Период &lt; &amp;НачалоПериода
+				ТОГДА 0
+			КОГДА НЕ НеРассчитанныеАбоненты.Абонент ЕСТЬ NULL
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Всего
+ИЗ
+	ТаблицаДляСвязывания КАК ТаблицаДляСвязывания
+		ЛЕВОЕ СОЕДИНЕНИЕ НерассчитанныеДоТП КАК НерассчитанныеДоТП
+		ПО (ТаблицаДляСвязывания.Организация = НерассчитанныеДоТП.Организация)
+			И (ТаблицаДляСвязывания.Район = НерассчитанныеДоТП.Район)
+			И (ТаблицаДляСвязывания.Абонент = НерассчитанныеДоТП.Абонент)
+		ЛЕВОЕ СОЕДИНЕНИЕ НерассчитанныеОРП КАК НерассчитанныеОРП
+		ПО (ТаблицаДляСвязывания.Организация = НерассчитанныеОРП.Организация)
+			И (ТаблицаДляСвязывания.Район = НерассчитанныеОРП.Район)
+			И (ТаблицаДляСвязывания.КлючПомещения = НерассчитанныеОРП.КлючПомещения)
+		ЛЕВОЕ СОЕДИНЕНИЕ НерассчитанныеОтключены КАК НерассчитанныеОтключены
+		ПО (ТаблицаДляСвязывания.Организация = НерассчитанныеОтключены.Организация)
+			И (ТаблицаДляСвязывания.Район = НерассчитанныеОтключены.Район)
+			И (ТаблицаДляСвязывания.КлючПомещения = НерассчитанныеОтключены.КлючПомещения)
+		ЛЕВОЕ СОЕДИНЕНИЕ ВременноеОтсутствие КАК ВременноеОтсутствие
+		ПО (ТаблицаДляСвязывания.Организация = ВременноеОтсутствие.Организация)
+			И (ТаблицаДляСвязывания.Район = ВременноеОтсутствие.Район)
+			И (ТаблицаДляСвязывания.КлючПомещения = ВременноеОтсутствие.КлючПомещения)
+			И (ТаблицаДляСвязывания.Абонент = ВременноеОтсутствие.Абонент)
+		ЛЕВОЕ СОЕДИНЕНИЕ АбонентыРассчитанные КАК АбонентыРассчитанные
+		ПО (ТаблицаДляСвязывания.Организация = АбонентыРассчитанные.Организация)
+			И (ТаблицаДляСвязывания.Район = АбонентыРассчитанные.Район)
+			И (ТаблицаДляСвязывания.КлючПомещения = АбонентыРассчитанные.КлючПомещения)
+			И (ТаблицаДляСвязывания.Абонент = АбонентыРассчитанные.Абонент)
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения КАК энргСтроения
+		ПО (ТаблицаДляСвязывания.Строение = энргСтроения.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ НеРассчитанныеАбоненты КАК НеРассчитанныеАбоненты
+		ПО (ТаблицаДляСвязывания.Организация = НеРассчитанныеАбоненты.Организация)
+			И (ТаблицаДляСвязывания.Район = НеРассчитанныеАбоненты.Район)
+			И (ТаблицаДляСвязывания.КлючПомещения = НеРассчитанныеАбоненты.КлючПомещения)
+			И (ТаблицаДляСвязывания.Абонент = НеРассчитанныеАбоненты.Абонент)
+
+СГРУППИРОВАТЬ ПО
+	энргСтроения.ТипСтроения
+</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПериодДляРС</dataPath>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период для РС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Всего</dataPath>
+		<expression>Сумма(Всего)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДоТП</dataPath>
+		<expression>Сумма(ДоТП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗакрытыеЛС</dataPath>
+		<expression>Сумма(ЗакрытыеЛС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРассчитаныхАбон</dataPath>
+		<expression>Сумма(КоличествоРассчитаныхАбон)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОРП</dataPath>
+		<expression>Сумма(ОРП)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отключены</dataPath>
+		<expression>Сумма(Отключены)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОткрытыеЛС</dataPath>
+		<expression>Сумма(ОткрытыеЛС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отсутствие</dataPath>
+		<expression>Сумма(Отсутствие)</expression>
+	</totalField>
+	<parameter>
+		<name>РасчетныйПериод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расчетный период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Организации.НашаОрганизация</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Район</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Район</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргЗоныОтвественности</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КонецПериодаГраница</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода граница</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПериодНачисления</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период начисления</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>АбонентскийОтдел</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Абонентский отдел</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.энргФилиалы</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сводная информация о количестве лицевых счетов (Ф-4)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипСтроения</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип помещения</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОткрытыеЛС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активные л/с</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗакрытыеЛС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрытые ЛС в текущем периоде</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРассчитаныхАбон</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рассчитанные в текущем периоде</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нерассчитанные в текущем периоде</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОРП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ограничение режима потребления</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Отключены</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>услуга отключена</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Отсутствие</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>период отсутствия</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Всего</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего нерассчитанные л/с</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДоТП</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>до тех.присоединения</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>SpecialColumn</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасчетныйПериод</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>acb1806c-271e-4f9f-a1fe-2aebc3549014</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>de8aad3b-3fb8-40b6-892c-a679259db739</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>17cac65b-cf16-4cac-9601-82caf5f7a5e8</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Район</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>b3ba9fd9-292b-48f8-9cce-87e502a864ac</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>АбонентскийОтдел</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>01cced0e-c6e8-4908-8ce1-3ddce139895b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ТипСтроения</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#000000</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТипСтроения</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип помещения</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОткрытыеЛС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Активные л/с</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЗакрытыеЛС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Закрытые ЛС в текущем периоде</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоРассчитаныхАбон</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Рассчитанные в текущем периоде</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Нерассчитанные в текущем периоде</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОРП</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ограничение режима потребления</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Отключены</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>услуга отключена</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Отсутствие</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>период отсутствия</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ДоТП</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>до тех.присоединения</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Всего</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Всего нерассчитанные л/с</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:placement>SpecialColumn</dcsset:placement>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

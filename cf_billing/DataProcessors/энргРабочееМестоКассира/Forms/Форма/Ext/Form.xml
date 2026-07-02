@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ОткрытьКассовуюСмену" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьКассовуюСмену</CommandName>
+				<ExtendedTooltip name="ОткрытьКассовуюСменуРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="СнятьОтчетБезГашения" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СнятьОтчетБезГашения</CommandName>
+				<ExtendedTooltip name="СнятьОтчетБезГашенияРасширеннаяПодсказка" id="4"/>
+			</Button>
+			<Button name="ЗакрытьКассовуюСмену" id="5">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗакрытьКассовуюСмену</CommandName>
+				<ExtendedTooltip name="ЗакрытьКассовуюСменуРасширеннаяПодсказка" id="6"/>
+			</Button>
+			<Button name="СоздатьКвитанцию" id="80">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Item.СписокДокументов.StandardCommand.Create</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="СоздатьКвитанциюРасширеннаяПодсказка" id="81"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СписокДокументов" id="7">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>СписокДокументов</DataPath>
+			<RowPictureDataPath>СписокДокументов.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокДокументовКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="СписокДокументовКоманднаяПанель" id="9">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокДокументовРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="СписокДокументовСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокДокументовСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокДокументовСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокДокументовСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокДокументовУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>СписокДокументов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокДокументовУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="СписокДокументовУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СписокДокументовДата" id="20">
+					<DataPath>СписокДокументов.Date</DataPath>
+					<ContextMenu name="СписокДокументовДатаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокДокументовДатаРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="СписокДокументовНомер" id="23">
+					<DataPath>СписокДокументов.Number</DataPath>
+					<ContextMenu name="СписокДокументовНомерКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СписокДокументовНомерРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="СписокДокументовАбонент" id="26">
+					<DataPath>СписокДокументов.Абонент</DataPath>
+					<ContextMenu name="СписокДокументовАбонентКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокДокументовАбонентРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="СписокДокументовАдресОбъекта" id="29">
+					<DataPath>~СписокДокументов.АдресОбъекта</DataPath>
+					<ContextMenu name="СписокДокументовАдресОбъектаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СписокДокументовАдресОбъектаРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="СписокДокументовВидОплаты" id="32">
+					<DataPath>~СписокДокументов.ВидОплаты</DataPath>
+					<ContextMenu name="СписокДокументовВидОплатыКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокДокументовВидОплатыРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="СписокДокументовЛицевойСчет" id="35">
+					<DataPath>~СписокДокументов.ЛицевойСчет</DataPath>
+					<ContextMenu name="СписокДокументовЛицевойСчетКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СписокДокументовЛицевойСчетРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="СписокДокументовМКД" id="38">
+					<DataPath>~СписокДокументов.МКД</DataPath>
+					<ContextMenu name="СписокДокументовМКДКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СписокДокументовМКДРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="СписокДокументовНомерСменыККМ" id="41">
+					<DataPath>~СписокДокументов.НомерСменыККМ</DataPath>
+					<ContextMenu name="СписокДокументовНомерСменыККМКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="СписокДокументовНомерСменыККМРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<LabelField name="СписокДокументовНомерЧекаККМ" id="44">
+					<DataPath>~СписокДокументов.НомерЧекаККМ</DataPath>
+					<ContextMenu name="СписокДокументовНомерЧекаККМКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="СписокДокументовНомерЧекаККМРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<LabelField name="СписокДокументовОплатаОсновногоДолгаРассрочки" id="47">
+					<DataPath>СписокДокументов.ОплатаОсновногоДолгаРассрочки</DataPath>
+					<ContextMenu name="СписокДокументовОплатаОсновногоДолгаРассрочкиКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СписокДокументовОплатаОсновногоДолгаРассрочкиРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="СписокДокументовОтветственный" id="50">
+					<DataPath>СписокДокументов.Ответственный</DataPath>
+					<ContextMenu name="СписокДокументовОтветственныйКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="СписокДокументовОтветственныйРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<LabelField name="СписокДокументовПериодНачисления" id="53">
+					<DataPath>СписокДокументов.ПериодНачисления</DataPath>
+					<ContextMenu name="СписокДокументовПериодНачисленияКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="СписокДокументовПериодНачисленияРасширеннаяПодсказка" id="55"/>
+				</LabelField>
+				<LabelField name="СписокДокументовПериодОплатыКонец" id="56">
+					<DataPath>СписокДокументов.ПериодОплатыКонец</DataPath>
+					<ContextMenu name="СписокДокументовПериодОплатыКонецКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="СписокДокументовПериодОплатыКонецРасширеннаяПодсказка" id="58"/>
+				</LabelField>
+				<LabelField name="СписокДокументовПериодОплатыНачало" id="59">
+					<DataPath>СписокДокументов.ПериодОплатыНачало</DataPath>
+					<ContextMenu name="СписокДокументовПериодОплатыНачалоКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="СписокДокументовПериодОплатыНачалоРасширеннаяПодсказка" id="61"/>
+				</LabelField>
+				<LabelField name="СписокДокументовПримечание" id="62">
+					<DataPath>СписокДокументов.Примечание</DataPath>
+					<ContextMenu name="СписокДокументовПримечаниеКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="СписокДокументовПримечаниеРасширеннаяПодсказка" id="64"/>
+				</LabelField>
+				<LabelField name="СписокДокументовРайон" id="65">
+					<DataPath>СписокДокументов.Район</DataPath>
+					<ContextMenu name="СписокДокументовРайонКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="СписокДокументовРайонРасширеннаяПодсказка" id="67"/>
+				</LabelField>
+				<LabelField name="СписокДокументовСтатус" id="68">
+					<DataPath>СписокДокументов.Статус</DataPath>
+					<ContextMenu name="СписокДокументовСтатусКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="СписокДокументовСтатусРасширеннаяПодсказка" id="70"/>
+				</LabelField>
+				<LabelField name="СписокДокументовСуммаОплаты" id="71">
+					<DataPath>СписокДокументов.СуммаОплаты</DataPath>
+					<ContextMenu name="СписокДокументовСуммаОплатыКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="СписокДокументовСуммаОплатыРасширеннаяПодсказка" id="73"/>
+				</LabelField>
+				<LabelField name="СписокДокументовСуммаОсновногоДолгаРассрочки" id="74">
+					<DataPath>СписокДокументов.СуммаОсновногоДолгаРассрочки</DataPath>
+					<ContextMenu name="СписокДокументовСуммаОсновногоДолгаРассрочкиКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="СписокДокументовСуммаОсновногоДолгаРассрочкиРасширеннаяПодсказка" id="76"/>
+				</LabelField>
+				<LabelField name="СписокДокументовУдалитьСуммаАванса" id="77">
+					<DataPath>СписокДокументов.УдалитьСуммаАванса</DataPath>
+					<ContextMenu name="СписокДокументовУдалитьСуммаАвансаКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="СписокДокументовУдалитьСуммаАвансаРасширеннаяПодсказка" id="79"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.энргРабочееМестоКассира</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="УстройствоПечати" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Устройство печати</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокДокументов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.энргПриходныйКассовыйОрдер</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьКассовуюСмену" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть смену</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть кассовую смену</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьКассовуюСмену</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьОтчетБезГашения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет без гашения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отчет без гашения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СнятьОтчетБезГашения</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗакрытьКассовуюСмену" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть смену</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть кассовую смену</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗакрытьКассовуюСмену</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>
