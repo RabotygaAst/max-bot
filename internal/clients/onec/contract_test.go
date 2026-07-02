@@ -23,18 +23,18 @@ var oneCContractInventory = []contractEndpoint{
 	{"StartAccountLink", "POST", "/max/v1/account-link/start", "AccountLinkStartPOST", "НачатьПривязкуЛицевогоСчета", "body: max_user_id, account_number, source", "operation_id", "OK"},
 	{"ConfirmAccountLink", "POST", "/max/v1/account-link/confirm", "AccountLinkConfirmPOST", "ПодтвердитьПривязкуЛицевогоСчета", "body: max_user_id, account_number, code, source", "account", "OK"},
 	{"Accounts", "GET", "/max/v1/accounts", "AccountsGET", "ПолучитьЛицевыеСчетаПользователяJSON", "query: max_user_id", "accounts[]", "OK"},
-	{"Balance", "GET", "/max/v1/accounts/{account_id}/balance", "AccountBalanceGET", "GetBalance", "path: account_id; query: max_user_id", "balance", "OK"},
+	{"Balance", "GET", "/max/v1/accounts/{account_id}/balance", "AccountBalanceGET", "ПолучитьБалансJSON", "path: account_id; query: max_user_id", "balance", "OK"},
 	{"Meters", "GET", "/max/v1/accounts/{account_id}/meters", "AccountMetersGET", "ПолучитьПриборыУчетаJSON", "path: account_id; query: max_user_id", "meters[]", "OK"},
 	{"SendReading", "POST", "/max/v1/accounts/{account_id}/meters/{meter_id}/readings", "AccountMeterReadingsPOST", "СоздатьПоказаниеПрибора", "path: account_id,meter_id; body: max_user_id, period, value, message_id, operation_id, source", "reading result", "OK"},
 	{"CreateAppeal", "POST", "/max/v1/accounts/{account_id}/appeals", "AccountAppealsPOST", "СоздатьОбращение", "path: account_id; body: max_user_id, text, message_id, operation_id, source", "appeal result", "OK"},
-	{"Help", "GET", "/max/v1/reference/help", "ReferenceHelpGET", "ПолучитьСправкуJSON", "none", "help", "MISSING_IN_1C_CONFIG"},
-	{"Organization", "GET", "/max/v1/reference/organization", "ReferenceOrganizationGET", "ПолучитьОрганизациюJSON", "none", "organization", "MISSING_IN_1C_CONFIG"},
-	{"Emergency", "GET", "/max/v1/reference/emergency", "ReferenceEmergencyGET", "ПолучитьАварийнуюСлужбуJSON", "none", "emergency", "MISSING_IN_1C_CONFIG"},
-	{"Invoice", "GET", "/max/v1/accounts/{account_id}/invoice", "AccountInvoiceGET", "ПолучитьКвитанциюJSON", "path: account_id; query: period, max_user_id", "invoice", "MISSING_IN_1C_CONFIG"},
-	{"PaymentLink", "POST", "/max/v1/accounts/{account_id}/payment-link", "AccountPaymentLinkPOST", "СоздатьСсылкуОплаты", "path: account_id; body: max_user_id, operation_id, source", "payment link", "MISSING_IN_1C_CONFIG"},
-	{"Outages", "GET", "/max/v1/accounts/{account_id}/outages", "AccountOutagesGET", "ПолучитьОтключенияJSON", "path: account_id; query: max_user_id", "outages[]", "MISSING_IN_1C_CONFIG"},
-	{"AppointmentTopics", "GET", "/max/v1/reference/appointment-topics", "ReferenceAppointmentTopicsGET", "ПолучитьТемыЗаписиJSON", "none", "topics[]", "MISSING_IN_1C_CONFIG"},
-	{"CreateAppointment", "POST", "/max/v1/accounts/{account_id}/appointments", "AccountAppointmentsPOST", "СоздатьЗаписьНаПрием", "path: account_id; body: max_user_id, topic_id, operation_id, source", "appointment", "MISSING_IN_1C_CONFIG"},
+	{"Help", "GET", "/max/v1/reference/help", "ReferenceHelpGET", "ПолучитьСправкуJSON", "none", "help", "OK"},
+	{"Organization", "GET", "/max/v1/reference/organization", "ReferenceOrganizationGET", "ПолучитьОрганизациюJSON", "none", "organization", "OK"},
+	{"Emergency", "GET", "/max/v1/reference/emergency", "ReferenceEmergencyGET", "ПолучитьАварийнуюСлужбуJSON", "none", "emergency", "OK"},
+	{"Invoice", "GET", "/max/v1/accounts/{account_id}/invoice", "AccountInvoiceGET", "ПолучитьКвитанциюJSON", "path: account_id; query: period, max_user_id", "invoice", "OK"},
+	{"PaymentLink", "POST", "/max/v1/accounts/{account_id}/payment-link", "AccountPaymentLinkPOST", "СоздатьСсылкуОплаты", "path: account_id; body: max_user_id, operation_id, source", "payment link", "OK"},
+	{"Outages", "GET", "/max/v1/accounts/{account_id}/outages", "AccountOutagesGET", "ПолучитьОтключенияJSON", "path: account_id; query: max_user_id", "outages[]", "OK"},
+	{"AppointmentTopics", "GET", "/max/v1/reference/appointment-topics", "ReferenceAppointmentTopicsGET", "ПолучитьТемыЗаписиJSON", "none", "topics[]", "OK"},
+	{"CreateAppointment", "POST", "/max/v1/accounts/{account_id}/appointments", "AccountAppointmentsPOST", "СоздатьЗаписьНаПрием", "path: account_id; body: max_user_id, topic_id, operation_id, source", "appointment", "OK"},
 }
 
 func TestOneCContractMatchesCfBilling(t *testing.T) {
@@ -42,15 +42,15 @@ func TestOneCContractMatchesCfBilling(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	xml, err := os.ReadFile("../../../cf_billing/HTTPServices/MAXBotHTTP.xml")
+	xml, err := os.ReadFile("../../../billing_cf/HTTPServices/MAXBotHTTP.xml")
 	if err != nil {
 		t.Fatal(err)
 	}
-	httpModule, err := os.ReadFile("../../../cf_billing/HTTPServices/MAXBotHTTP/Ext/Module.bsl")
+	httpModule, err := os.ReadFile("../../../billing_cf/HTTPServices/MAXBotHTTP/Ext/Module.bsl")
 	if err != nil {
 		t.Fatal(err)
 	}
-	integration, err := os.ReadFile("../../../cf_billing/CommonModules/MAXBotИнтеграция/Ext/Module.bsl")
+	integration, err := os.ReadFile("../../../billing_cf/CommonModules/MAXBotИнтеграция/Ext/Module.bsl")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -62,6 +62,7 @@ func TestOneCContractMatchesCfBilling(t *testing.T) {
 		}
 		inXML := strings.Contains(xmlText, "<Template>"+e.Path+"</Template>")
 		inHTTP := strings.Contains(httpText, e.Integration)
+		inHandler := strings.Contains(httpText, "Функция "+e.Handler+"(")
 		inIntegration := strings.Contains(integrationText, "Функция "+e.Integration) || strings.Contains(integrationText, "Процедура "+e.Integration)
 		if e.Status == "MISSING_IN_1C_CONFIG" {
 			if inXML && inHTTP && inIntegration {
@@ -72,6 +73,9 @@ func TestOneCContractMatchesCfBilling(t *testing.T) {
 		}
 		if !inXML {
 			t.Fatalf("endpoint missing in MAXBotHTTP.xml: %s", e.Path)
+		}
+		if !inHandler {
+			t.Fatalf("handler function missing in HTTP module for %s: %s", e.Path, e.Handler)
 		}
 		if !inHTTP {
 			t.Fatalf("handler for %s does not call MAXBotИнтеграция.%s", e.Path, e.Integration)

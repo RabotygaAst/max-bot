@@ -39,9 +39,9 @@ PowerShell:
 - список callback payload, проверенных через кнопки;
 - список ONEC endpoint, до которых дошли запросы;
 - список ключевых MAX-сообщений, найденных в исходящих ответах бота;
-- результат `TestOneCContractMatchesCfBilling` со списком `MISSING_IN_1C_CONFIG` в verbose-логе.
+- результат `TestOneCContractMatchesCfBilling`: все endpoint Go-клиента должны присутствовать в `billing_cf` HTTP-сервисе, HTTP-модуле и общем модуле интеграции.
 
-`MISSING_IN_1C_CONFIG` означает, что Go-клиент уже содержит endpoint, но в текущем dump `cf_billing` нет полного опубликованного HTTP handler + вызова `MAXBotИнтеграция` + экспортной функции. Это отчет о контракте, а не попытка изменить бизнес-логику 1С.
+Если contract-тест сообщает об отсутствующем endpoint, значит Go-клиент уже содержит метод, но в текущем dump `billing_cf` нет полного опубликованного HTTP handler + вызова `MAXBotИнтеграция` + экспортной функции.
 
 ## Чем mock-сценарий отличается от реальной 1С
 
