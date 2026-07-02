@@ -177,10 +177,11 @@ go run .\cmd\bot
 Если PostgreSQL установлен на Windows, но БД/пользователь еще не созданы, выполните из корня репозитория:
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
 ```
 
-Если PowerShell запрещает запуск `.ps1`, используйте `.cmd`-обертку, она сама запускает PowerShell с `-ExecutionPolicy Bypass` только для текущей команды:
+Если PowerShell запрещает запуск `.ps1` ошибкой `PSSecurityException` / `Execution_Policies`, не меняйте политику для всей системы. Используйте один из безопасных вариантов ниже: `.cmd`-обертку или `powershell -ExecutionPolicy Bypass -File ...`. Обход действует только для текущего процесса/команды.
 
 ```cmd
 .\scripts\setup-postgres-local.cmd -WriteEnvLocal
@@ -189,7 +190,7 @@ go run .\cmd\bot
 Либо выполните тот же обход вручную:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
 ```
 
 Скрипт найдет `psql.exe`, попросит пароль администратора PostgreSQL `postgres`, создаст пользователя `maxbot`, базу `maxbot`, применит схему из `init-db.sql` и запишет локальный `DATABASE_URL` в `.env.local`.
@@ -593,12 +594,13 @@ go run ./cmd/bot
 
 ```powershell
 Copy-Item .env.local.example .env.local -ErrorAction SilentlyContinue
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 .\scripts\setup-postgres-local.ps1 -WriteEnvLocal
 .\scripts\seed-postgres-local.ps1
 .\scripts\run-local.ps1 -UsePostgres
 ```
 
-CMD-обертки:
+Если видите `Невозможно загрузить файл ... выполнение сценариев отключено`, используйте CMD-обертки — они уже запускают PowerShell с `-ExecutionPolicy Bypass` для одной команды:
 
 ```cmd
 .\scripts\setup-postgres-local.cmd -WriteEnvLocal
@@ -609,7 +611,14 @@ CMD-обертки:
 ## Seed тестовых данных
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 .\scripts\seed-postgres-local.ps1
+```
+
+Без изменения политики текущей PowerShell-сессии можно выполнить:
+
+```cmd
+.\scripts\seed-postgres-local.cmd
 ```
 
 Seed создает пользователя `123456789`, чат `987654321`, лицевой счет `000123456`, кэш баланса за `2026-05`, квитанцию, платеж, обращение и запись на прием.
@@ -667,7 +676,7 @@ POST /max/v1/accounts/{account_id}/appointments
 
 ## Smoke-тесты
 
-После запуска `scripts/run-local.ps1 -UsePostgres` debug endpoint должен возвращать `{"success":true}`:
+После запуска `scripts/run-local.cmd -UsePostgres` или `scripts/run-local.ps1 -UsePostgres` debug endpoint должен возвращать `{"success":true}`:
 
 ```bash
 curl -s -X POST http://localhost:8080/debug/send-test-update -H 'Content-Type: application/json' -d '{"user_id":123456789,"chat_id":987654321,"mid":"smoke-org-001","text":"организация"}'
