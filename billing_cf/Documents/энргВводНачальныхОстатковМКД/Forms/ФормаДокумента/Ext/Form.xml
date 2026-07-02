@@ -1,0 +1,2182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюСоздатьНаОсновании" id="646">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подменю создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="647"/>
+			</Popup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="648">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="649"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="650">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подменю отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="651"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="652">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="653"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="654">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты перейти</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты перейти</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="655"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="656">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты см также</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты см также</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="657"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНомерДата" id="354">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номер дата</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номер дата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="355"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="ПериодНачисления" id="558">
+					<DataPath>Объект.ПериодНачисления</DataPath>
+					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ='ММММ гггг'</v8:content>
+						</v8:item>
+					</Format>
+					<Font ref="style:NormalTextFont" bold="true" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="ПериодНачисленияКонтекстноеМеню" id="559"/>
+					<ExtendedTooltip name="ПериодНачисленияРасширеннаяПодсказка" id="560"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРайонМКД" id="486">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа район МКД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРайонМКДРасширеннаяПодсказка" id="487"/>
+			<ChildItems>
+				<InputField name="Район" id="10">
+					<DataPath>Объект.Район</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РайонКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="РайонРасширеннаяПодсказка" id="12"/>
+				</InputField>
+				<InputField name="Организация" id="550">
+					<DataPath>Объект.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="551"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="552"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Дома" id="561">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Дома</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДомаКонтекстноеМеню" id="562"/>
+			<AutoCommandBar name="ДомаКоманднаяПанель" id="563"/>
+			<ExtendedTooltip name="ДомаРасширеннаяПодсказка" id="564"/>
+			<SearchStringAddition name="ДомаСтрокаПоиска" id="565">
+				<AdditionSource>
+					<Item>Дома</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДомаСтрокаПоискаКонтекстноеМеню" id="566"/>
+				<ExtendedTooltip name="ДомаСтрокаПоискаРасширеннаяПодсказка" id="567"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДомаСостояниеПросмотра" id="568">
+				<AdditionSource>
+					<Item>Дома</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДомаСостояниеПросмотраКонтекстноеМеню" id="569"/>
+				<ExtendedTooltip name="ДомаСостояниеПросмотраРасширеннаяПодсказка" id="570"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДомаУправлениеПоиском" id="571">
+				<AdditionSource>
+					<Item>Дома</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДомаУправлениеПоискомКонтекстноеМеню" id="572"/>
+				<ExtendedTooltip name="ДомаУправлениеПоискомРасширеннаяПодсказка" id="573"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeDeleteRow">ДомаПередУдалением</Event>
+				<Event name="OnActivateRow">ДомаПриАктивизацииСтроки</Event>
+				<Event name="OnStartEdit">ДомаПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДомаНомерСтроки" id="574">
+					<DataPath>Объект.Дома.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>1</MaxWidth>
+					<ContextMenu name="ДомаНомерСтрокиКонтекстноеМеню" id="575"/>
+					<ExtendedTooltip name="ДомаНомерСтрокиРасширеннаяПодсказка" id="576"/>
+				</LabelField>
+				<InputField name="ДомаМКД" id="577">
+					<DataPath>Объект.Дома.МКД</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДомаМКДКонтекстноеМеню" id="578"/>
+					<ExtendedTooltip name="ДомаМКДРасширеннаяПодсказка" id="579"/>
+				</InputField>
+				<ColumnGroup name="ДомаГруппаАдрес" id="628">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа адрес</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа адрес</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаАдресРасширеннаяПодсказка" id="629"/>
+					<ChildItems>
+						<InputField name="ДомаДатаОткрытияМКД" id="580">
+							<DataPath>Объект.Дома.ДатаОткрытияМКД</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаДатаОткрытияМКДКонтекстноеМеню" id="581"/>
+							<ExtendedTooltip name="ДомаДатаОткрытияМКДРасширеннаяПодсказка" id="582"/>
+						</InputField>
+						<InputField name="ДомаАдресОбъекта" id="625">
+							<DataPath>Объект.Дома.АдресОбъекта</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ДомаАдресОбъектаКонтекстноеМеню" id="626"/>
+							<ExtendedTooltip name="ДомаАдресОбъектаРасширеннаяПодсказка" id="627"/>
+							<Events>
+								<Event name="StartChoice">ДомаАдресОбъектаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДомаГруппаВидБлагоустройства" id="623">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа вид благоустройства</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа вид благоустройства</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаВидБлагоустройстваРасширеннаяПодсказка" id="624"/>
+					<ChildItems>
+						<InputField name="ДомаВидБлагоустройства" id="583">
+							<DataPath>Объект.Дома.ВидБлагоустройства</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаВидБлагоустройстваКонтекстноеМеню" id="584"/>
+							<ExtendedTooltip name="ДомаВидБлагоустройстваРасширеннаяПодсказка" id="585"/>
+						</InputField>
+						<InputField name="ДомаЭтажность" id="586">
+							<DataPath>Объект.Дома.КоличествоЭтажей</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаЭтажностьКонтекстноеМеню" id="587"/>
+							<ExtendedTooltip name="ДомаЭтажностьРасширеннаяПодсказка" id="588"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДомаГруппаФормаУправления" id="619">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа форма управления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа форма управления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаФормаУправленияРасширеннаяПодсказка" id="620"/>
+					<ChildItems>
+						<InputField name="ДомаФормаУправления" id="589">
+							<DataPath>Объект.Дома.ФормаУправления</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаФормаУправленияКонтекстноеМеню" id="590"/>
+							<ExtendedTooltip name="ДомаФормаУправленияРасширеннаяПодсказка" id="591"/>
+						</InputField>
+						<InputField name="ДомаУК" id="592">
+							<DataPath>Объект.Дома.УК</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаУККонтекстноеМеню" id="593"/>
+							<ExtendedTooltip name="ДомаУКРасширеннаяПодсказка" id="594"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ДомабестПостановление" id="595">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДомабестПостановлениеКонтекстноеМеню" id="596"/>
+					<ExtendedTooltip name="ДомабестПостановлениеРасширеннаяПодсказка" id="597"/>
+				</InputField>
+				<ColumnGroup name="ДомаГруппаГодПостройки" id="642">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа год постройки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа год постройки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаГодПостройкиРасширеннаяПодсказка" id="643"/>
+					<ChildItems>
+						<InputField name="ДомаГодПостройки" id="630">
+							<DataPath>Объект.Дома.ГодПостройки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаГодПостройкиКонтекстноеМеню" id="631"/>
+							<ExtendedTooltip name="ДомаГодПостройкиРасширеннаяПодсказка" id="632"/>
+						</InputField>
+						<CheckBoxField name="ДомаБойлер" id="1262">
+							<DataPath>Объект.Дома.Бойлер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ДомаБойлерКонтекстноеМеню" id="1263"/>
+							<ExtendedTooltip name="ДомаБойлерРасширеннаяПодсказка" id="1264"/>
+						</CheckBoxField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДомаГруппаТипСхемы" id="621">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа тип схемы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа тип схемы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаТипСхемыРасширеннаяПодсказка" id="622"/>
+					<ChildItems>
+						<InputField name="ДомаТипСхемыГВС" id="598">
+							<DataPath>Объект.Дома.ТипСхемыГВС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаТипСхемыГВСКонтекстноеМеню" id="599"/>
+							<ExtendedTooltip name="ДомаТипСхемыГВСРасширеннаяПодсказка" id="600"/>
+						</InputField>
+						<InputField name="ДомаВидТепловогоПункта" id="601">
+							<DataPath>Объект.Дома.ВидТепловогоПункта</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаВидТепловогоПунктаКонтекстноеМеню" id="602"/>
+							<ExtendedTooltip name="ДомаВидТепловогоПунктаРасширеннаяПодсказка" id="603"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ДомаГруппа" id="644">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дома группа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДомаГруппаРасширеннаяПодсказка" id="645"/>
+					<ChildItems>
+						<InputField name="ДомаВидОбъектаАбонентов" id="636">
+							<DataPath>Объект.Дома.ВидОбъектаАбонентов</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаВидОбъектаАбонентовКонтекстноеМеню" id="637"/>
+							<ExtendedTooltip name="ДомаВидОбъектаАбонентовРасширеннаяПодсказка" id="638"/>
+						</InputField>
+						<InputField name="ДомаГруппаПотребителейПоУмолчанию" id="639">
+							<DataPath>Объект.Дома.ГруппаПотребителейПоУмолчанию</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДомаГруппаПотребителейПоУмолчаниюКонтекстноеМеню" id="640"/>
+							<ExtendedTooltip name="ДомаГруппаПотребителейПоУмолчаниюРасширеннаяПодсказка" id="641"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<Pages name="Страницы" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<Page name="СтраницаДанные" id="356">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные точек учета</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница данные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДанныеРасширеннаяПодсказка" id="357"/>
+					<ChildItems>
+						<Pages name="СтраницыВидыШкальностиТарифныеЗоны" id="658">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы виды шкальности тарифные зоны</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы виды шкальности тарифные зоны</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыВидыШкальностиТарифныеЗоныРасширеннаяПодсказка" id="659"/>
+							<ChildItems>
+								<Page name="СтраницаЕстьШкалыЕстьТарифныеЗоны" id="660">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница есть шкалы есть тарифные зоны</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница есть шкалы есть тарифные зоны</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<ExtendedTooltip name="СтраницаЕстьШкалыЕстьТарифныеЗоныРасширеннаяПодсказка" id="661"/>
+									<ChildItems>
+										<Table name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоны" id="358">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ТочкиУчета</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныКонтекстноеМеню" id="359"/>
+											<AutoCommandBar name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныКоманднаяПанель" id="360"/>
+											<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасширеннаяПодсказка" id="361"/>
+											<SearchStringAddition name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоиска" id="362">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаКонтекстноеМеню" id="363"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаРасширеннаяПодсказка" id="364"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотра" id="365">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраКонтекстноеМеню" id="366"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="367"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоиском" id="368">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомКонтекстноеМеню" id="369"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомРасширеннаяПодсказка" id="370"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeDeleteRow">ТочкиУчетаПередУдалением</Event>
+												<Event name="OnActivateRow">ТочкиУчетаПриАктивизацииСтроки</Event>
+												<Event name="OnStartEdit">ТочкиУчетаПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ТочкиУчетаНомерСтроки" id="371">
+													<DataPath>Объект.ТочкиУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ТочкиУчетаНомерСтрокиКонтекстноеМеню" id="372"/>
+													<ExtendedTooltip name="ТочкиУчетаНомерСтрокиРасширеннаяПодсказка" id="373"/>
+												</LabelField>
+												<ColumnGroup name="ТочкиУчетаГруппа2" id="539">
+													<ExtendedTooltip name="ТочкиУчетаГруппа2РасширеннаяПодсказка" id="540"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги" id="909">
+															<DataPath>Объект.ТочкиУчета.ДатаПодключенияУслуги</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслугиКонтекстноеМеню" id="910"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслугиРасширеннаяПодсказка" id="911"/>
+														</InputField>
+														<InputField name="ТочкиУчетаДатаПодключенияПУ" id="425">
+															<DataPath>Объект.ТочкиУчета.ДатаВводПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаДатаПодключенияПУКонтекстноеМеню" id="426"/>
+															<ExtendedTooltip name="ТочкиУчетаДатаПодключенияПУРасширеннаяПодсказка" id="427"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа2" id="460">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа2РасширеннаяПодсказка" id="461"/>
+													<ChildItems>
+														<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа1" id="912">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа1РасширеннаяПодсказка" id="913"/>
+															<ChildItems>
+																<InputField name="ТочкиУчетаУслуга" id="383">
+																	<DataPath>Объект.ТочкиУчета.Услуга</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаУслугаКонтекстноеМеню" id="384"/>
+																	<ExtendedTooltip name="ТочкиУчетаУслугаРасширеннаяПодсказка" id="385"/>
+																	<Events>
+																		<Event name="OnChange">ТочкиУчетаУслугаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<LabelField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения" id="914">
+																	<DataPath>Объект.ТочкиУчета.Услуга.ЕдиницаИзмерения</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмеренияКонтекстноеМеню" id="915"/>
+																	<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмеренияРасширеннаяПодсказка" id="916"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныПоставщик" id="455">
+															<DataPath>Объект.ТочкиУчета.Поставщик</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныПоставщикКонтекстноеМеню" id="456"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныПоставщикРасширеннаяПодсказка" id="457"/>
+															<Events>
+																<Event name="AutoComplete">ТочкиУчетаПоставщикАвтоПодбор</Event>
+																<Event name="StartChoice">ТочкиУчетаПоставщикНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа3" id="462">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа3РасширеннаяПодсказка" id="463"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение" id="917">
+															<DataPath>Объект.ТочкиУчета.Расположение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположениеКонтекстноеМеню" id="918"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположениеРасширеннаяПодсказка" id="919"/>
+															<Events>
+																<Event name="OnChange">ТочкиУчетаРасположениеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки" id="920">
+															<DataPath>Объект.ТочкиУчета.НаименованиеТочки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочкиКонтекстноеМеню" id="921"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочкиРасширеннаяПодсказка" id="922"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальности" id="923">
+													<DataPath>Объект.ТочкиУчета.ВидКанальности</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальностиКонтекстноеМеню" id="924"/>
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальностиРасширеннаяПодсказка" id="925"/>
+													<Events>
+														<Event name="OnChange">ТочкиУчетаВидКанальностиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа2" id="926">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа2РасширеннаяПодсказка" id="927"/>
+													<ChildItems>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ" id="928">
+															<DataPath>Объект.ТочкиУчета.НетВозможностьУстановкиПУ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУКонтекстноеМеню" id="929"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУРасширеннаяПодсказка" id="930"/>
+														</CheckBoxField>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная" id="931">
+															<DataPath>Объект.ТочкиУчета.Головная</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловнаяКонтекстноеМеню" id="932"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловнаяРасширеннаяПодсказка" id="933"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа3" id="934">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа3РасширеннаяПодсказка" id="935"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер" id="936">
+															<DataPath>Объект.ТочкиУчета.ЗаводскойНомер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомерКонтекстноеМеню" id="937"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомерРасширеннаяПодсказка" id="938"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета" id="939">
+															<DataPath>Объект.ТочкиУчета.ТипПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчетаКонтекстноеМеню" id="940"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчетаРасширеннаяПодсказка" id="941"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа4" id="942">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа4РасширеннаяПодсказка" id="943"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки" id="944">
+															<DataPath>Объект.ТочкиУчета.ДатаПоверки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверкиКонтекстноеМеню" id="945"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверкиРасширеннаяПодсказка" id="946"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки" id="947">
+															<DataPath>Объект.ТочкиУчета.ДатаПриемки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемкиКонтекстноеМеню" id="948"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемкиРасширеннаяПодсказка" id="949"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа5" id="950">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа5РасширеннаяПодсказка" id="951"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы" id="952">
+															<DataPath>Объект.ТочкиУчета.НомерПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбыКонтекстноеМеню" id="953"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбыРасширеннаяПодсказка" id="954"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы" id="955">
+															<DataPath>Объект.ТочкиУчета.ДатаУстановкиПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбыКонтекстноеМеню" id="956"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбыРасширеннаяПодсказка" id="957"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</Table>
+										<UsualGroup name="ГруппаШкалыТарифныеЗоны" id="860">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа шкалы тарифные зоны</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа шкалы тарифные зоны</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаШкалыТарифныеЗоныРасширеннаяПодсказка" id="861"/>
+											<ChildItems>
+												<Table name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны" id="862">
+													<Height>4</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<DataPath>Объект.ШкалыПриборовУчета</DataPath>
+													<CommandSet>
+														<ExcludedCommand>Add</ExcludedCommand>
+														<ExcludedCommand>CancelSearch</ExcludedCommand>
+														<ExcludedCommand>Change</ExcludedCommand>
+														<ExcludedCommand>Copy</ExcludedCommand>
+														<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+														<ExcludedCommand>Delete</ExcludedCommand>
+														<ExcludedCommand>EndEdit</ExcludedCommand>
+														<ExcludedCommand>Find</ExcludedCommand>
+														<ExcludedCommand>MoveDown</ExcludedCommand>
+														<ExcludedCommand>MoveUp</ExcludedCommand>
+														<ExcludedCommand>OutputList</ExcludedCommand>
+														<ExcludedCommand>SelectAll</ExcludedCommand>
+														<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+														<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+														<ExcludedCommand>SortListAsc</ExcludedCommand>
+														<ExcludedCommand>SortListDesc</ExcludedCommand>
+													</CommandSet>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныКонтекстноеМеню" id="863"/>
+													<AutoCommandBar name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныКоманднаяПанель" id="864"/>
+													<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныРасширеннаяПодсказка" id="865"/>
+													<SearchStringAddition name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоиска" id="866">
+														<AdditionSource>
+															<Item>ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаКонтекстноеМеню" id="867"/>
+														<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаРасширеннаяПодсказка" id="868"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотра" id="869">
+														<AdditionSource>
+															<Item>ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраКонтекстноеМеню" id="870"/>
+														<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="871"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоиском" id="872">
+														<AdditionSource>
+															<Item>ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомКонтекстноеМеню" id="873"/>
+														<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомРасширеннаяПодсказка" id="874"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnActivateRow">ШкалыПриборовУчетаПриАктивизацииСтроки</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="ШкалыПриборовУчетаНомерСтроки" id="875">
+															<DataPath>Объект.ШкалыПриборовУчета.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<MaxWidth>1</MaxWidth>
+															<ContextMenu name="ШкалыПриборовУчетаНомерСтрокиКонтекстноеМеню" id="876"/>
+															<ExtendedTooltip name="ШкалыПриборовУчетаНомерСтрокиРасширеннаяПодсказка" id="877"/>
+														</LabelField>
+														<InputField name="ШкалыПриборовУчетаШкала" id="881">
+															<DataPath>Объект.ШкалыПриборовУчета.Шкала</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ШкалыПриборовУчетаШкалаКонтекстноеМеню" id="882"/>
+															<ExtendedTooltip name="ШкалыПриборовУчетаШкалаРасширеннаяПодсказка" id="883"/>
+														</InputField>
+														<InputField name="ШкалыПриборовУчетаВидДифференцированности" id="878">
+															<DataPath>Объект.ШкалыПриборовУчета.ВидДифференцированности</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ШкалыПриборовУчетаВидДифференцированностиКонтекстноеМеню" id="879"/>
+															<ExtendedTooltip name="ШкалыПриборовУчетаВидДифференцированностиРасширеннаяПодсказка" id="880"/>
+															<Events>
+																<Event name="OnChange">ШкалыПриборовУчетаВидДифференцированностиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+												<Table name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоны" id="884">
+													<Height>4</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<DataPath>Объект.ПоказанияПриборовУчета</DataPath>
+													<CommandSet>
+														<ExcludedCommand>CancelSearch</ExcludedCommand>
+														<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+														<ExcludedCommand>EndEdit</ExcludedCommand>
+														<ExcludedCommand>Find</ExcludedCommand>
+														<ExcludedCommand>MoveDown</ExcludedCommand>
+														<ExcludedCommand>MoveUp</ExcludedCommand>
+														<ExcludedCommand>OutputList</ExcludedCommand>
+														<ExcludedCommand>SelectAll</ExcludedCommand>
+														<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+														<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+														<ExcludedCommand>SortListAsc</ExcludedCommand>
+														<ExcludedCommand>SortListDesc</ExcludedCommand>
+													</CommandSet>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныКонтекстноеМеню" id="885"/>
+													<AutoCommandBar name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныКоманднаяПанель" id="886"/>
+													<ExtendedTooltip name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныРасширеннаяПодсказка" id="887"/>
+													<SearchStringAddition name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоиска" id="888">
+														<AdditionSource>
+															<Item>ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаКонтекстноеМеню" id="889"/>
+														<ExtendedTooltip name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСтрокаПоискаРасширеннаяПодсказка" id="890"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотра" id="891">
+														<AdditionSource>
+															<Item>ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраКонтекстноеМеню" id="892"/>
+														<ExtendedTooltip name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="893"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоиском" id="894">
+														<AdditionSource>
+															<Item>ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоны</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомКонтекстноеМеню" id="895"/>
+														<ExtendedTooltip name="ПоказанияПриборовУчетаЕстьШкалыЕстьТарифныеЗоныУправлениеПоискомРасширеннаяПодсказка" id="896"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПоказанияПриборовУчетаПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="ПоказанияПриборовУчетаНомерСтроки" id="897">
+															<DataPath>Объект.ПоказанияПриборовУчета.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<MaxWidth>1</MaxWidth>
+															<ContextMenu name="ПоказанияПриборовУчетаНомерСтрокиКонтекстноеМеню" id="898"/>
+															<ExtendedTooltip name="ПоказанияПриборовУчетаНомерСтрокиРасширеннаяПодсказка" id="899"/>
+														</LabelField>
+														<InputField name="ПоказанияПриборовУчетаДатаПоказаний" id="900">
+															<DataPath>Объект.ПоказанияПриборовУчета.ДатаПоказаний</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПоказанияПриборовУчетаДатаПоказанийКонтекстноеМеню" id="901"/>
+															<ExtendedTooltip name="ПоказанияПриборовУчетаДатаПоказанийРасширеннаяПодсказка" id="902"/>
+														</InputField>
+														<InputField name="ПоказанияПриборовУчетаТарифнаяЗона" id="906">
+															<DataPath>Объект.ПоказанияПриборовУчета.ТарифнаяЗона</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПоказанияПриборовУчетаТарифнаяЗонаКонтекстноеМеню" id="907"/>
+															<ExtendedTooltip name="ПоказанияПриборовУчетаТарифнаяЗонаРасширеннаяПодсказка" id="908"/>
+														</InputField>
+														<InputField name="ПоказанияПриборовУчетаТекущиеПоказания" id="903">
+															<DataPath>Объект.ПоказанияПриборовУчета.ТекущиеПоказания</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПоказанияПриборовУчетаТекущиеПоказанияКонтекстноеМеню" id="904"/>
+															<ExtendedTooltip name="ПоказанияПриборовУчетаТекущиеПоказанияРасширеннаяПодсказка" id="905"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаНетШкалЕстьТарифныеЗоны" id="662">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нет шкал есть тарифные зоны</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нет шкал есть тарифные зоны</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<ExtendedTooltip name="СтраницаНетШкалЕстьТарифныеЗоныРасширеннаяПодсказка" id="663"/>
+									<ChildItems>
+										<Table name="ТочкиУчетаНетШкалЕстьТарифныеЗоны" id="958">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ТочкиУчета</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныКонтекстноеМеню" id="959"/>
+											<AutoCommandBar name="ТочкиУчетаНетШкалЕстьТарифныеЗоныКоманднаяПанель" id="960"/>
+											<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныРасширеннаяПодсказка" id="961"/>
+											<SearchStringAddition name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСтрокаПоиска" id="962">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСтрокаПоискаКонтекстноеМеню" id="963"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСтрокаПоискаРасширеннаяПодсказка" id="964"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотра" id="965">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотраКонтекстноеМеню" id="966"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="967"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТочкиУчетаНетШкалЕстьТарифныеЗоныУправлениеПоиском" id="968">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныУправлениеПоискомКонтекстноеМеню" id="969"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныУправлениеПоискомРасширеннаяПодсказка" id="970"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeDeleteRow">ТочкиУчетаПередУдалением</Event>
+												<Event name="OnActivateRow">ТочкиУчетаНетШкалЕстьТарифныеЗоныПриАктивизацииСтроки</Event>
+												<Event name="OnStartEdit">ТочкиУчетаПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ТочкиУчетаНомерСтроки1" id="971">
+													<DataPath>Объект.ТочкиУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ТочкиУчетаНомерСтроки1КонтекстноеМеню" id="972"/>
+													<ExtendedTooltip name="ТочкиУчетаНомерСтроки1РасширеннаяПодсказка" id="973"/>
+												</LabelField>
+												<ColumnGroup name="ТочкиУчетаГруппа3" id="974">
+													<ExtendedTooltip name="ТочкиУчетаГруппа3РасширеннаяПодсказка" id="975"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги1" id="976">
+															<DataPath>Объект.ТочкиУчета.ДатаПодключенияУслуги</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги1КонтекстноеМеню" id="977"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги1РасширеннаяПодсказка" id="978"/>
+														</InputField>
+														<InputField name="ТочкиУчетаДатаПодключенияПУ1" id="979">
+															<DataPath>Объект.ТочкиУчета.ДатаВводПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаДатаПодключенияПУ1КонтекстноеМеню" id="980"/>
+															<ExtendedTooltip name="ТочкиУчетаДатаПодключенияПУ1РасширеннаяПодсказка" id="981"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа4" id="982">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа4РасширеннаяПодсказка" id="983"/>
+													<ChildItems>
+														<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа6" id="984">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа6РасширеннаяПодсказка" id="985"/>
+															<ChildItems>
+																<InputField name="ТочкиУчетаУслуга1" id="986">
+																	<DataPath>Объект.ТочкиУчета.Услуга</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаУслуга1КонтекстноеМеню" id="987"/>
+																	<ExtendedTooltip name="ТочкиУчетаУслуга1РасширеннаяПодсказка" id="988"/>
+																	<Events>
+																		<Event name="OnChange">ТочкиУчетаУслугаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<LabelField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения1" id="989">
+																	<DataPath>Объект.ТочкиУчета.Услуга.ЕдиницаИзмерения</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения1КонтекстноеМеню" id="990"/>
+																	<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения1РасширеннаяПодсказка" id="991"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="ТочкиУчетаНетШкалЕстьТарифныеЗоныПоставщик" id="992">
+															<DataPath>Объект.ТочкиУчета.Поставщик</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныПоставщикКонтекстноеМеню" id="993"/>
+															<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныПоставщикРасширеннаяПодсказка" id="994"/>
+															<Events>
+																<Event name="AutoComplete">ТочкиУчетаПоставщикАвтоПодбор</Event>
+																<Event name="StartChoice">ТочкиУчетаПоставщикНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа5" id="995">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа5РасширеннаяПодсказка" id="996"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение1" id="997">
+															<DataPath>Объект.ТочкиУчета.Расположение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение1КонтекстноеМеню" id="998"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение1РасширеннаяПодсказка" id="999"/>
+															<Events>
+																<Event name="OnChange">ТочкиУчетаРасположениеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки1" id="1000">
+															<DataPath>Объект.ТочкиУчета.НаименованиеТочки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки1КонтекстноеМеню" id="1001"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки1РасширеннаяПодсказка" id="1002"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа7" id="1006">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа7РасширеннаяПодсказка" id="1007"/>
+													<ChildItems>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ1" id="1008">
+															<DataPath>Объект.ТочкиУчета.НетВозможностьУстановкиПУ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ1КонтекстноеМеню" id="1009"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ1РасширеннаяПодсказка" id="1010"/>
+														</CheckBoxField>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная1" id="1011">
+															<DataPath>Объект.ТочкиУчета.Головная</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная1КонтекстноеМеню" id="1012"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная1РасширеннаяПодсказка" id="1013"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ТочкиУчетаНетШкалЕстьТарифныеЗоныВидДифференцированности" id="1066">
+													<DataPath>Объект.ТочкиУчета.ВидДифференцированности</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТочкиУчетаНетШкалЕстьТарифныеЗоныВидДифференцированностиКонтекстноеМеню" id="1067"/>
+													<ExtendedTooltip name="ТочкиУчетаНетШкалЕстьТарифныеЗоныВидДифференцированностиРасширеннаяПодсказка" id="1068"/>
+													<Events>
+														<Event name="OnChange">ТочкиУчетаНетШкалЕстьТарифныеЗоныВидДифференцированностиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа8" id="1014">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа8РасширеннаяПодсказка" id="1015"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер1" id="1016">
+															<DataPath>Объект.ТочкиУчета.ЗаводскойНомер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер1КонтекстноеМеню" id="1017"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер1РасширеннаяПодсказка" id="1018"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета1" id="1019">
+															<DataPath>Объект.ТочкиУчета.ТипПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета1КонтекстноеМеню" id="1020"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета1РасширеннаяПодсказка" id="1021"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа9" id="1022">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа9РасширеннаяПодсказка" id="1023"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки1" id="1024">
+															<DataPath>Объект.ТочкиУчета.ДатаПоверки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки1КонтекстноеМеню" id="1025"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки1РасширеннаяПодсказка" id="1026"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки1" id="1027">
+															<DataPath>Объект.ТочкиУчета.ДатаПриемки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки1КонтекстноеМеню" id="1028"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки1РасширеннаяПодсказка" id="1029"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа10" id="1030">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа10РасширеннаяПодсказка" id="1031"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы1" id="1032">
+															<DataPath>Объект.ТочкиУчета.НомерПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы1КонтекстноеМеню" id="1033"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы1РасширеннаяПодсказка" id="1034"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы1" id="1035">
+															<DataPath>Объект.ТочкиУчета.ДатаУстановкиПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы1КонтекстноеМеню" id="1036"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы1РасширеннаяПодсказка" id="1037"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</Table>
+										<Table name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоны" id="1041">
+											<Height>4</Height>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ПоказанияПриборовУчета</DataPath>
+											<CommandSet>
+												<ExcludedCommand>CancelSearch</ExcludedCommand>
+												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Find</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>OutputList</ExcludedCommand>
+												<ExcludedCommand>SelectAll</ExcludedCommand>
+												<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныКонтекстноеМеню" id="1042"/>
+											<AutoCommandBar name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныКоманднаяПанель" id="1043"/>
+											<ExtendedTooltip name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныРасширеннаяПодсказка" id="1044"/>
+											<SearchStringAddition name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСтрокаПоиска" id="1045">
+												<AdditionSource>
+													<Item>ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСтрокаПоискаКонтекстноеМеню" id="1046"/>
+												<ExtendedTooltip name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСтрокаПоискаРасширеннаяПодсказка" id="1047"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотра" id="1048">
+												<AdditionSource>
+													<Item>ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотраКонтекстноеМеню" id="1049"/>
+												<ExtendedTooltip name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныСостояниеПросмотраРасширеннаяПодсказка" id="1050"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныУправлениеПоиском" id="1051">
+												<AdditionSource>
+													<Item>ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоны</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныУправлениеПоискомКонтекстноеМеню" id="1052"/>
+												<ExtendedTooltip name="ПоказанияПриборовУчетаНетШкалЕстьТарифныеЗоныУправлениеПоискомРасширеннаяПодсказка" id="1053"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnStartEdit">ПоказанияПриборовУчетаПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ПоказанияПриборовУчетаНомерСтроки1" id="1054">
+													<DataPath>Объект.ПоказанияПриборовУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ПоказанияПриборовУчетаНомерСтроки1КонтекстноеМеню" id="1055"/>
+													<ExtendedTooltip name="ПоказанияПриборовУчетаНомерСтроки1РасширеннаяПодсказка" id="1056"/>
+												</LabelField>
+												<InputField name="ПоказанияПриборовУчетаДатаПоказаний1" id="1057">
+													<DataPath>Объект.ПоказанияПриборовУчета.ДатаПоказаний</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПоказанияПриборовУчетаДатаПоказаний1КонтекстноеМеню" id="1058"/>
+													<ExtendedTooltip name="ПоказанияПриборовУчетаДатаПоказаний1РасширеннаяПодсказка" id="1059"/>
+												</InputField>
+												<InputField name="ПоказанияПриборовУчетаТарифнаяЗона1" id="1060">
+													<DataPath>Объект.ПоказанияПриборовУчета.ТарифнаяЗона</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПоказанияПриборовУчетаТарифнаяЗона1КонтекстноеМеню" id="1061"/>
+													<ExtendedTooltip name="ПоказанияПриборовУчетаТарифнаяЗона1РасширеннаяПодсказка" id="1062"/>
+												</InputField>
+												<InputField name="ПоказанияПриборовУчетаТекущиеПоказания1" id="1063">
+													<DataPath>Объект.ПоказанияПриборовУчета.ТекущиеПоказания</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПоказанияПриборовУчетаТекущиеПоказания1КонтекстноеМеню" id="1064"/>
+													<ExtendedTooltip name="ПоказанияПриборовУчетаТекущиеПоказания1РасширеннаяПодсказка" id="1065"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаЕстьШкалыНетТарифныхЗон" id="664">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница есть шкалы нет тарифных зон</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница есть шкалы нет тарифных зон</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<ExtendedTooltip name="СтраницаЕстьШкалыНетТарифныхЗонРасширеннаяПодсказка" id="665"/>
+									<ChildItems>
+										<Table name="ТочкиУчетаЕстьШкалыНетТарифныхЗон" id="1069">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ТочкиУчета</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТочкиУчетаЕстьШкалыНетТарифныхЗонКонтекстноеМеню" id="1070"/>
+											<AutoCommandBar name="ТочкиУчетаЕстьШкалыНетТарифныхЗонКоманднаяПанель" id="1071"/>
+											<ExtendedTooltip name="ТочкиУчетаЕстьШкалыНетТарифныхЗонРасширеннаяПодсказка" id="1072"/>
+											<SearchStringAddition name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСтрокаПоиска" id="1073">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСтрокаПоискаКонтекстноеМеню" id="1074"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСтрокаПоискаРасширеннаяПодсказка" id="1075"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотра" id="1076">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотраКонтекстноеМеню" id="1077"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотраРасширеннаяПодсказка" id="1078"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТочкиУчетаЕстьШкалыНетТарифныхЗонУправлениеПоиском" id="1079">
+												<AdditionSource>
+													<Item>ТочкиУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаЕстьШкалыНетТарифныхЗонУправлениеПоискомКонтекстноеМеню" id="1080"/>
+												<ExtendedTooltip name="ТочкиУчетаЕстьШкалыНетТарифныхЗонУправлениеПоискомРасширеннаяПодсказка" id="1081"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeDeleteRow">ТочкиУчетаПередУдалением</Event>
+												<Event name="OnActivateRow">ТочкиУчетаПриАктивизацииСтроки</Event>
+												<Event name="OnStartEdit">ТочкиУчетаПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ТочкиУчетаНомерСтроки2" id="1082">
+													<DataPath>Объект.ТочкиУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ТочкиУчетаНомерСтроки2КонтекстноеМеню" id="1083"/>
+													<ExtendedTooltip name="ТочкиУчетаНомерСтроки2РасширеннаяПодсказка" id="1084"/>
+												</LabelField>
+												<ColumnGroup name="ТочкиУчетаГруппа4" id="1085">
+													<ExtendedTooltip name="ТочкиУчетаГруппа4РасширеннаяПодсказка" id="1086"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги2" id="1087">
+															<DataPath>Объект.ТочкиУчета.ДатаПодключенияУслуги</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги2КонтекстноеМеню" id="1088"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги2РасширеннаяПодсказка" id="1089"/>
+														</InputField>
+														<InputField name="ТочкиУчетаДатаПодключенияПУ2" id="1090">
+															<DataPath>Объект.ТочкиУчета.ДатаВводПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаДатаПодключенияПУ2КонтекстноеМеню" id="1091"/>
+															<ExtendedTooltip name="ТочкиУчетаДатаПодключенияПУ2РасширеннаяПодсказка" id="1092"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа6" id="1093">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа6РасширеннаяПодсказка" id="1094"/>
+													<ChildItems>
+														<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа11" id="1095">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа11РасширеннаяПодсказка" id="1096"/>
+															<ChildItems>
+																<InputField name="ТочкиУчетаУслуга2" id="1097">
+																	<DataPath>Объект.ТочкиУчета.Услуга</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаУслуга2КонтекстноеМеню" id="1098"/>
+																	<ExtendedTooltip name="ТочкиУчетаУслуга2РасширеннаяПодсказка" id="1099"/>
+																	<Events>
+																		<Event name="OnChange">ТочкиУчетаУслугаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<LabelField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения2" id="1100">
+																	<DataPath>Объект.ТочкиУчета.Услуга.ЕдиницаИзмерения</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения2КонтекстноеМеню" id="1101"/>
+																	<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения2РасширеннаяПодсказка" id="1102"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="ТочкиУчетаЕстьШкалыНетТарифныхЗонПоставщик" id="1103">
+															<DataPath>Объект.ТочкиУчета.Поставщик</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыНетТарифныхЗонПоставщикКонтекстноеМеню" id="1104"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыНетТарифныхЗонПоставщикРасширеннаяПодсказка" id="1105"/>
+															<Events>
+																<Event name="AutoComplete">ТочкиУчетаПоставщикАвтоПодбор</Event>
+																<Event name="StartChoice">ТочкиУчетаПоставщикНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа7" id="1106">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа7РасширеннаяПодсказка" id="1107"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение2" id="1108">
+															<DataPath>Объект.ТочкиУчета.Расположение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение2КонтекстноеМеню" id="1109"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение2РасширеннаяПодсказка" id="1110"/>
+															<Events>
+																<Event name="OnChange">ТочкиУчетаРасположениеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки2" id="1111">
+															<DataPath>Объект.ТочкиУчета.НаименованиеТочки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки2КонтекстноеМеню" id="1112"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки2РасширеннаяПодсказка" id="1113"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальности1" id="1114">
+													<DataPath>Объект.ТочкиУчета.ВидКанальности</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальности1КонтекстноеМеню" id="1115"/>
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныВидКанальности1РасширеннаяПодсказка" id="1116"/>
+													<Events>
+														<Event name="OnChange">ТочкиУчетаВидКанальностиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа12" id="1117">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа12РасширеннаяПодсказка" id="1118"/>
+													<ChildItems>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ2" id="1119">
+															<DataPath>Объект.ТочкиУчета.НетВозможностьУстановкиПУ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ2КонтекстноеМеню" id="1120"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ2РасширеннаяПодсказка" id="1121"/>
+														</CheckBoxField>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная2" id="1122">
+															<DataPath>Объект.ТочкиУчета.Головная</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная2КонтекстноеМеню" id="1123"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная2РасширеннаяПодсказка" id="1124"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа13" id="1125">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа13РасширеннаяПодсказка" id="1126"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер2" id="1127">
+															<DataPath>Объект.ТочкиУчета.ЗаводскойНомер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер2КонтекстноеМеню" id="1128"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер2РасширеннаяПодсказка" id="1129"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета2" id="1130">
+															<DataPath>Объект.ТочкиУчета.ТипПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета2КонтекстноеМеню" id="1131"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета2РасширеннаяПодсказка" id="1132"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа14" id="1133">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа14РасширеннаяПодсказка" id="1134"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки2" id="1135">
+															<DataPath>Объект.ТочкиУчета.ДатаПоверки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки2КонтекстноеМеню" id="1136"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки2РасширеннаяПодсказка" id="1137"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки2" id="1138">
+															<DataPath>Объект.ТочкиУчета.ДатаПриемки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки2КонтекстноеМеню" id="1139"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки2РасширеннаяПодсказка" id="1140"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа15" id="1141">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа15РасширеннаяПодсказка" id="1142"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы2" id="1143">
+															<DataPath>Объект.ТочкиУчета.НомерПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы2КонтекстноеМеню" id="1144"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы2РасширеннаяПодсказка" id="1145"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы2" id="1146">
+															<DataPath>Объект.ТочкиУчета.ДатаУстановкиПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы2КонтекстноеМеню" id="1147"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы2РасширеннаяПодсказка" id="1148"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</Table>
+										<Table name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗон" id="1149">
+											<Height>4</Height>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ШкалыПриборовУчета</DataPath>
+											<CommandSet>
+												<ExcludedCommand>CancelSearch</ExcludedCommand>
+												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Find</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>OutputList</ExcludedCommand>
+												<ExcludedCommand>SelectAll</ExcludedCommand>
+												<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонКонтекстноеМеню" id="1150"/>
+											<AutoCommandBar name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонКоманднаяПанель" id="1151"/>
+											<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонРасширеннаяПодсказка" id="1152"/>
+											<SearchStringAddition name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСтрокаПоиска" id="1153">
+												<AdditionSource>
+													<Item>ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСтрокаПоискаКонтекстноеМеню" id="1154"/>
+												<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСтрокаПоискаРасширеннаяПодсказка" id="1155"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотра" id="1156">
+												<AdditionSource>
+													<Item>ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотраКонтекстноеМеню" id="1157"/>
+												<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонСостояниеПросмотраРасширеннаяПодсказка" id="1158"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонУправлениеПоиском" id="1159">
+												<AdditionSource>
+													<Item>ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗон</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонУправлениеПоискомКонтекстноеМеню" id="1160"/>
+												<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонУправлениеПоискомРасширеннаяПодсказка" id="1161"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnStartEdit">ШкалыПриборовУчетаЕстьШкалыНетТарифныхЗонПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ШкалыПриборовУчетаНомерСтроки1" id="1162">
+													<DataPath>Объект.ШкалыПриборовУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ШкалыПриборовУчетаНомерСтроки1КонтекстноеМеню" id="1163"/>
+													<ExtendedTooltip name="ШкалыПриборовУчетаНомерСтроки1РасширеннаяПодсказка" id="1164"/>
+												</LabelField>
+												<InputField name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ДатаПоказаний" id="1168">
+													<DataPath>Объект.ШкалыПриборовУчета.ДатаПоказаний</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ДатаПоказанийКонтекстноеМеню" id="1169"/>
+													<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ДатаПоказанийРасширеннаяПодсказка" id="1170"/>
+												</InputField>
+												<InputField name="ШкалыПриборовУчетаШкала1" id="1165">
+													<DataPath>Объект.ШкалыПриборовУчета.Шкала</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ШкалыПриборовУчетаШкала1КонтекстноеМеню" id="1166"/>
+													<ExtendedTooltip name="ШкалыПриборовУчетаШкала1РасширеннаяПодсказка" id="1167"/>
+												</InputField>
+												<InputField name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ТекущиеПоказания" id="1171">
+													<DataPath>Объект.ШкалыПриборовУчета.ТекущиеПоказания</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ТекущиеПоказанияКонтекстноеМеню" id="1172"/>
+													<ExtendedTooltip name="ШкалыПриборовУчетаЕстьШкалыЕстьТарифныеЗоны1ТекущиеПоказанияРасширеннаяПодсказка" id="1173"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаНетШкалНетТарифныхЗон" id="666">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нет шкал нет тарифных зон</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нет шкал нет тарифных зон</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНетШкалНетТарифныхЗонРасширеннаяПодсказка" id="667"/>
+									<ChildItems>
+										<Table name="ТочкиУчетаНетШкалНетТарифныхЗон" id="1174">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ТочкиУчета</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонКонтекстноеМеню" id="1175"/>
+											<AutoCommandBar name="ТочкиУчетаНетШкалНетТарифныхЗонКоманднаяПанель" id="1176"/>
+											<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонРасширеннаяПодсказка" id="1177"/>
+											<SearchStringAddition name="ТочкиУчетаНетШкалНетТарифныхЗонСтрокаПоиска" id="1178">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалНетТарифныхЗон</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонСтрокаПоискаКонтекстноеМеню" id="1179"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонСтрокаПоискаРасширеннаяПодсказка" id="1180"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТочкиУчетаНетШкалНетТарифныхЗонСостояниеПросмотра" id="1181">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалНетТарифныхЗон</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонСостояниеПросмотраКонтекстноеМеню" id="1182"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонСостояниеПросмотраРасширеннаяПодсказка" id="1183"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТочкиУчетаНетШкалНетТарифныхЗонУправлениеПоиском" id="1184">
+												<AdditionSource>
+													<Item>ТочкиУчетаНетШкалНетТарифныхЗон</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонУправлениеПоискомКонтекстноеМеню" id="1185"/>
+												<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонУправлениеПоискомРасширеннаяПодсказка" id="1186"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeDeleteRow">ТочкиУчетаПередУдалением</Event>
+												<Event name="OnStartEdit">ТочкиУчетаПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ТочкиУчетаНомерСтроки3" id="1187">
+													<DataPath>Объект.ТочкиУчета.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>1</MaxWidth>
+													<ContextMenu name="ТочкиУчетаНомерСтроки3КонтекстноеМеню" id="1188"/>
+													<ExtendedTooltip name="ТочкиУчетаНомерСтроки3РасширеннаяПодсказка" id="1189"/>
+												</LabelField>
+												<ColumnGroup name="ТочкиУчетаГруппа5" id="1190">
+													<ExtendedTooltip name="ТочкиУчетаГруппа5РасширеннаяПодсказка" id="1191"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги3" id="1192">
+															<DataPath>Объект.ТочкиУчета.ДатаПодключенияУслуги</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги3КонтекстноеМеню" id="1193"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПодключенияУслуги3РасширеннаяПодсказка" id="1194"/>
+														</InputField>
+														<InputField name="ТочкиУчетаДатаПодключенияПУ3" id="1195">
+															<DataPath>Объект.ТочкиУчета.ДатаВводПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаДатаПодключенияПУ3КонтекстноеМеню" id="1196"/>
+															<ExtendedTooltip name="ТочкиУчетаДатаПодключенияПУ3РасширеннаяПодсказка" id="1197"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа8" id="1198">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа8РасширеннаяПодсказка" id="1199"/>
+													<ChildItems>
+														<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа16" id="1200">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа16РасширеннаяПодсказка" id="1201"/>
+															<ChildItems>
+																<InputField name="ТочкиУчетаУслуга3" id="1202">
+																	<DataPath>Объект.ТочкиУчета.Услуга</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаУслуга3КонтекстноеМеню" id="1203"/>
+																	<ExtendedTooltip name="ТочкиУчетаУслуга3РасширеннаяПодсказка" id="1204"/>
+																	<Events>
+																		<Event name="OnChange">ТочкиУчетаУслугаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<LabelField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения3" id="1205">
+																	<DataPath>Объект.ТочкиУчета.Услуга.ЕдиницаИзмерения</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения3КонтекстноеМеню" id="1206"/>
+																	<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныУслугаЕдиницаИзмерения3РасширеннаяПодсказка" id="1207"/>
+																</LabelField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="ТочкиУчетаНетШкалНетТарифныхЗонПоставщик" id="1208">
+															<DataPath>Объект.ТочкиУчета.Поставщик</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонПоставщикКонтекстноеМеню" id="1209"/>
+															<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонПоставщикРасширеннаяПодсказка" id="1210"/>
+															<Events>
+																<Event name="AutoComplete">ТочкиУчетаПоставщикАвтоПодбор</Event>
+																<Event name="StartChoice">ТочкиУчетаПоставщикНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ДанныеТочекУчетаГруппа9" id="1211">
+													<ExtendedTooltip name="ДанныеТочекУчетаГруппа9РасширеннаяПодсказка" id="1212"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение3" id="1213">
+															<DataPath>Объект.ТочкиУчета.Расположение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение3КонтекстноеМеню" id="1214"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныРасположение3РасширеннаяПодсказка" id="1215"/>
+															<Events>
+																<Event name="OnChange">ТочкиУчетаРасположениеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки3" id="1216">
+															<DataPath>Объект.ТочкиУчета.НаименованиеТочки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки3КонтекстноеМеню" id="1217"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНаименованиеТочки3РасширеннаяПодсказка" id="1218"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа17" id="1222">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа17РасширеннаяПодсказка" id="1223"/>
+													<ChildItems>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ3" id="1224">
+															<DataPath>Объект.ТочкиУчета.НетВозможностьУстановкиПУ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ3КонтекстноеМеню" id="1225"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНетВозможностьУстановкиПУ3РасширеннаяПодсказка" id="1226"/>
+														</CheckBoxField>
+														<CheckBoxField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная3" id="1227">
+															<DataPath>Объект.ТочкиУчета.Головная</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная3КонтекстноеМеню" id="1228"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГоловная3РасширеннаяПодсказка" id="1229"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа18" id="1230">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа18РасширеннаяПодсказка" id="1231"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер3" id="1232">
+															<DataPath>Объект.ТочкиУчета.ЗаводскойНомер</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер3КонтекстноеМеню" id="1233"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныЗаводскойНомер3РасширеннаяПодсказка" id="1234"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета3" id="1235">
+															<DataPath>Объект.ТочкиУчета.ТипПрибораУчета</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета3КонтекстноеМеню" id="1236"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныТипПрибораУчета3РасширеннаяПодсказка" id="1237"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа19" id="1238">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа19РасширеннаяПодсказка" id="1239"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки3" id="1240">
+															<DataPath>Объект.ТочкиУчета.ДатаПоверки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки3КонтекстноеМеню" id="1241"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПоверки3РасширеннаяПодсказка" id="1242"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки3" id="1243">
+															<DataPath>Объект.ТочкиУчета.ДатаПриемки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки3КонтекстноеМеню" id="1244"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаПриемки3РасширеннаяПодсказка" id="1245"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа20" id="1246">
+													<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныГруппа20РасширеннаяПодсказка" id="1247"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы3" id="1248">
+															<DataPath>Объект.ТочкиУчета.НомерПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы3КонтекстноеМеню" id="1249"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныНомерПломбы3РасширеннаяПодсказка" id="1250"/>
+														</InputField>
+														<InputField name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы3" id="1251">
+															<DataPath>Объект.ТочкиУчета.ДатаУстановкиПломбы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы3КонтекстноеМеню" id="1252"/>
+															<ExtendedTooltip name="ТочкиУчетаЕстьШкалыЕстьТарифныеЗоныДатаУстановкиПломбы3РасширеннаяПодсказка" id="1253"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ТочкиУчетаНетШкалНетТарифныхЗонГруппа1" id="1254">
+													<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонГруппа1РасширеннаяПодсказка" id="1255"/>
+													<ChildItems>
+														<InputField name="ТочкиУчетаНетШкалНетТарифныхЗонДатаПоказаний" id="1256">
+															<DataPath>Объект.ТочкиУчета.ДатаПоказаний</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонДатаПоказанийКонтекстноеМеню" id="1257"/>
+															<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонДатаПоказанийРасширеннаяПодсказка" id="1258"/>
+														</InputField>
+														<InputField name="ТочкиУчетаНетШкалНетТарифныхЗонТекущиеПоказания" id="1259">
+															<DataPath>Объект.ТочкиУчета.ТекущиеПоказания</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТочкиУчетаНетШкалНетТарифныхЗонТекущиеПоказанияКонтекстноеМеню" id="1260"/>
+															<ExtendedTooltip name="ТочкиУчетаНетШкалНетТарифныхЗонТекущиеПоказанияРасширеннаяПодсказка" id="1261"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗначениеПлощадей" id="285">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение площадей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница значение площадей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЗначениеПлощадейРасширеннаяПодсказка" id="286"/>
+					<ChildItems>
+						<Table name="ЗначениеПлощадей" id="287">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ЗначениеПлощадей</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЗначениеПлощадейКонтекстноеМеню" id="288"/>
+							<AutoCommandBar name="ЗначениеПлощадейКоманднаяПанель" id="289"/>
+							<ExtendedTooltip name="ЗначениеПлощадейРасширеннаяПодсказка" id="290"/>
+							<SearchStringAddition name="ЗначениеПлощадейСтрокаПоиска" id="291">
+								<AdditionSource>
+									<Item>ЗначениеПлощадей</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗначениеПлощадейСтрокаПоискаКонтекстноеМеню" id="292"/>
+								<ExtendedTooltip name="ЗначениеПлощадейСтрокаПоискаРасширеннаяПодсказка" id="293"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗначениеПлощадейСостояниеПросмотра" id="294">
+								<AdditionSource>
+									<Item>ЗначениеПлощадей</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗначениеПлощадейСостояниеПросмотраКонтекстноеМеню" id="295"/>
+								<ExtendedTooltip name="ЗначениеПлощадейСостояниеПросмотраРасширеннаяПодсказка" id="296"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗначениеПлощадейУправлениеПоиском" id="297">
+								<AdditionSource>
+									<Item>ЗначениеПлощадей</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗначениеПлощадейУправлениеПоискомКонтекстноеМеню" id="298"/>
+								<ExtendedTooltip name="ЗначениеПлощадейУправлениеПоискомРасширеннаяПодсказка" id="299"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ЗначениеПлощадейПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ЗначениеПлощадейНомерСтроки" id="300">
+									<DataPath>Объект.ЗначениеПлощадей.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейНомерСтрокиКонтекстноеМеню" id="301"/>
+									<ExtendedTooltip name="ЗначениеПлощадейНомерСтрокиРасширеннаяПодсказка" id="302"/>
+								</LabelField>
+								<InputField name="ЗначениеПлощадейПериод" id="315">
+									<DataPath>Объект.ЗначениеПлощадей.Период</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейПериодКонтекстноеМеню" id="316"/>
+									<ExtendedTooltip name="ЗначениеПлощадейПериодРасширеннаяПодсказка" id="317"/>
+								</InputField>
+								<InputField name="ЗначениеПлощадейАбонент" id="303">
+									<DataPath>Объект.ЗначениеПлощадей.МКД</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейАбонентКонтекстноеМеню" id="304"/>
+									<ExtendedTooltip name="ЗначениеПлощадейАбонентРасширеннаяПодсказка" id="305"/>
+								</InputField>
+								<InputField name="ЗначениеПлощадейЛицевойСчет" id="306">
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейЛицевойСчетКонтекстноеМеню" id="307"/>
+									<ExtendedTooltip name="ЗначениеПлощадейЛицевойСчетРасширеннаяПодсказка" id="308"/>
+								</InputField>
+								<InputField name="ЗначениеПлощадейВидПлощади" id="309">
+									<DataPath>Объект.ЗначениеПлощадей.ВидПлощади</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейВидПлощадиКонтекстноеМеню" id="310"/>
+									<ExtendedTooltip name="ЗначениеПлощадейВидПлощадиРасширеннаяПодсказка" id="311"/>
+								</InputField>
+								<InputField name="ЗначениеПлощадейЗначениеПлощади" id="312">
+									<DataPath>Объект.ЗначениеПлощадей.ЗначениеПлощади</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗначениеПлощадейЗначениеПлощадиКонтекстноеМеню" id="313"/>
+									<ExtendedTooltip name="ЗначениеПлощадейЗначениеПлощадиРасширеннаяПодсказка" id="314"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="Группа2" id="553">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="554"/>
+			<ChildItems>
+				<LabelField name="Ответственный" id="7">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="9"/>
+				</LabelField>
+				<LabelField name="ДатаПоследнегоИзменения" id="555">
+					<DataPath>Объект.энргДатаПоследнегоИзменения</DataPath>
+					<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="556"/>
+					<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="557"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Примечание" id="13">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.энргВводНачальныхОстатковМКД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="Объект.ТочкиУчета">
+					<Column name="ТипПрибораУчета" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тип прибора учета</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргТипыПриборовУчета</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Расположение" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расположение</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргМестаРасположенияТочекУчета</v8:Type>
+						</Type>
+					</Column>
+					<Column name="НаименованиеТочки" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Наименование точки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>50</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидКанальности" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид канальности</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргВидыКанальности</v8:Type>
+						</Type>
+					</Column>
+					<Column name="Головная" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Головная</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЗаводскойНомер" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Заводской номер</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>20</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидДифференцированности" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид дифференцированности</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргВидыДифференцированности</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ТекущиеПоказания" id="8">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Текущие показания</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>15</v8:Digits>
+								<v8:FractionDigits>4</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ДатаПоказаний" id="9">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дата показаний</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>Date</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+					<Column name="IDСтрокиШкалы" id="10">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>IDСтроки шкалы</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.ШкалыПриборовУчета">
+					<Column name="ТекущиеПоказания" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Текущие показания</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>15</v8:Digits>
+								<v8:FractionDigits>4</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ДатаПоказаний" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дата показаний</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>Date</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.Дома">
+					<Column name="АдресОбъекта" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес объекта</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>150</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="АдресОбъектаПредставлениеПолей" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Адрес объекта представление полей</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ГодПостройки" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Год постройки</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>4</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="ВидОбъектаАбонентов" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вид объекта абонентов</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргВидыОбъектовАбонента</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ГруппаПотребителейПоУмолчанию" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа потребителей по умолчанию</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.энргГруппыПотребителей</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПараметрыПоставщиков" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры поставщиков</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИспользоватьТарифныеЗоны" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать тарифные зоны</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьШкалыПриборовУчета" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать шкалы приборов учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрефиксТочекУчета" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Префикс точек учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:8ea38373-f77f-4c77-b478-88b170a1f6a0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:e42f6e15-96fb-436d-8021-277b04d91f60</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:3aae1bf6-0d6b-425b-8856-95459e9ab41f</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:c48b3a2e-1e0f-403d-acef-f8e6fc95fc9a</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:7e752b34-a0ba-4958-9879-650cd8ab5918</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:e35f20d8-bb79-4a3a-ad03-6d5bc5ab497b</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:d661164e-0f24-4076-a5bb-7f584a074680</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

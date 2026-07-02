@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Родитель" id="48">
+			<DataPath>Объект.Parent</DataPath>
+			<ContextMenu name="РодительКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="50"/>
+		</InputField>
+		<InputField name="МежповерочныйИнтервал" id="28">
+			<DataPath>Объект.МежповерочныйИнтервал</DataPath>
+			<ContextMenu name="МежповерочныйИнтервалКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="МежповерочныйИнтервалРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="ДатаПроизводства" id="22">
+			<DataPath>Объект.ДатаПроизводства</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="ДатаПроизводстваКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ДатаПроизводстваРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<InputField name="НомерГосреестра" id="19">
+			<DataPath>Объект.НомерГосреестра</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="НомерГосреестраКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="НомерГосреестраРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="бестМежповерочныйИнтервал" id="13">
+			<DataPath>Объект.МежповерочныйИнтервал</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="бестМежповерочныйИнтервалКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="бестМежповерочныйИнтервалРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="СрокСлужбы" id="31">
+			<DataPath>Объект.СрокСлужбы</DataPath>
+			<ContextMenu name="СрокСлужбыКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="СрокСлужбыРасширеннаяПодсказка" id="33"/>
+		</InputField>
+		<InputField name="ТипРесурса" id="10">
+			<DataPath>Объект.ТипРесурса</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ТипРесурсаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТипРесурсаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Производитель" id="7">
+			<DataPath>Объект.Производитель</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПроизводительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПроизводительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ТипСИ" id="40">
+			<DataPath>Объект.ТипСИ</DataPath>
+			<ContextMenu name="ТипСИКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="ТипСИРасширеннаяПодсказка" id="42"/>
+			<Events>
+				<Event name="OnChange">ТипСИПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ПринципИзмерения" id="25">
+			<DataPath>Объект.ПринципИзмерения</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="ПринципИзмеренияКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="ПринципИзмеренияРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<UsualGroup name="ГруппаРеквизитов1" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизитов1</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизитов1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитов1РасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<InputField name="Фазность" id="16">
+					<DataPath>Объект.Фазность</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ФазностьКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ФазностьРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="НапряжениеКласс" id="34">
+					<DataPath>Объект.КлассНапряжения</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="НапряжениеКлассКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="НапряжениеКлассРасширеннаяПодсказка" id="36"/>
+				</InputField>
+				<InputField name="НапряжениеНорм" id="37">
+					<DataPath>Объект.НапряжениеНоминальное</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="НапряжениеНормКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="НапряжениеНормРасширеннаяПодсказка" id="39"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Примечание" id="43">
+			<DataPath>Примечание</DataPath>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="45"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.энргМаркиПриборовУчета</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Примечание" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Примечание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>120</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

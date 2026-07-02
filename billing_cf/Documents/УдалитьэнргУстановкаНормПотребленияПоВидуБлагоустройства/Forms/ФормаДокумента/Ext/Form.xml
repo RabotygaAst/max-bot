@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюСоздатьНаОсновании" id="107">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>Picture</Representation>
+				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="108"/>
+			</Popup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="109">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="110"/>
+			</ButtonGroup>
+			<Popup name="ПодменюОтчеты" id="111">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Representation>PictureAndText</Representation>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="112"/>
+				<ChildItems>
+					<ButtonGroup name="ПодменюОтчетыВажное" id="113">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыВажноеРасширеннаяПодсказка" id="114"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыПерейти" id="115">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыПерейтиРасширеннаяПодсказка" id="116"/>
+					</ButtonGroup>
+					<ButtonGroup name="ПодменюОтчетыСмТакже" id="117">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подменю отчеты важное</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПодменюОтчетыСмТакжеРасширеннаяПодсказка" id="118"/>
+					</ButtonGroup>
+				</ChildItems>
+			</Popup>
+			<Popup name="ПодменюПечать" id="119">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды печати</v8:content>
+					</v8:item>
+				</ToolTip>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="120"/>
+			</Popup>
+			<Popup name="ПодменюДополнительныхОбработокЗаполнения" id="121">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Заполнение</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные команды заполнения</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюДополнительныхОбработокЗаполненияРасширеннаяПодсказка" id="122"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаСтандартныеРеквизиты" id="194">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа стандартные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа стандартные реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСтандартныеРеквизитыРасширеннаяПодсказка" id="195"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСтнадартныеРеквизитыЛево" id="196">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа стнадартные реквизиты лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа стнадартные реквизиты лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСтнадартныеРеквизитыЛевоРасширеннаяПодсказка" id="197"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДатаНомер" id="198">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="199"/>
+							<ChildItems>
+								<InputField name="Номер" id="200">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НомерКонтекстноеМеню" id="201"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="202"/>
+								</InputField>
+								<InputField name="Дата" id="203">
+									<DataPath>Объект.Date</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="204"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="205"/>
+									<Events>
+										<Event name="OnChange">ДатаПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Организация" id="206">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="207"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="208"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<Page name="СтраницаИндивидуальныеНормы" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индивидуальные нормы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница индивидуальные нормы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаИндивидуальныеНормыРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<Pages name="СтраницыИндивидуальныеНормыЖКХ" id="123">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы индивидуальные нормы ЖКХ</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы индивидуальные нормы ЖКХ</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыИндивидуальныеНормыЖКХРасширеннаяПодсказка" id="124"/>
+							<ChildItems>
+								<Page name="СтраницаНормыВода" id="125">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По виду благоустройства</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нормы вода</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНормыВодаРасширеннаяПодсказка" id="126"/>
+									<ChildItems>
+										<Table name="ЗначенияНорм" id="7">
+											<Representation>List</Representation>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ЗначенияНормВода</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ЗначенияНормКонтекстноеМеню" id="8"/>
+											<AutoCommandBar name="ЗначенияНормКоманднаяПанель" id="9"/>
+											<ExtendedTooltip name="ЗначенияНормРасширеннаяПодсказка" id="10"/>
+											<SearchStringAddition name="ЗначенияНормСтрокаПоиска" id="11">
+												<AdditionSource>
+													<Item>ЗначенияНорм</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормСтрокаПоискаКонтекстноеМеню" id="14"/>
+												<ExtendedTooltip name="ЗначенияНормСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ЗначенияНормСостояниеПросмотра" id="16">
+												<AdditionSource>
+													<Item>ЗначенияНорм</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормСостояниеПросмотраКонтекстноеМеню" id="19"/>
+												<ExtendedTooltip name="ЗначенияНормСостояниеПросмотраРасширеннаяПодсказка" id="20"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ЗначенияНормУправлениеПоиском" id="21">
+												<AdditionSource>
+													<Item>ЗначенияНорм</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормУправлениеПоискомКонтекстноеМеню" id="24"/>
+												<ExtendedTooltip name="ЗначенияНормУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<LabelField name="ЗначенияНормНомерСтроки" id="26">
+													<DataPath>Объект.ЗначенияНормВода.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормНомерСтрокиКонтекстноеМеню" id="27"/>
+													<ExtendedTooltip name="ЗначенияНормНомерСтрокиРасширеннаяПодсказка" id="28"/>
+												</LabelField>
+												<InputField name="ЗначенияНормВидБлагоустройства" id="29">
+													<DataPath>Объект.ЗначенияНормВода.ВидБлагоустройства</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормВидБлагоустройстваКонтекстноеМеню" id="30"/>
+													<ExtendedTooltip name="ЗначенияНормВидБлагоустройстваРасширеннаяПодсказка" id="31"/>
+												</InputField>
+												<InputField name="ЗначенияНормУслуга" id="32">
+													<DataPath>Объект.ЗначенияНормВода.Услуга</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормУслугаКонтекстноеМеню" id="33"/>
+													<ExtendedTooltip name="ЗначенияНормУслугаРасширеннаяПодсказка" id="34"/>
+												</InputField>
+												<InputField name="ЗначенияНормЗначениеНормы" id="35">
+													<DataPath>Объект.ЗначенияНормВода.ЗначениеНормы</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЗначениеНормыКонтекстноеМеню" id="36"/>
+													<ExtendedTooltip name="ЗначенияНормЗначениеНормыРасширеннаяПодсказка" id="37"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаНормыЭлектроэнергия" id="127">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид благоустройства + количество комнат + количество прописанных</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нормы электроэнергия</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНормыЭлектроэнергияРасширеннаяПодсказка" id="128"/>
+									<ChildItems>
+										<Table name="ЗначенияНормЭлектроэнергия" id="129">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ЗначенияНормЭлектроэнергия</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ЗначенияНормЭлектроэнергияКонтекстноеМеню" id="130"/>
+											<AutoCommandBar name="ЗначенияНормЭлектроэнергияКоманднаяПанель" id="131"/>
+											<ExtendedTooltip name="ЗначенияНормЭлектроэнергияРасширеннаяПодсказка" id="132"/>
+											<SearchStringAddition name="ЗначенияНормЭлектроэнергияСтрокаПоиска" id="133">
+												<AdditionSource>
+													<Item>ЗначенияНормЭлектроэнергия</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормЭлектроэнергияСтрокаПоискаКонтекстноеМеню" id="134"/>
+												<ExtendedTooltip name="ЗначенияНормЭлектроэнергияСтрокаПоискаРасширеннаяПодсказка" id="135"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ЗначенияНормЭлектроэнергияСостояниеПросмотра" id="136">
+												<AdditionSource>
+													<Item>ЗначенияНормЭлектроэнергия</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормЭлектроэнергияСостояниеПросмотраКонтекстноеМеню" id="137"/>
+												<ExtendedTooltip name="ЗначенияНормЭлектроэнергияСостояниеПросмотраРасширеннаяПодсказка" id="138"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ЗначенияНормЭлектроэнергияУправлениеПоиском" id="139">
+												<AdditionSource>
+													<Item>ЗначенияНормЭлектроэнергия</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначенияНормЭлектроэнергияУправлениеПоискомКонтекстноеМеню" id="140"/>
+												<ExtendedTooltip name="ЗначенияНормЭлектроэнергияУправлениеПоискомРасширеннаяПодсказка" id="141"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<LabelField name="ЗначенияНормЭлектроэнергияНомерСтроки" id="142">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияНомерСтрокиКонтекстноеМеню" id="143"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияНомерСтрокиРасширеннаяПодсказка" id="144"/>
+												</LabelField>
+												<InputField name="ЗначенияНормЭлектроэнергияВидБлагоустройства" id="145">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.ВидБлагоустройства</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияВидБлагоустройстваКонтекстноеМеню" id="146"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияВидБлагоустройстваРасширеннаяПодсказка" id="147"/>
+												</InputField>
+												<InputField name="ЗначенияНормЭлектроэнергияУслуга" id="157">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.Услуга</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияУслугаКонтекстноеМеню" id="158"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияУслугаРасширеннаяПодсказка" id="159"/>
+												</InputField>
+												<InputField name="ЗначенияНормЭлектроэнергияКоличествоКомнат" id="151">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.КоличествоКомнат</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияКоличествоКомнатКонтекстноеМеню" id="152"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияКоличествоКомнатРасширеннаяПодсказка" id="153"/>
+												</InputField>
+												<InputField name="ЗначенияНормЭлектроэнергияКоличествоПрописанных" id="154">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.КоличествоПрописанных</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияКоличествоПрописанныхКонтекстноеМеню" id="155"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияКоличествоПрописанныхРасширеннаяПодсказка" id="156"/>
+												</InputField>
+												<InputField name="ЗначенияНормЭлектроэнергияЗначениеНормы" id="148">
+													<DataPath>Объект.ЗначенияНормЭлектроэнергия.ЗначениеНормы</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначенияНормЭлектроэнергияЗначениеНормыКонтекстноеМеню" id="149"/>
+													<ExtendedTooltip name="ЗначенияНормЭлектроэнергияЗначениеНормыРасширеннаяПодсказка" id="150"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницыНормыОДН" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормы потребления мест общего пользования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы нормы ОДН</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницыНормыОДНРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<Pages name="СтраницыНормыПотребленияОДНЖКХ" id="160">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы нормы потребления ОДНЖКХ</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы нормы потребления ОДНЖКХ</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыНормыПотребленияОДНЖКХРасширеннаяПодсказка" id="161"/>
+							<ChildItems>
+								<Page name="СтраницаНормыОДНВода" id="162">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид благоустройства</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нормы ОДНВода</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНормыОДНВодаРасширеннаяПодсказка" id="163"/>
+									<ChildItems>
+										<Table name="ЗначениеНормМКДВода" id="46">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ЗначениеНормМКДВода</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ЗначениеНормМКДВодаКонтекстноеМеню" id="47"/>
+											<AutoCommandBar name="ЗначениеНормМКДВодаКоманднаяПанель" id="48"/>
+											<ExtendedTooltip name="ЗначениеНормМКДВодаРасширеннаяПодсказка" id="49"/>
+											<SearchStringAddition name="ЗначениеНормМКДВодаСтрокаПоиска" id="50">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДВода</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДВодаСтрокаПоискаКонтекстноеМеню" id="51"/>
+												<ExtendedTooltip name="ЗначениеНормМКДВодаСтрокаПоискаРасширеннаяПодсказка" id="52"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ЗначениеНормМКДВодаСостояниеПросмотра" id="53">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДВода</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДВодаСостояниеПросмотраКонтекстноеМеню" id="54"/>
+												<ExtendedTooltip name="ЗначениеНормМКДВодаСостояниеПросмотраРасширеннаяПодсказка" id="55"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ЗначениеНормМКДВодаУправлениеПоиском" id="56">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДВода</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДВодаУправлениеПоискомКонтекстноеМеню" id="57"/>
+												<ExtendedTooltip name="ЗначениеНормМКДВодаУправлениеПоискомРасширеннаяПодсказка" id="58"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<LabelField name="ЗначениеНормМКДНомерСтроки" id="59">
+													<DataPath>Объект.ЗначениеНормМКДВода.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДНомерСтрокиКонтекстноеМеню" id="60"/>
+													<ExtendedTooltip name="ЗначениеНормМКДНомерСтрокиРасширеннаяПодсказка" id="61"/>
+												</LabelField>
+												<InputField name="ЗначениеНормМКДВидБлагоустройства" id="62">
+													<DataPath>Объект.ЗначениеНормМКДВода.ВидБлагоустройства</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДВидБлагоустройстваКонтекстноеМеню" id="63"/>
+													<ExtendedTooltip name="ЗначениеНормМКДВидБлагоустройстваРасширеннаяПодсказка" id="64"/>
+												</InputField>
+												<InputField name="ЗначениеНормМКДУслуга" id="65">
+													<DataPath>Объект.ЗначениеНормМКДВода.Услуга</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДУслугаКонтекстноеМеню" id="66"/>
+													<ExtendedTooltip name="ЗначениеНормМКДУслугаРасширеннаяПодсказка" id="67"/>
+												</InputField>
+												<InputField name="ЗначениеНормМКДЗначениеНормы" id="68">
+													<DataPath>Объект.ЗначениеНормМКДВода.ЗначениеНормы</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЗначениеНормыКонтекстноеМеню" id="69"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЗначениеНормыРасширеннаяПодсказка" id="70"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаНормыОДНЭлектроэнергия" id="164">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид благоустройства + этажность</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница нормы ОДНЭлектроэнергия</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНормыОДНЭлектроэнергияРасширеннаяПодсказка" id="165"/>
+									<ChildItems>
+										<Table name="ЗначениеНормМКДЭлектроэнергия" id="166">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ЗначениеНормМКДЭлектроэнергияКонтекстноеМеню" id="167"/>
+											<AutoCommandBar name="ЗначениеНормМКДЭлектроэнергияКоманднаяПанель" id="168"/>
+											<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияРасширеннаяПодсказка" id="169"/>
+											<SearchStringAddition name="ЗначениеНормМКДЭлектроэнергияСтрокаПоиска" id="170">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДЭлектроэнергия</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДЭлектроэнергияСтрокаПоискаКонтекстноеМеню" id="171"/>
+												<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияСтрокаПоискаРасширеннаяПодсказка" id="172"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ЗначениеНормМКДЭлектроэнергияСостояниеПросмотра" id="173">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДЭлектроэнергия</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДЭлектроэнергияСостояниеПросмотраКонтекстноеМеню" id="174"/>
+												<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияСостояниеПросмотраРасширеннаяПодсказка" id="175"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ЗначениеНормМКДЭлектроэнергияУправлениеПоиском" id="176">
+												<AdditionSource>
+													<Item>ЗначениеНормМКДЭлектроэнергия</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ЗначениеНормМКДЭлектроэнергияУправлениеПоискомКонтекстноеМеню" id="177"/>
+												<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияУправлениеПоискомРасширеннаяПодсказка" id="178"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<LabelField name="ЗначениеНормМКДЭлектроэнергияНомерСтроки" id="179">
+													<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЭлектроэнергияНомерСтрокиКонтекстноеМеню" id="180"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияНомерСтрокиРасширеннаяПодсказка" id="181"/>
+												</LabelField>
+												<InputField name="ЗначениеНормМКДЭлектроэнергияВидБлагоустройства" id="182">
+													<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия.ВидБлагоустройства</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЭлектроэнергияВидБлагоустройстваКонтекстноеМеню" id="183"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияВидБлагоустройстваРасширеннаяПодсказка" id="184"/>
+												</InputField>
+												<InputField name="ЗначениеНормМКДЭлектроэнергияУслуга" id="185">
+													<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия.Услуга</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЭлектроэнергияУслугаКонтекстноеМеню" id="186"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияУслугаРасширеннаяПодсказка" id="187"/>
+												</InputField>
+												<InputField name="ЗначениеНормМКДЭлектроэнергияЭтажность" id="191">
+													<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия.Этажность</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЭлектроэнергияЭтажностьКонтекстноеМеню" id="192"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияЭтажностьРасширеннаяПодсказка" id="193"/>
+												</InputField>
+												<InputField name="ЗначениеНормМКДЭлектроэнергияЗначениеНормы" id="188">
+													<DataPath>Объект.ЗначениеНормМКДЭлектроэнергия.ЗначениеНормы</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗначениеНормМКДЭлектроэнергияЗначениеНормыКонтекстноеМеню" id="189"/>
+													<ExtendedTooltip name="ЗначениеНормМКДЭлектроэнергияЗначениеНормыРасширеннаяПодсказка" id="190"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПрочиеУслуги" id="71">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прочие услуги</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница прочие услуги</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПрочиеУслугиРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<Table name="ПрочиеУслуги" id="73">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ПрочиеУслуги</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПрочиеУслугиКонтекстноеМеню" id="74"/>
+							<AutoCommandBar name="ПрочиеУслугиКоманднаяПанель" id="75"/>
+							<ExtendedTooltip name="ПрочиеУслугиРасширеннаяПодсказка" id="76"/>
+							<SearchStringAddition name="ПрочиеУслугиСтрокаПоиска" id="77">
+								<AdditionSource>
+									<Item>ПрочиеУслуги</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПрочиеУслугиСтрокаПоискаКонтекстноеМеню" id="78"/>
+								<ExtendedTooltip name="ПрочиеУслугиСтрокаПоискаРасширеннаяПодсказка" id="79"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПрочиеУслугиСостояниеПросмотра" id="80">
+								<AdditionSource>
+									<Item>ПрочиеУслуги</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПрочиеУслугиСостояниеПросмотраКонтекстноеМеню" id="81"/>
+								<ExtendedTooltip name="ПрочиеУслугиСостояниеПросмотраРасширеннаяПодсказка" id="82"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПрочиеУслугиУправлениеПоиском" id="83">
+								<AdditionSource>
+									<Item>ПрочиеУслуги</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПрочиеУслугиУправлениеПоискомКонтекстноеМеню" id="84"/>
+								<ExtendedTooltip name="ПрочиеУслугиУправлениеПоискомРасширеннаяПодсказка" id="85"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПрочиеУслугиНомерСтроки" id="86">
+									<DataPath>Объект.ПрочиеУслуги.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПрочиеУслугиНомерСтрокиКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="ПрочиеУслугиНомерСтрокиРасширеннаяПодсказка" id="88"/>
+								</LabelField>
+								<InputField name="ПрочиеУслугиУслуга" id="89">
+									<DataPath>Объект.ПрочиеУслуги.Услуга</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПрочиеУслугиУслугаКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="ПрочиеУслугиУслугаРасширеннаяПодсказка" id="91"/>
+								</InputField>
+								<InputField name="ПрочиеУслугиТариф" id="92">
+									<DataPath>Объект.ПрочиеУслуги.Тариф</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПрочиеУслугиТарифКонтекстноеМеню" id="93"/>
+									<ExtendedTooltip name="ПрочиеУслугиТарифРасширеннаяПодсказка" id="94"/>
+								</InputField>
+								<InputField name="ПрочиеУслугиТарифнаяЗона" id="95">
+									<DataPath>Объект.ПрочиеУслуги.ТарифнаяЗона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПрочиеУслугиТарифнаяЗонаКонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="ПрочиеУслугиТарифнаяЗонаРасширеннаяПодсказка" id="97"/>
+								</InputField>
+								<InputField name="ПрочиеУслугиНормаПотребления" id="98">
+									<DataPath>Объект.ПрочиеУслуги.НормаПотребления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПрочиеУслугиНормаПотребленияКонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="ПрочиеУслугиНормаПотребленияРасширеннаяПодсказка" id="100"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Примечание" id="101">
+			<DataPath>Объект.Примечание</DataPath>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="102"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="103"/>
+		</InputField>
+		<LabelField name="Ответственный" id="104">
+			<DataPath>Объект.Ответственный</DataPath>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="105"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="106"/>
+		</LabelField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.УдалитьэнргУстановкаНормПотребленияПоВидуБлагоустройства</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.УдалитьэнргЗначениеНормПотребления.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

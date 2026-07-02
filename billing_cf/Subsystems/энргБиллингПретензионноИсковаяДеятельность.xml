@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Subsystem uuid="b11a2fab-c828-4f5f-a665-c93f765df4c7">
+		<Properties>
+			<Name>энргБиллингПретензионноИсковаяДеятельность</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Претензионно-исковая работа</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>true</IncludeInCommandInterface>
+			<UseOneCommand>false</UseOneCommand>
+			<Explanation/>
+			<Picture>
+				<xr:Ref>CommonPicture.энргПретензионноИсковаяРабота</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonCommand.энргПанельОтчетовПИД</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Task.энргЗадачаПИД</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.энргРаботаСДолжниками</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргВидЭлектроногоАдресаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргВидТелефонаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.энргСобытие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.энргСобытия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргТипыСобытияПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.энргШаблоныСообщений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаАдрес</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаТелефон</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаАдресСайта</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргТипыЭтапов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаЮридическийАдрес</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаЭлекАдрес</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаОКПО</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаОГРН</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаИНН</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаКПП</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргРеквизитФилиалаФакс</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргВидыИсполнительногоПроизводства</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.энргСудебнаяРабота</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.энргПроверкаОплатыРеструктуризации</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргСтатусыСудебныхИнстанций</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.энргКаталогХраненияСудебныхДокументов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргКаталогХраненияСудебныхДокументов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргСтатусыУтвержденияСудебныхДел</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргВидТелефонаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргВидТелефонаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргВидЭлектроногоАдресаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргВидЭлектроногоАдресаДляПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргКаталогХраненияСудебныхДокументов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргШаблоныСообщений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргШаблоныСообщений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИспользование_энргСудебнаяРабота</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргСобытие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргСобытие</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргСтатусыДелСудебнойРаботы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргСтатусыСудебногоАкта</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.энргКаталогХраненияСудебныхДокументов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргВидыСудопроизводства</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.энргЗадолженностьПоРешениюСуда</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.энргНазначениеСтроенийСудебномуУчастку</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ScheduledJob.бестОткрытиеПИР_ПоКритериям</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ChartOfCharacteristicTypes.бестПараметрыТиповСобытий</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.бестДополнительныеЗначенияПараметровТиповСобытий</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.бестГрупповойВводСобытийПИР</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргСтатусыСогласованияСобытий</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.энргСобытиеМенеджерФорм</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестИзменение_бестГруппыПотребителей</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестЧтение_бестГруппыПотребителей</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.бестВариантыРасчетаПени</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестИспользование_бестРаботаСДолжникамиЮЛ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.бестРаботаСДолжникамиЮЛ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.бестКатегорииЗадолженности</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестИзменение_бестСписаниеВосстановлениеЗадолженности</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестЧтение_бестСписаниеВосстановлениеЗадолженности</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.бестРаботаСНапоминаниямиПользователей</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.бестИспользование_бестРаботаСНапоминаниямиПользователей</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.энргВидыВзысканий</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргЧтение_энргНастройкаНачалаРасчетаПени</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Role.энргИзменение_энргНастройкаНачалаРасчетаПени</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects>
+			<Subsystem>Справочники</Subsystem>
+			<Subsystem>Документы</Subsystem>
+			<Subsystem>ДокументыИРегистры</Subsystem>
+			<Subsystem>Отчеты</Subsystem>
+			<Subsystem>НастройкиПИР</Subsystem>
+			<Subsystem>События</Subsystem>
+		</ChildObjects>
+	</Subsystem>
+</MetaDataObject>

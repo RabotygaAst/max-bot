@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Поиск лицевых счетов</v8:content>
+		</v8:item>
+	</Title>
+	<Width>115</Width>
+	<Height>20</Height>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ScalingMode>Compact</ScalingMode>
+	<Scale>60</Scale>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтборыИзДокумента" id="156">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы из документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы из документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборыИзДокументаРасширеннаяПодсказка" id="157"/>
+			<ChildItems>
+				<LabelField name="ТекОрганизация" id="158">
+					<DataPath>ТекОрганизация</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТекОрганизацияКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="ТекОрганизацияРасширеннаяПодсказка" id="160"/>
+				</LabelField>
+				<LabelField name="ТекРайон" id="161">
+					<DataPath>ТекРайон</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Район</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТекРайонКонтекстноеМеню" id="162"/>
+					<ExtendedTooltip name="ТекРайонРасширеннаяПодсказка" id="163"/>
+				</LabelField>
+				<LabelField name="ТекСтроение" id="164">
+					<DataPath>ТекСтроение</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ТекСтроениеКонтекстноеМеню" id="165"/>
+					<ExtendedTooltip name="ТекСтроениеРасширеннаяПодсказка" id="166"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="124">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="125"/>
+			<ChildItems>
+				<InputField name="ФИО_АвтоПодбор" id="167">
+					<DataPath>ФИО</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ФИО_АвтоПодборКонтекстноеМеню" id="168"/>
+					<ExtendedTooltip name="ФИО_АвтоПодборРасширеннаяПодсказка" id="169"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФИО" id="4">
+					<DataPath>ФИО</DataPath>
+					<ClearButton>true</ClearButton>
+					<EditTextUpdate>DontUse</EditTextUpdate>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите ФИО или лицевой счет для поиска абонента</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ФИОКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ФИОРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="Город" id="142">
+					<DataPath>Город</DataPath>
+					<Visible>false</Visible>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите город</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ГородКонтекстноеМеню" id="143"/>
+					<ExtendedTooltip name="ГородРасширеннаяПодсказка" id="144"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="Строение" id="170">
+					<DataPath>Строение</DataPath>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите наименование строения для поиска абонента</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="СтроениеКонтекстноеМеню" id="171"/>
+					<ExtendedTooltip name="СтроениеРасширеннаяПодсказка" id="172"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="Улица" id="145">
+					<DataPath>Улица</DataPath>
+					<Visible>false</Visible>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите улицу</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="УлицаКонтекстноеМеню" id="146"/>
+					<ExtendedTooltip name="УлицаРасширеннаяПодсказка" id="147"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="НомерДома" id="148">
+					<DataPath>НомерДома</DataPath>
+					<Visible>false</Visible>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите номер дома</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="НомерДомаКонтекстноеМеню" id="149"/>
+					<ExtendedTooltip name="НомерДомаРасширеннаяПодсказка" id="150"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+				<InputField name="Помещение" id="151">
+					<DataPath>Помещение</DataPath>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Введите квартиру</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ПомещениеКонтекстноеМеню" id="152"/>
+					<ExtendedTooltip name="ПомещениеРасширеннаяПодсказка" id="153"/>
+					<Events>
+						<Event name="OnChange">ОбновитьОтбор</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Абоненты" id="7">
+			<Representation>List</Representation>
+			<Width>100</Width>
+			<Height>6</Height>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Абоненты</DataPath>
+			<RowPictureDataPath>~Абоненты.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>ListSettings</ExcludedCommand>
+				<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>Refresh</ExcludedCommand>
+				<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="АбонентыКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="АбонентыКоманднаяПанель" id="9">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаВыбрать" id="126">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Выбрать</CommandName>
+						<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="127"/>
+					</Button>
+					<Button name="АбонентыЗакрыть" id="137">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ФормаЗакрыть</CommandName>
+						<ExtendedTooltip name="АбонентыЗакрытьРасширеннаяПодсказка" id="138"/>
+					</Button>
+					<Button name="АбонентыОчиститьОтборы" id="154">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОчиститьОтборы</CommandName>
+						<ExtendedTooltip name="АбонентыОчиститьОтборыРасширеннаяПодсказка" id="155"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="АбонентыРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="АбонентыСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>Абоненты</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="АбонентыСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="АбонентыСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="АбонентыСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>Абоненты</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="АбонентыСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="АбонентыСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="АбонентыУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>Абоненты</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="АбонентыУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="АбонентыУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">АбонентыВыбор</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="АбонентыГруппа3" id="117">
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<ExtendedTooltip name="АбонентыГруппа3РасширеннаяПодсказка" id="118"/>
+				</ColumnGroup>
+				<ColumnGroup name="АбонентыГруппа1" id="113">
+					<ExtendedTooltip name="АбонентыГруппа1РасширеннаяПодсказка" id="114"/>
+				</ColumnGroup>
+				<ColumnGroup name="АбонентыГруппа2" id="115">
+					<ExtendedTooltip name="АбонентыГруппа2РасширеннаяПодсказка" id="116"/>
+				</ColumnGroup>
+				<ColumnGroup name="АбонентыГруппа4" id="119">
+					<ExtendedTooltip name="АбонентыГруппа4РасширеннаяПодсказка" id="120"/>
+				</ColumnGroup>
+				<LabelField name="АбонентыЛицевойСчет" id="62">
+					<DataPath>Абоненты.ЛицевойСчет</DataPath>
+					<ContextMenu name="АбонентыЛицевойСчетКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="АбонентыЛицевойСчетРасширеннаяПодсказка" id="64"/>
+				</LabelField>
+				<LabelField name="АбонентыСтарыйЛС" id="131">
+					<DataPath>Абоненты.СтарыйЛС</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыСтарыйЛСКонтекстноеМеню" id="132"/>
+					<ExtendedTooltip name="АбонентыСтарыйЛСРасширеннаяПодсказка" id="133"/>
+				</LabelField>
+				<LabelField name="АбонентыАбонент" id="128">
+					<DataPath>Абоненты.Абонент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ФИО</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="АбонентыАбонентКонтекстноеМеню" id="129"/>
+					<ExtendedTooltip name="АбонентыАбонентРасширеннаяПодсказка" id="130"/>
+				</LabelField>
+				<LabelField name="АбонентыСтроение" id="139">
+					<DataPath>Абоненты.Строение</DataPath>
+					<ContextMenu name="АбонентыСтроениеКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="АбонентыСтроениеРасширеннаяПодсказка" id="141"/>
+				</LabelField>
+				<LabelField name="АбонентыСтроениеНаименование" id="173">
+					<DataPath>Абоненты.СтроениеНаименование</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыСтроениеНаименованиеКонтекстноеМеню" id="174"/>
+					<ExtendedTooltip name="АбонентыСтроениеНаименованиеРасширеннаяПодсказка" id="175"/>
+				</LabelField>
+				<LabelField name="АбонентыПомещение" id="53">
+					<DataPath>Абоненты.Помещение</DataPath>
+					<ContextMenu name="АбонентыПомещениеКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="АбонентыПомещениеРасширеннаяПодсказка" id="55"/>
+				</LabelField>
+				<LabelField name="АбонентыГород" id="35">
+					<DataPath>Абоненты.Город</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыГородКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="АбонентыГородРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="АбонентыУлица" id="104">
+					<DataPath>Абоненты.Улица</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыУлицаКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="АбонентыУлицаРасширеннаяПодсказка" id="106"/>
+				</LabelField>
+				<LabelField name="АбонентыДом" id="44">
+					<DataPath>Абоненты.Дом</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыДомКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="АбонентыДомРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<LabelField name="АбонентыКорпус" id="59">
+					<DataPath>Абоненты.Корпус</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="АбонентыКорпусКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="АбонентыКорпусРасширеннаяПодсказка" id="61"/>
+				</LabelField>
+				<LabelField name="АбонентыТипПомещения" id="134">
+					<DataPath>Абоненты.ТипПомещения</DataPath>
+					<ContextMenu name="АбонентыТипПомещенияКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="АбонентыТипПомещенияРасширеннаяПодсказка" id="136"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Адрес" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФИО" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ФИО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Абоненты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Абоненты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~Абоненты.Контролер</Field>
+				<Field>~Абоненты.МКД</Field>
+				<Field>~Абоненты.Ссылка</Field>
+				<Field>Абоненты.Абонент</Field>
+				<Field>Абоненты.КлючПомещения</Field>
+				<Field>Абоненты.ЛицевойСчет</Field>
+				<Field>Абоненты.Маршрут</Field>
+				<Field>Абоненты.Наименование</Field>
+				<Field>Абоненты.Организация</Field>
+				<Field>Абоненты.Район</Field>
+				<Field>Абоненты.Строение</Field>
+				<Field>Абоненты.ЭтоГруппа</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	энргСтроения.Город КАК Город,
+	энргСтроения.Улица КАК Улица,
+	энргСтроения.Корпус КАК Корпус,
+	энргСтроения.Дом КАК Дом,
+	ВложенныйЗапрос.Помещение КАК Помещение,
+	ВложенныйЗапрос.ЛицевойСчет КАК ЛицевойСчет,
+	ВложенныйЗапрос.СтарыйЛС КАК СтарыйЛС,
+	ВложенныйЗапрос.Абонент КАК Абонент,
+	ВложенныйЗапрос.Организация КАК Организация,
+	ВложенныйЗапрос.Район КАК Район,
+	ВложенныйЗапрос.КлючПомещения КАК КлючПомещения,
+	ВложенныйЗапрос.Строение КАК Строение,
+	ВложенныйЗапрос.ФизЛицо КАК ФизЛицо,
+	энргПомещения.ТипПомещения КАК ТипПомещения,
+	ВложенныйЗапрос.Наименование КАК Наименование,
+	ВложенныйЗапрос.ЭтоГруппа КАК ЭтоГруппа,
+	ВЫРАЗИТЬ(энргСтроенияКонтактнаяИнформация.Представление КАК СТРОКА(500)) КАК Адрес,
+	энргПомещения.Наименование КАК Квартира,
+	энргМаршрутыКонтроллеров.Ссылка КАК Маршрут,
+	энргМаршрутыКонтроллеров.Владелец КАК Контроллер,
+	энргСостояниеЛССрезПоследних.Состояние КАК Состояние,
+	энргСтроения.Наименование КАК СтроениеНаименование
+ИЗ
+	(ВЫБРАТЬ
+		энргАбоненты.Ссылка КАК Абонент,
+		энргАбоненты.ЛицевойСчет КАК ЛицевойСчет,
+		энргАбоненты.Организация КАК Организация,
+		энргАбоненты.Район КАК Район,
+		энргАбоненты.СтарыйЛС КАК СтарыйЛС,
+		энргАбоненты.КлючПомещения КАК КлючПомещения,
+		энргКлючиПомещений.Строение КАК Строение,
+		энргКлючиПомещений.Помещение КАК Помещение,
+		энргАбоненты.ФизЛицо КАК ФизЛицо,
+		энргАбоненты.Наименование КАК Наименование,
+		энргАбоненты.ЭтоГруппа КАК ЭтоГруппа
+	ИЗ
+		Справочник.энргАбоненты КАК энргАбоненты
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргКлючиПомещений КАК энргКлючиПомещений
+			ПО энргАбоненты.КлючПомещения = энргКлючиПомещений.Ссылка
+	
+	СГРУППИРОВАТЬ ПО
+		энргКлючиПомещений.Строение,
+		энргКлючиПомещений.Помещение,
+		энргАбоненты.Ссылка,
+		энргАбоненты.ЛицевойСчет,
+		энргАбоненты.Организация,
+		энргАбоненты.Район,
+		энргАбоненты.СтарыйЛС,
+		энргАбоненты.КлючПомещения,
+		энргАбоненты.ФизЛицо,
+		энргАбоненты.Наименование,
+		энргАбоненты.ЭтоГруппа) КАК ВложенныйЗапрос
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения КАК энргСтроения
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргМаршрутыКонтроллеров КАК энргМаршрутыКонтроллеров
+			ПО энргСтроения.МаршрутКонтроллера = энргМаршрутыКонтроллеров.Ссылка
+		ПО ВложенныйЗапрос.Строение = энргСтроения.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргПомещения КАК энргПомещения
+		ПО ВложенныйЗапрос.Помещение = энргПомещения.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.энргСтроения.КонтактнаяИнформация КАК энргСтроенияКонтактнаяИнформация
+		ПО (энргСтроения.Ссылка = энргСтроенияКонтактнаяИнформация.Ссылка)
+			И (энргСтроенияКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДома))
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.энргСостояниеЛС.СрезПоследних(&amp;Период, ) КАК энргСостояниеЛССрезПоследних
+		ПО ВложенныйЗапрос.Организация = энргСостояниеЛССрезПоследних.Организация
+			И ВложенныйЗапрос.Район = энргСостояниеЛССрезПоследних.Район
+			И ВложенныйЗапрос.Абонент = энргСостояниеЛССрезПоследних.Абонент
+ГДЕ
+	энргСостояниеЛССрезПоследних.Состояние
+	И НЕ энргСтроения.ЭтоГруппа</QueryText>
+				<KeyField>Абонент</KeyField>
+				<KeyField>КлючПомещения</KeyField>
+				<AutoSaveUserSettings>false</AutoSaveUserSettings>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Организация</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Строение</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Помещение</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТекОрганизация" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекРайон" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Район</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргЗоныОтвественности</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекСтроение" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргСтроения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяСобытия" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя события</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Город" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Город</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Улица" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Улица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерДома" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер дома</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>5</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Помещение" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Помещение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргПомещения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекКонтроллер" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек контроллер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргСотрудники</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекМаршрут" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек маршрут</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.энргМаршрутыКонтроллеров</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдТекСтроки" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ид тек строки</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="АвтоВыбор" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авто выбор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Строение" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+		</Command>
+		<Command name="ФормаЗакрыть" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ФормаЗакрыть</Action>
+		</Command>
+		<Command name="ОчиститьОтборы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОчиститьОтборы</Action>
+		</Command>
+	</Commands>
+</Form>
